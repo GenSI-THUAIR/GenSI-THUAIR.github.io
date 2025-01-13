@@ -1,0 +1,26 @@
+<section class="header">
+  <div class="row">
+    <div class="three columns">
+      <a href="{{ site.baseurl }}/"><img class="u-max-full-width" src='{{ site.baseurl }}{{ site.data.profile.hero }}'></a>
+    </div>
+    <div class="nine columns main-description">
+        <h1>{{ site.data.profile.name }}</h1>
+        <p>{{ site.data.profile.title }}</p>
+        <p>{{ site.data.profile.employer }}</p>
+        <p>Emails: {{ site.data.profile.email }}</p>
+        <p>
+          <span onclick="window.open('{{ site.data.profile.github }}')" style="cursor: pointer">
+            <i class="fa-brands fa-github fa-lg"></i>
+          </span>
+
+          <span onclick="window.open('{{ site.data.profile.dblp }}')" style="cursor: pointer">
+            <i class="ai ai-dblp ai-lg" aria-hidden="true"></i>
+          </span>
+
+          <span onclick="window.open('{{ site.data.profile.google_scholar }}')" style="cursor: pointer">
+            <i class="ai ai-google-scholar ai-lg" aria-hidden="true"></i>
+          </span>
+        </p>
+    </div>
+  </div>
+</section>

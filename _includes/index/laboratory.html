@@ -1,25 +1,21 @@
 {% assign prefix = "lab" %}
 <ul class="tab-nav">
+  <li>
+    <div class="button active" data-ref="#{{ prefix }}-pro">Professor</div>
+  </li>
   {% for group in site.data.laboratory %}
   <li>
-    {% if forloop.first %}
-    <div class="button active" data-ref="#{{ prefix }}-{{ group[0] }}">{{ group[0] }}</div>
-    {% else %}
     <div class="button" data-ref="#{{ prefix }}-{{ group[0] }}">{{ group[0] }}</div>
-    {% endif %}
   </li>
   {% endfor %}
 </ul>
 
 <div class="tab-content">
+  <div class="tab-pane active" id="{{ prefix }}-pro"> <!-- div for professor -->
+  {% include header_zh.html %}
+  </div>
   {% for group in site.data.laboratory %}
-  <div
-  {% if forloop.first %}
-  class="tab-pane active"
-  {% else %}
-  class="tab-pane"
-  {% endif %}
-  id="{{ prefix }}-{{ group[0] }}">
+  <div class="tab-pane" id="{{ prefix }}-{{ group[0] }}">
     {% assign line = 4 %}
     {% for person in group[1] %}
     {% assign index_modulo = forloop.index0 | modulo: line %}
