@@ -1,0 +1,38 @@
+---
+layout: default
+title: Home
+---
+
+{% for blk in site.data.blocks.index %}
+<div class="docs-section" id="{{ blk[1] }}">
+  <h4>{{ blk[1] | capitalize }}</h4>
+  {% assign page = 'index/' | append: blk[1] | append: '.html' %}
+  {% include {{page}} %}
+</div>
+{% endfor %}
+
+<div class="footer">
+  <div class="row">
+    <div class="four columns">
+      {{ site.data.profile.name }}
+    </div>
+    <div class="four columns">
+      {{ site.data.profile.email }}
+    </div>
+    <div class="four columns">
+      <p>
+        <span onclick="window.open('{{ site.data.profile.github }}')" style="cursor: pointer">
+          <i class="fa-brands fa-github fa-lg"></i>
+        </span>
+
+        <span onclick="window.open('{{ site.data.profile.dblp }}')" style="cursor: pointer">
+          <i class="ai ai-dblp ai-lg" aria-hidden="true"></i>
+        </span>
+
+        <span onclick="window.open('{{ site.data.profile.google_scholar }}')" style="cursor: pointer">
+          <i class="ai ai-google-scholar ai-lg" aria-hidden="true"></i>
+        </span>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+{% assign prefix = "lab" %}
+<ul class="tab-nav">
+  {% for group in site.data.laboratory %}
+  <li>
+    {% if forloop.first %}
+    <div class="button active" data-ref="#{{ prefix }}-{{ group[0] }}">{{ group[0] }}</div>
+    {% else %}
+    <div class="button" data-ref="#{{ prefix }}-{{ group[0] }}">{{ group[0] }}</div>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+<div class="tab-content">
+  {% for group in site.data.laboratory %}
+  <div
+  {% if forloop.first %}
+  class="tab-pane active"
+  {% else %}
+  class="tab-pane"
+  {% endif %}
+  id="{{ prefix }}-{{ group[0] }}">
+    {% assign line = 4 %}
+    {% for person in group[1] %}
+    {% assign index_modulo = forloop.index0 | modulo: line %}
+    {% if index_modulo == 0 %}
+    <div class="row">
+    {% endif %}
+
+    {% case line %}
+    <!-- 12/line -->
+      {% when 3 %}
+      <div class="four columns">
+      {% when 4 %}
+      <div class="three columns">
+    {% endcase %}
+        <div class="lab-container">
+          <div class="lab-image-container">
+            {% if person.url %}
+            <a href="{{ person.url }}" target="_blank">
+            {% endif %}
+            {% if person.thumbnail %}
+              <img src="{{ person.thumbnail }}" class="u-max-full-width" />
+            {% else %}
+              <img src="/assets/lab-pics/lab-holder.png" class="u-max-full-width" />
+            {% endif %}
+            {% if person.url %}
+            </a>
+            {% endif %}
+          </div>
+          
+          <div class="project-caption">
+            <b>{{ person.name }}</b> <br/>
+            {{ person.description }}
+          </div>
+          
+        </div>
+      </div>
+
+        {% assign line_bk = line | minus: 1 %}
+        {% if index_modulo == line_bk or forloop.last %}
+    </div>
+        {% endif %}
+        {% endfor %}
+  </div>
+  {% endfor %}
+</div>

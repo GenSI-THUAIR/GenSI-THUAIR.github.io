@@ -1,0 +1,126 @@
+posdoc:
+  - name: Yawen Ouyang
+    description: (PhD at NJU)
+  - name: Jingjing Gong
+    description: (PhD at FDU)
+    thumbnail: /assets/lab-pics/jingjing-gong.jpeg
+    url: https://scholar.google.com.hk/citations?user=IlNreT4AAAAJ
+
+students:
+  - name: Hanlin Wu
+    description: (PhD at THU, co-supervised with Prof. Jingjing Liu)
+  - name: Ziyao Cao
+    description: (PhD at THU, co-supervised with Prof. Weiying Ma)
+  - name: Botian Wang
+    description: (PhD at THU, co-supervised with Prof. Weiying Ma)
+  - name: Qiying Yu
+    description: (PhD at THU, co-supervised with Prof. Jingjing Liu)
+  - name: Keyue Qiu
+    description: (PhD at THU, co-supervised with Prof. Weiying Ma)
+  - name: Yuxuan Song
+    description: (PhD at THU, co-supervised with Prof. Weiying Ma)
+  - name: Yanru Qu
+    description: (intern at THUAIR, PhD at UIUC)
+  - name: Yaohui Li
+    description: (intern at THUAIR, PhD at NJU)
+  - name: Mianzhi Pan
+    description: (intern at THUAIR, PhD at NJU)
+  - name: Siyu Long
+    description: (intern at THUAIR, PhD at NJU)
+  - name: Junwei Yang
+    description: (intern at THUAIR, PhD at PKU)
+  - name: Kangjie Zheng
+    description: (intern at THUAIR, PhD at PKU)
+
+
+alumni:
+  - name: Chengyang Huang
+    description: intern at AIR, UoA Ph.D, July 2022 - May 2023
+  - name: Yinjun Jia
+    description: intern at AIR, THU Ph.D@LifeScience
+  - name: Zheng Ma
+    description: intern at AIR, NJU Ph.D, May 2022 - Oct. 2023
+  - name: Changxin Wang
+    description: intern at AIR, NJU master, May 2022 - Dec. 2023
+  - name: Guanhua Chen
+    description: intern at AIR, HKU Ph.D→Asistent Professor@SUSTech , June 2022 - Oct. 2022
+  - name: Chengyang Huang
+    description: intern at ByteDance, UoA Ph.D, Nov. 2020 - Feb. 2022
+  - name: Fei Huang
+    description: intern at ByteDance, Tsinghua Ph.D, Nov. 2020 - Feb. 2022
+  - name: Dongyu Xue
+    description: intern at ByteDance, TongjiU Ph.D→ByteDance FTE, June. 2021 - Feb. 2022
+  - name: Zeyu Wen
+    description: intern at ByteDance, HUST Ph.D, June. 2021 - Feb. 2022
+  - name: Siyu Long
+    description: intern at ByteDance, NJU Ph.D, June. 2021 - Feb. 2022
+  - name: Lihao Wang
+    description: intern at ByteDance, FDU master→ByteDance FTE, June. 2021 - Feb. 2022
+  - name: Siqi Ouyang
+    description: intern at ByteDance, Tsinghua undergrad→UCSB Ph.D , June. 2021 - Aug. 2021
+  - name: Jiaqi Zhang
+    description: intern at ByteDance, PKU undergrad→MIT Ph.D, Jun 2020 - June. 2021
+  - name: Yilun Shen
+    description: intern at ByteDance, Tsinghua undergrad, Mar. 2021 - June. 2021
+  - name: Shitong Luo
+    description: intern at ByteDance, PKU undergrad→CMU master, Mar. 2021 - May. 2021
+  - name: Zaixiang Zheng
+    description: intern at ByteDance, NJU Ph.D→ByteDance FTE, Nov 2020 - Feb. 2021
+  - name: Chun Gan
+    description: intern at ByteDance, UW-Madison Ph.D, Aug. 2020 - Feb. 2021
+  - name: Lihua Qian
+    description: intern at ByteDance, SJTU master→ByteDance FTE, Dec. 2019 - Feb. 2021
+  - name: Demi Guo
+    description: intern at ByteDance, Harvard undergrad→Stanford Ph.D, Jul. 2020 - Nov. 2020
+  - name: Chence Shi
+    description: intern at ByteDance, PKU undergrad→Mila Ph.D, Jul. 2020 - Sep. 2020
+  - name: Jingjing Xu
+    description: intern at ByteDance, PKU Ph.D->ByteDance FTE, Aug. 2020 - Sep. 2020
+  - name: Yutong Xie
+    description: intern at ByteDance, SJTU undergrad→UMich Ph.D, Nov 2020 - Oct.
+  - name: Bohan Li
+    description: intern at ByteDance, CMU Ph.D, Dec. 2019 - Jun. 2020
+  - name: Xinyu Zhang
+    description: intern at ByteDance, FDU Ph.D, Jun. 2019 - Apr. 2020
+  - name: Jingjing Gong
+    description: intern at ByteDance, FDU Ph.D, Sep. 2019 - Jan. 2020
+  - name: Yuxuan Song
+    description: intern at ByteDance, SJTU master→Bytedance SDE, Sep. 2019 - Apr. 2020
+  - name: Rong Ye
+    description: intern at ByteDance, FDU master→Bytedance SDE, Apr. 2019 - Apr. 2020
+  - name: Danlu Chen
+    description: intern at ByteDance, FDU undergrad→UCSD Ph.D, Sep. 2019 - Dec. 2020
+  - name: Chi Sun
+    description: intern at ByteDance, FDU master→Tencent SDE, Apr. 2019 - Oct. 2019
+  - name: Zhangqing Shan
+    description: intern at ByteDance, FDU Ph.D→Shanghai Stock Exchange, Jun. 2019 - Sep. 2019
+  - name: Yu Bao
+    description: intern at ByteDance, NJU Ph.D→ByteDance FTE, Jan. 2019 - Sep. 2019
+  - name: Lin Qiu
+    description: intern at ByteDance, SJTU Ph.D→BoyuAI CEO, Jan. 2019 - May 2019
+  - name: Qi Zeng
+    description: intern at ByteDance, PKU undergrad→UIUC Ph.D, Apr. 2019 - Aug. 2019
+  - name: Dongyu Ru
+    description: intern at ByteDance, SJTU undergrad→SJTU master, Jan. 2019 - May 2019
+  - name: Zhenghui Wang
+    description: intern at ByteDance, SJTU undergrad→GATech Ph.D, Jan. 2019 - May 2019
+  - name: Junkun Chen
+    description: intern at ByteDance, FDU master→OSU Ph.D, Feb. 2019 - Jun. 2019
+  - name: Yanru Qu
+    description: intern at ByteDance, SJTU master→UIUC Ph.D, Apr. 2019 - Aug. 2019
+  - name: Wenxian Shi
+    description: intern at ByteDance, PKU master→ByteDance SDE→MIT Ph.D, Dec. 2018 - Jul. 2019
+  - name: Ning Miao
+    description: intern at ByteDance, PKU master→ByteDance SDE→ Oxford Ph.D, Apr. 2018 - Sep. 2020
+  - name: Huangzhao Zhang
+    description: intern at ByteDance, PKU undergrad→PKU Ph.D, Oct. 2018 - Mar. 2019
+  - name: Zewei Sun
+    description: intern at ByteDance, NJU master→Bytedance SDE, May 2018 - Sep. 2018
+  - name: Yao Fu
+    description: intern at ByteDance, PKU undergrad→Edinburgh Ph.D, Sep. 2018 - Apr. 2019
+  - name: Haoyue Shi
+    description: intern at ByteDance, PKU undergrad→TTIC Ph.D, Feb. 2018 - Jun. 2019
+  - name: Rongxiang Weng
+    description: intern at ByteDance, NJU master→Alibaba SDE, Oct. 2017 - Jan. 2018
+  - name: Zi-Yi
+    description: ou (NJU undergrad→CMU master->UCLA Ph.D, Nov 2016 - Apr. 2017

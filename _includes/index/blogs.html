@@ -1,0 +1,82 @@
+{% assign prefix = "blog" %}
+
+{% for page in site.blogs %}
+{% if forloop.length > 0 %} <!-- if blog exists-->
+
+<ul class="tab-nav">
+  {% for group in site.data.blogs.category %}
+  <li>
+    {% if forloop.first %}
+    <div class="button active" data-ref="#{{ prefix }}-{{ group }}">{{ group }}</div>
+    {% else %}
+    <div class="button" data-ref="#{{ prefix }}-{{ group }}">{{ group }}</div>
+    {% endif %}
+  </li>
+  {% endfor %}
+  <li>
+    <div class="button" data-ref="#{{ prefix }}-all">All</div>
+  </li>
+</ul>
+
+
+<div class="tab-content">
+  {% for cate in site.data.blogs.category %} <!-- for each category -->
+
+  {% if forloop.first %}
+  {% assign div_class="tab-pane active" %}
+  {% else %}
+  {% assign div_class="tab-pane" %}
+  {% endif %}
+
+  {% assign lines = 3 %}
+  {% assign lines_mod = lines | minus: 1 %}
+  {% assign count = -1 %}
+  {% for page in site.blogs %} <!-- page -->
+  {% if page.category == cate %} <!-- this category -->
+  <div {{ div_class }} id="{{ prefix }}-{{ page.uid }}">
+    {% assign count = count | plus: 1 | modulo: lines %}
+    {% if count == 0 %}
+    <div class="row">
+    {% endif %}
+
+    {% case lines %}
+    <!-- 12/line -->
+      {% when 3 %}
+      <div class="four columns">
+      {% when 4 %}
+      <div class="three columns">
+    {% endcase %}
+        <div class="lab-container">
+          <div class="lab-image-container">
+            {% if page.url %}
+            <a href="{{ page.url }}">
+            {% endif %}
+            {% if page.thumbnail %}
+              <img src="{{ page.thumbnail }}" class="u-max-full-width" />
+            {% else %}
+              <img src="/assets//blogs/blog-holder.png" class="u-max-full-width" />
+            {% endif %}
+            {% if page.url %}
+            </a>
+            {% endif %}
+          </div>
+          
+          <div class="project-caption">
+            <b>{{ page.title }}</b> <br/>
+            {{ page.subtitle }}
+          </div>
+          
+        </div>
+      </div>
+
+        {% if count == lines_mod or forloop.last %}
+    </div>
+        {% endif %}
+  </div>
+  {% endif %} <!-- this category -->
+  {% endfor %} <!-- page -->
+  {% endfor %} <!-- for each category -->
+</div>
+
+{% endif %} <!-- if blog exists-->
+{% endfor %}
