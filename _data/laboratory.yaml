@@ -1,12 +1,14 @@
-posdoc:
+postdoc:
   - name: Yawen Ouyang
     description: (PhD at NJU)
+    thumbnail: /assets/lab-pics/yawen-ouyang.jpeg
+    url: https://yawenouyang.github.io/about/
   - name: Jingjing Gong
     description: (PhD at FDU)
     thumbnail: /assets/lab-pics/jingjing-gong.jpeg
     url: https://scholar.google.com.hk/citations?user=IlNreT4AAAAJ
 
-students:
+student:
   - name: Hanlin Wu
     description: (PhD at THU, co-supervised with Prof. Jingjing Liu)
   - name: Ziyao Cao

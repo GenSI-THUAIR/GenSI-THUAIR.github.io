@@ -16,7 +16,12 @@
   </div>
   {% for group in site.data.laboratory %}
   <div class="tab-pane" id="{{ prefix }}-{{ group[0] }}">
+    {% if group[0] == "postdoc" %}
     {% assign line = 4 %}
+    {% else %}
+    {% assign line = 6 %}
+    {% endif %}
+
     {% for person in group[1] %}
     {% assign index_modulo = forloop.index0 | modulo: line %}
     {% if index_modulo == 0 %}
@@ -29,6 +34,8 @@
       <div class="four columns">
       {% when 4 %}
       <div class="three columns">
+      {% when 6 %}
+      <div class="two columns">
     {% endcase %}
         <div class="lab-container">
           <div class="lab-image-container">

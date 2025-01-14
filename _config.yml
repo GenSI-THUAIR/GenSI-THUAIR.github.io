@@ -6,3 +6,7 @@ baseurl: ''
 collections:
   blogs:
     output: true
+
+exclude:
+  - docker
+  - "*.py"
