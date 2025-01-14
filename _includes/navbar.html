@@ -1,0 +1,8 @@
+<nav class="navbar-container">
+    <img src="{{ site.base_url }}/assets/gensi.png" alt="Logo">
+    <ul class="navbar-links">
+      {% for block in site.data.blocks.index %}
+      <li><a class="navbar-link" href={{ block[1] | prepend: '/index.html#' | prepend: site.base_url }}>{{ block[0] }}</a></li>
+      {% endfor %}
+    </ul>
+</nav>

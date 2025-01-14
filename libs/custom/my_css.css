@@ -165,7 +165,7 @@ h4 {
 
   .navbar-item {
     position: relative;
-    float: left;
+    float: right;
     margin-bottom: 0;
   }
 
@@ -323,4 +323,36 @@ b.highlight {
 @keyframes fadeout {
   from {opacity: 1;}
   to {opacity: 0;}
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar-container img {
+  height: 100px;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0 2px;
+  align-items: center;
+}
+
+a.navbar-link {
+  border-radius: 8px;
+  border: 1px solid #c878a0;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: .2rem;
+  line-height: 6.5rem;
+  color: #222;
 }

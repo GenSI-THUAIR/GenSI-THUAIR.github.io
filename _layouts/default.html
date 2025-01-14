@@ -71,22 +71,11 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
 
-    {% include header.html %}
-
-    <div class="navbar-spacer"></div>
-    <nav class="navbar">
-      <div class="container">
-        <ul class="navbar-list">
-          {% for block in site.data.blocks.index %}
-          <li class="navbar-item"><a class="navbar-link" href={{ block[1] | prepend: '/index.html#' | prepend: site.base_url }}>{{ block[0] | capitalize }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-    </nav>
+    {% include navbar.html %}
 
     {{ content }}
   </div>
-  <div id="toast"></div>
+  <!-- <div id="toast"></div> --> <!-- disabled toast -->
 
   <!-- Google Analytics -->
   {% include google_analytics.html %}
