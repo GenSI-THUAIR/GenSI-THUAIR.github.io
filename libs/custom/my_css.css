@@ -190,6 +190,11 @@ h4 {
     left: 0;
   }
 
+  .has-docked-nav .navbar-mod {
+    position: fixed;
+    top: 0;
+  }
+
   .has-docked-nav .navbar-spacer {
     display: block;
   }
@@ -325,15 +330,23 @@ b.highlight {
   to {opacity: 0;}
 }
 
+.spacer {
+  height: 10px;
+  background: #fff;
+}
+.navbar-mod {
+  background: #fff;
+}
 .navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  max-width: 100%;
+  height: 100px;
 }
 
 .navbar-container img {
-  height: 100px;
+  max-height: 100px;
 }
 
 .navbar-links {

@@ -3,7 +3,8 @@ $(document).ready(function () {
 
   // Variables
   var $codeSnippets = $('.code-example-body'),
-    $nav = $('.navbar'),
+    // $nav = $('.navbar'),
+    $nav = $('.navbar-mod'),
     $body = $('body'),
     $window = $(window),
     $popoverLink = $('[data-popover]'),
@@ -25,6 +26,7 @@ $(document).ready(function () {
     $document.on('click', closePopover)
     $('a[href^="#"]').on('click', smoothScroll)
     buildSnippets();
+    onScroll();
   }
 
   function smoothScroll(e) {
@@ -66,10 +68,11 @@ $(document).ready(function () {
     navOffsetTop = $nav.offset().top
     onScroll()
   }
-
+  
   function onScroll() {
     if (navOffsetTop < $window.scrollTop() && !$body.hasClass('has-docked-nav')) {
-      $body.addClass('has-docked-nav')
+      $body.addClass('has-docked-nav');
+      $nav.width($(".spacer").width());
     }
     if (navOffsetTop > $window.scrollTop() && $body.hasClass('has-docked-nav')) {
       $body.removeClass('has-docked-nav')
