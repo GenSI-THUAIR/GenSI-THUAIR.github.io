@@ -3,10 +3,16 @@ layout: default
 title: Home
 ---
 
-{% for blk in site.data.blocks.index %}
-<div class="docs-section" id="{{ blk[1] }}">
-  <h4>{{ blk[1] | capitalize }}</h4>
-  {% assign page = 'index/' | append: blk[1] | append: '.html' %}
-  {% include {{page}} %}
-</div>
-{% endfor %}
+GenSI @ THU AIR
+
+<br/>
+
+Our mission is ...
+
+<br/>
+
+We desire to ...
+
+<h4>New</h4>
+
+{% include news.html %}

@@ -6,6 +6,8 @@ baseurl: ''
 collections:
   blogs:
     output: true
+  modules:
+    output: true
 
 exclude:
   - docker

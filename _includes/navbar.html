@@ -1,10 +1,19 @@
 <div class="spacer"></div>
 <nav class="navbar-mod">
   <div class="navbar-container">
-    <img src="{{ site.base_url }}/assets/gensi.png" alt="Logo">
-    <ul class="navbar-links">
-      {% for block in site.data.blocks.index %}
-      <li><a class="navbar-link" href={{ block[1] | prepend: '/index.html#' | prepend: site.base_url }}>{{ block[0] }}</a></li>
+    <a href="{{ site.base_url | append: '/' }}"><img src="{{ site.base_url }}/assets/gensi.png" alt="Logo"></a>
+    <ul class="navbar-links" data-active="">
+      {% assign modules = "news,people,publications,blogs" %}
+      <!-- <li><a class="navbar-link"
+        href={{ mod | append: .html | prepend: / | prepend: site.base_url }}>{{ mod | capitalize }}</a>
+      </li> -->
+      {% for mod in site.modules %}
+      {% if mod.marker %}
+      {% assign navid = mod.marker | downcase | prepend: 'nav-' %}
+      <li><a id="{{ navid }}" class="navbar-link"
+        href={{ mod.url | prepend: site.base_url }}>{{ mod.marker }}</a>
+      </li>
+      {% endif %}
       {% endfor %}
     </ul>
   </div>

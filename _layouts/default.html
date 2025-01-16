@@ -5,7 +5,11 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
+  {% if page.marker %}
+  <title>{{ site.data.gensi.name }} | {{ page.marker }}</title>
+  {% else %}
   <title>{{ site.data.gensi.name }} | {{ page.title }}</title>
+  {% endif %}
   <meta name="description" content="GenSI Homepage">
   <meta name="author" content="Hugh">
   <meta property="og:title" content="{{ site.data.gensi.name }}" />
@@ -72,7 +76,7 @@
   <div class="container">
 
     {% include navbar.html %}
-
+    <div style="margin-bottom: 8rem;"></div>
     {{ content }}
 
     {% include footer.html %}

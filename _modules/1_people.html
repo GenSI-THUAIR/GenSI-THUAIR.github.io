@@ -1,31 +1,22 @@
+---
+layout: default
+marker: People
+permalink: /people.html
+---
+<h2>{{ page.marker }}</h2>
 {% assign prefix = "lab" %}
-<ul class="tab-nav">
-  <li>
-    <div class="button active" data-ref="#{{ prefix }}-pro">Professor</div>
-  </li>
-  {% for group in site.data.laboratory %}
-  <li>
-    <div class="button" data-ref="#{{ prefix }}-{{ group[0] }}">{{ group[0] }}</div>
-  </li>
-  {% endfor %}
-</ul>
 
 <div class="tab-content">
-  <div class="tab-pane active" id="{{ prefix }}-pro"> <!-- div for professor -->
-  {% include header_zh.html %}
   </div>
   {% for group in site.data.laboratory %}
-  <div class="tab-pane" id="{{ prefix }}-{{ group[0] }}">
-    {% if group[0] == "postdoc" %}
+  <h4>{{ group[0] }}</h4>
+  <div class="people-group" id="{{ prefix }}-{{ group[0] }}">
     {% assign line = 4 %}
-    {% else %}
-    {% assign line = 6 %}
-    {% endif %}
 
     {% for person in group[1] %}
     {% assign index_modulo = forloop.index0 | modulo: line %}
     {% if index_modulo == 0 %}
-    <div class="row">
+    <div class="row" style="margin-bottom: 20px;">
     {% endif %}
 
     {% case line %}
@@ -37,7 +28,7 @@
       {% when 6 %}
       <div class="two columns">
     {% endcase %}
-        <div class="lab-container">
+        <div class="lab-container"> <!-- make it like a card -->
           <div class="lab-image-container">
             {% if person.url %}
             <a href="{{ person.url }}" target="_blank">
@@ -52,7 +43,7 @@
             {% endif %}
           </div>
           
-          <div class="project-caption">
+          <div class="lab-caption">
             <b>{{ person.name }}</b> <br/>
             {{ person.description }}
           </div>

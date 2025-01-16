@@ -28,7 +28,7 @@ $(document).ready(function () {
     buildSnippets();
     onScroll();
   }
-
+  
   function smoothScroll(e) {
     e.preventDefault();
     $(document).off("scroll");
@@ -95,12 +95,6 @@ $(document).ready(function () {
 
   init();
 
-  function activeInit() {
-    // deprecated
-    $('#papers-recent').addClass("active");
-    $('[data-ref="#papers-recent"]').addClass("active");
-  }
-
   $('.bibtex').on('click', function(event){
     const text = $(this).data('bib');
     navigator.clipboard.writeText(text).then(function () {
@@ -109,8 +103,9 @@ $(document).ready(function () {
       // nothing todo
     });
   });
-});
 
+  setInterval(highlightNavbar, 100);
+});
 
 function showToast(text, x, y) {
   var toast = $('<div id="toast" class="show">' + text + '</div>');
@@ -127,4 +122,15 @@ function showToast(text, x, y) {
   setTimeout(function () {
     toast.remove();
   }, 2000);
+}
+
+function highlightNavbar() {
+  $navList = $('.navbar-links');
+  var currentUrl = $(location).attr('href');
+  var navId = currentUrl.split("/").pop().split(".")[0];
+  if ($navList.data('active') != "") {
+    $('#'+$navList.data('active')).removeClass("active-navbar-link");
+  }
+  $("#nav-"+navId).addClass("active-navbar-link");
+  $navList.data('active', "nav-"+navId);
 }
