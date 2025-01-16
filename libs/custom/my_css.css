@@ -8,7 +8,7 @@ h4 {
 }
 
 .container {
-  max-width: 1600px;
+  max-width: 1200px;
 }
 
 .header {
@@ -401,4 +401,8 @@ a.active-navbar-link {
   border-radius: 8px;
   border: 1px solid #c878a0;
   color: #222;
+}
+
+.row-extra {
+  margin-bottom: 20px;
 }

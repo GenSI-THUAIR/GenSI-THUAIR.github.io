@@ -104,7 +104,7 @@ $(document).ready(function () {
     });
   });
 
-  setInterval(highlightNavbar, 100);
+  setInterval(highlightNavbar, 250);
 });
 
 function showToast(text, x, y) {
@@ -128,9 +128,10 @@ function highlightNavbar() {
   $navList = $('.navbar-links');
   var currentUrl = $(location).attr('href');
   var navId = currentUrl.split("/").pop().split(".")[0];
-  if ($navList.data('active') != "") {
+  if ($navList.data('active') != navId) {
+    // change
     $('#'+$navList.data('active')).removeClass("active-navbar-link");
+    $("#nav-"+navId).addClass("active-navbar-link");
+    $navList.data('active', navId);
   }
-  $("#nav-"+navId).addClass("active-navbar-link");
-  $navList.data('active', "nav-"+navId);
 }

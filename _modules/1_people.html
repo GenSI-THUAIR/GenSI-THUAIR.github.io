@@ -16,7 +16,7 @@ permalink: /people.html
     {% for person in group[1] %}
     {% assign index_modulo = forloop.index0 | modulo: line %}
     {% if index_modulo == 0 %}
-    <div class="row" style="margin-bottom: 20px;">
+    <div class="row row-extra">
     {% endif %}
 
     {% case line %}
