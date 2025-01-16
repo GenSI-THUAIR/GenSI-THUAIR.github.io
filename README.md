@@ -43,7 +43,7 @@ make
 - _site: generated files
 
 TODO:
-- [] _module/5_projects.html: module for projects exhibition
+- [ ] _module/5_projects.html: module for projects exhibition
 
 ## Create a blog
 

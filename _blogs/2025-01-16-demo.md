@@ -22,4 +22,4 @@ def f(x):
     return np.sin(x)
 ```
 
-<img style="width: 40%; float: left; border: 1px solid black; margin-top: 10px; margin-right: 10px;" src="{{'/assets/lab-pics/jingjing-gong.jpeg' | prepend: site.baseurl }}"/>
+![alt-content]({{site.base_url}}/assets/lab-pics/jingjing-gong.jpeg)
