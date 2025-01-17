@@ -10,7 +10,7 @@
       {% for mod in site.modules %}
       {% if mod.marker %}
       {% assign navid = mod.marker | downcase | prepend: 'nav-' %}
-      <li><a id="{{ navid }}" class="navbar-link"
+      <li><a id="{{ navid }}" class="navbar-link-base navbar-link"
         href={{ mod.url | prepend: site.base_url }}>{{ mod.marker }}</a>
       </li>
       {% endif %}
