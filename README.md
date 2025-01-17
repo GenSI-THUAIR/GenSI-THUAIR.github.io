@@ -1,12 +1,13 @@
 # GenSI's homepage
 
+Current homepage is derived from [Martin Saveski's Website](https://github.com/msaveski/www_personal).
 
+If more features are required like searchbox or dark mode, move to [al-folio](https://github.com/alshedivat/al-folio) is a good choice.
 
 ## Build tutorials
 
 We use Jekyll to build this website while using Python for bibtex parsing.
 
-> We may move to [al-folio](https://github.com/alshedivat/al-folio) theme for more functions.
 
 
 - docker build
