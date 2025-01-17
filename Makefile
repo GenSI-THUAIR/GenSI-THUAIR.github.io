@@ -5,7 +5,7 @@ update:
 
 
 update_bib:
-	if git status --porcelain | grep -q 'pub.bib'; then \
+	if git status --porcelain | grep -q -E 'pub.bib|builder.py'; then \
 		docker run -it --rm -v ${PWD}:/srv python:gensi python builder.py; \
 	fi
 

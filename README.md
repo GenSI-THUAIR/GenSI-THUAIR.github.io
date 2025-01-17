@@ -31,6 +31,7 @@ make
 - _blogs: folder for blogs files with LaTeX support
 - _data: data file for control flow and settings
   - blogs.yaml: the file to regist the category of blogs (Let the categories be in the desired order.)
+  - ***laboratory.yaml***: people list
 - _layouts: Jekyll layout files
   - default.html: main layout for all pages
 - _includes: HTML component (for header, footer, navbar, etc.)
@@ -47,7 +48,7 @@ TODO:
 
 ## Create a blog
 
-> see _blogs/template.md as an example
+> see [template](_blogs/template.md) as an example
 
 The front matter is a MUST for a blog.
 - uid: unique id of this blog for HTML element id (expect no space here)
@@ -55,14 +56,55 @@ The front matter is a MUST for a blog.
 
 Note: the equation should wrapped by `$$` like `$$\alpha$$`.
 
+## Modify personal info
 
+> see [people list](_data/laboratory.yaml) here
+
+For everyone, *name* and *description* are required. *Thumbnail* and *url* are optional.
+```yaml
+- name: Yawen Ouyang
+  description: PhD at NJU
+  thumbnail: /assets/lab-pics/yawen-ouyang.jpeg
+  url: https://yawenouyang.github.io/about/
+```
+
+Personal hero should be added into `assets/lab-pics`.
+
+## Publications update
+
+Just paste new bib into [pub.bib](pub.bib).
+
+```bibtex
+@inproceedings{zhang-etal-2019-generating-fluent,
+    title = "Generating Fluent Adversarial Examples for Natural Languages",
+    author = ...,
+    booktitle = ...,
+    month = jul,
+    year = "2019",
+    abstract  = ...,
+    eprint      = {https://www.aclweb.org/anthology/P19-1559},
+    tags = {LLM}
+    // or like above
+    // tags = {LLM,NLP}
+}
+```
+Format as follows:
+- author: A and B and C
+- optional:
+  - abstract
+  - *tags*: tags are used for grouping
+  - eprint: url for paper
+  - code
+  - video
+  - slides
+  - poster
+  - data
 
 ## External Libraries
 - Framework: [Jekyll](http://jekyllrb.com/)
 - CSS
   - [Skeleton](getskeleton.com)
   - Tabs: [Skeleton Tabs](https://github.com/nathancahill/skeleton-tabs)
-  - Experience: [Timeline](https://codepen.io/NilsWe/pen/FemfK)
   - Icons: [Font Awesome](http://fontawesome.io/)
 - JS
-  - [Jquery (3.1.1)](https://jquery.com/)
+  - [jQuery (3.1.1)](https://jquery.com/)

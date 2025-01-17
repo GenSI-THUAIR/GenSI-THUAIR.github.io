@@ -1,5 +1,11 @@
 entries:
-- abstract: '3D molecular representation learning has gained tremendous interest and
+- author: Junwei Yang, Kangjie Zheng, Siyu Long, Zaiqing Nie, Ming Zhang, Xinyu Dai,
+    Wei-Ying Ma, and <b class='highlight'>Hao Zhou</b>
+  booktitle: the 41th International Conference on Machine Learning (ICML)
+  title: 'Mol-AE: Auto-Encoder Based Molecular Representation Learning With 3D Cloze
+    Test Objective'
+  year: 2024
+  abstract: '3D molecular representation learning has gained tremendous interest and
     achieved promising performance in various downstream tasks. A series of recent
     approaches follow a prevalent framework: an encoder-only model coupled with a
     coordinate denoising objective. However, through a series of analytical experiments,
@@ -12,8 +18,7 @@ entries:
     molecular substructures. Empirical results demonstrate that Mol-AE achieves a
     large margin performance gain compared to the current state-of-the-art 3D molecular
     modeling approach.'
-  author: Junwei Yang, Kangjie Zheng, Siyu Long, Zaiqing Nie, Ming Zhang, Xinyu Dai,
-    Wei-Ying Ma, and <b class='highlight'>Hao Zhou</b>
+  month: July
   author+an: 8=highlight
   bib: "@inproceedings{yang2024icml,\n abstract = {3D molecular representation learning\
     \ has gained tremendous interest and achieved promising performance in various\
@@ -34,13 +39,13 @@ entries:
     \ eprint = {https://biorxiv.org/content/10.1101/2024.04.13.589331v1},\n month\
     \ = {July},\n title = {Mol-AE: Auto-Encoder Based Molecular Representation Learning\
     \ With 3D Cloze Test Objective},\n year = {2024}\n}\n"
-  booktitle: the 41th International Conference on Machine Learning (ICML)
-  month: July
   paper: https://biorxiv.org/content/10.1101/2024.04.13.589331v1
-  title: 'Mol-AE: Auto-Encoder Based Molecular Representation Learning With 3D Cloze
-    Test Objective'
+- author: Kangjie Zheng, Siyu Long, Tianyu Lu, Junwei Yang, Xinyu Dai, Ming Zhang,
+    Zaiqing Nie, Wei-Ying Ma, and <b class='highlight'>Hao Zhou</b>
+  booktitle: the 41th International Conference on Machine Learning (ICML)
+  title: 'ESM All-Atom: Multi-scale Protein Language Model for Unified Molecular Modeling'
   year: 2024
-- abstract: 'Protein language models have demonstrated significant potential in the
+  abstract: 'Protein language models have demonstrated significant potential in the
     field of protein engineering. However, current protein language models primarily
     operate at the residue scale, which limits their ability to provide information
     at the atom level. This limitation prevents us from fully exploiting the capabilities
@@ -53,8 +58,8 @@ entries:
     tasks, demonstrating the full utilization of protein language models. Further
     investigations reveal that through unified molecular modeling, ESM-AA not only
     gains molecular knowledge but also retains its understanding of proteins. '
-  author: Kangjie Zheng, Siyu Long, Tianyu Lu, Junwei Yang, Xinyu Dai, Ming Zhang,
-    Zaiqing Nie, Wei-Ying Ma, and <b class='highlight'>Hao Zhou</b>
+  code: https://github.com/zhengkangjie/ESM-AA
+  month: July
   author+an: 9=highlight
   bib: "@inproceedings{zheng2024icml,\n abstract = {Protein language models have demonstrated\
     \ significant potential in the field of protein engineering. However, current\
@@ -76,13 +81,13 @@ entries:
     \ eprint = {https://arxiv.org/abs/2403.12995},\n month = {July},\n title = {ESM\
     \ All-Atom: Multi-scale Protein Language Model for Unified Molecular Modeling},\n\
     \ year = {2024}\n}\n"
-  booktitle: the 41th International Conference on Machine Learning (ICML)
-  code: https://github.com/zhengkangjie/ESM-AA
-  month: July
   paper: https://arxiv.org/abs/2403.12995
-  title: 'ESM All-Atom: Multi-scale Protein Language Model for Unified Molecular Modeling'
+- author: Yanru Qu, Keyue Qiu, Yuxuan Song, Jingjing Gong, Jiawei Han, Mingyue Zheng,
+    <b class='highlight'>Hao Zhou</b>, and Weiying Ma
+  booktitle: the 41th International Conference on Machine Learning (ICML)
+  title: 'MolCRAFT: Structure-Based Drug Design in Continuous Parameter Space'
   year: 2024
-- abstract: Generative models for structure-based drug design (SBDD) have shown promising
+  abstract: Generative models for structure-based drug design (SBDD) have shown promising
     results in recent years. Existing works mainly focus on how to generate molecules
     with higher binding affinity, ignoring the feasibility prerequisites for generated
     3D poses and resulting in false positives. We conduct thorough studies on key
@@ -95,8 +100,8 @@ entries:
     accurately model interatomic interactions. To our best knowledge, MolCRAFT is
     the first to achieve reference-level Vina Scores (-6.59 kcal/mol) with comparable
     molecular size, outperforming other strong baselines by a wide margin (-0.84 kcal/mol).
-  author: Yanru Qu, Keyue Qiu, Yuxuan Song, Jingjing Gong, Jiawei Han, Mingyue Zheng,
-    <b class='highlight'>Hao Zhou</b>, and Weiying Ma
+  code: https://github.com/AlgoMole/MolCRAFT
+  month: July
   author+an: 7=highlight
   bib: "@inproceedings{qu2024icml,\n abstract = {Generative models for structure-based\
     \ drug design (SBDD) have shown promising results in recent years. Existing works\
@@ -118,13 +123,14 @@ entries:
     \ code = {https://github.com/AlgoMole/MolCRAFT},\n eprint = {https://arxiv.org/abs/2404.12141},\n\
     \ month = {July},\n title = {MolCRAFT: Structure-Based Drug Design in Continuous\
     \ Parameter Space},\n year = {2024}\n}\n"
-  booktitle: the 41th International Conference on Machine Learning (ICML)
-  code: https://github.com/AlgoMole/MolCRAFT
-  month: July
   paper: https://arxiv.org/abs/2404.12141
-  title: 'MolCRAFT: Structure-Based Drug Design in Continuous Parameter Space'
+- author: Yizhen Luo, Kai Yang, Massimo Hong, Xing Yi Liu, Zikun Nie, <b class='highlight'>Hao
+    Zhou</b>, and Zaiqing Nie
+  booktitle: the 30th SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)
+  title: Learning Multi-view Molecular Representations with Structured and Unstructured
+    Knowledge
   year: 2024
-- abstract: 'Molecular representation learning bears promise in vast scientific domains.
+  abstract: 'Molecular representation learning bears promise in vast scientific domains.
     Capturing molecular expertise based on diverse views is of great significance
     in learning effective and generalizable molecular representations. However, existing
     approaches fall short in capturing view information explicitly and handling data
@@ -138,8 +144,7 @@ entries:
     improved molecular representations of MV-Mol that bring substantial benefits to
     molecule property prediction. Additionally, MV-Mol exhibits state-of-the-art performance
     in multi-modal comprehension of molecular structures and texts. '
-  author: Yizhen Luo, Kai Yang, Massimo Hong, Xing Yi Liu, Zikun Nie, <b class='highlight'>Hao
-    Zhou</b>, and Zaiqing Nie
+  month: August
   author+an: 6=highlight
   bib: "@inproceedings{luo2024kdd,\n abstract = {Molecular representation learning\
     \ bears promise in vast scientific domains. Capturing molecular expertise based\
@@ -161,12 +166,12 @@ entries:
     \ = {the 30th SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)},\n\
     \ month = {August},\n title = {Learning Multi-view Molecular Representations with\
     \ Structured and Unstructured Knowledge},\n year = {2024}\n}\n"
-  booktitle: the 30th SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)
-  month: August
-  title: Learning Multi-view Molecular Representations with Structured and Unstructured
-    Knowledge
+- author: Lihua Qian, Mingxuan Wang, Yang Liu, and <b class='highlight'>Hao Zhou</b>
+  booktitle: Proceedings of the 2024 Annual Conference of the North American Chapter
+    of the Association for Computational Linguistics (NAACL)
+  title: Diffusion Glancing Transformer for Parallel Sequence-to-Sequence Learning
   year: 2024
-- abstract: Previously, non-autoregressive models were widely recognized as being
+  abstract: Previously, non-autoregressive models were widely recognized as being
     superior in generation efficiency but inferior in generation quality due to the
     challenges of modeling multiple target modalities. To enhance the multi-modality
     modeling ability, we propose the diffusion glancing transformer, which employs
@@ -177,7 +182,7 @@ entries:
     results on various machine translation and text generation benchmarks demonstrate
     that DIFFGLAT achieves better generation accuracy while maintaining fast decoding
     speed compared with both autoregressive and non-autoregressive models.
-  author: Lihua Qian, Mingxuan Wang, Yang Liu, and <b class='highlight'>Hao Zhou</b>
+  month: July
   author+an: 4=highlight
   bib: "@inproceedings{qian2024naacl,\n abstract = {Previously, non-autoregressive\
     \ models were widely recognized as being superior in generation efficiency but\
@@ -197,13 +202,13 @@ entries:
     \ = {https://arxiv.org/abs/2212.10240},\n month = {July},\n title = {Diffusion\
     \ Glancing Transformer for Parallel Sequence-to-Sequence Learning},\n year = {2024}\n\
     }\n"
-  booktitle: Proceedings of the 2024 Annual Conference of the North American Chapter
-    of the Association for Computational Linguistics (NAACL)
-  month: July
   paper: https://arxiv.org/abs/2212.10240
-  title: Diffusion Glancing Transformer for Parallel Sequence-to-Sequence Learning
+- author: Qiying Yu, Yudi Zhang, Yuyan Ni, Shikun Feng, Yanyan Lan, <b class='highlight'>Hao
+    Zhou</b>, and Jingjing Liu.
+  booktitle: the 12th International Conference on Learning Representations (ICLR)
+  title: Multimodal Molecular Pretraining via Modality Blending
   year: 2024
-- abstract: Self-supervised learning has recently gained growing interest in molecular
+  abstract: Self-supervised learning has recently gained growing interest in molecular
     modeling for scientific tasks such as AI-assisted drug discovery. Current studies
     consider leveraging both 2D and 3D molecular structures for representation learning.
     However, relying on straightforward alignment strategies that treat each modality
@@ -223,8 +228,7 @@ entries:
     maximization, demonstrating that our method unifies contrastive, generative (cross-modality
     prediction) and mask-then-predict (single-modality prediction) objectives into
     one single cohesive framework.
-  author: Qiying Yu, Yudi Zhang, Yuyan Ni, Shikun Feng, Yanyan Lan, <b class='highlight'>Hao
-    Zhou</b>, and Jingjing Liu.
+  month: January
   author+an: 1=student;6=highlight
   bib: "@inproceedings{yu2024iclr,\n abstract = {Self-supervised learning has recently\
     \ gained growing interest in molecular modeling for scientific tasks such as AI-assisted\
@@ -252,12 +256,13 @@ entries:
     \ on Learning Representations (ICLR)},\n eprint = {https://arxiv.org/abs/2307.06235},\n\
     \ month = {January},\n title = {Multimodal Molecular Pretraining via Modality\
     \ Blending},\n year = {2024}\n}\n"
-  booktitle: the 12th International Conference on Learning Representations (ICLR)
-  month: January
   paper: https://arxiv.org/abs/2307.06235
-  title: Multimodal Molecular Pretraining via Modality Blending
+- author: Yuxuan Song, Jingjing Gong, <b class='highlight'>Hao Zhou</b>, Mingyue Zheng,
+    Jingjing Liu, and Weiying Ma
+  booktitle: the 12th International Conference on Learning Representations (ICLR)
+  title: Unified Generative Modeling of 3D Molecules with Bayesian Flow Networks
   year: 2024
-- abstract: Advanced generative model (e.g., diffusion model) derived from simplified
+  abstract: Advanced generative model (e.g., diffusion model) derived from simplified
     continuity assumptions of data distribution, though showing promising progress,
     has been difficult to apply directly to geometry generation applications due to
     the multi-modality and noise-sensitive nature of molecule geometry. This work
@@ -272,8 +277,8 @@ entries:
     GeoBFN can also conduct sampling with any number of steps to reach an optimal
     trade-off between efficiency and quality (e.g., 20-times speedup without sacrificing
     performance).
-  author: Yuxuan Song, Jingjing Gong, <b class='highlight'>Hao Zhou</b>, Mingyue Zheng,
-    Jingjing Liu, and Weiying Ma
+  code: https://github.com/AlgoMole/GeoBFN/
+  month: January
   author+an: 1=student;3=highlight
   bib: "@inproceedings{song2024iclr,\n abstract = {Advanced generative model (e.g.,\
     \ diffusion model) derived from simplified continuity assumptions of data distribution,\
@@ -296,13 +301,14 @@ entries:
     \ {https://github.com/AlgoMole/GeoBFN/},\n eprint = {https://arxiv.org/abs/2403.15441},\n\
     \ month = {January},\n title = {Unified Generative Modeling of 3D Molecules with\
     \ Bayesian Flow Networks},\n year = {2024}\n}\n"
-  booktitle: the 12th International Conference on Learning Representations (ICLR)
-  code: https://github.com/AlgoMole/GeoBFN/
-  month: January
   paper: https://arxiv.org/abs/2403.15441
-  title: Unified Generative Modeling of 3D Molecules with Bayesian Flow Networks
-  year: 2024
-- abstract: "The generation of 3D molecules requires simultaneously deciding the categorical\
+- author: Yuxuan Song, Jingjing Gong, Ziyao Cao, Minkai Xu, Stefano Ermon, <b class='highlight'>Hao
+    Zhou</b>, and Weiying Ma
+  booktitle: the 38th Conference on Neural Information Processing Systems (NeurIPS)
+  title: 'Equivariant Flow Matching with Hybrid Probability Transport for 3D Molecule
+    Generation '
+  year: 2023
+  abstract: "The generation of 3D molecules requires simultaneously deciding the categorical\
     \ features~(atom types) and continuous features~(atom coordinates). Deep generative\
     \ models, especially Diffusion Models (DMs), have demonstrated effectiveness in\
     \ generating feature-rich geometries. However, existing DMs typically suffer from\
@@ -314,8 +320,8 @@ entries:
     \ is aligned. Experimentally, the proposed method could consistently achieve better\
     \ performance on multiple molecule generation benchmarks with 4.75\xD7 speed up\
     \ of sampling on average."
-  author: Yuxuan Song, Jingjing Gong, Ziyao Cao, Minkai Xu, Stefano Ermon, <b class='highlight'>Hao
-    Zhou</b>, and Weiying Ma
+  code: https://github.com/AlgoMole/MolFM
+  month: December
   author+an: 1=student; 6=highlight
   bib: "@inproceedings{song2023neurips,\n abstract = {The generation of 3D molecules\
     \ requires simultaneously deciding the categorical features~(atom types) and continuous\
@@ -335,14 +341,13 @@ entries:
     \ code = {https://github.com/AlgoMole/MolFM},\n eprint = {https://arxiv.org/abs/2312.07168},\n\
     \ month = {December},\n title = {Equivariant Flow Matching with Hybrid Probability\
     \ Transport for 3D Molecule Generation },\n year = {2023}\n}\n"
-  booktitle: the 38th Conference on Neural Information Processing Systems (NeurIPS)
-  code: https://github.com/AlgoMole/MolFM
-  month: December
   paper: https://arxiv.org/abs/2312.07168
-  title: 'Equivariant Flow Matching with Hybrid Probability Transport for 3D Molecule
-    Generation '
+- author: Zaixiang Zheng, Yi Zhou, and <b class='highlight'>Hao Zhou</b>
+  booktitle: Findings of the 61th Annual Meeting of the Association for Computational
+    Linguistics (ACL Findings)
+  title: Deep Equilibrium Non-autoregressive Sequence Learning
   year: 2023
-- abstract: "In this work, we argue that non-autoregressive (NAR) sequence generative\
+  abstract: "In this work, we argue that non-autoregressive (NAR) sequence generative\
     \ models can equivalently be regarded as an iterative refinement process towards\
     \ the target sequence, implying an underlying dynamical system of NAR model: z\
     \ = f (z, x) \u2192 y. In such a way, the optimal prediction of a NAR model should\
@@ -356,7 +361,7 @@ entries:
     \ can indeed converge to a more accurate prediction and is a general-purpose framework\
     \ that consistently helps yield substantial improvement for several strong NAR\
     \ backbones."
-  author: Zaixiang Zheng, Yi Zhou, and <b class='highlight'>Hao Zhou</b>
+  month: May
   author+an: 3=highlight
   bib: "@inproceedings{bao2022latent,\n abstract = {In this work, we argue that non-autoregressive\
     \ (NAR) sequence generative models can equivalently be regarded as an iterative\
@@ -377,13 +382,12 @@ entries:
     \ {https://aclanthology.org/2023.findings-acl.747/},\n month = {May},\n title\
     \ = {Deep Equilibrium Non-autoregressive Sequence Learning},\n year = {2023}\n\
     }\n"
-  booktitle: Findings of the 61th Annual Meeting of the Association for Computational
-    Linguistics (ACL Findings)
-  month: May
   paper: https://aclanthology.org/2023.findings-acl.747/
-  title: Deep Equilibrium Non-autoregressive Sequence Learning
+- author: Danqing Wang, Zeyu Wen, Fei Ye, Lei Li, and <b class='highlight'>Hao Zhou</b>
+  booktitle: the 29th SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)
+  title: Accelerating Antimicrobial Peptide Discovery with Latent Structure
   year: 2023
-- abstract: 'Antimicrobial peptides (AMPs) are promising therapeutic approaches against
+  abstract: 'Antimicrobial peptides (AMPs) are promising therapeutic approaches against
     drug-resistant pathogens. Recently, deep generative models are used to discover
     new AMPs. However, previous studies mainly
 
@@ -396,7 +400,8 @@ entries:
     generated by LSSAMP have a high probability of antimicrobial activity. Our wet
     laboratory experiments verified that two of the 21 candidates exhibit strong antimicrobial
     activity. The code is released at https://github.com/dqwang122/LSSAMP.'
-  author: Danqing Wang, Zeyu Wen, Fei Ye, Lei Li, and <b class='highlight'>Hao Zhou</b>
+  code: https://github.com/dqwang122/LSSAMP
+  month: August
   author+an: 1=student;5=highlight
   bib: "@inproceedings{wang2023accelerating,\n abstract = {Antimicrobial peptides\
     \ (AMPs) are promising therapeutic approaches against drug-resistant pathogens.\
@@ -416,13 +421,14 @@ entries:
     \ (KDD)},\n code = {https://github.com/dqwang122/LSSAMP},\n eprint = {https://arxiv.org/abs/2212.09450},\n\
     \ month = {August},\n title = {Accelerating Antimicrobial Peptide Discovery with\
     \ Latent Structure},\n year = {2023}\n}\n"
-  booktitle: the 29th SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)
-  code: https://github.com/dqwang122/LSSAMP
-  month: August
   paper: https://arxiv.org/abs/2212.09450
-  title: Accelerating Antimicrobial Peptide Discovery with Latent Structure
+- author: Bo Qiang, Yuxuan Song, Minkai Xu, Bowen Gao, Hao Zhou, <b class='highlight'>Weiying
+    Ma</b>, and Yanyan Lan
+  booktitle: the 40th International Conference on Machine Learning (ICML)
+  title: 'Coarse-to-Fine: a Hierarchical Diffusion Model for Molecule Generation in
+    3D'
   year: 2023
-- abstract: Generating desirable molecular structures in 3D is a fundamental problem
+  abstract: Generating desirable molecular structures in 3D is a fundamental problem
     for drug discovery. Despite the considerable progress we have achieved, existing
     methods usually generate molecules in atom resolution and ignore intrinsic local
     structures such as rings, which leads to poor quality in generated structures,
@@ -439,8 +445,8 @@ entries:
     fragments are then assembled to derive a complete atomic molecular structure.
     Extensive experiments demonstrate that HierDiff consistently improves the quality
     of molecule generation over existing methods.
-  author: Bo Qiang, Yuxuan Song, Minkai Xu, Bowen Gao, Hao Zhou, <b class='highlight'>Weiying
-    Ma</b>, and Yanyan Lan
+  code: https://github.com/qiangbo1222/HierDiff
+  month: July
   author+an: 6=highlight
   bib: "@inproceedings{qiang2023icml,\n abstract = {Generating desirable molecular\
     \ structures in 3D is a fundamental problem for drug discovery. Despite the considerable\
@@ -465,14 +471,13 @@ entries:
     \ code = {https://github.com/qiangbo1222/HierDiff},\n eprint = {https://proceedings.mlr.press/v202/qiang23a/qiang23a.pdf},\n\
     \ month = {July},\n title = {Coarse-to-Fine: a Hierarchical Diffusion Model for\
     \ Molecule Generation in 3D},\n year = {2023}\n}\n"
-  booktitle: the 40th International Conference on Machine Learning (ICML)
-  code: https://github.com/qiangbo1222/HierDiff
-  month: July
   paper: https://proceedings.mlr.press/v202/qiang23a/qiang23a.pdf
-  title: 'Coarse-to-Fine: a Hierarchical Diffusion Model for Molecule Generation in
-    3D'
+- author: Yiqun Wang, Yuning Shen, Shi Chen, Lihao Wang, Fei Ye, and <b class='highlight'>Hao
+    Zhou</b>
+  booktitle: the 11th International Conference on Learning Representations (ICLR)
+  title: Learning Harmonic Molecular Representations on Riemannian Manifold
   year: 2023
-- abstract: Molecular representation learning plays a crucial role in AI-assisted
+  abstract: Molecular representation learning plays a crucial role in AI-assisted
     drug discovery research. Encoding 3D molecular structures through Euclidean neural
     networks has become the prevailing method in the geometric deep learning community.
     However, the equivariance constraints and message passing in Euclidean space may
@@ -486,8 +491,7 @@ entries:
     molecule property prediction, and outperforms the state-of-the-art deep learning
     models for the rigid protein docking challenge, demonstrating its versatility
     in molecular representation learning.
-  author: Yiqun Wang, Yuning Shen, Shi Chen, Lihao Wang, Fei Ye, and <b class='highlight'>Hao
-    Zhou</b>
+  month: January
   author+an: 6=highlight
   bib: "@inproceedings{wyq2023iclr,\n abstract = {Molecular representation learning\
     \ plays a crucial role in AI-assisted drug discovery research. Encoding 3D molecular\
@@ -509,12 +513,12 @@ entries:
     \ eprint = {https://openreview.net/pdf?id=ySCL-NG_I3},\n month = {January},\n\
     \ title = {Learning Harmonic Molecular Representations on Riemannian Manifold},\n\
     \ year = {2023}\n}\n"
-  booktitle: the 11th International Conference on Learning Representations (ICLR)
-  month: January
   paper: https://openreview.net/pdf?id=ySCL-NG_I3
-  title: Learning Harmonic Molecular Representations on Riemannian Manifold
+- author: Danqing Wang, Fei Ye, and <b class='highlight'>Hao Zhou</b>
+  booktitle: the 11th International Conference on Learning Representations (ICLR)
+  title: On Pre-training Language Model for Antibody
   year: 2023
-- abstract: 'Antibodies are vital proteins offering robust protection for the human
+  abstract: 'Antibodies are vital proteins offering robust protection for the human
     body from pathogens. The development of general protein and antibody-specific
     pre-trained language models both facilitate antibody prediction tasks. However,
     few studies comprehensively explore the representation capability of distinct
@@ -529,7 +533,7 @@ entries:
     Understanding Evaluation (ATUE) benchmark. We comprehensively evaluate the performance
     of protein pretrained language models by empirical study along with conclusions
     and new insights.'
-  author: Danqing Wang, Fei Ye, and <b class='highlight'>Hao Zhou</b>
+  month: January
   author+an: 3=highlight
   bib: "@inproceedings{wdq2023iclr,\n abstract = {Antibodies are vital proteins offering\
     \ robust protection for the human body from pathogens. The development of general\
@@ -550,12 +554,12 @@ entries:
     \ Conference on Learning Representations (ICLR)},\n eprint = {https://openreview.net/pdf?id=ySCL-NG_I3},\n\
     \ month = {January},\n title = {On Pre-training Language Model for Antibody},\n\
     \ year = {2023}\n}\n"
-  booktitle: the 11th International Conference on Learning Representations (ICLR)
-  month: January
   paper: https://openreview.net/pdf?id=ySCL-NG_I3
-  title: On Pre-training Language Model for Antibody
-  year: 2023
-- abstract: 'Drug design is a crucial step in the drug discovery cycle. Recently,
+- author: Siyu Long, Yi Zhou, Xinyu Dai, and <b class='highlight'>Hao Zhou</b>
+  booktitle: the 37th Conference on Neural Information Processing Systems (NeurIPS)
+  title: Zero-Shot 3D Drug Design by Sketching and Generating
+  year: 2022
+  abstract: 'Drug design is a crucial step in the drug discovery cycle. Recently,
     various deep learning-based methods design drugs by generating novel molecules
     from scratch, avoiding traversing large-scale drug libraries. However, they depend
     on scarce experimental data or time-consuming docking simulation, leading to overfitting
@@ -566,7 +570,7 @@ entries:
     enables our method to utilize the large-scale molecular database to reduce the
     need for experimental data and docking simulation. Experiments show that DESERT
     achieves a new state-of-the-art at a fast speed.'
-  author: Siyu Long, Yi Zhou, Xinyu Dai, and <b class='highlight'>Hao Zhou</b>
+  month: December
   author+an: 1=student; 4=highlight
   bib: "@inproceedings{long2022neurips,\n abstract = {Drug design is a crucial step\
     \ in the drug discovery cycle. Recently, various deep learning-based methods design\
@@ -584,12 +588,13 @@ entries:
     \ Neural Information Processing Systems (NeurIPS)},\n eprint = {https://arxiv.org/abs/2209.13865},\n\
     \ month = {December},\n student = {1},\n title = {Zero-Shot 3D Drug Design by\
     \ Sketching and Generating},\n year = {2022}\n}\n"
-  booktitle: the 37th Conference on Neural Information Processing Systems (NeurIPS)
-  month: December
   paper: https://arxiv.org/abs/2209.13865
-  title: Zero-Shot 3D Drug Design by Sketching and Generating
+- author: Lihao Wang, Yi Zhou, Yiqun Wang, Xiaoqing Zheng, Xuanjing Huang, and <b
+    class='highlight'>Hao Zhou</b>
+  booktitle: the 37th Conference on Neural Information Processing Systems (NeurIPS)
+  title: Regularized Molecular Conformation Fields
   year: 2022
-- abstract: Predicting energetically favorable 3-dimensional conformations of organic
+  abstract: Predicting energetically favorable 3-dimensional conformations of organic
     molecules from molecular graph plays a fundamental role in computer-aided drug
     discovery research. However, effectively exploring the high-dimensional conformation
     space to identify (meta) stable conformers is anything but trivial.In this work,
@@ -605,8 +610,7 @@ entries:
     modeling in a regularized feature space and learning a global fragment configuration
     distribution for effective sampling. The proposed method could be generalized
     to deal with larger biomolecular systems.
-  author: Lihao Wang, Yi Zhou, Yiqun Wang, Xiaoqing Zheng, Xuanjing Huang, and <b
-    class='highlight'>Hao Zhou</b>
+  month: January
   author+an: 1=student; 6=highlight
   bib: "@inproceedings{wang2022neurips,\n abstract = {Predicting energetically favorable\
     \ 3-dimensional conformations of organic molecules from molecular graph plays\
@@ -630,12 +634,13 @@ entries:
     \ Processing Systems (NeurIPS)},\n eprint = {https://openreview.net/forum?id=7XCFxnG8nGS},\n\
     \ month = {January},\n student = {1},\n title = {Regularized Molecular Conformation\
     \ Fields},\n year = {2022}\n}\n"
-  booktitle: the 37th Conference on Neural Information Processing Systems (NeurIPS)
-  month: January
   paper: https://openreview.net/forum?id=7XCFxnG8nGS
-  title: Regularized Molecular Conformation Fields
+- author: Fei Huang, <b class='highlight'>Hao Zhou</b>, Yang Liu, Hang Li, and Minlie
+    Huang
+  booktitle: the 39th International Conference on Machine Learning (ICML)
+  title: Directed Acyclic Transformer for Non-Autoregressive Machine Translation
   year: 2022
-- abstract: Non-autoregressive Transformers (NATs) significantly reduce the decoding
+  abstract: Non-autoregressive Transformers (NATs) significantly reduce the decoding
     latency by generating all tokens in parallel. However, such independent predictions
     prevent NATs from capturing the dependencies between the tokens for generating
     multiple possible translations. In this paper, we propose Directed Acyclic Transfomer
@@ -646,8 +651,7 @@ entries:
     show that DA-Transformer substantially outperforms previous NATs by about 3 BLEU
     on average, which is the first NAT model that achieves competitive results with
     autoregressive Transformers without relying on knowledge distillation.
-  author: Fei Huang, <b class='highlight'>Hao Zhou</b>, Yang Liu, Hang Li, and Minlie
-    Huang
+  month: July
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{huang2022icmla,\n abstract = {Non-autoregressive Transformers\
     \ (NATs) significantly reduce the decoding latency by generating all tokens in\
@@ -666,12 +670,13 @@ entries:
     \ eprint = {https://arxiv.org/abs/2205.07459},\n month = {July},\n student = {1},\n\
     \ title = {Directed Acyclic Transformer for Non-Autoregressive Machine Translation},\n\
     \ year = {2022}\n}\n"
-  booktitle: the 39th International Conference on Machine Learning (ICML)
-  month: July
   paper: https://arxiv.org/abs/2205.07459
-  title: Directed Acyclic Transformer for Non-Autoregressive Machine Translation
+- author: Fei Huang, Tianhua Tao, <b class='highlight'>Hao Zhou</b>, Lei Li, and Minlie
+    Huang
+  booktitle: the 39th International Conference on Machine Learning (ICML)
+  title: On the Learning of Non-Autoregressive Transformers
   year: 2022
-- abstract: Non-autoregressive Transformer (NAT) is a family of text generation models,
+  abstract: Non-autoregressive Transformer (NAT) is a family of text generation models,
     which aims to reduce the decoding latency by predicting the whole sentences in
     parallel. However, such latency reduction sacrifices the ability to capture left-to-right
     dependencies, thereby making NAT learning very challenging. In this paper, we
@@ -685,8 +690,7 @@ entries:
     leading to a reduced information loss. Empirical studies show that our perspective
     can explain the phenomena in NAT learning and guide the design of new training
     methods.
-  author: Fei Huang, Tianhua Tao, <b class='highlight'>Hao Zhou</b>, Lei Li, and Minlie
-    Huang
+  month: July
   author+an: 1=student; 3=highlight
   bib: "@inproceedings{huang2022icmlb,\n abstract = {Non-autoregressive Transformer\
     \ (NAT) is a family of text generation models, which aims to reduce the decoding\
@@ -708,12 +712,15 @@ entries:
     \ eprint = {https://arxiv.org/abs/2206.05975},\n month = {July},\n student = {1},\n\
     \ title = {On the Learning of Non-Autoregressive Transformers},\n year = {2022}\n\
     }\n"
-  booktitle: the 39th International Conference on Machine Learning (ICML)
-  month: July
   paper: https://arxiv.org/abs/2206.05975
-  title: On the Learning of Non-Autoregressive Transformers
+- author: Chen, Yiran, Song, Zhenqiao, Wu, Xianze, Wang, Danqing, Xu, Jingjing, Chen,
+    Jiaze, <b class='highlight'>Zhou, Hao</b>, and Li, Lei
+  booktitle: 'Proceedings of the 2022 Conference of the North American Chapter of
+    the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT
+    Findings)'
+  title: '{MTG}: A Benchmark Suite for Multilingual Text Generation'
   year: 2022
-- abstract: We introduce MTG, a new benchmark suite for training and evaluating multilingual
+  abstract: We introduce MTG, a new benchmark suite for training and evaluating multilingual
     text generation. It is the first and largest multilingual multiway text generation
     benchmark with 400k human-annotated data for four generation tasks (story generation,
     question generation, title generation and text summarization) across five languages
@@ -724,8 +731,7 @@ entries:
     models from different aspects. Our benchmark suite can foster model performance
     enhancement with more human-annotated parallel data and encourage model evaluation
     with more diverse generation scenarios.
-  author: Chen, Yiran, Song, Zhenqiao, Wu, Xianze, Wang, Danqing, Xu, Jingjing, Chen,
-    Jiaze, <b class='highlight'>Zhou, Hao</b>, and Li, Lei
+  month: July
   author+an: 7=highlight
   bib: "@inproceedings{chen2022mtg,\n abstract = {We introduce MTG, a new benchmark\
     \ suite for training and evaluating multilingual text generation. It is the first\
@@ -745,14 +751,14 @@ entries:
     \ Human Language Technologies (NAACL-HLT Findings)},\n eprint = {https://arxiv.org/abs/2108.07140},\n\
     \ month = {July},\n title = {{MTG}: A Benchmark Suite for Multilingual Text Generation},\n\
     \ year = {2022}\n}\n"
-  booktitle: 'Proceedings of the 2022 Conference of the North American Chapter of
-    the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT
-    Findings)'
-  month: July
   paper: https://arxiv.org/abs/2108.07140
-  title: '{MTG}: A Benchmark Suite for Multilingual Text Generation'
+- author: Yu Bao, <b class='highlight'>Hao Zhou</b>, Shujian Huang, Dongqi Wang, Lihua
+    Qian, Xinyu Dai, Jiajun Chen, and Lei Li
+  booktitle: the 60th Annual Meeting of the Association for Computational Linguistics
+    (ACL)
+  title: 'latent-{GLAT}: Glancing at Latent Variables for Parallel Text Generation'
   year: 2022
-- abstract: Recently, parallel text generation has received widespread attention due
+  abstract: Recently, parallel text generation has received widespread attention due
     to its success in generation efficiency. Although many advanced techniques are
     proposed to improve its generation quality, they still need the help of an autoregressive
     model for training to overcome the one-to-many multi-modal phenomenon in the dataset,
@@ -762,8 +768,8 @@ entries:
     Experiment results show that our method outperforms strong baselines without the
     help of an autoregressive model, which further broadens the application scenarios
     of the parallel decoding paradigm.
-  author: Yu Bao, <b class='highlight'>Hao Zhou</b>, Shujian Huang, Dongqi Wang, Lihua
-    Qian, Xinyu Dai, Jiajun Chen, and Lei Li
+  code: https://github.com/baoy-nlp/Latent-GLAT
+  month: May
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{bao2022latent,\n abstract = {Recently, parallel text generation\
     \ has received widespread attention due to its success in generation efficiency.\
@@ -782,14 +788,14 @@ entries:
     \ eprint = {https://openreview.net/forum?id=y4xCe0MSoWx},\n month = {May},\n student\
     \ = {1},\n title = {latent-{GLAT}: Glancing at Latent Variables for Parallel Text\
     \ Generation},\n year = {2022}\n}\n"
+  paper: https://openreview.net/forum?id=y4xCe0MSoWx
+- author: Zhiyi Fu, Wangchunshu Zhou, Jingjing Xu, <b class='highlight'>Hao Zhou</b>,
+    and Lei Li
   booktitle: the 60th Annual Meeting of the Association for Computational Linguistics
     (ACL)
-  code: https://github.com/baoy-nlp/Latent-GLAT
-  month: May
-  paper: https://openreview.net/forum?id=y4xCe0MSoWx
-  title: 'latent-{GLAT}: Glancing at Latent Variables for Parallel Text Generation'
+  title: Contextual Representation Learning beyond Masked Language Modeling
   year: 2022
-- abstract: How do masked language models (MLMs) such as BERT learn contextual representations?
+  abstract: How do masked language models (MLMs) such as BERT learn contextual representations?
     In this work, we analyze the learning dynamics of MLMs. We find that MLMs adopt
     sampled embeddings as anchors to estimate and inject contextual semantics to representations,
     which limits the efficiency and effectiveness of MLMs. To address these issues,
@@ -799,8 +805,8 @@ entries:
     when generating contextualized representations. Experiments on the GLUE benchmark
     show that TACO achieves up to 5x speedup and up to 1.2 points average improvement
     over existing MLMs.
-  author: Zhiyi Fu, Wangchunshu Zhou, Jingjing Xu, <b class='highlight'>Hao Zhou</b>,
-    and Lei Li
+  code: https:// github.com/FUZHIYI/TACO
+  month: May
   author+an: 4=highlight
   bib: "@inproceedings{fu2022contextual,\n abstract = {How do masked language models\
     \ (MLMs) such as BERT learn contextual representations? In this work, we analyze\
@@ -818,14 +824,14 @@ entries:
     \ code = {https:// github.com/FUZHIYI/TACO},\n eprint = {https://openreview.net/forum?id=KWL_ElhUejN},\n\
     \ month = {May},\n title = {Contextual Representation Learning beyond Masked Language\
     \ Modeling},\n year = {2022}\n}\n"
-  booktitle: the 60th Annual Meeting of the Association for Computational Linguistics
-    (ACL)
-  code: https:// github.com/FUZHIYI/TACO
-  month: May
   paper: https://openreview.net/forum?id=KWL_ElhUejN
-  title: Contextual Representation Learning beyond Masked Language Modeling
+- author: Jiangjie Chen, Rui Xu, Ziquan Fu, Wei Shi, Zhongqiao Li, Xinbo Zhang, Changzhi
+    Sun, Lei Li, Yanghua Xiao, and <b class='highlight'>Hao Zhou</b>
+  booktitle: the 60th Annual Meeting of the Association for Computational Linguistics
+    (ACL) - Findings
+  title: '{E-KAR}: A Benchmark for Rationalizing Natural Language Analogical Reasoning'
   year: 2022
-- abstract: The ability to recognize analogies is fundamental to human cognition.
+  abstract: The ability to recognize analogies is fundamental to human cognition.
     Existing benchmarks to test word analogy do not reveal the underneath process
     of analogical reasoning of neural models. Holding the belief that models capable
     of reasoning should be right for the right reasons, we propose a first-of-its-
@@ -838,8 +844,7 @@ entries:
     for some state-of-the-art models for both explanation generation and analogical
     question answering tasks, which invites further research in this area. Project
     page of E-KAR can be found at https:// ekar-leaderboard.github.io.
-  author: Jiangjie Chen, Rui Xu, Ziquan Fu, Wei Shi, Zhongqiao Li, Xinbo Zhang, Changzhi
-    Sun, Lei Li, Yanghua Xiao, and <b class='highlight'>Hao Zhou</b>
+  month: May
   author+an: 1=student; 10=highlight;
   bib: "@inproceedings{chen2022e,\n abstract = {The ability to recognize analogies\
     \ is fundamental to human cognition. Existing benchmarks to test word analogy\
@@ -862,13 +867,14 @@ entries:
     \ month = {May},\n title = {{E-KAR}: A Benchmark for Rationalizing Natural Language\
     \ Analogical Reasoning},\n url = {https://ekar-leaderboard.github.io},\n year\
     \ = {2022}\n}\n"
+  paper: https://openreview.net/forum?id=9kXOFRtrEj
+- author: Zewei Sun, Mingxuan Wang, <b class='highlight'>Hao Zhou</b>, Chengqi Zhao,
+    Shujian Huang, Jiajun Chen, and Lei Li
   booktitle: the 60th Annual Meeting of the Association for Computational Linguistics
     (ACL) - Findings
-  month: May
-  paper: https://openreview.net/forum?id=9kXOFRtrEj
-  title: '{E-KAR}: A Benchmark for Rationalizing Natural Language Analogical Reasoning'
+  title: Rethinking Document-level Neural Machine Translation
   year: 2022
-- abstract: 'This paper does not aim at introducing a novel model for document-level
+  abstract: 'This paper does not aim at introducing a novel model for document-level
     neural machine translation. Instead, we head back to the original Transformer
     model and hope to answer the following question: Is the capacity of current models
     strong enough for document-level translation? Interestingly, we observe that the
@@ -880,8 +886,8 @@ entries:
     set of metrics, including BLEU, four lexical indices, three newly proposed assistant
     linguistic indicators, and human evaluation. Our new datasets and evaluation scripts
     are in https://github. com/sunzewei2715/Doc2Doc_NMT.'
-  author: Zewei Sun, Mingxuan Wang, <b class='highlight'>Hao Zhou</b>, Chengqi Zhao,
-    Shujian Huang, Jiajun Chen, and Lei Li
+  code: https://github. com/sunzewei2715/Doc2Doc_NMT
+  month: May
   author+an: 3=highlight
   bib: "@inproceedings{sun2022rethinking,\n abstract = {This paper does not aim at\
     \ introducing a novel model for document-level neural machine translation. Instead,\
@@ -902,14 +908,14 @@ entries:
     \ eprint = {https://openreview.net/forum?id=sU9fYzNZ3xX},\n month = {May},\n title\
     \ = {Rethinking Document-level Neural Machine Translation},\n year = {2022}\n\
     }\n"
-  booktitle: the 60th Annual Meeting of the Association for Computational Linguistics
-    (ACL) - Findings
-  code: https://github. com/sunzewei2715/Doc2Doc_NMT
-  month: May
   paper: https://openreview.net/forum?id=sU9fYzNZ3xX
-  title: Rethinking Document-level Neural Machine Translation
+- author: Zhenqiao Song, <b class='highlight'>Hao Zhou</b>, Lihua Qian, Jingjing Xu,
+    Shanbo Cheng, Mingxuan Wang, and Lei Li
+  booktitle: International Conference on Learning Representations (ICLR)
+  title: '{switch-GLAT}: Multilingual Parallel Machine Translation via Code-switch
+    Decoder'
   year: 2022
-- abstract: Multilingual machine translation aims to develop a single model for multiple
+  abstract: Multilingual machine translation aims to develop a single model for multiple
     language directions. However, existing multilingual models based on Transformer
     are limited in terms of both translation performance and inference speed. In this
     paper, we propose switch-GLAT, a non-autoregressive multilingual machine translation
@@ -919,8 +925,7 @@ entries:
     efficient thanks to its parallel decoder. Experiments show that our proposed switch-GLAT
     outperform the multilingual Transformer with as much as 1.16 BLEU improvement
     and 6.6x faster decoding speed in inference.
-  author: Zhenqiao Song, <b class='highlight'>Hao Zhou</b>, Lihua Qian, Jingjing Xu,
-    Shanbo Cheng, Mingxuan Wang, and Lei Li
+  month: April
   author+an: 1=student; 2=highlight; 3=student
   bib: "@inproceedings{song2022switch,\n abstract = {Multilingual machine translation\
     \ aims to develop a single model for multiple language directions. However, existing\
@@ -938,13 +943,12 @@ entries:
     \ (ICLR)},\n eprint = {https://openreview.net/forum?id=5HvpvYd68b},\n month =\
     \ {April},\n student = {1},\n title = {{switch-GLAT}: Multilingual Parallel Machine\
     \ Translation via Code-switch Decoder},\n year = {2022}\n}\n"
-  booktitle: International Conference on Learning Representations (ICLR)
-  month: April
   paper: https://openreview.net/forum?id=5HvpvYd68b
-  title: '{switch-GLAT}: Multilingual Parallel Machine Translation via Code-switch
-    Decoder'
+- author: Huiyun Yang, Huadong Chen, <b class='highlight'>Hao Zhou</b>, and Lei Li
+  booktitle: International Conference on Learning Representations (ICLR)
+  title: Enhancing Cross-lingual Transfer by Manifold Mixup
   year: 2022
-- abstract: Based on large-scale pre-trained multilingual representations, recent
+  abstract: Based on large-scale pre-trained multilingual representations, recent
     cross-lingual transfer methods have achieved impressive transfer performances.
     However, the performance of target languages still lags far behind the source
     language. In this paper, our analyses indicate such a performance gap is strongly
@@ -955,7 +959,7 @@ entries:
     benchmark show X-Mixup achieves 1.8% performance gains on multiple text understanding
     tasks, compared with strong baselines, and significantly reduces the cross-lingual
     representation discrepancy.
-  author: Huiyun Yang, Huadong Chen, <b class='highlight'>Hao Zhou</b>, and Lei Li
+  month: April
   author+an: 1=student; 3=highlight
   bib: "@inproceedings{yang2022enhancing,\n abstract = {Based on large-scale pre-trained\
     \ multilingual representations, recent cross-lingual transfer methods have achieved\
@@ -973,12 +977,13 @@ entries:
     \ Representations (ICLR)},\n eprint = {https://openreview.net/forum?id=OjPmfr9GkVv},\n\
     \ month = {April},\n student = {1},\n title = {Enhancing Cross-lingual Transfer\
     \ by Manifold Mixup},\n year = {2022}\n}\n"
-  booktitle: International Conference on Learning Representations (ICLR)
-  month: April
   paper: https://openreview.net/forum?id=OjPmfr9GkVv
-  title: Enhancing Cross-lingual Transfer by Manifold Mixup
+- author: Chenyang Huang, <b class='highlight'>Hao Zhou</b>, Osmar Zaiane, Lili Mou,
+    and Lei Li
+  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
+  title: Non-Autoregressive Translation with Layer-Wise Prediction and Deep Supervision
   year: 2022
-- abstract: How do we perform efficient inference while retaining high translation
+  abstract: How do we perform efficient inference while retaining high translation
     quality? Existing neural machine translation models, such as Transformer, achieve
     high performance, but they decode words one by one, which is inefficient. Recent
     non-autoregressive translation models speed up the inference, but their quality
@@ -990,8 +995,8 @@ entries:
     improves the BLEU scores compared with respective base models. Specifically, our
     best variant outperforms the autoregressive model on three translation tasks,
     while being 14.8 times more efficient in inference.
-  author: Chenyang Huang, <b class='highlight'>Hao Zhou</b>, Osmar Zaiane, Lili Mou,
-    and Lei Li
+  code: https://github.com/chenyangh/DSLP
+  month: February
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{huang2022non,\n abstract = {How do we perform efficient inference\
     \ while retaining high translation quality? Existing neural machine translation\
@@ -1011,13 +1016,13 @@ entries:
     \ code = {https://github.com/chenyangh/DSLP},\n eprint = {https://arxiv.org/abs/2110.07515},\n\
     \ month = {February},\n student = {1},\n title = {Non-Autoregressive Translation\
     \ with Layer-Wise Prediction and Deep Supervision},\n year = {2022}\n}\n"
-  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
-  code: https://github.com/chenyangh/DSLP
-  month: February
   paper: https://arxiv.org/abs/2110.07515
-  title: Non-Autoregressive Translation with Layer-Wise Prediction and Deep Supervision
+- author: Chen, Jiangjie, Gan, Chun, Chen, Sijie, <b class='highlight'>Zhou, Hao</b>,
+    Xiao, Yanghua, and Li, Lei
+  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
+  title: Unsupervised Editing for Counterfactual Stories
   year: 2022
-- abstract: Creating what-if stories requires reasoning about prior statements and
+  abstract: Creating what-if stories requires reasoning about prior statements and
     possible outcomes of the changed conditions. One can easily generate coherent
     endings under new conditions, but it would be challenging for current systems
     to do it with minimal changes to the original story. Therefore, one major challenge
@@ -1031,8 +1036,7 @@ entries:
     on a public counterfactual story rewriting benchmark. Experiments show that EDUCAT
     achieves the best trade-off over unsupervised SOTA methods according to both automatic
     and human evaluation.
-  author: Chen, Jiangjie, Gan, Chun, Chen, Sijie, <b class='highlight'>Zhou, Hao</b>,
-    Xiao, Yanghua, and Li, Lei
+  code: https://github.com/jiangjiechen/EDUCAT
   author+an: 1=student; 2=student; 4=highlight
   bib: "@inproceedings{chen-gan2022aaai,\n abstract = {Creating what-if stories requires\
     \ reasoning about prior statements and possible outcomes of the changed conditions.\
@@ -1054,12 +1058,13 @@ entries:
     \ Artificial Intelligence (AAAI)},\n code = {https://github.com/jiangjiechen/EDUCAT},\n\
     \ eprint = {https://arxiv.org/abs/2112.05417},\n student = {1},\n title = {Unsupervised\
     \ Editing for Counterfactual Stories},\n year = {2022}\n}\n"
-  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
-  code: https://github.com/jiangjiechen/EDUCAT
   paper: https://arxiv.org/abs/2112.05417
-  title: Unsupervised Editing for Counterfactual Stories
+- author: Chen, Jiangjie, Bao, Qiaoben, Sun, Changzhi, Zhang, Xinbo, Chen, Jiaze,
+    <b class='highlight'>Zhou, Hao</b>, Xiao, Yanghua, and Li, Lei
+  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
+  title: 'LOREN: Logic-Regularized Reasoning for Interpretable Fact Verification'
   year: 2022
-- abstract: Given a natural language statement, how to verify its veracity against
+  abstract: Given a natural language statement, how to verify its veracity against
     a large-scale textual knowledge source like Wikipedia? Most existing neural models
     make predictions without giving clues about which part of a false claim goes wrong.
     In this paper, we propose LOREN, an approach for interpretable fact verification.
@@ -1072,8 +1077,7 @@ entries:
     explain how it reaches certain results with claim phrase veracity. Experiments
     on a public fact verification benchmark show that LOREN is competitive against
     previous approaches while enjoying the merit of faithful and accurate interpretability.
-  author: Chen, Jiangjie, Bao, Qiaoben, Sun, Changzhi, Zhang, Xinbo, Chen, Jiaze,
-    <b class='highlight'>Zhou, Hao</b>, Xiao, Yanghua, and Li, Lei
+  code: https://github.com/jiangjiechen/LOREN
   author+an: 6=highlight
   bib: "@inproceedings{chen2022loren,\n abstract = {Given a natural language statement,\
     \ how to verify its veracity against a large-scale textual knowledge source like\
@@ -1096,12 +1100,13 @@ entries:
     \ title = {LOREN: Logic-Regularized Reasoning for Interpretable Fact Verification},\n\
     \ url = {https://huggingface.co/spaces/Jiangjie/loren-fact-checking},\n year =\
     \ {2022}\n}\n"
-  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
-  code: https://github.com/jiangjiechen/LOREN
   paper: https://arxiv.org/abs/2012.13577
-  title: 'LOREN: Logic-Regularized Reasoning for Interpretable Fact Verification'
-  year: 2022
-- abstract: In this work, we design a simple, direct, and fast framework for instance
+- author: Zaixiang Zheng, <b class='highlight'>Hao Zhou</b>, Shujian Huang, Jiajun
+    Chen, Jingjing Xu, and Lei Li
+  booktitle: the 35th Conference on Neural Information Processing Systems (NeurIPS)
+  title: Duplex Sequence-to-Sequence Learning for Reversible Machine Translation
+  year: 2021
+  abstract: In this work, we design a simple, direct, and fast framework for instance
     segmentation with strong performance. To this end, we propose a novel and effective
     approach, termed SOLOv2, following the principle of the SOLO method. First, our
     new framework is empowered by an efficient and holistic instance mask representation
@@ -1118,8 +1123,7 @@ entries:
     COCO test-dev. Moreover, our state-of-the-art results in object detection (from
     our mask byproduct) and panoptic segmentation show the potential of SOLOv2 to
     serve as a new strong baseline for many instance-level recognition tasks.
-  author: Zaixiang Zheng, <b class='highlight'>Hao Zhou</b>, Shujian Huang, Jiajun
-    Chen, Jingjing Xu, and Lei Li
+  month: December
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{zheng2021duplex,\n abstract = {In this work, we design a simple,\
     \ direct, and fast framework for instance segmentation with strong performance.\
@@ -1144,12 +1148,13 @@ entries:
     \ eprint = {https://arxiv.org/abs/2105.03458},\n month = {December},\n student\
     \ = {1},\n title = {Duplex Sequence-to-Sequence Learning for Reversible Machine\
     \ Translation},\n year = {2021}\n}\n"
-  booktitle: the 35th Conference on Neural Information Processing Systems (NeurIPS)
-  month: December
   paper: https://arxiv.org/abs/2105.03458
-  title: Duplex Sequence-to-Sequence Learning for Reversible Machine Translation
+- author: Lihua Qian, Yi Zhou, Zaixiang Zheng, Yaoming Zhu, Zehui Lin, Jiangtao Feng,
+    Shanbo Cheng, Lei Li, Mingxuan Wang, and <b class='highlight'>Hao Zhou</b>
+  booktitle: Sixth Conference on Machine Translation (WMT21)
+  title: 'The {Volctrans} {GLAT} System: Non-autoregressive Translation Meets {WMT21}'
   year: 2021
-- abstract: This paper describes the Volctrans' submission to the WMT21 news translation
+  abstract: This paper describes the Volctrans' submission to the WMT21 news translation
     shared task for German->English translation. We build a parallel (i.e., non-autoregressive)
     translation system using the Glancing Transformer, which enables fast and accurate
     parallel decoding in contrast to the currently prevailing autoregressive models.
@@ -1157,8 +1162,8 @@ entries:
     can be scaled to such a practical scenario like WMT competition. More importantly,
     our parallel translation system achieves the best BLEU score (35.0) on German->English
     translation task, outperforming all strong autoregressive counterparts.
-  author: Lihua Qian, Yi Zhou, Zaixiang Zheng, Yaoming Zhu, Zehui Lin, Jiangtao Feng,
-    Shanbo Cheng, Lei Li, Mingxuan Wang, and <b class='highlight'>Hao Zhou</b>
+  code: https://github.com/bytedance/ParaGen
+  month: November
   author+an: 1=student; 2=student; 3=student; 10=highlight
   bib: "@inproceedings{qian2021volctrans,\n abstract = {This paper describes the Volctrans'\
     \ submission to the WMT21 news translation shared task for German->English translation.\
@@ -1177,13 +1182,13 @@ entries:
     \ note = {Ranked #1 on WMT DE-EN task, outperforming autoregressive models with\
     \ our parallel GLAT},\n student = {1},\n title = {The {Volctrans} {GLAT} System:\
     \ Non-autoregressive Translation Meets {WMT21}},\n year = {2021}\n}\n"
-  booktitle: Sixth Conference on Machine Translation (WMT21)
-  code: https://github.com/bytedance/ParaGen
-  month: November
   paper: https://arxiv.org/abs/2109.11247
-  title: 'The {Volctrans} {GLAT} System: Non-autoregressive Translation Meets {WMT21}'
+- author: Dongyu Ru, Changzhi Sun, Jiangtao Feng, Lin Qiu, <b class='highlight'>Hao
+    Zhou</b>, Weinan Zhang, Yong Yu, and Lei Li
+  booktitle: the Conference on Empirical Methods in Natural Language Processing (EMNLP)
+  title: Learning Logic Rules for Document-level Relation Extraction
   year: 2021
-- abstract: "Document-level relation extraction aims to identify relations between\
+  abstract: "Document-level relation extraction aims to identify relations between\
     \ entities in a whole document. Prior efforts to capture long-range dependencies\
     \ have relied heavily on implicitly powerful representations learned through (graph)\
     \ neural networks, which makes the model less transparent. To tackle this challenge,\
@@ -1199,8 +1204,9 @@ entries:
     \ several strong baselines in terms of relation performance (\u223C1.8 F1 score)\
     \ and logical consistency (over 3.3 logic score). Our code is available at https://github.\
     \ com/rudongyu/LogiRE."
-  author: Dongyu Ru, Changzhi Sun, Jiangtao Feng, Lin Qiu, <b class='highlight'>Hao
-    Zhou</b>, Weinan Zhang, Yong Yu, and Lei Li
+  code: https://github.com/rudongyu/LogiRE
+  video: https://underline.io/lecture/38055-learning-logic-rules-for-document-level-relation-extraction
+  month: November
   author+an: 5=highlight
   bib: "@inproceedings{ru2021learning,\n abstract = {Document-level relation extraction\
     \ aims to identify relations between entities in a whole document. Prior efforts\
@@ -1225,13 +1231,14 @@ entries:
     \ month = {November},\n title = {Learning Logic Rules for Document-level Relation\
     \ Extraction},\n video = {https://underline.io/lecture/38055-learning-logic-rules-for-document-level-relation-extraction},\n\
     \ year = {2021}\n}\n"
-  booktitle: the Conference on Empirical Methods in Natural Language Processing (EMNLP)
-  code: https://github.com/rudongyu/LogiRE
-  month: November
-  title: Learning Logic Rules for Document-level Relation Extraction
-  video: https://underline.io/lecture/38055-learning-logic-rules-for-document-level-relation-extraction
+- author: Danqing Wang, Jiaze Chen, Xianze Wu, <b class='highlight'>Hao Zhou</b>,
+    and Lei Li
+  booktitle: The 10th CCF International Conference on Natural Language Processing
+    and Chinese Computing (NLPCC)
+  title: '{CNewSum}: A Large-scale Chinese News Summarization Dataset with Human-annotated
+    Adequacy and Deducibility Level'
   year: 2021
-- abstract: Automatic text summarization aims to produce a brief but crucial summary
+  abstract: Automatic text summarization aims to produce a brief but crucial summary
     for the input documents. Both extractive and abstractive methods have witnessed
     great success in English datasets in recent years. However, there has been a minimal
     exploration of text summarization in Chinese, limited by the lack of large-scale
@@ -1246,8 +1253,7 @@ entries:
     annotations can help researchers analyze and target their model performance bottleneck.
     We examine recent methods on CNewSum and release our dataset to provide a solid
     testbed for automatic Chinese summarization research.
-  author: Danqing Wang, Jiaze Chen, Xianze Wu, <b class='highlight'>Hao Zhou</b>,
-    and Lei Li
+  month: October
   author+an: 4=highlight
   bib: "@inproceedings{wang2021cnewsum,\n abstract = {Automatic text summarization\
     \ aims to produce a brief but crucial summary for the input documents. Both extractive\
@@ -1272,14 +1278,14 @@ entries:
     \ title = {{CNewSum}: A Large-scale Chinese News Summarization Dataset with Human-annotated\
     \ Adequacy and Deducibility Level},\n url = {https://dqwang122.github.io/projects/CNewSum/},\n\
     \ year = {2021}\n}\n"
-  booktitle: The 10th CCF International Conference on Natural Language Processing
-    and Chinese Computing (NLPCC)
-  month: October
   paper: https://arxiv.org/abs/2110.10874
-  title: '{CNewSum}: A Large-scale Chinese News Summarization Dataset with Human-annotated
-    Adequacy and Deducibility Level'
+- author: Wenxian Shi, Yuxuan Song, Bohan Li, <b class='highlight'>Hao Zhou</b>, and
+    Lei Li
+  booktitle: the European Conference on Machine Learning and Principles and Practice
+    of Knowledge Discovery in Databases (ECML-PKDD)
+  title: 'Follow Your Path: a Progressive Method for Knowledge Distillation'
   year: 2021
-- abstract: Deep neural networks often have a huge number of parameters, which posts
+  abstract: Deep neural networks often have a huge number of parameters, which posts
     challenges in deployment in application scenarios with limited memory and computation
     capacity. Knowledge distillation is one approach to derive compact models from
     bigger ones. However, it has been observed that a converged heavy teacher model
@@ -1292,8 +1298,7 @@ entries:
     during optimization which could result in a better local optimum. Experiments
     on both image and text datasets show that our proposed ProKT consistently achieves
     superior performance compared to other existing knowledge distillation methods.
-  author: Wenxian Shi, Yuxuan Song, Bohan Li, <b class='highlight'>Hao Zhou</b>, and
-    Lei Li
+  month: July
   author+an: 1=student; 2=student; 3=student; 4=highlight
   bib: "@inproceedings{shi-song2021ecml,\n abstract = {Deep neural networks often\
     \ have a huge number of parameters, which posts challenges in deployment in application\
@@ -1315,13 +1320,14 @@ entries:
     \ (ECML-PKDD)},\n eprint = {https://arxiv.org/abs/2107.09305},\n month = {July},\n\
     \ student = {1},\n title = {Follow Your Path: a Progressive Method for Knowledge\
     \ Distillation},\n year = {2021}\n}\n"
-  booktitle: the European Conference on Machine Learning and Principles and Practice
-    of Knowledge Discovery in Databases (ECML-PKDD)
-  month: July
   paper: https://arxiv.org/abs/2107.09305
-  title: 'Follow Your Path: a Progressive Method for Knowledge Distillation'
+- author: Lihua Qian, <b class='highlight'>Hao Zhou</b>, Yu Bao, Mingxuan Wang, Lin
+    Qiu, Weinan Zhang, Yong Yu, and Lei Li
+  booktitle: the 59th Annual Meeting of the Association for Computational Linguistics
+    (ACL)
+  title: Glancing Transformer for Non-Autoregressive Neural Machine Translation
   year: 2021
-- abstract: Recent work on non-autoregressive neural machine translation (NAT) aims
+  abstract: Recent work on non-autoregressive neural machine translation (NAT) aims
     at improving the efficiency by parallel decoding without sacrificing the quality.
     However, existing NAT methods are either inferior to Transformer or require multiple
     decoding passes, leading to reduced speedup. We propose the Glancing Language
@@ -1331,8 +1337,8 @@ entries:
     translation with 8-15 times speedup. Experiments on multiple WMT language directions
     show that GLAT outperforms all previous single pass non-autoregressive methods,
     and is nearly comparable to Transformer, reducing the gap to 0.25-0.9 BLEU points.
-  author: Lihua Qian, <b class='highlight'>Hao Zhou</b>, Yu Bao, Mingxuan Wang, Lin
-    Qiu, Weinan Zhang, Yong Yu, and Lei Li
+  code: https://github.com/FLC777/GLAT
+  month: July
   author+an: 1=student; 2=highlight; 3=student
   bib: "@inproceedings{qian2021acl,\n abstract = {Recent work on non-autoregressive\
     \ neural machine translation (NAT) aims at improving the efficiency by parallel\
@@ -1351,14 +1357,14 @@ entries:
     \ Linguistics (ACL)},\n code = {https://github.com/FLC777/GLAT},\n eprint = {https://arxiv.org/abs/2008.07905},\n\
     \ month = {July},\n student = {1},\n title = {Glancing Transformer for Non-Autoregressive\
     \ Neural Machine Translation},\n year = {2021}\n}\n"
-  booktitle: the 59th Annual Meeting of the Association for Computational Linguistics
-    (ACL)
-  code: https://github.com/FLC777/GLAT
-  month: July
   paper: https://arxiv.org/abs/2008.07905
-  title: Glancing Transformer for Non-Autoregressive Neural Machine Translation
+- author: Jingjing Xu, <b class='highlight'>Hao Zhou</b>, Chun Gan, Zaixiang Zheng,
+    and Lei Li
+  booktitle: the 59th Annual Meeting of the Association for Computational Linguistics
+    (ACL) - Best Paper Award
+  title: Vocabularization via Optimal Transport for Neural Machine Translation
   year: 2021
-- abstract: The choice of token vocabulary affects the performance of machine translation.
+  abstract: The choice of token vocabulary affects the performance of machine translation.
     This paper aims to figure out what is a good vocabulary and whether one can find
     the optimal vocabulary without trial training. To answer these questions, we first
     provide an alternative understanding of the role of vocabulary from the perspective
@@ -1370,8 +1376,9 @@ entries:
     For example, VOLT achieves almost 70% vocabulary size reduction and 0.5 BLEU gain
     on English-German translation. Also, compared to BPE-search, VOLT reduces the
     search time from 384 GPU hours to 30 GPU hours on English-German translation.
-  author: Jingjing Xu, <b class='highlight'>Hao Zhou</b>, Chun Gan, Zaixiang Zheng,
-    and Lei Li
+  code: https://github.com/Jingjing-NLP/VOLT
+  video: https://underline.io/lecture/25691-vocabulary-learning-via-optimal-transport-for-neural-machine-translation
+  month: July
   author+an: 1=student; 2=highlight; 3=student; 4=student
   bib: "@inproceedings{xu2021acl,\n abstract = {The choice of token vocabulary affects\
     \ the performance of machine translation. This paper aims to figure out what is\
@@ -1394,15 +1401,14 @@ entries:
     \ via Optimal Transport for Neural Machine Translation},\n url = {https://jingjing-nlp.github.io/volt-blog/},\n\
     \ video = {https://underline.io/lecture/25691-vocabulary-learning-via-optimal-transport-for-neural-machine-translation},\n\
     \ year = {2021}\n}\n"
-  booktitle: the 59th Annual Meeting of the Association for Computational Linguistics
-    (ACL) - Best Paper Award
-  code: https://github.com/Jingjing-NLP/VOLT
-  month: July
   paper: https://arxiv.org/abs/2012.15671
-  title: Vocabularization via Optimal Transport for Neural Machine Translation
-  video: https://underline.io/lecture/25691-vocabulary-learning-via-optimal-transport-for-neural-machine-translation
+- author: Yijun Wang, Changzhi Sun, Yuanbin Wu, <b class='highlight'>Hao Zhou</b>,
+    Lei Li, and Junchi Yan
+  booktitle: the 59th Annual Meeting of the Association for Computational Linguistics
+    (ACL)
+  title: A Unified Label Space for Entity Relation Extraction
   year: 2021
-- abstract: "Many joint entity relation extraction models setup two separated label\
+  abstract: "Many joint entity relation extraction models setup two separated label\
     \ spaces for the two sub-tasks (i.e., entity detection and relation classification).\
     \ We argue that this setting may hinder the information interaction between entities\
     \ and relations. In this work, we propose to eliminate the different treatment\
@@ -1414,8 +1420,8 @@ entries:
     \ from tables. Experiments on three benchmarks (ACE04, ACE05, SciERC) show that,\
     \ using only half the number of parameters, our model achieves competitive accuracy\
     \ with the best extractor, and is faster."
-  author: Yijun Wang, Changzhi Sun, Yuanbin Wu, <b class='highlight'>Hao Zhou</b>,
-    Lei Li, and Junchi Yan
+  code: https://github.com/Receiling/UniRE
+  month: July
   author+an: 4=highlight
   bib: "@inproceedings{wang2021acl,\n abstract = {Many joint entity relation extraction\
     \ models setup two separated label spaces for the two sub-tasks (i.e., entity\
@@ -1436,15 +1442,15 @@ entries:
     \ month = {July},\n title = {A Unified Label Space for Entity Relation Extraction},\n\
     \ url = {https://mp.weixin.qq.com/s/Hg-lgwp791wYAHmpWNJrLQ},\n year = {2021}\n\
     }\n"
-  booktitle: the 59th Annual Meeting of the Association for Computational Linguistics
-    (ACL)
-  code: https://github.com/Receiling/UniRE
-  month: July
   paper: https://arxiv.org/abs/2107.04292
-  title: A Unified Label Space for Entity Relation Extraction
-  year: 2021
 - author: Changzhi Sun, Xinbo Zhang, Jiangjie Chen, Chun Gan, Yuanbin Wu, Jiaze Chen,
     <b class='highlight'>Hao Zhou</b>, and Lei Li
+  booktitle: the 59th Annual Meeting of the Association for Computational Linguistics
+    (ACL) - Finding
+  title: Probabilistic Graph Reasoning for Natural Proof Generation
+  year: 2021
+  code: https://github.com/changzhisun/PRobr/
+  month: July
   author+an: 7=highlight
   bib: "@inproceedings{sunzhang2021acl,\n author = {Changzhi Sun and Xinbo Zhang and\
     \ Jiangjie Chen and Chun Gan and Yuanbin Wu and Jiaze Chen and Hao Zhou and Lei\
@@ -1452,15 +1458,16 @@ entries:
     \ the Association for Computational Linguistics (ACL) - Finding},\n code = {https://github.com/changzhisun/PRobr/},\n\
     \ eprint = {https://arxiv.org/abs/2107.02418},\n month = {July},\n title = {Probabilistic\
     \ Graph Reasoning for Natural Proof Generation},\n year = {2021}\n}\n"
-  booktitle: the 59th Annual Meeting of the Association for Computational Linguistics
-    (ACL) - Finding
-  code: https://github.com/changzhisun/PRobr/
-  month: July
   paper: https://arxiv.org/abs/2107.02418
-  title: Probabilistic Graph Reasoning for Natural Proof Generation
-  year: 2021
 - author: Danqing Wang, Jiaze Chen, <b class='highlight'>Hao Zhou</b>, Xipeng Qiu,
     and Lei Li
+  booktitle: the 59th Annual Meeting of the Association for Computational Linguistics
+    (ACL) - Finding
+  title: Contrastive Aligned Joint Learning for Multilingual Summarization
+  year: 2021
+  code: https://github.com/dqwang122/CALMS
+  video: https://underline.io/lecture/26333-contrastive-aligned-joint-learning-for-multilingual-summarization
+  month: July
   author+an: 3=highlight
   bib: "@inproceedings{wangdq2021acl,\n author = {Danqing Wang and Jiaze Chen and\
     \ Hao Zhou and Xipeng Qiu and Lei Li},\n author+an = {3=highlight},\n booktitle\
@@ -1470,16 +1477,15 @@ entries:
     \ = {Contrastive Aligned Joint Learning for Multilingual Summarization},\n url\
     \ = {https://dqwang122.github.io/projects/CALMS/},\n video = {https://underline.io/lecture/26333-contrastive-aligned-joint-learning-for-multilingual-summarization},\n\
     \ year = {2021}\n}\n"
-  booktitle: the 59th Annual Meeting of the Association for Computational Linguistics
-    (ACL) - Finding
-  code: https://github.com/dqwang122/CALMS
-  month: July
   paper: https://aclanthology.org/2021.findings-acl.242.pdf
-  title: Contrastive Aligned Joint Learning for Multilingual Summarization
-  video: https://underline.io/lecture/26333-contrastive-aligned-joint-learning-for-multilingual-summarization
-  year: 2021
 - author: Yijun Wang, Changzhi Sun, Yuanbin Wu, <b class='highlight'>Hao Zhou</b>,
     Lei Li, and Junchi Yan
+  booktitle: Proceedings of European Chapter of the Association for Computational
+    Linguistics (EACL)
+  title: '{ENPAR}: Enhancing Entity and Entity Pair Representations for Joint Entity
+    Relation Extraction'
+  year: 2021
+  month: April
   author+an: 4=highlight
   bib: "@inproceedings{wang2021enpar,\n author = {Yijun Wang and Changzhi Sun and\
     \ Yuanbin Wu and Hao Zhou and Lei Li and Junchi Yan},\n author+an = {4=highlight},\n\
@@ -1487,14 +1493,13 @@ entries:
     \ Linguistics (EACL)},\n eprint = {https://aclanthology.org/2021.eacl-main.251/},\n\
     \ month = {April},\n title = {{ENPAR}: Enhancing Entity and Entity Pair Representations\
     \ for Joint Entity Relation Extraction},\n year = {2021}\n}\n"
-  booktitle: Proceedings of European Chapter of the Association for Computational
-    Linguistics (EACL)
-  month: April
   paper: https://aclanthology.org/2021.eacl-main.251/
-  title: '{ENPAR}: Enhancing Entity and Entity Pair Representations for Joint Entity
-    Relation Extraction'
+- author: Yutong Xie, Chence Shi, <b class='highlight'>Hao Zhou</b>, Yuwei Yang, Weinan
+    Zhang, Yong Yu, and Lei Li
+  booktitle: International Conference on Learning Representations (ICLR) - Spotlight
+  title: 'MARS: Markov Molecular Sampling for Multi-objective Drug Discovery'
   year: 2021
-- abstract: "Searching for novel molecules with desired chemical properties is crucial\
+  abstract: "Searching for novel molecules with desired chemical properties is crucial\
     \ in drug discovery.  Existing work focuses on developing deep generative models\
     \ to generate either sequences or chemical molecular graphs. However, it remains\
     \ a great challenge to find novel and diverse compounds satisfying many properties.\
@@ -1511,8 +1516,8 @@ entries:
     \ \u2013 bio-activities to two different targets, drug-likeness and synthesizability\
     \ \u2013 are simultaneously considered, our method outperforms the state-of-the-art\
     \ significantly in a comprehensive evaluation."
-  author: Yutong Xie, Chence Shi, <b class='highlight'>Hao Zhou</b>, Yuwei Yang, Weinan
-    Zhang, Yong Yu, and Lei Li
+  code: https://github.com/yutxie/mars
+  month: March
   author+an: 1=student; 2=student; 3=highlight
   bib: "@inproceedings{yutongICLR,\n abstract = {Searching for novel molecules with\
     \ desired chemical properties is crucial in drug discovery.  Existing work focuses\
@@ -1538,13 +1543,13 @@ entries:
     \ month = {March},\n note = {Spotlight, 5.6\\% acceptance rate},\n student = {1},\n\
     \ title = {MARS: Markov Molecular Sampling for Multi-objective Drug Discovery},\n\
     \ year = {2021}\n}\n"
-  booktitle: International Conference on Learning Representations (ICLR) - Spotlight
-  code: https://github.com/yutxie/mars
-  month: March
   paper: https://openreview.net/forum?id=kHSu4ebxFXY
-  title: 'MARS: Markov Molecular Sampling for Multi-objective Drug Discovery'
+- author: Xunpeng Huang, Runxin Xu, <b class='highlight'>Hao Zhou</b>, Zhe Wang, Zhengyang
+    Liu, and Lei Li
+  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
+  title: 'ACMo: Angle-Calibrated Moment Methods for Stochastic Optimization'
   year: 2021
-- abstract: Stochastic gradient descent (SGD) is a widely used method for its outstanding
+  abstract: Stochastic gradient descent (SGD) is a widely used method for its outstanding
     generalization ability and simplicity.  daptive gradient methods have been proposed
     to further accelerate the optimization process.  n this paper, we revisit existing
     adaptive gradient optimization methods with a new interpretation. Such new perspective
@@ -1556,8 +1561,8 @@ entries:
     on a variety of CV and NLP tasks demonstrate that ACMo has a comparable convergence
     to state-of-the-art Adam-type optimizers, and even a better generalization performance
     in most cases. The code is available at https://github.com/Xunpeng746/ACMo.
-  author: Xunpeng Huang, Runxin Xu, <b class='highlight'>Hao Zhou</b>, Zhe Wang, Zhengyang
-    Liu, and Lei Li
+  code: https://github.com/Xunpeng746/ACMo
+  month: February
   author+an: 1=student; 2=student; 3=highlight
   bib: "@inproceedings{huang2021acmo,\n abstract = {Stochastic gradient descent (SGD)\
     \ is a widely used method for its outstanding generalization ability and simplicity.\
@@ -1579,14 +1584,15 @@ entries:
     \ = {1},\n title = {ACMo: Angle-Calibrated Moment Methods for Stochastic Optimization},\n\
     \ url = {https://xunpeng746.github.io/projects/ACMo/ACMo.html},\n year = {2021}\n\
     }\n"
-  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
-  code: https://github.com/Xunpeng746/ACMo
-  month: February
   paper: https://arxiv.org/abs/2006.07065
-  title: 'ACMo: Angle-Calibrated Moment Methods for Stochastic Optimization'
-  year: 2021
 - author: Qianqian Dong, Rong Ye, Mingxuan Wang, <b class='highlight'>Hao Zhou</b>,
     Shuang Xu, Bo Xu, and Lei Li
+  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
+  title: 'Listen, Understand and Translate: Triple Supervision Decouples End-to-end
+    Speech-to-text Translation'
+  year: 2021
+  code: https://github.com/dqqcasia/st
+  month: February
   author+an: 4=highlight
   bib: "@inproceedings{dong2021listen,\n author = {Qianqian Dong and Rong Ye and Mingxuan\
     \ Wang and Hao Zhou and Shuang Xu and Bo Xu and Lei Li},\n author+an = {4=highlight},\n\
@@ -1595,15 +1601,14 @@ entries:
     \ month = {February},\n title = {Listen, Understand and Translate: Triple Supervision\
     \ Decouples End-to-end Speech-to-text Translation},\n url = {https://dqqcasia.github.io/projects/LUT/},\n\
     \ year = {2021}\n}\n"
-  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
-  code: https://github.com/dqqcasia/st
-  month: February
   paper: https://arxiv.org/abs/2009.09704
-  title: 'Listen, Understand and Translate: Triple Supervision Decouples End-to-end
-    Speech-to-text Translation'
-  year: 2021
 - author: Qianqian Dong, Mingxuan Wang, <b class='highlight'>Hao Zhou</b>, Shuang
     Xu, Bo Xu, and Lei Li
+  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
+  title: Consecutive Decoding for Speech-to-text Translation
+  year: 2021
+  code: https://github.com/dqqcasia/st
+  month: February
   author+an: 3=highlight
   bib: "@inproceedings{dong2021consecutive,\n author = {Qianqian Dong and Mingxuan\
     \ Wang and Hao Zhou and Shuang Xu and Bo Xu and Lei Li},\n author+an = {3=highlight},\n\
@@ -1611,13 +1616,13 @@ entries:
     \ code = {https://github.com/dqqcasia/st},\n eprint = {https://arxiv.org/abs/2009.09737},\n\
     \ month = {February},\n title = {Consecutive Decoding for Speech-to-text Translation},\n\
     \ url = {https://dqqcasia.github.io/projects/COSTT/},\n year = {2021}\n}\n"
-  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
-  code: https://github.com/dqqcasia/st
-  month: February
   paper: https://arxiv.org/abs/2009.09737
-  title: Consecutive Decoding for Speech-to-text Translation
+- author: Zhenqiao Song, Jiaze Chen, <b class='highlight'>Hao Zhou</b>, and Lei Li
+  booktitle: Proceedings of the 14th International Conference on Web Search and Data
+    Mining (WSDM)
+  title: Triangular Bidword Generation for Sponsored Search Auction
   year: 2021
-- abstract: "Sponsored search auction is a crucial component of modern search engines.\
+  abstract: "Sponsored search auction is a crucial component of modern search engines.\
     \ It requires a set of candidate bidwords that advertisers can place bids on.\
     \ Existing methods generate bidwords from search queries or advertisement content.\
     \ However, they suffer from the data noise in <query, bidword> and <advertisement,\
@@ -1632,7 +1637,6 @@ entries:
     \ can generate relevant and diverse bidwords for both search queries and advertisements.\
     \ Our evaluation on online real data validates the effectiveness of the TRIDENT\u2019\
     s generated bidwords for product search."
-  author: Zhenqiao Song, Jiaze Chen, <b class='highlight'>Hao Zhou</b>, and Lei Li
   author+an: 1=student; 3=highlight
   bib: "@inproceedings{song2021triangular,\n abstract = {Sponsored search auction\
     \ is a crucial component of modern search engines. It requires a set of candidate\
@@ -1655,12 +1659,13 @@ entries:
     \ (WSDM)},\n eprint = {https://arxiv.org/abs/2101.11349},\n student = {1},\n title\
     \ = {Triangular Bidword Generation for Sponsored Search Auction},\n year = {2021}\n\
     }\n"
-  booktitle: Proceedings of the 14th International Conference on Web Search and Data
-    Mining (WSDM)
   paper: https://arxiv.org/abs/2101.11349
-  title: Triangular Bidword Generation for Sponsored Search Auction
-  year: 2021
-- abstract: Pre-trained contextual representations like BERT have achieved great success
+- author: Bohan Li, <b class='highlight'>Hao Zhou</b>, Junxian He, Mingxuan Wang,
+    Yiming Yang, and Lei Li
+  booktitle: the Conference on Empirical Methods in Natural Language Processing (EMNLP)
+  title: On the Sentence Embeddings from Pre-trained Language Models
+  year: 2020
+  abstract: Pre-trained contextual representations like BERT have achieved great success
     in natural language processing. However, the sentence embeddings from the pre-trained
     language models without fine-tuning have been found to poorly capture semantic
     meaning of sentences. In this paper, we argue that the semantic information in
@@ -1674,8 +1679,8 @@ entries:
     with an unsupervised objective. Experimental results show that our proposed BERT-flow
     method obtains significant performance gains over the state-of-the-art sentence
     embeddings on a variety of semantic textual similarity tasks.
-  author: Bohan Li, <b class='highlight'>Hao Zhou</b>, Junxian He, Mingxuan Wang,
-    Yiming Yang, and Lei Li
+  code: https://github.com/bohanli/BERT-flow
+  month: November
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{li2020sentence,\n abstract = {Pre-trained contextual representations\
     \ like BERT have achieved great success in natural language processing. However,\
@@ -1697,13 +1702,14 @@ entries:
     \ (EMNLP)},\n code = {https://github.com/bohanli/BERT-flow},\n eprint = {https://arxiv.org/abs/2011.05864},\n\
     \ month = {November},\n student = {1},\n title = {On the Sentence Embeddings from\
     \ Pre-trained Language Models},\n year = {2020}\n}\n"
-  booktitle: the Conference on Empirical Methods in Natural Language Processing (EMNLP)
-  code: https://github.com/bohanli/BERT-flow
-  month: November
   paper: https://arxiv.org/abs/2011.05864
-  title: On the Sentence Embeddings from Pre-trained Language Models
+- author: Zehui Lin, Xiao Pan, Mingxuan Wang, Xipeng Qiu, Jiangtao Feng, <b class='highlight'>Hao
+    Zhou</b>, and Lei Li
+  booktitle: the Conference on Empirical Methods in Natural Language Processing (EMNLP)
+  title: Pre-training Multilingual Neural Machine Translation by Leveraging Alignment
+    Information
   year: 2020
-- abstract: 'We investigate the following question for machine translation (MT): can
+  abstract: 'We investigate the following question for machine translation (MT): can
     we develop a single universal MT model to serve as the common seed and obtain
     derivative and improved models on arbitrary language pairs? We propose mRASP,
     an approach to pre-train a universal multilingual neural machine translation model.
@@ -1719,8 +1725,8 @@ entries:
     low-esource language pairs can be utilized to improve rich resource MT. Surprisingly,
     mRASP is even able to improve the translation quality on exotic languages that
     never occur in the pre- training corpus.'
-  author: Zehui Lin, Xiao Pan, Mingxuan Wang, Xipeng Qiu, Jiangtao Feng, <b class='highlight'>Hao
-    Zhou</b>, and Lei Li
+  code: https://github.com/linzehui/mRASP
+  month: November
   author+an: 6=highlight
   bib: "@inproceedings{lin2020pre,\n abstract = {We investigate the following question\
     \ for machine translation (MT): can we develop a single universal MT model to\
@@ -1744,14 +1750,15 @@ entries:
     \ (EMNLP)},\n code = {https://github.com/linzehui/mRASP},\n eprint = {https://arxiv.org/abs/2010.03142},\n\
     \ month = {November},\n title = {Pre-training Multilingual Neural Machine Translation\
     \ by Leveraging Alignment Information},\n year = {2020}\n}\n"
-  booktitle: the Conference on Empirical Methods in Natural Language Processing (EMNLP)
-  code: https://github.com/linzehui/mRASP
-  month: November
   paper: https://arxiv.org/abs/2010.03142
-  title: Pre-training Multilingual Neural Machine Translation by Leveraging Alignment
-    Information
+- author: Dongyu Ru, Jiangtao Feng, Lin Qiu, <b class='highlight'>Hao Zhou</b>, Mngxuan
+    Wang, Weinan Zhang, Yong Yu, and Lei Li
+  booktitle: the Conference on Empirical Methods in Natural Language Processing (EMNLP)
+    - Findings
+  title: Active Sentence Learning by Adversarial Uncertainty Sampling in Discrete
+    Space
   year: 2020
-- abstract: Active learning for sentence understanding aims at discovering informative
+  abstract: Active learning for sentence understanding aims at discovering informative
     unlabeled data for annotation and therefore reducing the demand for labeled data.
     We argue that the typical uncertainty sampling method for active learning is time-consuming
     and can hardly work in real-time, which may lead to ineffective sample selection.
@@ -1762,8 +1769,7 @@ entries:
     is extremely efficient compared with traditional uncertainty sampling with more
     than 10x speedup. Experimental results on five datasets show that AUSDS outperforms
     strong baselines on effectiveness.
-  author: Dongyu Ru, Jiangtao Feng, Lin Qiu, <b class='highlight'>Hao Zhou</b>, Mngxuan
-    Wang, Weinan Zhang, Yong Yu, and Lei Li
+  month: November
   author+an: 1=student; 1=student; 3=student; 4=highlight
   bib: "@inproceedings{ru2020active,\n abstract = {Active learning for sentence understanding\
     \ aims at discovering informative unlabeled data for annotation and therefore\
@@ -1783,14 +1789,13 @@ entries:
     \ eprint = {https://arxiv.org/abs/2004.08046},\n month = {November},\n student\
     \ = {1},\n title = {Active Sentence Learning by Adversarial Uncertainty Sampling\
     \ in Discrete Space},\n year = {2020}\n}\n"
-  booktitle: the Conference on Empirical Methods in Natural Language Processing (EMNLP)
-    - Findings
-  month: November
   paper: https://arxiv.org/abs/2004.08046
-  title: Active Sentence Learning by Adversarial Uncertainty Sampling in Discrete
-    Space
+- author: Wenxian Shi, <b class='highlight'>Hao Zhou</b>, Ning Miao, and Lei Li
+  booktitle: Proceedings of the 37th International Conference on Machine learning
+    (ICML)
+  title: Dispersing Exponential Family Mixture {VAE}s for Interpretable Text Generation
   year: 2020
-- abstract: Deep generative models are commonly used for generating images and text.
+  abstract: Deep generative models are commonly used for generating images and text.
     Interpretability of these models is one important pursuit, other than the generation
     quality. Variational auto-encoder (VAE) with Gaussian distribution as prior has
     been successfully applied in text generation, but it is hard to interpret the
@@ -1805,7 +1810,9 @@ entries:
     extra dispersion term to induce a well-structured latent space. Experimental results
     show that our approach does obtain a meaningful space, and it outperforms strong
     baselines in text generation benchmarks. The code is available at https://github.com/wenxianxian/demvae.
-  author: Wenxian Shi, <b class='highlight'>Hao Zhou</b>, Ning Miao, and Lei Li
+  code: https://github.com/wenxianxian/demvae
+  video: https://slideslive.com/38928051
+  month: July
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{shi2020dispersed,\n abstract = {Deep generative models are\
     \ commonly used for generating images and text. Interpretability of these models\
@@ -1830,16 +1837,14 @@ entries:
     \ title = {Dispersing Exponential Family Mixture {VAE}s for Interpretable Text\
     \ Generation},\n video = {https://slideslive.com/38928051},\n year = {2020}\n\
     }\n"
-  booktitle: Proceedings of the 37th International Conference on Machine learning
-    (ICML)
-  code: https://github.com/wenxianxian/demvae
-  month: July
   paper: https://arxiv.org/abs/1906.06719
-  title: Dispersing Exponential Family Mixture {VAE}s for Interpretable Text Generation
-  video: https://slideslive.com/38928051
-  year: 2020
 - author: Dongyu Ru, Zhenghui Wang, Lin Qiu, <b class='highlight'>Hao Zhou</b>, Lei
     Li, Weinan Zhang, and Yong Yu
+  booktitle: the 43rd International ACM SIGIR Conference on Research and Development
+    in Information Retrieval (SIGIR) - System Demonstrations
+  title: '{QuAChIE}: Question Answering based {Chinese} Information Extraction System'
+  year: 2020
+  month: July
   author+an: 1=student; 2=student; 3=student; 4=highlight
   bib: "@inproceedings{ru2020quachie,\n author = {Dongyu Ru and Zhenghui Wang and\
     \ Lin Qiu and Hao Zhou and Lei Li and Weinan Zhang and Yong Yu},\n author+an =\
@@ -1848,12 +1853,13 @@ entries:
     \ - System Demonstrations},\n entrysubtype = {demo},\n month = {July},\n student\
     \ = {1},\n title = {{QuAChIE}: Question Answering based {Chinese} Information\
     \ Extraction System},\n year = {2020}\n}\n"
-  booktitle: the 43rd International ACM SIGIR Conference on Research and Development
-    in Information Retrieval (SIGIR) - System Demonstrations
-  month: July
-  title: '{QuAChIE}: Question Answering based {Chinese} Information Extraction System'
+- author: Ning Miao, Yuxuan Song, <b class='highlight'>Hao Zhou</b>, and Lei Li
+  booktitle: the 58th Annual Meeting of the Association for Computational Linguistics
+    (ACL) - short papers
+  title: Do you have the right scissors? Tailoring Pre-trained Language Models via
+    {Monte}-{Carlo} Methods
   year: 2020
-- abstract: 'It has been a common approach to pre-train a language model on a large
+  abstract: 'It has been a common approach to pre-train a language model on a large
     corpus and fine-tune it on task-specific data.  In practice, we observe that fine-tuning
     a pre-trained model on a small dataset may lead to  over- and/or under-estimation
     problem.  In this paper, we propose MC-Taylor, a novel method to alleviate the
@@ -1861,7 +1867,9 @@ entries:
     mass from over-estimated regions to under-estimated ones. Experiments on a variety
     of text generation datasets show that MC-Taylor consistently and significantly
     outperforms the fine-tuning approach. '
-  author: Ning Miao, Yuxuan Song, <b class='highlight'>Hao Zhou</b>, and Lei Li
+  code: https://github.com/NingMiao/MC-tailor
+  video: http://slideslive.com/38928919
+  month: July
   author+an: 1=student; 2=student; 3=highlight
   bib: "@inproceedings{miao2020do,\n abstract = {It has been a common approach to\
     \ pre-train a language model on a large corpus and fine-tune it on task-specific\
@@ -1879,16 +1887,14 @@ entries:
     \ = {Do you have the right scissors? Tailoring Pre-trained Language Models via\
     \ {Monte}-{Carlo} Methods},\n video = {http://slideslive.com/38928919},\n year\
     \ = {2020}\n}\n"
-  booktitle: the 58th Annual Meeting of the Association for Computational Linguistics
-    (ACL) - short papers
-  code: https://github.com/NingMiao/MC-tailor
-  month: July
   paper: https://arxiv.org/abs/2007.06162
-  title: Do you have the right scissors? Tailoring Pre-trained Language Models via
-    {Monte}-{Carlo} Methods
-  video: http://slideslive.com/38928919
+- author: Liu, Xianggen, Mou, Lili, Meng, F, <b class='highlight'>ong</b>, Zhou, Hao,
+    Zhou, Jie, and Song, Sen
+  booktitle: Proceedings of the 58th Annual Meeting of the Association for Computational
+    Linguistics (ACL)
+  title: Unsupervised Paraphrasing by Simulated Annealing
   year: 2020
-- abstract: Unsupervised paraphrase generation is a promising and important research
+  abstract: Unsupervised paraphrase generation is a promising and important research
     topic in natural language processing. We propose UPSA, a novel approach that accomplishes
     Unsupervised Paraphrasing by Simulated Annealing. We model paraphrase generation
     as an optimization problem and propose a sophisticated objective function, involving
@@ -1901,8 +1907,7 @@ entries:
     compared with previous unsupervised methods in terms of both automatic and human
     evaluations. Further, our approach outperforms most existing domain-adapted supervised
     models, showing the generalizability of UPSA.
-  author: Liu, Xianggen, Mou, Lili, Meng, F, <b class='highlight'>ong</b>, Zhou, Hao,
-    Zhou, Jie, and Song, Sen
+  month: July
   author+an: 1=student; 4=highlight
   bib: "@inproceedings{liu-etal-2020-unsupervised,\n abstract = {Unsupervised paraphrase\
     \ generation is a promising and important research topic in natural language processing.\
@@ -1923,13 +1928,15 @@ entries:
     \ of the 58th Annual Meeting of the Association for Computational Linguistics\
     \ (ACL)},\n eprint = {https://arxiv.org/abs/1909.03588},\n month = {July},\n title\
     \ = {Unsupervised Paraphrasing by Simulated Annealing},\n year = {2020}\n}\n"
-  booktitle: Proceedings of the 58th Annual Meeting of the Association for Computational
-    Linguistics (ACL)
-  month: July
   paper: https://arxiv.org/abs/1909.03588
-  title: Unsupervised Paraphrasing by Simulated Annealing
+- author: Runxin Xu, Jun Cao, Mingxuan Wang, Jiaze Chen, <b class='highlight'>Hao
+    Zhou</b>, Ying Zeng, Yuping Wang, Li Chen, Xiang Yin, Xijin Zhang, Songcheng Jiang,
+    Yuxuan Wang, and Lei Li
+  booktitle: the 58th Annual Meeting of the Association for Computational Linguistics
+    (ACL) - System Demonstrations
+  title: 'Xiaomingbot: A Multilingual Robot News Reporter'
   year: 2020
-- abstract: "This paper proposes the building of Xiaomingbot, an intelligent, multilingual\
+  abstract: "This paper proposes the building of Xiaomingbot, an intelligent, multilingual\
     \ and multi-modal software robot equipped with four integral capabilities: news\
     \ generation, news translation, news reading and avatar animation. Its system\
     \ summarizes Chinese news that it automatically generates from data tables. Next,\
@@ -1940,9 +1947,7 @@ entries:
     \ several merits: it has an animated avatar, and is able to generate and read\
     \ multilingual news. Since it was put into practice, Xiaomingbot has written over\
     \ 600,000 articles, and gained over 150,000 followers on social media platforms."
-  author: Runxin Xu, Jun Cao, Mingxuan Wang, Jiaze Chen, <b class='highlight'>Hao
-    Zhou</b>, Ying Zeng, Yuping Wang, Li Chen, Xiang Yin, Xijin Zhang, Songcheng Jiang,
-    Yuxuan Wang, and Lei Li
+  month: July
   author+an: 1=student; 5=highlight
   bib: "@inproceedings{xu2020xiaomingbot,\n abstract = {This paper proposes the building\
     \ of Xiaomingbot, an intelligent, multilingual and multi-modal software robot\
@@ -1963,13 +1968,15 @@ entries:
     \ Demonstrations},\n eprint = {https://aclanthology.org/2020.acl-demos.1/},\n\
     \ month = {July},\n title = {Xiaomingbot: A Multilingual Robot News Reporter},\n\
     \ url = {https://xiaomingbot.github.io},\n year = {2020}\n}\n"
-  booktitle: the 58th Annual Meeting of the Association for Computational Linguistics
-    (ACL) - System Demonstrations
-  month: July
   paper: https://aclanthology.org/2020.acl-demos.1/
-  title: 'Xiaomingbot: A Multilingual Robot News Reporter'
+- author: Yuxuan Song, Ning Miao, <b class='highlight'>Hao Zhou</b>, Lantao Yu, Mingxuan
+    Wang, and Lei Li
+  booktitle: The 23rd International Conference on Artificial Intelligence and Statistics
+    (AISTATS)
+  title: Improving Maximum Likelihood Training for Text Generation with Density Ratio
+    Estimation
   year: 2020
-- abstract: "Auto-regressive  sequence  generative  models trained by Maximum Likelihood\
+  abstract: "Auto-regressive  sequence  generative  models trained by Maximum Likelihood\
     \ Estimation suffer  the  exposure  bias  problem  in  practical finite sample\
     \ scenarios.  The crux is that the number of training samples for Maximum Likelihood\
     \ Estimation is usually limited and the input data distributions are different\
@@ -1985,8 +1992,7 @@ entries:
     \  tasks  demonstrate  that  our  method stably outperforms Maximum Likelihood\
     \ Estimation and other state-of-the-art sequence generative  models  in  terms\
     \  of  both  quality and diversity."
-  author: Yuxuan Song, Ning Miao, <b class='highlight'>Hao Zhou</b>, Lantao Yu, Mingxuan
-    Wang, and Lei Li
+  month: August
   author+an: 1=student; 2=student; 3=highlight
   bib: "@inproceedings{song2020improving,\n abstract = {Auto-regressive  sequence\
     \  generative  models trained by Maximum Likelihood Estimation suffer  the  exposure\
@@ -2010,14 +2016,13 @@ entries:
     \ (AISTATS)},\n eprint = {https://arxiv.org/abs/2007.06018},\n month = {August},\n\
     \ student = {1},\n title = {Improving Maximum Likelihood Training for Text Generation\
     \ with Density Ratio Estimation},\n year = {2020}\n}\n"
-  booktitle: The 23rd International Conference on Artificial Intelligence and Statistics
-    (AISTATS)
-  month: August
   paper: https://arxiv.org/abs/2007.06018
-  title: Improving Maximum Likelihood Training for Text Generation with Density Ratio
-    Estimation
+- author: Rong Ye, Wenxian Shi, <b class='highlight'>Hao Zhou</b>, Zhongyu Wei, and
+    Lei Li
+  booktitle: International Conference on Learning Representations (ICLR)
+  title: Variational Template Machine for Data-to-Text Generation
   year: 2020
-- abstract: 'How to generate descriptions from structured data organized in tables?
+  abstract: 'How to generate descriptions from structured data organized in tables?
     Existing approaches using neural encoder-decoder models often suffer from lacking
     diversity. We claim that an open set of templates is crucial for enriching the
     phrase constructions and realizing varied generations.Learning such templates
@@ -2031,8 +2036,9 @@ entries:
     text without aligned tables to enrich the template learning. Experiments on datasets
     from a variety of different domains show that VTM is able generate more diversely
     while keeping a good fluency and quality.'
-  author: Rong Ye, Wenxian Shi, <b class='highlight'>Hao Zhou</b>, Zhongyu Wei, and
-    Lei Li
+  code: https://github.com/ReneeYe/VariationalTemplateMachine
+  video: https://iclr.cc/virtual_2020/poster_HkejNgBtPB.html
+  month: April
   author+an: 1=student; 2=student; 3=highlight
   bib: "@inproceedings{ye2020variational,\n abstract = {How to generate descriptions\
     \ from structured data organized in tables? Existing approaches using neural encoder-decoder\
@@ -2055,14 +2061,13 @@ entries:
     \ student = {1},\n title = {Variational Template Machine for Data-to-Text Generation},\n\
     \ video = {https://iclr.cc/virtual_2020/poster_HkejNgBtPB.html},\n year = {2020}\n\
     }\n"
-  booktitle: International Conference on Learning Representations (ICLR)
-  code: https://github.com/ReneeYe/VariationalTemplateMachine
-  month: April
   paper: https://openreview.net/forum?id=HkejNgBtPB
-  title: Variational Template Machine for Data-to-Text Generation
-  video: https://iclr.cc/virtual_2020/poster_HkejNgBtPB.html
+- author: Zaixiang Zheng, <b class='highlight'>Hao Zhou</b>, Shujian Huang, Lei Li,
+    Xinyu Dai, and Jiajun Chen
+  booktitle: International Conference on Learning Representations (ICLR) - Oral
+  title: Mirror Generative Models for Neural Machine Translation
   year: 2020
-- abstract: Training neural machine translation models (NMT) requires a large amount
+  abstract: Training neural machine translation models (NMT) requires a large amount
     of parallel corpus, which is scarce for many language pairs. However, raw non-parallel
     corpora are often easy to obtain. Existing approaches have not exploited the full
     potential of non-parallel bilingual data either in training or decoding. In this
@@ -2075,8 +2080,8 @@ entries:
     show that the proposed MGNMT consistently outperforms existing approaches in all
     a variety of scenarios and language pairs, including resource-rich and low-resource
     languages.
-  author: Zaixiang Zheng, <b class='highlight'>Hao Zhou</b>, Shujian Huang, Lei Li,
-    Xinyu Dai, and Jiajun Chen
+  video: https://iclr.cc/virtual_2020/poster_HkxQRTNYPH.html
+  month: April
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{zheng2020mirror,\n abstract = {Training neural machine translation\
     \ models (NMT) requires a large amount of parallel corpus, which is scarce for\
@@ -2098,14 +2103,13 @@ entries:
     \ note = {Oral, 1.9\\% acceptance rate},\n student = {1},\n title = {Mirror Generative\
     \ Models for Neural Machine Translation},\n video = {https://iclr.cc/virtual_2020/poster_HkxQRTNYPH.html},\n\
     \ year = {2020}\n}\n"
-  booktitle: International Conference on Learning Representations (ICLR) - Oral
-  month: April
   paper: https://openreview.net/forum?id=HkxQRTNYPH
-  title: Mirror Generative Models for Neural Machine Translation
-  video: https://iclr.cc/virtual_2020/poster_HkxQRTNYPH.html
-  year: 2020
 - author: Song, Yuxuan, Xu, Minkai, Yu, Lantao, <b class='highlight'>Zhou, Hao</b>,
     Shao, Shuo, and Yu, Yong
+  booktitle: the 34th {AAAI} Conference on Artificial Intelligence ({AAAI})
+  title: Infomax Neural Joint Source-Channel Coding via Adversarial Bit Flip
+  year: 2020
+  month: February
   author+an: 1=student; 2=student; 4=highlight
   bib: "@inproceedings{song2020infomax,\n author = {Song, Yuxuan and Xu, Minkai and\
     \ Yu, Lantao and Zhou, Hao and Shao, Shuo and Yu, Yong},\n author+an = {1=student;\
@@ -2113,12 +2117,13 @@ entries:
     \ Intelligence ({AAAI})},\n eprint = {https://arxiv.org/abs/2004.01454},\n month\
     \ = {February},\n student = {1},\n title = {Infomax Neural Joint Source-Channel\
     \ Coding via Adversarial Bit Flip},\n year = {2020}\n}\n"
-  booktitle: the 34th {AAAI} Conference on Artificial Intelligence ({AAAI})
-  month: February
   paper: https://arxiv.org/abs/2004.01454
-  title: Infomax Neural Joint Source-Channel Coding via Adversarial Bit Flip
+- author: Jiacheng Yang, Mingxuan Wang, <b class='highlight'>Hao Zhou</b>, Chengqi
+    Zhao, Weinan Zhang, Yong Yu, and Lei Li
+  booktitle: the 34th {AAAI} Conference on Artificial Intelligence ({AAAI})
+  title: Towards Making the Most of {BERT} in Neural Machine Translation
   year: 2020
-- abstract: 'GPT-2 and BERT demonstrate the effectiveness of using pretrained language
+  abstract: 'GPT-2 and BERT demonstrate the effectiveness of using pretrained language
     models (LMs) on various natural language processing tasks. However, LM fine-tuning
     often suffers from catastrophic forgetting when applied to resource-rich tasks.
     In this work, we introduce a concerted training framework (CTNMT) that is the
@@ -2134,8 +2139,7 @@ entries:
     the large WMT14 English-French task with 40 millions of sentencepairs, our base
     model still significantly improves upon the state-of-the-art Transformer big model
     by more than 1 BLEU score.'
-  author: Jiacheng Yang, Mingxuan Wang, <b class='highlight'>Hao Zhou</b>, Chengqi
-    Zhao, Weinan Zhang, Yong Yu, and Lei Li
+  month: February
   author+an: 3=highlight
   bib: "@inproceedings{yang2020towards,\n abstract = {GPT-2 and BERT demonstrate the\
     \ effectiveness of using pretrained language models (LMs) on various natural language\
@@ -2157,12 +2161,13 @@ entries:
     \ Intelligence ({AAAI})},\n eprint = {https://arxiv.org/abs/1908.05672},\n month\
     \ = {February},\n title = {Towards Making the Most of {BERT} in Neural Machine\
     \ Translation},\n year = {2020}\n}\n"
-  booktitle: the 34th {AAAI} Conference on Artificial Intelligence ({AAAI})
-  month: February
   paper: https://arxiv.org/abs/1908.05672
-  title: Towards Making the Most of {BERT} in Neural Machine Translation
+- author: Qingyang Wu, Lei Li, <b class='highlight'>Hao Zhou</b>, Ying Zeng, and Zhou
+    Yu
+  booktitle: the 34th {AAAI} Conference on Artificial Intelligence (AAAI)
+  title: Importance-Aware Learning for Neural Headline Editing
   year: 2020
-- abstract: Many social media news writers are not professionally trained. Therefore,
+  abstract: Many social media news writers are not professionally trained. Therefore,
     social media platforms have to hire professional editors to adjust amateur headlines
     to attract more readers. We propose to automate this headline editing process
     through neural network models to provide more immediate writing support for these
@@ -2178,8 +2183,7 @@ entries:
     Adaptation, and SIA, the model learns to generate headlines in the professional
     editor's style. Experimental results show that our method significantly improves
     the quality of headline editing comparing against previous methods.
-  author: Qingyang Wu, Lei Li, <b class='highlight'>Hao Zhou</b>, Ying Zeng, and Zhou
-    Yu
+  month: February
   author+an: 1=student; 3=highlight
   bib: "@inproceedings{wu2020importance,\n abstract = {Many social media news writers\
     \ are not professionally trained. Therefore, social media platforms have to hire\
@@ -2203,12 +2207,12 @@ entries:
     \ = {the 34th {AAAI} Conference on Artificial Intelligence (AAAI)},\n eprint =\
     \ {https://arxiv.org/abs/1912.01114},\n month = {February},\n title = {Importance-Aware\
     \ Learning for Neural Headline Editing},\n year = {2020}\n}\n"
-  booktitle: the 34th {AAAI} Conference on Artificial Intelligence (AAAI)
-  month: February
   paper: https://arxiv.org/abs/1912.01114
-  title: Importance-Aware Learning for Neural Headline Editing
-  year: 2020
-- abstract: 'Text attribute transfer is modifying certain linguistic attributes (e.g.
+- author: Fu, Yao, <b class='highlight'>Zhou, Hao</b>, Chen, Jiaze, and Li, Lei
+  booktitle: the 12th International Conference on Natural Language Generation (INLG)
+  title: 'Rethinking Text Attribute Transfer: A Lexical Analysis'
+  year: 2019
+  abstract: 'Text attribute transfer is modifying certain linguistic attributes (e.g.
     sentiment, style, authorship, etc.) of a sentence and transforming them from one
     type to another. In this paper, we aim to analyze and interpret what is changed
     during the transfer process. We start from the observation that in many existing
@@ -2224,7 +2228,7 @@ entries:
     structures unchanged. Our work provides an in-depth understanding of linguistic
     attribute transfer and further identifies the future requirements and challenges
     of this task.'
-  author: Fu, Yao, <b class='highlight'>Zhou, Hao</b>, Chen, Jiaze, and Li, Lei
+  month: October
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{fu2019rethinking,\n abstract = {Text attribute transfer is\
     \ modifying certain linguistic attributes (e.g. sentiment, style, authorship,\
@@ -2247,12 +2251,13 @@ entries:
     \ Natural Language Generation (INLG)},\n eprint = {https://www.inlg2019.com/assets/papers/162_Paper.pdf},\n\
     \ month = {October},\n student = {1},\n title = {Rethinking Text Attribute Transfer:\
     \ A Lexical Analysis},\n year = {2019}\n}\n"
-  booktitle: the 12th International Conference on Natural Language Generation (INLG)
-  month: October
   paper: https://www.inlg2019.com/assets/papers/162_Paper.pdf
-  title: 'Rethinking Text Attribute Transfer: A Lexical Analysis'
+- author: Miao, Ning, <b class='highlight'>Zhou, Hao</b>, Zhao, Chengqi, Shi, Wenxian,
+    and Li, Lei
+  booktitle: the 33rd Conference on Neural Information Processing Systems (NeurIPS)
+  title: Kernelized {Bayesian} Softmax for Text Generation
   year: 2019
-- abstract: 'Neural models for text generation require a softmax layer with proper
+  abstract: 'Neural models for text generation require a softmax layer with proper
     word embeddings during the decoding phase. Most existing approaches adopt single
     point embedding for each word. However, a word may have multiple senses according
     to different context, some of which might be distinct. In this paper, we propose
@@ -2262,8 +2267,8 @@ entries:
     robust to rare sentence context by imposing learned kernels to capture the closeness
     of words (senses) in the embedding space. Empirical studies show that KerBS significantly
     boosts the performance of several text generation tasks.'
-  author: Miao, Ning, <b class='highlight'>Zhou, Hao</b>, Zhao, Chengqi, Shi, Wenxian,
-    and Li, Lei
+  code: https://github.com/NingMiao/KerBS
+  month: December
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{miao2019kernelized,\n abstract = {Neural models for text generation\
     \ require a softmax layer with proper word embeddings during the decoding phase.\
@@ -2282,13 +2287,14 @@ entries:
     \ {https://arxiv.org/abs/1911.00274},\n month = {December},\n student = {1},\n\
     \ title = {Kernelized {Bayesian} Softmax for Text Generation},\n year = {2019}\n\
     }\n"
-  booktitle: the 33rd Conference on Neural Information Processing Systems (NeurIPS)
-  code: https://github.com/NingMiao/KerBS
-  month: December
   paper: https://arxiv.org/abs/1911.00274
-  title: Kernelized {Bayesian} Softmax for Text Generation
+- author: Qiu, Lin, Xiao, Yunxuan, Qu, Yanru, <b class='highlight'>Zhou, Hao</b>,
+    Li, Lei, Zhang, Weinan, and Yu, Yong
+  booktitle: Proceedings of the 57th Annual Meeting of the Association for Computational
+    Linguistics (ACL)
+  title: Dynamically Fused Graph Network for Multi-hop Reasoning
   year: 2019
-- abstract: "Text-based question answering (TBQA) has been studied extensively in\
+  abstract: "Text-based question answering (TBQA) has been studied extensively in\
     \ recent years. Most existing approaches focus on finding the answer to a question\
     \ within a single paragraph. However, many difficult questions require multiple\
     \ supporting evidence from scattered text across two or more documents. In this\
@@ -2301,8 +2307,8 @@ entries:
     \ DFGN on HotpotQA, a public TBQA dataset requiring multi-hop reasoning. DFGN\
     \ achieves competitive results on the public board. Furthermore, our analy- sis\
     \ shows DFGN could produce interpretable reasoning chains."
-  author: Qiu, Lin, Xiao, Yunxuan, Qu, Yanru, <b class='highlight'>Zhou, Hao</b>,
-    Li, Lei, Zhang, Weinan, and Yu, Yong
+  code: https://github.com/woshiyyya/DFGN-pytorch
+  month: July
   author+an: 1=student; 2=student; 3=student; 4=highlight
   bib: "@inproceedings{qiu-etal-2019-dynamically,\n abstract = {Text-based question\
     \ answering (TBQA) has been studied extensively in recent years. Most existing\
@@ -2324,14 +2330,14 @@ entries:
     \ eprint = {https://https://www.aclweb.org/anthology/P19-1617},\n month = {July},\n\
     \ title = {Dynamically Fused Graph Network for Multi-hop Reasoning},\n year =\
     \ {2019}\n}\n"
-  booktitle: Proceedings of the 57th Annual Meeting of the Association for Computational
-    Linguistics (ACL)
-  code: https://github.com/woshiyyya/DFGN-pytorch
-  month: July
   paper: https://https://www.aclweb.org/anthology/P19-1617
-  title: Dynamically Fused Graph Network for Multi-hop Reasoning
+- author: Zhang, Huangzhao, <b class='highlight'>Zhou, Hao</b>, Miao, Ning, and Li,
+    Lei
+  booktitle: Proceedings of the 57th Annual Meeting of the Association for Computational
+    Linguistics (ACL) - short papers
+  title: Generating Fluent Adversarial Examples for Natural Languages
   year: 2019
-- abstract: Efficiently building an adversarial attacker fornatural language processing
+  abstract: Efficiently building an adversarial attacker fornatural language processing
     (NLP) tasks is areal challenge. Firstly, as the sentence spaceis discrete, it
     is difficult to make small perturbations along the direction of gradients. Secondly,the
     fluency of the generated examples can not be guaranteed. In this paper, we propose
@@ -2339,8 +2345,7 @@ entries:
     proposal is designed with the guidanceof gradients. Experiments on IMDB and SNLIshow
     that our proposed MHA outperforms thebaseline model on attacking capability. Adversarial
     training with MHA also leads to better robustness and performance.
-  author: Zhang, Huangzhao, <b class='highlight'>Zhou, Hao</b>, Miao, Ning, and Li,
-    Lei
+  month: July
   author+an: 1=student; 3=student; 2=highlight
   bib: "@inproceedings{zhang-etal-2019-generating-fluent,\n abstract = {Efficiently\
     \ building an adversarial attacker fornatural language processing (NLP) tasks\
@@ -2357,13 +2362,14 @@ entries:
     \ (ACL) - short papers},\n eprint = {https://www.aclweb.org/anthology/P19-1559},\n\
     \ month = {July},\n student = {1},\n title = {Generating Fluent Adversarial Examples\
     \ for Natural Languages},\n year = {2019}\n}\n"
-  booktitle: Proceedings of the 57th Annual Meeting of the Association for Computational
-    Linguistics (ACL) - short papers
-  month: July
   paper: https://www.aclweb.org/anthology/P19-1559
-  title: Generating Fluent Adversarial Examples for Natural Languages
+- author: Bao, Yu, <b class='highlight'>Zhou, Hao</b>, Huang, Shujian, Li, Lei, Mou,
+    Lili, Vechtomova, Olga, Dai, Xin-yu, and Chen, Jiajun
+  booktitle: Proceedings of the 57th Annual Meeting of the Association for Computational
+    Linguistics (ACL)
+  title: Generating Sentences from Disentangled Syntactic and Semantic Spaces
   year: 2019
-- abstract: "Variational auto-encoders (VAEs) are widely used in natural language\
+  abstract: "Variational auto-encoders (VAEs) are widely used in natural language\
     \ generation due to the regularization of the latent space. However, generating\
     \ sentences from the continuous latent space does not explicitly model the syntactic\
     \ information. In this paper, we propose to generate sentences from disentangled\
@@ -2375,8 +2381,8 @@ entries:
     \ and syntax-transfer generation. Experimental results show that our proposed\
     \ model achieves similar or better performance in various tasks, compared with\
     \ state-of-the-art related work."
-  author: Bao, Yu, <b class='highlight'>Zhou, Hao</b>, Huang, Shujian, Li, Lei, Mou,
-    Lili, Vechtomova, Olga, Dai, Xin-yu, and Chen, Jiajun
+  code: https://github.com/baoy-nlp/DSS-VAE
+  month: July
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{bao-etal-2019-generating,\n abstract = {Variational auto-encoders\
     \ (VAEs) are widely used in natural language generation due to the regularization\
@@ -2397,15 +2403,14 @@ entries:
     \ eprint = {https://www.aclweb.org/anthology/P19-1602},\n month = {July},\n student\
     \ = {1},\n title = {Generating Sentences from Disentangled Syntactic and Semantic\
     \ Spaces},\n year = {2019}\n}\n"
-  booktitle: Proceedings of the 57th Annual Meeting of the Association for Computational
-    Linguistics (ACL)
-  code: https://github.com/baoy-nlp/DSS-VAE
-  month: July
   paper: https://www.aclweb.org/anthology/P19-1602
-  title: Generating Sentences from Disentangled Syntactic and Semantic Spaces
-  year: 2019
 - author: Wei, Bingzhen, Wang, Mingxuan, <b class='highlight'>Zhou, Hao</b>, Lin,
     Junyang, and Sun, Xu
+  booktitle: Proceedings of the 57th Annual Meeting of the Association for Computational
+    Linguistics (ACL)
+  title: Imitation Learning for Non-Autoregressive Neural Machine Translation
+  year: 2019
+  month: July
   author+an: 3=highlight
   bib: "@inproceedings{wei-etal-2019-imitation,\n author = {Wei, Bingzhen  and\nWang,\
     \ Mingxuan  and\nZhou, Hao  and\nLin, Junyang  and\nSun, Xu},\n author+an = {3=highlight},\n\
@@ -2413,13 +2418,15 @@ entries:
     \ Linguistics (ACL)},\n eprint = {https://www.aclweb.org/anthology/P19-1125},\n\
     \ month = {July},\n title = {Imitation Learning for Non-Autoregressive Neural\
     \ Machine Translation},\n year = {2019}\n}\n"
-  booktitle: Proceedings of the 57th Annual Meeting of the Association for Computational
-    Linguistics (ACL)
-  month: July
   paper: https://www.aclweb.org/anthology/P19-1125
-  title: Imitation Learning for Non-Autoregressive Neural Machine Translation
+- author: Weng, Rongxiang, <b class='highlight'>Zhou, Hao</b>, Huang, Shujian, Li,
+    Lei, Xia, Yifan, and Chen, Jiajun
+  booktitle: 'Proceedings of the Twenty-Eighth International Joint Conference on
+
+    Artificial Intelligence (IJCAI)'
+  title: 'Correct-and-Memorize: Learning to Translate from Interactive Revisions'
   year: 2019
-- abstract: State-of-the-art machine translation models are stillnot on a par with
+  abstract: State-of-the-art machine translation models are stillnot on a par with
     human translators. Previous worktakes human interactions into the neural machine
     translation process to obtain improved results in target languages. However, not
     all model-translation errors are equal some are critical while others are minor.
@@ -2432,8 +2439,8 @@ entries:
     translation settings demonstrate that our proposed CAMIT enhances machine translation
     results significantly while requires fewer revision instructions from human compared
     to previous methods.
-  author: Weng, Rongxiang, <b class='highlight'>Zhou, Hao</b>, Huang, Shujian, Li,
-    Lei, Xia, Yifan, and Chen, Jiajun
+  code: https://github.com/wengrx/CAMIT
+  month: jul
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{ijcai2019-0730,\n abstract = {State-of-the-art machine translation\
     \ models are stillnot on a par with human translators. Previous worktakes human\
@@ -2455,16 +2462,15 @@ entries:
     \ eprint = {https://www.ijcai.org/proceedings/2019/0730.pdf},\n month = {jul},\n\
     \ note = {Oral},\n student = {1},\n title = {Correct-and-Memorize: Learning to\
     \ Translate from Interactive Revisions},\n year = {2019}\n}\n"
-  booktitle: 'Proceedings of the Twenty-Eighth International Joint Conference on
-
-    Artificial Intelligence (IJCAI)'
-  code: https://github.com/wengrx/CAMIT
-  month: jul
   paper: https://www.ijcai.org/proceedings/2019/0730.pdf
-  title: 'Correct-and-Memorize: Learning to Translate from Interactive Revisions'
-  year: 2019
 - author: Sun, Zhaoyue, Chen, Jiaze, <b class='highlight'>Zhou, Hao</b>, Zhou, Deyu,
     Li, Lei, and Jiang, Mingmin
+  booktitle: the 28th International Joint Conference on Artificial Intelligence (IJCAI)  -
+    System Demonstrations
+  title: '{GraspSnooker}: Automatic {Chinese} Commentary Generation for Snooker Videos'
+  year: 2019
+  code: https://github.com/wengrx/CAMIT
+  month: August
   author+an: 1=student; 3=highlight
   bib: "@inproceedings{sun2019graspsnooker,\n author = {Sun, Zhaoyue and Chen, Jiaze\
     \ and Zhou, Hao and Zhou, Deyu and Li, Lei and Jiang, Mingmin},\n author+an =\
@@ -2473,15 +2479,15 @@ entries:
     \ eprint = {https://www.ijcai.org/proceedings/2019/0730.pdf},\n month = {August},\n\
     \ student = {1},\n title = {{GraspSnooker}: Automatic {Chinese} Commentary Generation\
     \ for Snooker Videos},\n year = {2019}\n}\n"
-  booktitle: the 28th International Joint Conference on Artificial Intelligence (IJCAI)  -
-    System Demonstrations
-  code: https://github.com/wengrx/CAMIT
-  month: August
   paper: https://www.ijcai.org/proceedings/2019/0730.pdf
-  title: '{GraspSnooker}: Automatic {Chinese} Commentary Generation for Snooker Videos'
-  year: 2019
 - author: Bahuleyan, Hareesh, Mou, Lili, <b class='highlight'>Zhou, Hao</b>, and Vechtomova,
     Olga
+  booktitle: Proceedings of the 2019 Conference of the North {A}merican Chapter of
+    the Association for Computational Linguistics (NAACL)
+  title: Stochastic {W}asserstein Autoencoder for Probabilistic Sentence Generation
+  year: 2019
+  code: https://github.com/HareeshBahuleyan/probabilistic_nlg
+  month: June
   author+an: 3=highlight
   bib: "@inproceedings{bahuleyan-etal-2019-stochastic,\n author = {Bahuleyan, Hareesh\
     \  and\nMou, Lili  and\nZhou, Hao  and\nVechtomova, Olga},\n author+an = {3=highlight},\n\
@@ -2490,15 +2496,13 @@ entries:
     \ eprint = {https://www.aclweb.org/anthology/N19-1411},\n month = {June},\n title\
     \ = {Stochastic {W}asserstein Autoencoder for Probabilistic Sentence Generation},\n\
     \ year = {2019}\n}\n"
-  booktitle: Proceedings of the 2019 Conference of the North {A}merican Chapter of
-    the Association for Computational Linguistics (NAACL)
-  code: https://github.com/HareeshBahuleyan/probabilistic_nlg
-  month: June
   paper: https://www.aclweb.org/anthology/N19-1411
-  title: Stochastic {W}asserstein Autoencoder for Probabilistic Sentence Generation
-  year: 2019
 - author: Wei, Bolin, Lu, Shuai, Mou, Lili, <b class='highlight'>Zhou, Hao</b>, Poupart,
     Pascal, Li, Ge, and Jin, Zhi
+  booktitle: International Conference on Acoustics, Speech and Signal Processing (ICASSP)
+  title: Why do neural dialog systems generate short and meaningless replies? a comparison
+    between dialog and translation
+  year: 2019
   author+an: 4=highlight
   bib: "@inproceedings{wei2019neural,\n author = {Wei, Bolin and Lu, Shuai and Mou,\
     \ Lili and Zhou, Hao and Poupart, Pascal and Li, Ge and Jin, Zhi},\n author+an\
@@ -2506,12 +2510,13 @@ entries:
     \ and Signal Processing (ICASSP)},\n eprint = {https://arxiv.org/abs/1712.02250},\n\
     \ title = {Why do neural dialog systems generate short and meaningless replies?\
     \ a comparison between dialog and translation},\n year = {2019}\n}\n"
-  booktitle: International Conference on Acoustics, Speech and Signal Processing (ICASSP)
   paper: https://arxiv.org/abs/1712.02250
-  title: Why do neural dialog systems generate short and meaningless replies? a comparison
-    between dialog and translation
+- author: Miao, Ning, <b class='highlight'>Zhou, Hao</b>, Mou, Lili, Yan, Rui, and
+    Li, Lei
+  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
+  title: 'CGMH: Constrained sentence generation by metropolis-hastings sampling'
   year: 2019
-- abstract: 'In real-world applications of natural language generation,
+  abstract: 'In real-world applications of natural language generation,
 
     there are often constraints on the target sentences in addition
 
@@ -2550,8 +2555,7 @@ entries:
     supervised methods for sentence generation. Our code
 
     is released at https://github.com/NingMiao/CGMH'
-  author: Miao, Ning, <b class='highlight'>Zhou, Hao</b>, Mou, Lili, Yan, Rui, and
-    Li, Lei
+  code: https://github.com/NingMiao/CGMH
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{miao2019cgmh,\n abstract = {In real-world applications of natural\
     \ language generation,\nthere are often constraints on the target sentences in\
@@ -2574,12 +2578,13 @@ entries:
     \ eprint = {http://arxiv.org/abs/1811.10996},\n note = {Oral},\n student = {1},\n\
     \ title = {CGMH: Constrained sentence generation by metropolis-hastings sampling},\n\
     \ year = {2019}\n}\n"
-  booktitle: Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
-  code: https://github.com/NingMiao/CGMH
   paper: http://arxiv.org/abs/1811.10996
-  title: 'CGMH: Constrained sentence generation by metropolis-hastings sampling'
-  year: 2019
-- abstract: 'Time series are widely used as signals in many classification/regression
+- author: Cao, Wei, Wang, Dong, Li, Jian, <b class='highlight'>Zhou, Hao</b>, Li,
+    Lei, and Li, Yitan
+  booktitle: Advances in Neural Information Processing Systems (NIPS)
+  title: 'BRITS: Bidirectional Recurrent Imputation for Time Series'
+  year: 2018
+  abstract: 'Time series are widely used as signals in many classification/regression
     tasks. It is ubiquitous that time series contains many missing values. Given multiple
     correlated time series data, how to fill in missing values and to predict their
     class labels? Existing imputation methods often impose strong assumptions of the
@@ -2596,8 +2601,7 @@ entries:
     data, and a localization data for human activity. Experiments show that our model
     outperforms the state-of-the-art methods in both imputation and classification/regression
     accuracies.'
-  author: Cao, Wei, Wang, Dong, Li, Jian, <b class='highlight'>Zhou, Hao</b>, Li,
-    Lei, and Li, Yitan
+  code: https://github.com/caow13/BRITS
   author+an: 1=student; 4=highlight
   bib: "@inproceedings{NEURIPS2018_734e6bfc,\n abstract = {Time series are widely\
     \ used as signals in many classification/regression tasks. It is ubiquitous that\
@@ -2621,12 +2625,13 @@ entries:
     \ = {Advances in Neural Information Processing Systems (NIPS)},\n code = {https://github.com/caow13/BRITS},\n\
     \ eprint = {https://arxiv.org/abs/1805.10572},\n student = {1},\n title = {BRITS:\
     \ Bidirectional Recurrent Imputation for Time Series},\n year = {2018}\n}\n"
-  booktitle: Advances in Neural Information Processing Systems (NIPS)
-  code: https://github.com/caow13/BRITS
   paper: https://arxiv.org/abs/1805.10572
-  title: 'BRITS: Bidirectional Recurrent Imputation for Time Series'
+- author: Shi, Haoyue, <b class='highlight'>Zhou, Hao</b>, Chen, Jiaze, and Li, Lei
+  booktitle: Proceedings of the Conference on Empirical Methods in Natural Language
+    Processing (EMNLP)
+  title: On Tree-Based Neural Sentence Modeling
   year: 2018
-- abstract: Neural networks with tree-based sentence encoders have shown better results
+  abstract: Neural networks with tree-based sentence encoders have shown better results
     on many downstream tasks. Most of existing tree-based encoders adopt syntactic
     parsing trees as the explicit structure prior. To study the effectiveness of different
     tree structures, we replace the parsing trees with trivial trees (i.e., binary
@@ -2638,7 +2643,7 @@ entries:
     Further analysis show that tree modeling gives better results when crucial words
     are closer to the final representation. Additional experiments give more clues
     on how to design an effective tree-based encoder.
-  author: Shi, Haoyue, <b class='highlight'>Zhou, Hao</b>, Chen, Jiaze, and Li, Lei
+  code: https://github.com/ExplorerFreda/TreeEnc
   author+an: 1=student; 2=highlight
   bib: "@inproceedings{shi2018tree,\n abstract = {Neural networks with tree-based\
     \ sentence encoders have shown better results on many downstream tasks. Most of\
@@ -2658,14 +2663,12 @@ entries:
     \ code = {https://github.com/ExplorerFreda/TreeEnc},\n eprint = {https://arxiv.org/abs/1808.09644},\n\
     \ student = {1},\n title = {On Tree-Based Neural Sentence Modeling},\n year =\
     \ {2018}\n}\n"
-  booktitle: Proceedings of the Conference on Empirical Methods in Natural Language
-    Processing (EMNLP)
-  code: https://github.com/ExplorerFreda/TreeEnc
   paper: https://arxiv.org/abs/1808.09644
-  title: On Tree-Based Neural Sentence Modeling
-  year: 2018
 - author: Zheng, Zaixiang, <b class='highlight'>Zhou, Hao</b>, Huang, Shujian, Mou,
     Lili, Dai, Xinyu, Chen, Jiajun, and Tu, Zhaopeng
+  title: Modeling Past and Future for Neural Machine Translation
+  year: 2018
+  code: https://github.com/zhengzx-nlp/past-and-future-nmt
   author+an: 1=student; 2=highlight
   bib: "@article{zheng-etal-2018-modeling,\n author = {Zheng, Zaixiang  and\nZhou,\
     \ Hao  and\nHuang, Shujian  and\nMou, Lili  and\nDai, Xinyu  and\nChen, Jiajun\
@@ -2674,12 +2677,15 @@ entries:
     \ Association for Computational Linguistics (TACL)},\n student = {1},\n title\
     \ = {Modeling Past and Future for Neural Machine Translation},\n year = {2018}\n\
     }\n"
-  code: https://github.com/zhengzx-nlp/past-and-future-nmt
   paper: https://arxiv.org/abs/1711.09502
-  title: Modeling Past and Future for Neural Machine Translation
-  year: 2018
 - author: <b class='highlight'>Zhou, Hao</b>, Yu, Zhenting, Zhang, Yue, Huang, Shujian,
     Dai, Xinyu, and Chen, Jiajun
+  booktitle: Proceedings of the 2017 Conference on Empirical Methods in Natural Language
+    Processing (EMNLP)
+  title: Word-Context Character Embeddings for {C}hinese Word Segmentation
+  year: 2017
+  code: https://github.com/zhouh/WCC-Segmentation
+  month: September
   author+an: 1=highlight
   bib: "@inproceedings{zhou-etal-2017-word,\n author = {Zhou, Hao  and\nYu, Zhenting\
     \  and\nZhang, Yue  and\nHuang, Shujian  and\nDai, Xinyu  and\nChen, Jiajun},\n\
@@ -2688,15 +2694,15 @@ entries:
     \ eprint = {http://www.aclweb.org/anthology/D17-1079},\n month = {September},\n\
     \ title = {Word-Context Character Embeddings for {C}hinese Word Segmentation},\n\
     \ year = {2017}\n}\n"
-  booktitle: Proceedings of the 2017 Conference on Empirical Methods in Natural Language
-    Processing (EMNLP)
-  code: https://github.com/zhouh/WCC-Segmentation
-  month: September
   paper: http://www.aclweb.org/anthology/D17-1079
-  title: Word-Context Character Embeddings for {C}hinese Word Segmentation
-  year: 2017
 - author: <b class='highlight'>Zhou, Hao</b>, Tu, Zhaopeng, Huang, Shujian, Liu, Xiaohua,
     Li, Hang, and Chen, Jiajun
+  booktitle: Proceedings of the 55th Annual Meeting of the Association for Computational
+    Linguistics (ACL) - short papers
+  title: Chunk-Based Bi-Scale Decoder for Neural Machine Translation
+  year: 2017
+  code: https://github.com/zhouh/chunk-nmt
+  month: July
   author+an: 1=highlight
   bib: "@inproceedings{zhou-etal-2017-chunk,\n author = {Zhou, Hao  and\nTu, Zhaopeng\
     \  and\nHuang, Shujian  and\nLiu, Xiaohua  and\nLi, Hang  and\nChen, Jiajun},\n\
@@ -2705,15 +2711,15 @@ entries:
     \ = {https://github.com/zhouh/chunk-nmt},\n eprint = {http://aclweb.org/anthology/P17-2092},\n\
     \ month = {July},\n title = {Chunk-Based Bi-Scale Decoder for Neural Machine Translation},\n\
     \ year = {2017}\n}\n"
-  booktitle: Proceedings of the 55th Annual Meeting of the Association for Computational
-    Linguistics (ACL) - short papers
-  code: https://github.com/zhouh/chunk-nmt
-  month: July
   paper: http://aclweb.org/anthology/P17-2092
-  title: Chunk-Based Bi-Scale Decoder for Neural Machine Translation
-  year: 2017
 - author: <b class='highlight'>Zhou, Hao</b>, Zhang, Yue, Huang, Shujian, Zhou, Junsheng,
     Dai, Xin-Yu, and Chen, Jiajun
+  booktitle: Proceedings of the 54th Annual Meeting of the Association for Computational
+    Linguistics (ACL)
+  title: A Search-Based Dynamic Reranking Model for Dependency Parsing
+  year: 2016
+  code: https://github.com/zhouh/dynamic-reranker
+  month: August
   author+an: 1=highlight
   bib: "@inproceedings{zhou-etal-2016-search,\n author = {Zhou, Hao  and\nZhang, Yue\
     \  and\nHuang, Shujian  and\nZhou, Junsheng  and\nDai, Xin-Yu  and\nChen, Jiajun},\n\
@@ -2722,15 +2728,15 @@ entries:
     \ eprint = {http://aclweb.org/anthology/P16-1132},\n month = {August},\n title\
     \ = {A Search-Based Dynamic Reranking Model for Dependency Parsing},\n year =\
     \ {2016}\n}\n"
-  booktitle: Proceedings of the 54th Annual Meeting of the Association for Computational
-    Linguistics (ACL)
-  code: https://github.com/zhouh/dynamic-reranker
-  month: August
   paper: http://aclweb.org/anthology/P16-1132
-  title: A Search-Based Dynamic Reranking Model for Dependency Parsing
-  year: 2016
 - author: <b class='highlight'>Hao Zhou</b>, Yue Zhang, Shujian Huang, Xin-Yu Dai,
     and Jiajun Chen
+  booktitle: Proceedings of the Tenth International Conference on Language Resources
+    and Evaluation (LREC)
+  title: Evaluating a Deterministic Shift-Reduce Neural Parser for Constituent Parsing
+  year: 2016
+  code: https://github.com/zhouh/StructNNConParser
+  month: may
   author+an: 1=highlight
   bib: "@inproceedings{ZHOU16.150,\n author = {Hao Zhou and Yue Zhang and Shujian\
     \ Huang and Xin-Yu Dai and Jiajun Chen},\n author+an = {1=highlight},\n booktitle\
@@ -2739,15 +2745,12 @@ entries:
     \ eprint = {http://www.lrec-conf.org/proceedings/lrec2016/pdf/150_Paper.pdf},\n\
     \ month = {may},\n title = {Evaluating a Deterministic Shift-Reduce Neural Parser\
     \ for Constituent Parsing},\n year = {2016}\n}\n"
-  booktitle: Proceedings of the Tenth International Conference on Language Resources
-    and Evaluation (LREC)
-  code: https://github.com/zhouh/StructNNConParser
-  month: may
   paper: http://www.lrec-conf.org/proceedings/lrec2016/pdf/150_Paper.pdf
-  title: Evaluating a Deterministic Shift-Reduce Neural Parser for Constituent Parsing
-  year: 2016
 - author: <b class='highlight'>Zhou, Hao</b>, Zhang, Yue, Chuan, Chen, Huang, Shujian,
     Xinyu, Dai, and Chen, Jiajun
+  title: A Neural Probabilistic Structured-Prediction Method for Transition-Based
+    Natural Language Processing
+  year: 2016
   author+an: 1=highlight
   bib: "@article{zhou15-jair,\n author = {Zhou, Hao  and\nZhang, Yue  and\nChuan,\
     \ Chen and\nHuang, Shujian and\nXinyu, Dai  and\nChen, Jiajun},\n author+an =\
@@ -2756,11 +2759,11 @@ entries:
     \ Probabilistic Structured-Prediction Method for Transition-Based Natural Language\
     \ Processing},\n year = {2016}\n}\n"
   paper: http://www.jair.org/papers/paper5259.html
-  title: A Neural Probabilistic Structured-Prediction Method for Transition-Based
-    Natural Language Processing
-  year: 2016
 - author: <b class='highlight'>Zhou, Hao</b>, Huang, Shujian, Zhou, Junsheng, Zhang,
     Yue, Chen, Huadong, Dai, Xinyu, Chen, Chuan, and Chen, Jiajun
+  title: Enhancing Shift-Reduce Constituent Parsing with Action N-Gram Model
+  year: 2015
+  code: https://github.com/zhouh/NJU-Parser
   author+an: 1=highlight
   bib: "@article{zhou15-talip,\n author = {Zhou, Hao  and\nHuang, Shujian  and\nZhou,\
     \ Junsheng  and\nZhang, Yue  and\nChen, Huadong  and\nDai, Xinyu  and\nChen, Chuan\
@@ -2769,12 +2772,15 @@ entries:
     \ on Asian and Low-Resource Language Information Processing (TALLIP)},\n title\
     \ = {Enhancing Shift-Reduce Constituent Parsing with Action N-Gram Model},\n year\
     \ = {2015}\n}\n"
-  code: https://github.com/zhouh/NJU-Parser
   paper: https://dl.acm.org/citation.cfm?id=2820902
-  title: Enhancing Shift-Reduce Constituent Parsing with Action N-Gram Model
-  year: 2015
 - author: <b class='highlight'>Zhou, Hao</b>, Zhang, Yue, Huang, Shujian, and Chen,
     Jiajun
+  booktitle: Proceedings of the 53th Annual Meeting of the Association for Computational
+    Linguistics (ACL)
+  title: A Neural Probabilistic Structured-Prediction Model for Transition-Based Dependency
+    Parsing
+  year: 2015
+  code: https://github.com/zhouh/StructNNDepParser
   author+an: 1=highlight
   bib: "@inproceedings{zhou-etal-2015-neural,\n author = {Zhou, Hao  and\nZhang, Yue\
     \  and\nHuang, Shujian  and\nChen, Jiajun},\n author+an = {1=highlight},\n booktitle\
@@ -2783,13 +2789,7 @@ entries:
     \ eprint = {http://aclweb.org/anthology/P15-1117},\n title = {A Neural Probabilistic\
     \ Structured-Prediction Model for Transition-Based Dependency Parsing},\n year\
     \ = {2015}\n}\n"
-  booktitle: Proceedings of the 53th Annual Meeting of the Association for Computational
-    Linguistics (ACL)
-  code: https://github.com/zhouh/StructNNDepParser
   paper: http://aclweb.org/anthology/P15-1117
-  title: A Neural Probabilistic Structured-Prediction Model for Transition-Based Dependency
-    Parsing
-  year: 2015
 tags:
   recent:
   - 0
@@ -2799,3 +2799,62 @@ tags:
   - 4
   - 5
   - 6
+  Drug-Discovery:
+  - 1
+  - 2
+  - 5
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 38
+  Text-Generation:
+  - 4
+  - 6
+  - 7
+  - 8
+  - 10
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 24
+  - 25
+  - 27
+  - 30
+  - 32
+  - 33
+  - 38
+  - 42
+  - 44
+  - 46
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 55
+  - 56
+  - 58
+  - 61
+  - 63
+  - 67
+  - 68
+  Non-Autoregressive-Generation:
+  - 4
+  - 8
+  - 10
+  - 15
+  - 22
+  - 24
+  - 28
+  - 32
