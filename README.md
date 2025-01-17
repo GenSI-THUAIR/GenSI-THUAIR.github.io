@@ -9,7 +9,6 @@ If more features are required like searchbox or dark mode, move to [al-folio](ht
 We use Jekyll to build this website while using Python for bibtex parsing.
 
 
-
 - docker build
 
 ```bash
@@ -66,6 +65,8 @@ For everyone, *name* and *description* are required. *Thumbnail* and *url* are o
 - name: Yawen Ouyang
   description: PhD at NJU
   thumbnail: /assets/lab-pics/yawen-ouyang.jpeg
+  // or web image for thumbnail
+  thumbnail_web: http://a.b.c/d.jpg
   url: https://yawenouyang.github.io/about/
 ```
 

@@ -34,7 +34,9 @@ permalink: /people.html
             <a href="{{ person.url }}" target="_blank">
             {% endif %}
             {% if person.thumbnail %}
-              <img src="{{ person.thumbnail }}" class="u-max-full-width" />
+              <img src="{{ person.thumbnail | prepend: site.baseurl }}" class="u-max-full-width" />
+            {% elsif person.thumbnail_web %}
+              <img src="{{ person.thumbnail_web }}" class="u-max-full-width" />
             {% else %}
               <img src="/assets/lab-pics/lab-holder.png" class="u-max-full-width" />
             {% endif %}

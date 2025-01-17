@@ -23,6 +23,8 @@ student:
     description: PhD at THU, co-supervised with Prof. Jingjing Liu
   - name: Keyue Qiu
     description: PhD at THU, co-supervised with Prof. Weiying Ma
+    thumbnail_web: https://avatars.githubusercontent.com/u/48824043
+    url: https://qky18.github.io/
   - name: Yuxuan Song
     description: PhD at THU, co-supervised with Prof. Weiying Ma
   - name: Yanru Qu
