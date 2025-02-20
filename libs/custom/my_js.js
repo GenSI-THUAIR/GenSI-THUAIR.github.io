@@ -18,6 +18,7 @@ $(document).ready(function () {
       "'": '&#39;',
       "/": '&#x2F;'
     }
+  let isScrolling;
 
   function init() {
     $window.on('scroll', onScroll)
@@ -31,15 +32,12 @@ $(document).ready(function () {
   
   function smoothScroll(e) {
     e.preventDefault();
-    $(document).off("scroll");
     var target = this.hash,
-      menu = target;
     $target = $(target);
     $('html, body').stop().animate({
       'scrollTop': $target.offset().top - 40
     }, 0, 'swing', function () {
       window.location.hash = target;
-      $(document).on("scroll", onScroll);
     });
   }
 
@@ -66,17 +64,25 @@ $(document).ready(function () {
   function resize() {
     $body.removeClass('has-docked-nav')
     navOffsetTop = $nav.offset().top
-    onScroll()
+    onScroll();
+  }
+
+  function makeNavbarSticky() {
+    const windowY = window.scrollY;
+    if (navOffsetTop < windowY && !$body.hasClass('has-docked-nav')) {
+      $body.addClass('has-docked-nav');
+      // $nav.width($(".spacer").width());
+    }
+    if (navOffsetTop > windowY && $body.hasClass('has-docked-nav')) {
+      $body.removeClass('has-docked-nav')
+    }
   }
   
   function onScroll() {
-    if (navOffsetTop < $window.scrollTop() && !$body.hasClass('has-docked-nav')) {
-      $body.addClass('has-docked-nav');
-      $nav.width($(".spacer").width());
-    }
-    if (navOffsetTop > $window.scrollTop() && $body.hasClass('has-docked-nav')) {
-      $body.removeClass('has-docked-nav')
-    }
+    window.clearTimeout(isScrolling);
+    isScrolling = setTimeout(function () {
+      makeNavbarSticky();
+    }, 100);
   }
 
   function escapeHtml(string) {
@@ -97,15 +103,49 @@ $(document).ready(function () {
 
   $('.bibtex').on('click', function(event){
     const text = $(this).data('bib');
-    navigator.clipboard.writeText(text).then(function () {
+    if (window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () {
+        showToast('Bib copied!', event.clientX, event.clientY);
+      }).catch(function (err) {
+        // nothing todo
+      });
+    } else {
+      unsecuredCopyToClipboard(text, event.clientX, event.clientY);
       showToast('Bib copied!', event.clientX, event.clientY);
-    }).catch(function (err) {
-      // nothing todo
-    });
+    }
   });
 
   setInterval(highlightNavbar, 250);
+  // setInterval(makeNavbarSticky, 10000);
+  initI18n();
 });
+
+function unsecuredCopyToClipboard(text, x, y) {
+  // var copyArea = $('<div id="copyArea">' + '</div>');
+  // copyArea.text(text).css({
+  //   left: x + 'px',
+  //   top: y + 'px'
+  // });
+  // $('body').append(copyArea);
+  // copyArea.focus();
+  // copyArea.select();
+  // document.execCommand('copy');
+  // setTimeout(function () {
+  //   copyArea.remove();
+  // }, 200);
+
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  // textArea.focus();
+  textArea.select();
+  try {
+    document.execCommand('copy');
+  } catch (err) {
+    console.error('Unable to copy to clipboard', err);
+  }
+  document.body.removeChild(textArea);
+}
 
 function showToast(text, x, y) {
   var toast = $('<div id="toast" class="show">' + text + '</div>');
@@ -128,10 +168,80 @@ function highlightNavbar() {
   $navList = $('.navbar-links');
   var currentUrl = $(location).attr('href');
   var navId = currentUrl.split("/").pop().split(".")[0];
-  if ($navList.data('active') != navId) {
+  if (navId === "") {
+    navId = "about";
+  }
+  if ($navList.data('active') !== navId) {
     // change
     $('#'+$navList.data('active')).removeClass("active-navbar-link");
     $("#nav-"+navId).addClass("active-navbar-link");
     $navList.data('active', navId);
   }
+}
+
+let translations = {};
+const allowLangs = ['en', 'zh'];
+let lastLang = "en";
+
+function getLang() {
+  // const savedLang = localStorage.getItem('userLang');
+  const browserLang = navigator.language.split('-')[0];
+  const defaultLang = allowLangs.includes(browserLang) ? browserLang : 'en';
+  // return savedLang || defaultLang;
+  return defaultLang;
+}
+
+function loadAllLanguages() {
+  return Promise.all(allowLangs.map(lang => loadLanguage(lang)));
+}
+
+async function loadLanguage(lang) {
+  try {
+    const response = await fetch(`/locales/${lang}.json`);
+    translations[lang] = await response.json();
+  } catch (error) {
+    console.error('Error loading language file:', error);
+  }
+}
+
+
+function applyTranslations(langDict) {
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.dataset.i18n;
+    try {
+      const translation = langDict[key];
+      element.innerHTML = translation;
+    } catch (error) {
+      console.error(`Error translating element when key=${key}:`, element, error);
+    }
+  });
+}
+
+function applyLangOnTeam(lang) {
+  $(`#grid-people-${lastLang}`).css("display", "none")
+  $(`#grid-people-${lang}`).css("display", "grid")
+}
+
+function switchLang(lang) {
+  // localStorage.setItem('userLang', lang);
+  applyTranslations(translations[lang]);
+  applyLangOnTeam(lang);
+  lastLang = lang;
+}
+
+function initI18n() {
+  const langSwitch = document.getElementById('langSwitcher');
+  document.documentElement.removeAttribute('lang-loaded');
+  loadAllLanguages().then(() => {
+    const currentLang = getLang();
+    lastLang = currentLang;
+    switchLang(currentLang);
+    langSwitch.value = currentLang;
+    document.documentElement.setAttribute('lang-loaded', 'true');
+
+    langSwitch.addEventListener('change', (e) => {
+      const newLang = e.target.value;
+      switchLang(newLang);
+    });
+  })
 }

@@ -1,5 +1,7 @@
 .DS_Store
 */.DS_Store
-.jekyll-cache
-_site
 _snap_md5.txt
+# Ignore cache and metadata files
+.jekyll-cache
+.jekyll-metadata
+_site

@@ -45,10 +45,6 @@
   <link rel="stylesheet" href={{ "/libs/external/font-awesome-4.7.0/css/font-awesome.min.css" | prepend: site.baseurl }}> -->
   <link rel="stylesheet" href={{ "/libs/external/fontawesome-free-6.6.0-web/css/all.min.css" | prepend: site.baseurl }}>
 
-  <!-- Academicons
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href={{ "/libs/external/academicons-1.8.6/css/academicons.min.css" | prepend: site.baseurl }}>
-
   <!-- Skeleton tabs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href={{ "/libs/external/skeleton_tabs/skeleton-tabs.css" | prepend: site.baseurl }}>
@@ -69,21 +65,15 @@
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
+  {% include navbar.html %}
+  <div style="margin-bottom: 4rem;"></div>
+  {{ content }}
 
-    {% include navbar.html %}
-    <div style="margin-bottom: 8rem;"></div>
-    {{ content }}
-
-    {% include footer.html %}
-  </div>
+  {% include footer.html %}
   <!-- <div id="toast"></div> --> <!-- disabled toast -->
 
   <!-- Google Analytics -->
   {% include google_analytics.html %}
-
-  <!-- do not remove -->
-  <span id="62cd7b7da1aff3196fdc26b60e396df9"></span>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

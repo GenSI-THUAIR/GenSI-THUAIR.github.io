@@ -3,17 +3,28 @@ layout: default
 title: Home
 ---
 
-<div class="row row-extra">
-  <div class="six columns" style="font-size: 20px;">
-    <h3>GenSI @ THU AIR</h3>
-    Our mission is ... <br/><br/>
-    We desire to ...
-  </div>
-  <div class="six columns">
-    <h3>News</h3>
-    {% include news.html %}
+<div class="primary-bg-color container simple-spacer">
+  <h3 class="text-center" data-i18n="main:intro"></h3>
+  <div class="row row-extra">
+    <div class="six columns" style="font-size: 20px;">
+      <div data-i18n="main:mission"></div>
+      <br/>
+      <div data-i18n="main:vision"></div>
+    </div>
+    <div class="six columns">
+      <img src="/assets/gaming-Jan15.jpg" class="u-max-full-width" />
+    </div>
   </div>
 </div>
 
+<!-- News section -->
+<section class="secondary-bg-color simple-spacer simple-follow-spacer" id="sec-news">
+  <div class="container">
+    <h3 class="text-center" data-i18n="main:news-title"></h3>
+    <ul>
+      <p style="font-size: 20px;" data-i18n="main:news:Jun2024"/>
+    </ul>    
+  </div>
+</section>
 
 

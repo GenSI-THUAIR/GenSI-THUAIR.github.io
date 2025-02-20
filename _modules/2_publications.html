@@ -1,75 +1,15 @@
 ---
 layout: default
-marker: Publications
-permalink: /publications.html
+marker: Research
+permalink: /research.html
 ---
-<h2>{{ page.marker }}</h2>
-<ul class="tab-nav">
-  {% for tag in site.data.publications.tags %}
-  <li>
-    {% if tag[0] == "recent" %}
-    <div class="button active" data-ref="#papers-{{ tag[0] }}">{{ tag[0] }}</div>
-    {% else %}
-    <div class="button" data-ref="#papers-{{ tag[0] }}">{{ tag[0] }}</div>
-    {% endif %}
-  </li>
-  {% endfor %}
-  <li>
-    <div class="button" data-ref="#papers-all">All</div>
-  </li>
-</ul>
 
+<section class="container simple-spacer">
+  {% include research_project.html %}
+</section>
 
-<div class="tab-content">
-  {% for tag in site.data.publications.tags %}
-  <div
-  {% if tag[0] == "recent" %}
-  class="tab-pane active"
-  {% else %}
-  class="tab-pane"
-  {% endif %}
-  id="papers-{{ tag[0] }}">
-    <!-- {% assign selected_papers = site.data.publications.eprints | where: "selected", "y" %} -->
-    {% for tag_id in tag[1] %}
-    {% assign paper = site.data.publications.entries[tag_id] %}
-    <div class="paper">
-      <p class="title"><b>{{ paper.title }}</b></p>
-      <p>{{ paper.author }}</p>
-      <p><i>{{ paper.booktitle }}</i></p>
-      <div class="paper-buttons">
-        <a class="button bibtex" data-bib="{{ paper.bib }}">bib</a>
-        {% assign resources = "paper,code,poster,video,data,slides"|split: "," %}
-        {% for key in resources %}
-          {% for kv in paper %}
-          {% if kv[0] == key %} <!-- key in -->
-        <a class="button" href="{{ kv[1] }}" target="_blank">{{ kv[0] }}</a>
-          {% endif %}
-          {% endfor %}
-        {% endfor %}
-      </div>
-    </div>
-    {% endfor %}
+<section class="secondary-bg-color">
+  <div class="container simple-spacer simple-follow-spacer">
+    {% include research_publication.html %}
   </div>
-  {% endfor %}
-
-  <div class="tab-pane" id="papers-all">
-    {% for paper in site.data.publications.entries %}
-    <div class="paper">
-      <p class="title"><b>{{ paper.title }}</b></p>
-      <p>{{ paper.author }}</p>
-      <p><i>{{ paper.booktitle }}</i></p>
-      <div class="paper-buttons">
-        <a class="button bibtex" data-bib="{{ paper.bib }}">bib</a>
-        {% assign resources = "paper,code,poster,video,data,slides"|split: "," %}
-        {% for key in resources %}
-          {% for kv in paper %}
-          {% if kv[0] == key %} <!-- key in -->
-        <a class="button" href="{{ kv[1] }}" target="_blank">{{ kv[0] }}</a>
-          {% endif %}
-          {% endfor %}
-        {% endfor %}
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</div>
+</section>

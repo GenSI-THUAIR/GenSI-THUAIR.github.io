@@ -1,63 +1,78 @@
 ---
-layout: default
+layout: singleton
 marker: People
 permalink: /people.html
 ---
-<h2>{{ page.marker }}</h2>
-{% assign prefix = "lab" %}
 
-<div class="tab-content">
-  </div>
-  {% for group in site.data.laboratory %}
-  <h4>{{ group[0] }}</h4>
-  <div class="people-group" id="{{ prefix }}-{{ group[0] }}">
-    {% assign line = 4 %}
-
-    {% for person in group[1] %}
-    {% assign index_modulo = forloop.index0 | modulo: line %}
-    {% if index_modulo == 0 %}
-    <div class="row row-extra">
-    {% endif %}
-
-    {% case line %}
-    <!-- 12/line -->
-      {% when 3 %}
-      <div class="four columns">
-      {% when 4 %}
-      <div class="three columns">
-      {% when 6 %}
-      <div class="two columns">
-    {% endcase %}
-        <div class="lab-container"> <!-- make it like a card -->
-          <div class="lab-image-container">
-            {% if person.url %}
-            <a href="{{ person.url }}" target="_blank">
-            {% endif %}
-            {% if person.thumbnail %}
-              <img src="{{ person.thumbnail | prepend: site.baseurl }}" class="u-max-full-width" />
-            {% elsif person.thumbnail_web %}
-              <img src="{{ person.thumbnail_web }}" class="u-max-full-width" />
-            {% else %}
-              <img src="/assets/lab-pics/lab-holder.png" class="u-max-full-width" />
-            {% endif %}
-            {% if person.url %}
-            </a>
-            {% endif %}
-          </div>
-          
-          <div class="lab-caption">
-            <b>{{ person.name }}</b> <br/>
-            {{ person.description }}
-          </div>
-          
-        </div>
-      </div>
-
-        {% assign line_bk = line | minus: 1 %}
-        {% if index_modulo == line_bk or forloop.last %}
-    </div>
-        {% endif %}
+<section class="simple-spacer" id="lab-people">
+  <div class="header-people">
+    <div class="people-index">
+      <ul class="people-index-links">
+        {% for person in site.data.people %}
+        <li class="people-index-link-item">
+          <a class="people-index-link" href="#people-{{person[0] | downcase | replace: ' ', '-'}}">{{person[0]}}</a>
+        </li>
         {% endfor %}
+        <li class="people-index-link-item">
+          <a class="people-index-link" href="#people-alumni">Alumni</a>
+        </li>
+      </ul>
+    </div>
+    <a href="{{ site.data.profile.link }}">
+      <img class="people-prof-pic" src="/assets/lab-pics/hao-zhou.png">
+    </a>
+    <div class="people-prof">
+      <h3>{{ site.data.profile.name }}</h3>
+      <p>{{ site.data.profile.title }}</p>
+      <!-- <p class="people-prof-desc">Hello! I am a research associate professor at <a href="https://air.tsinghua.edu.cn/">Insititute for AI Industry
+          Research (AIR), Tsinghua University</a>. My research interest is developing Generative AI models to better
+        understand/generate discerte symbols including text, small molecules and proteins. Previously, I was a Research
+        Scientist/Manager at <a href="https://bytedance.com/en/">Bytedance AI lab</a>. Currently, I lead the Generative
+        Symbolic Intelligence group at Tsinghua AIR and co-lead the SIA Lab, a Joint Laboratory of THUAIR and ByteDance
+        on LLM research.</p> -->
+      <p class="people-prof-desc">My research interest is developing Generative AI models to better
+        understand/generate discerte symbols including text, small molecules and proteins. Previously, I was a Research
+        Scientist/Manager at Bytedance AI lab. Currently, I lead the Generative
+        Symbolic Intelligence group at Tsinghua AIR and co-lead the SIA Lab, a Joint Laboratory of THUAIR and ByteDance
+        on LLM research.</p>
+      <p>
+        <a href="mailto:{{ site.data.profile.email }}"><i class="fa fa-envelope fa-2xl"></i></a>
+      </p>
+    </div>
+  </div>
+
+  {% for people in site.data.people %}
+  <h3 id="people-{{people[0] | downcase | replace: ' ', '-'}}" class="people-group-title"> {{people[0]}} </h3>
+  <div class="people-group">
+    {% for person in people[1] %}
+    <div class="people-profile">
+      {% if person.url %}
+      <a href="{{ person.url }}" target="_blank">
+        {% endif %}
+        {% if person.thumbnail_web %}
+        <img src="{{ person.thumbnail_web }}">
+        {% else %}
+        <img src="{{ person.thumbnail | default: '/assets/lab-pics/lab-holder.png' | prepend: site.baseurl }}">
+        {% endif %}
+        {% if person.url %}
+      </a>
+      {% endif %}
+      <p class="person-title">{{ person.name }}</p>
+      {% if person.description %}
+      <p>{{ person.description }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
   </div>
   {% endfor %}
-</div>
+
+  <h3 id="people-alumni" class="people-group-title">Alumni</h3>
+  <div class="people-alumni">
+    {% for ap in site.data.alumni %}
+    <div class="" people-alumni-profile">
+      <p>{{ ap.name }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+

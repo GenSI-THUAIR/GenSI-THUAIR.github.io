@@ -6,7 +6,9 @@
   month     = jul,
   abstract  = {3D molecular representation learning has gained tremendous interest and achieved promising performance in various downstream tasks. A series of recent approaches follow a prevalent framework: an encoder-only model coupled with a coordinate denoising objective. However, through a series of analytical experiments, we prove that the encoder-only model with coordinate denoising objective exhibits inconsistency between pre-training and downstream objectives, as well as issues with disrupted atomic identifiers. To address these two issues, we propose Mol-AE for molecular representation learning, an auto-encoder model using positional encoding as atomic identifiers. We also propose a new training objective named 3D Cloze Test to make the model learn better atom spatial relationships from real molecular substructures. Empirical results demonstrate that Mol-AE achieves a large margin performance gain compared to the current state-of-the-art 3D molecular modeling approach.},
   eprint    = {https://biorxiv.org/content/10.1101/2024.04.13.589331v1},
-  author+an =  {8=highlight}
+  author+an =  {8=highlight},
+  tags      = {Mol},
+  image     = {/assets/gensi.png}
 }
 @InProceedings{zheng2024icml,
   author    = {Kangjie Zheng and Siyu Long and Tianyu Lu and Junwei Yang and Xinyu Dai and Ming Zhang and Zaiqing Nie and Wei-Ying Ma and Hao Zhou},
@@ -17,7 +19,8 @@
   abstract  = {Protein language models have demonstrated significant potential in the field of protein engineering. However, current protein language models primarily operate at the residue scale, which limits their ability to provide information at the atom level. This limitation prevents us from fully exploiting the capabilities of protein language models for applications involving both proteins and small molecules. In this paper, we propose ESM-AA (ESM All-Atom), a novel approach that enables atom-scale and residue-scale unified molecular modeling. ESM-AA achieves this by pre-training on multi-scale code-switch protein sequences and utilizing a multi-scale position encoding to capture relationships among residues and atoms. Experimental results indicate that ESM-AA surpasses previous methods in protein-molecule tasks, demonstrating the full utilization of protein language models. Further investigations reveal that through unified molecular modeling, ESM-AA not only gains molecular knowledge but also retains its understanding of proteins. },
   code = {https://github.com/zhengkangjie/ESM-AA},
   eprint    = {https://arxiv.org/abs/2403.12995},
-  author+an =  {9=highlight}
+  author+an =  {9=highlight},
+  tags      = {Mol,LLM}
 }
 @InProceedings{qu2024icml,
   author    = {Yanru Qu and Keyue Qiu and Yuxuan Song and Jingjing Gong and Jiawei Han and Mingyue Zheng and Hao Zhou and Weiying Ma},
@@ -28,7 +31,8 @@
   abstract  = {Generative models for structure-based drug design (SBDD) have shown promising results in recent years. Existing works mainly focus on how to generate molecules with higher binding affinity, ignoring the feasibility prerequisites for generated 3D poses and resulting in false positives. We conduct thorough studies on key factors of ill-conformational problems when applying autoregressive methods and diffusion to SBDD, including mode collapse and hybrid continuous-discrete space. In this paper, we introduce MolCRAFT, the first SBDD model that operates in the continuous parameter space, together with a novel noise reduced sampling strategy. Empirical results show that our model consistently achieves superior performance in binding affinity with more stable 3D structure, demonstrating our ability to accurately model interatomic interactions. To our best knowledge, MolCRAFT is the first to achieve reference-level Vina Scores (-6.59 kcal/mol) with comparable molecular size, outperforming other strong baselines by a wide margin (-0.84 kcal/mol).},
   code = {https://github.com/AlgoMole/MolCRAFT},
   eprint    = {https://arxiv.org/abs/2404.12141},
-  author+an =  {7=highlight}
+  author+an =  {7=highlight},
+  tags      = {Mol,BFN}
 }
 @InProceedings{luo2024kdd,
   author    = {Yizhen Luo and Kai Yang and Massimo Hong and Xing Yi Liu and Zikun Nie and Hao Zhou and Zaiqing Nie},
@@ -37,7 +41,8 @@
   year      = {2024},
   month     = aug,
   abstract  = {Molecular representation learning bears promise in vast scientific domains. Capturing molecular expertise based on diverse views is of great significance in learning effective and generalizable molecular representations. However, existing approaches fall short in capturing view information explicitly and handling data from heterogeneous sources. To address these issues, we introduce MV-Mol, a molecular representation learning model that harvests multi-view molecular expertise from chemical structures, unstructured knowledge from biomedical texts, and structured knowledge from knowledge graphs. We propose to explicitly model view information with text prompts, and leverage a fusion architecture to extract view-based molecular representations. We present a two-stage pre-training procedure, exploiting heterogeneous data of varying quality and quantity. Through extensive experiments, we show the improved molecular representations of MV-Mol that bring substantial benefits to molecule property prediction. Additionally, MV-Mol exhibits state-of-the-art performance in multi-modal comprehension of molecular structures and texts. },
-  author+an =  {6=highlight}
+  author+an =  {6=highlight},
+  tags      = {Mol}
 }
 @InProceedings{qian2024naacl,
   author    = {Lihua Qian and Mingxuan Wang and Yang Liu and Hao Zhou},
@@ -47,7 +52,8 @@
   month     = jul,
   abstract  = {Previously, non-autoregressive models were widely recognized as being superior in generation efficiency but inferior in generation quality due to the challenges of modeling multiple target modalities. To enhance the multi-modality modeling ability, we propose the diffusion glancing transformer, which employs a modality diffusion process and residual glancing sampling. The modality diffusion process is a discrete process that interpolates the multi-modal distribution along the decoding steps, and the residual glancing sampling approach guides the model to continuously learn the remaining modalities across the layers. Experimental results on various machine translation and text generation benchmarks demonstrate that DIFFGLAT achieves better generation accuracy while maintaining fast decoding speed compared with both autoregressive and non-autoregressive models.},
   eprint    = {https://arxiv.org/abs/2212.10240},
-  author+an =  {4=highlight}
+  author+an =  {4=highlight},
+  tags      = {Diffusion}
 }
 @InProceedings{yu2024iclr,
   author    = {Qiying Yu and Yudi Zhang and Yuyan Ni and Shikun Feng and Yanyan Lan and Hao Zhou and Jingjing Liu.},
@@ -57,7 +63,8 @@
   month     = jan,
   abstract  = {Self-supervised learning has recently gained growing interest in molecular modeling for scientific tasks such as AI-assisted drug discovery. Current studies consider leveraging both 2D and 3D molecular structures for representation learning. However, relying on straightforward alignment strategies that treat each modality separately, these methods fail to exploit the intrinsic correlation between 2D and 3D representations that reflect the underlying structural characteristics of molecules, and only perform coarse-grained molecule-level alignment. To derive fine-grained alignment and promote structural molecule understanding, we introduce an atomic-relation level "blend-then-predict" self-supervised learning approach, MoleBLEND, which first blends atom relations represented by different modalities into one unified relation matrix for joint encoding, then recovers modality-specific information for 2D and 3D structures individually. By treating atom relationships as anchors, MoleBLEND organically aligns and integrates visually dissimilar 2D and 3D modalities of the same molecule at fine-grained atomic level, painting a more comprehensive depiction of each molecule. Extensive experiments show that MoleBLEND achieves state-of-the-art performance across major 2D/3D molecular benchmarks. We further provide theoretical insights from the perspective of mutual-information maximization, demonstrating that our method unifies contrastive, generative (cross-modality prediction) and mask-then-predict (single-modality prediction) objectives into one single cohesive framework.},
   eprint    = {https://arxiv.org/abs/2307.06235},
-  author+an =  {1=student;6=highlight}
+  author+an =  {1=student;6=highlight},
+  tags      = {Mol}
 }
 
 @InProceedings{song2024iclr,

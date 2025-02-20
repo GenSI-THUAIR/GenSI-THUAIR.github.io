@@ -24,6 +24,8 @@ papers:
 
 import os.path as osp
 from datetime import datetime
+# import json
+# import shutil
 
 import bibtexparser  # bibtexparser
 import yaml  # pyyaml
@@ -32,6 +34,8 @@ ROOT = osp.dirname(__file__)
 RECENT_YEAR = 2
 PUB_BIB = osp.join(ROOT, "pub.bib")
 PUB_YML = osp.join(ROOT, "_data", "publications.yaml")
+PUB_JSON = osp.join(ROOT, "_data", "publications.json")
+PUB_JSON_WEB = osp.join(ROOT, "assets", "publications.json")
 
 NOW = datetime.now()
 NOW_DATE = NOW.year * 12 + NOW.month
@@ -50,14 +54,13 @@ MONTH_DICT = {
     "dec": 12,
 }
 
+CLEAN = ["tags", "author+an", "thumbnail"]
 
 REQUIRE = [
     "author", "booktitle", "title", "year", "abstract", "eprint", # requirement
     "code", "video", "month", # optional
-    "author+an", "tags" # supplementary
+    *CLEAN # supplementary
 ]
-
-CLEAN = ["tags"]
 
 MATCH_DICT = {
     "Text-Generation": ["Text Generation", "generation", "generating", "machine translation"],
@@ -125,11 +128,14 @@ def cleanup_bibtex(parser_entry:dict) -> str:
 
     return writer._entry_to_bibtex(parser_entry)
 
-def update_tags(group:dict, idx:int, entry:dict, enable_manual:bool=True):
+def update_tags(group:dict[str, list[int]], idx:int, entry:dict, enable_manual:bool=True):
     """Update tags for each entry
     """
-    if valid_recent(entry["year"], entry.get("month", 1)):
-            group["recent"].append(idx)
+    # ignore recent papers
+    # if valid_recent(entry["year"], entry.get("month", 1)):
+    #     if "recent" not in group:
+    #         group["recent"] = []
+    #     group["recent"].append(idx)
 
     if "tags" in entry:
         tag_in_entry = [t.strip() for t in entry["tags"].split(',')]
@@ -141,11 +147,11 @@ def update_tags(group:dict, idx:int, entry:dict, enable_manual:bool=True):
         tag_by_match(group, idx, entry)
     
 
-def build_pubs(root: str, yml:str):
+def build_pubs(root: str, storage:str):
     with open(root) as fd:
         bib_db = bibtexparser.load(fd)
 
-    entries = [] # list[dict]
+    entries:list[dict[str, str|int]] = []
     for entry in bib_db.entries:
         bib = {
             key: entry[key]
@@ -159,20 +165,24 @@ def build_pubs(root: str, yml:str):
         entries.append(bib)
 
 
-    tag_group = { "recent": [] }
+    tag_group:dict[str, list[int]] = {}
     for idx, entry in enumerate(entries):
-        update_tags(tag_group, idx, entry)
+        update_tags(tag_group, idx, entry, False)
         entry["author"] = highlight_author(entry["author+an"], entry["author"])
 
-    with open(yml, "w") as fd:
-        yaml.safe_dump({
+    with open(storage, "w") as fd:
+        result = {
             "entries": entries,
             "tags": tag_group,
-        }, fd, sort_keys=False)
+        }
+        # json.dump(result, fd)
+        yaml.safe_dump(result, fd, sort_keys=False)
 
 
 
 
 if __name__ == "__main__":
     build_pubs(PUB_BIB, PUB_YML)
+    # build_pubs(PUB_BIB, PUB_JSON)
+    # shutil.copyfile(PUB_JSON, PUB_JSON_WEB)
 
