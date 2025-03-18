@@ -33,11 +33,21 @@ h4 {
   letter-spacing: .1rem;
 }
 
+@font-face {
+  font-family: sora;
+  src: url(/libs/external/Sora-VariableFont_wght.ttf) format("truetype");
+}
+/* @font-face {
+  font-family: noto-sans-sc;
+  src: url(/libs/external/NotoSansSC-VariableFont_wght.ttf) format("truetype");
+} */
+
 body {
   margin: 0;
   min-height: 100vh;
 
-  font-family: sans-serif, 'Noto Sans CJK';
+  /* font-family: sora, 'Noto Sans SC', noto-sans-sc */
+  font-family: sora, 'Noto Sans SC'
 }
 
 .container {
