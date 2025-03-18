@@ -1,13 +1,15 @@
 ---
 layout: singleton
-marker: Blog
+marker: blog
+title: Blog
 permalink: /blog.html
 ---
 <h3 class="text-center">Posts from GenSI</h3>
 
 <div id="blog-gallery" class="blog-container">
-  <div style="border-top: 2px solid #c878a0;"></div>
+  <div style="border-top: 2px solid var(--primary-color);"></div>
   {% for page in site.blogs %}
+  {% if page.hide != true %}
   <a class="navbar-link-base" href="{{ page.url }}">
     <div class="blog-item">
       <h4 class="blog-title">{{ page.title }}</h4>
@@ -17,6 +19,7 @@ permalink: /blog.html
       </div>
     </div>
   </a>
+  {% endif %}
   {% endfor %}
 </div>
 

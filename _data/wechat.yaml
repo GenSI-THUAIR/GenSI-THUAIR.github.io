@@ -1,0 +1,5 @@
+title: ICML'24 | 清华 AIR 等提出 ESM-AA，实现多尺度蛋白质语言模型实现分子统一建模
+description: 来自清华大学 AIR、北京大学、南京大学的研究团队提出了 ESM-AA 模型。该模型在蛋白质语言建模领域取得了重要进展，提供了一套整合多尺度信息的统一建模方案。它是首个能同时处理氨基酸信息和原子信息的蛋白质预训练语言模型。模型的出色性能展示了多尺度统一建模在克服现有局限和解锁新能力方面的巨大潜力。作为基座模型，ESM-AA 获得了多位学者的关注与广泛讨论（截图见下方），被认为有潜力基于 ESM-AA 开发出可与 AlphaFold3、RoseTTAFold All-Atom 相竞争的模型，为研究不同生物结构间的相互作用开辟了新的道路。当前论文已被 ICML 2024 录⽤，欢迎全球的研究者使用 ESM-AA 进行研究探索。
+thumbnail:
+thumbnail_url: https://pic1.zhimg.com/70/v2-ee85824a2b32acf73dc3f90ede160fdb_1440w.avis
+link: https://zhuanlan.zhihu.com/p/720509312

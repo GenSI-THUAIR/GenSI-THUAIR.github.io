@@ -4,8 +4,13 @@ title: template <!-- title -->
 subtitle: <!-- short description of the blog -->
 category: <!-- solo category -->
 uid: <!--unique id of this blog for HTML element id (no space here) -->
+hide: true
 ---
 Demo page for GenSI homepage.
+
+```
+(?<!\$)\$(?!\$) -> "$$"
+```
 
 Equation is
 $$
@@ -14,6 +19,11 @@ q({\rm x}_t|{\rm x}_0)=\mathcal N({\rm x}_t;\sqrt{\bar\alpha_t}{\rm x}_{t-1},(1-
 $$
 
 $\alpha$ <-- wrong here
+
+$$\alpha$$ <-- right here
+
+inline equation should use `\mid` instead of `|` for $$p(y\mid x)$$
+
 
 ```python
 import numpy as np

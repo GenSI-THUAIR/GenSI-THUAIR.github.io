@@ -1,0 +1,74 @@
+.people-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-rows: repeat(auto-fit, min-content);
+  gap: 8px 12px;
+  justify-content: center;
+  padding: 16px 24px;
+  margin-bottom: 2rem;
+  /* max-height: 800px; */
+  overflow-y: auto;
+}
+
+.people-profile img {
+  height: 180px;
+  width: 180px;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+}
+
+.header-people {
+  display: grid;
+  grid-template-columns: 2fr 2fr 4fr;
+  margin-bottom: 8rem;
+}
+
+.people-prof-pic {
+  max-width: 400px;
+  aspect-ratio: 1;
+}
+
+.people-prof-desc {
+  color: var(--primary-color);
+}
+
+.people-index-links {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0 2px;
+  align-items: left;
+}
+
+.people-prof {
+  margin-left: 3rem;
+}
+
+li.people-index-link-item {
+  margin-bottom: 7rem;
+}
+
+a.people-index-link {
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
+.people-group-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.person-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.people-alumni {
+  display: grid;
+  /* grid-template-columns: ; */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-rows: repeat(auto-fit, min-content);
+}

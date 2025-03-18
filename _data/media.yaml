@@ -1,0 +1,13 @@
+# https://brandfetch.com/
+- name: GitHub
+  link: https://github.com/GenSI-THUAIR
+  icon: github.png
+- name: X
+  link: https://x.com/GenSI_official
+  icon: x.jpeg
+- name: 小红书
+  link: https://www.xiaohongshu.com/user/profile/65465f81000000000301f9bd
+  icon: xhs.jpeg
+- name: 知乎
+  link: https://www.zhihu.com/people/generative-si/posts
+  icon: zhihu.jpeg

@@ -1,20 +1,12 @@
-- name: MolCRAFT
-  description: Structure-Based Drug Design in Continuous Parameter Space
+- name: 
+  description: Generative Modeling of Scientific Data
   image: /assets/proj-pics/molcraft.png
-  link: https://github.com/AlgoMole/MolCRAFT
-- name: GeoBFN
-  description: Unified Generative Modeling of 3D Molecules with Bayesian Flow Networks
+  link: 
+- name: 
+  description: Large Scale Language Model
   image: /assets/proj-pics/geobfn.png
-  link: https://github.com/AlgoMole/GeoBFN
-- name: MolCRAFT
-  description: Structure-Based Drug Design in Continuous Parameter Space
+  link: 
+- name: 
+  description: Foundation Models of AI4S
   image: /assets/proj-pics/molcraft.png
-  link: https://github.com/AlgoMole/MolCRAFT
-- name: MolCRAFT
-  description: Structure-Based Drug Design in Continuous Parameter Space
-  image: /assets/proj-pics/molcraft.png
-  link: https://github.com/AlgoMole/MolCRAFT
-- name: MolCRAFT
-  description: Structure-Based Drug Design in Continuous Parameter Space
-  image: /assets/proj-pics/molcraft.png
-  link: https://github.com/AlgoMole/MolCRAFT
+  link: 

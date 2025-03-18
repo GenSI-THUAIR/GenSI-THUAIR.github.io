@@ -1,30 +1,77 @@
 ---
 layout: default
 title: Home
+banner: false
 ---
 
-<div class="primary-bg-color container simple-spacer">
-  <h3 class="text-center" data-i18n="main:intro"></h3>
-  <div class="row row-extra">
-    <div class="six columns" style="font-size: 20px;">
-      <div data-i18n="main:mission"></div>
-      <br/>
-      <div data-i18n="main:vision"></div>
-    </div>
-    <div class="six columns">
-      <img src="/assets/gaming-Jan15.jpg" class="u-max-full-width" />
+<section class="two page primary-bg-color">
+  <div class="container page main-title">
+    <div class="main-inner">
+      <div class="main-title-group">
+        <p class="main-title-text">GenSI</p>
+        <p class="main-title-text">根思</p>
+        <p class="main-title-text">从根本思考</p>
+      </div>
+      <div class="main-overview"><img class="main-overview-img" src="/assets/gensi-main.png"></div>
     </div>
   </div>
-</div>
-
-<!-- News section -->
-<section class="secondary-bg-color simple-spacer simple-follow-spacer" id="sec-news">
-  <div class="container">
-    <h3 class="text-center" data-i18n="main:news-title"></h3>
-    <ul>
-      <p style="font-size: 20px;" data-i18n="main:news:Jun2024"/>
-    </ul>    
+  <div class="container fit-page">
+    <div class="main-text-block">
+      <div class="main-text" data-i18n="main:mission"></div>
+      <div class="main-text" data-i18n="main:vision"></div>
+    </div>
   </div>
 </section>
 
+<!-- News section -->
+<section class="space-extender" id="sec-news">
+  <div class="container">
+    <h3 class="text" data-i18n="main:news-title"></h3>
+    <div class="news-block">
+      {% for piece in site.data.news.entry limit: 3 %}
+      <div class="news-item">
+        <p class="news-date" data-i18n="{{piece.key}}-date"></p>
+        {% if piece.link %}
+        <a href="{{piece.link}}" style="text-decoration: none; color: inherit;">
+          {% endif %}
+          <p class="news-title" data-i18n="{{piece.key}}"></p>
+          {% if piece.link %}
+        </a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 
+  <div class="footer-post">
+    <div class="footer-post-item">
+      <div class="footer-wechat">
+        <div class="footer-wechat-header">
+          <div class="footer-wechat-header-user">
+            <img class="footer-wechat-icon" src="/assets/gs-icon.png">
+            <div class="footer-wechat-name">GenSI</div>
+          </div>
+          <svg width="40" height="33" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#B2B2B2" fill-rule="evenodd">
+              <path
+                d="M35.322 28.525c2.504-1.829 4.103-4.534 4.103-7.54 0-5.508-5.316-9.973-11.875-9.973-6.558 0-11.875 4.465-11.875 9.974 0 5.508 5.317 9.974 11.875 9.974a13.96 13.96 0 003.876-.547c.11-.034.228-.052.35-.052.227 0 .434.07.63.183l2.6 1.513a.453.453 0 00.228.075.397.397 0 00.396-.4c0-.098-.039-.197-.064-.291l-.535-2.012a.8.8 0 01.291-.904m-11.73-9.237a1.488 1.488 0 01-1.483-1.494c0-.825.664-1.494 1.483-1.494.819 0 1.482.669 1.482 1.494s-.663 1.494-1.482 1.494m7.916 0a1.488 1.488 0 01-1.482-1.494c0-.825.663-1.494 1.482-1.494.82 0 1.483.669 1.483 1.494s-.664 1.494-1.483 1.494" />
+              <path
+                d="M14.25 0C6.38 0 0 5.359 0 11.969c0 3.607 1.92 6.853 4.923 9.047a.959.959 0 01.35 1.085l-.643 2.414c-.03.114-.076.232-.076.35 0 .265.212.479.475.479a.529.529 0 00.274-.09l3.12-1.815c.235-.136.483-.22.756-.22.146 0 .287.022.42.063a16.732 16.732 0 005.433.637 9.286 9.286 0 01-.478-2.933c0-6.028 5.818-10.916 12.996-10.916.26 0 .326.008.582.02C27.06 4.374 21.36 0 14.25 0M9.5 9.837c-.93 0-1.685-.76-1.685-1.698S8.569 6.44 9.5 6.44c.93 0 1.684.76 1.684 1.698 0 .937-.754 1.698-1.684 1.698m9.5 0c-.93 0-1.685-.76-1.685-1.698S18.07 6.44 19 6.44s1.685.76 1.685 1.698c0 .937-.755 1.698-1.685 1.698" />
+            </g>
+          </svg>
+        </div>
+        <div class="footer-card-base footer-wechat-title">{{ site.data.wechat.title }}</div>
+        <div class="footer-card-base footer-wechat-description">{{ site.data.wechat.description }}</div>
+        {% if site.data.wechat.thumbnail != null %}
+        <img class="footer-card-base footer-wechat-thumbnail" src="{{site.data.wechat.thumbnail}}" alt="wechat">
+        {% elsif site.data.wechat.thumbnail_url != null %}
+        <img class="footer-card-base footer-wechat-thumbnail" src="{{site.data.wechat.thumbnail_url}}" alt="wechat">
+        {% endif %}
+        <div class="footer-card-base footer-wechat-redirect"
+          onclick="window.open('{{ site.data.wechat.link }}', '_blank')">
+          Read more
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

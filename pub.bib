@@ -8,7 +8,7 @@
   eprint    = {https://biorxiv.org/content/10.1101/2024.04.13.589331v1},
   author+an =  {8=highlight},
   tags      = {Mol},
-  image     = {/assets/gensi.png}
+  thumbnail = {/assets/pub-pics/yang2024icml.png}
 }
 @InProceedings{zheng2024icml,
   author    = {Kangjie Zheng and Siyu Long and Tianyu Lu and Junwei Yang and Xinyu Dai and Ming Zhang and Zaiqing Nie and Wei-Ying Ma and Hao Zhou},
@@ -20,7 +20,8 @@
   code = {https://github.com/zhengkangjie/ESM-AA},
   eprint    = {https://arxiv.org/abs/2403.12995},
   author+an =  {9=highlight},
-  tags      = {Mol,LLM}
+  tags      = {Mol,LLM},
+  thumbnail = {/assets/pub-pics/zheng2024icml.png}
 }
 @InProceedings{qu2024icml,
   author    = {Yanru Qu and Keyue Qiu and Yuxuan Song and Jingjing Gong and Jiawei Han and Mingyue Zheng and Hao Zhou and Weiying Ma},
@@ -32,7 +33,8 @@
   code = {https://github.com/AlgoMole/MolCRAFT},
   eprint    = {https://arxiv.org/abs/2404.12141},
   author+an =  {7=highlight},
-  tags      = {Mol,BFN}
+  tags      = {Mol,BFN},
+  thumbnail = {/assets/pub-pics/qu2024icml.png}
 }
 @InProceedings{luo2024kdd,
   author    = {Yizhen Luo and Kai Yang and Massimo Hong and Xing Yi Liu and Zikun Nie and Hao Zhou and Zaiqing Nie},
@@ -41,8 +43,10 @@
   year      = {2024},
   month     = aug,
   abstract  = {Molecular representation learning bears promise in vast scientific domains. Capturing molecular expertise based on diverse views is of great significance in learning effective and generalizable molecular representations. However, existing approaches fall short in capturing view information explicitly and handling data from heterogeneous sources. To address these issues, we introduce MV-Mol, a molecular representation learning model that harvests multi-view molecular expertise from chemical structures, unstructured knowledge from biomedical texts, and structured knowledge from knowledge graphs. We propose to explicitly model view information with text prompts, and leverage a fusion architecture to extract view-based molecular representations. We present a two-stage pre-training procedure, exploiting heterogeneous data of varying quality and quantity. Through extensive experiments, we show the improved molecular representations of MV-Mol that bring substantial benefits to molecule property prediction. Additionally, MV-Mol exhibits state-of-the-art performance in multi-modal comprehension of molecular structures and texts. },
+  eprint    = {https://arxiv.org/abs/2406.09841},
   author+an =  {6=highlight},
-  tags      = {Mol}
+  tags      = {Mol},
+  thumbnail = {/assets/pub-pics/luo2024kdd.png}
 }
 @InProceedings{qian2024naacl,
   author    = {Lihua Qian and Mingxuan Wang and Yang Liu and Hao Zhou},
@@ -53,7 +57,8 @@
   abstract  = {Previously, non-autoregressive models were widely recognized as being superior in generation efficiency but inferior in generation quality due to the challenges of modeling multiple target modalities. To enhance the multi-modality modeling ability, we propose the diffusion glancing transformer, which employs a modality diffusion process and residual glancing sampling. The modality diffusion process is a discrete process that interpolates the multi-modal distribution along the decoding steps, and the residual glancing sampling approach guides the model to continuously learn the remaining modalities across the layers. Experimental results on various machine translation and text generation benchmarks demonstrate that DIFFGLAT achieves better generation accuracy while maintaining fast decoding speed compared with both autoregressive and non-autoregressive models.},
   eprint    = {https://arxiv.org/abs/2212.10240},
   author+an =  {4=highlight},
-  tags      = {Diffusion}
+  tags      = {Diffusion},
+  thumbnail = {/assets/pub-pics/qian2024naacl.png}
 }
 @InProceedings{yu2024iclr,
   author    = {Qiying Yu and Yudi Zhang and Yuyan Ni and Shikun Feng and Yanyan Lan and Hao Zhou and Jingjing Liu.},
@@ -64,7 +69,8 @@
   abstract  = {Self-supervised learning has recently gained growing interest in molecular modeling for scientific tasks such as AI-assisted drug discovery. Current studies consider leveraging both 2D and 3D molecular structures for representation learning. However, relying on straightforward alignment strategies that treat each modality separately, these methods fail to exploit the intrinsic correlation between 2D and 3D representations that reflect the underlying structural characteristics of molecules, and only perform coarse-grained molecule-level alignment. To derive fine-grained alignment and promote structural molecule understanding, we introduce an atomic-relation level "blend-then-predict" self-supervised learning approach, MoleBLEND, which first blends atom relations represented by different modalities into one unified relation matrix for joint encoding, then recovers modality-specific information for 2D and 3D structures individually. By treating atom relationships as anchors, MoleBLEND organically aligns and integrates visually dissimilar 2D and 3D modalities of the same molecule at fine-grained atomic level, painting a more comprehensive depiction of each molecule. Extensive experiments show that MoleBLEND achieves state-of-the-art performance across major 2D/3D molecular benchmarks. We further provide theoretical insights from the perspective of mutual-information maximization, demonstrating that our method unifies contrastive, generative (cross-modality prediction) and mask-then-predict (single-modality prediction) objectives into one single cohesive framework.},
   eprint    = {https://arxiv.org/abs/2307.06235},
   author+an =  {1=student;6=highlight},
-  tags      = {Mol}
+  tags      = {Mol},
+  thumbnail = {/assets/pub-pics/yu2024iclr.png}
 }
 
 @InProceedings{song2024iclr,
@@ -76,7 +82,9 @@
   abstract  = {Advanced generative model (e.g., diffusion model) derived from simplified continuity assumptions of data distribution, though showing promising progress, has been difficult to apply directly to geometry generation applications due to the multi-modality and noise-sensitive nature of molecule geometry. This work introduces Geometric Bayesian Flow Networks (GeoBFN), which naturally fits molecule geometry by modeling diverse modalities in the differentiable parameter space of distributions. GeoBFN maintains the SE-(3) invariant density modeling property by incorporating equivariant inter-dependency modeling on parameters of distributions and unifying the probabilistic modeling of different modalities. Through optimized training and sampling techniques, we demonstrate that GeoBFN achieves state-of-the-art performance on multiple 3D molecule generation benchmarks in terms of generation quality (90.87% molecule stability in QM9 and 85.6% atom stability in GEOM-DRUG. GeoBFN can also conduct sampling with any number of steps to reach an optimal trade-off between efficiency and quality (e.g., 20-times speedup without sacrificing performance).},
   eprint    = {https://arxiv.org/abs/2403.15441},
   code = {https://github.com/AlgoMole/GeoBFN/},
-  author+an =  {1=student;3=highlight}
+  author+an =  {1=student;3=highlight},
+  tags      = {BFN},
+  thumbnail = {/assets/pub-pics/song2024iclr.png}
 }
 @InProceedings{song2023neurips,
   author    = {Yuxuan Song and Jingjing Gong and Ziyao Cao and Minkai Xu and Stefano Ermon and Hao Zhou and Weiying Ma},
@@ -88,7 +96,7 @@
   code      = {https://github.com/AlgoMole/MolFM},
   eprint    = {https://arxiv.org/abs/2312.07168},
   author+an =  {1=student; 6=highlight},
-  
+  thumbnail = {/assets/pub-pics/song2023neurips.png}
 }
 @InProceedings{bao2022latent,
   author    = {Zaixiang Zheng and Yi Zhou and Hao Zhou},
@@ -98,7 +106,8 @@
   month     = may,
   abstract  = {In this work, we argue that non-autoregressive (NAR) sequence generative models can equivalently be regarded as an iterative refinement process towards the target sequence, implying an underlying dynamical system of NAR model: z = f (z, x) → y. In such a way, the optimal prediction of a NAR model should be the equilibrium state of its dynamics if given infinitely many iterations. However, this is infeasible in practice due to limited computational and memory budgets. To this end, we propose DEQNAR to directly solve for the equilibrium state of NAR models based on deep equilibrium networks (Bai et al., 2019) with black-box root-finding solvers and back-propagate through the equilibrium point via implicit differentiation with constant memory. We conduct extensive experiments on four WMT machine translation benchmarks. Our main findings show that DEQNAR can indeed converge to a more accurate prediction and is a general-purpose framework that consistently helps yield substantial improvement for several strong NAR backbones.},
   eprint    = {https://aclanthology.org/2023.findings-acl.747/},
-  author+an =  {3=highlight}
+  author+an =  {3=highlight},
+  thumbnail = {/assets/pub-pics/bao2022latent.png}
 }
 @InProceedings{wang2023accelerating,
   author    = {Danqing Wang and Zeyu Wen and Fei Ye and Lei Li and Hao Zhou},
@@ -110,7 +119,8 @@
 focus on peptide sequence attributes and do not consider crucial structure information. In this paper, we propose a latent sequence structure model for designing AMPs (LSSAMP). LSSAMP exploits multi-scale vector quantization in the latent space to represent secondary structures (e.g. alpha helix and beta sheet). By sampling in the latent space, LSSAMP can simultaneously generate peptides with ideal sequence attributes and secondary structures. Experimental results show that the peptides generated by LSSAMP have a high probability of antimicrobial activity. Our wet laboratory experiments verified that two of the 21 candidates exhibit strong antimicrobial activity. The code is released at https://github.com/dqwang122/LSSAMP.},
   code      = {https://github.com/dqwang122/LSSAMP},
   eprint    = {https://arxiv.org/abs/2212.09450},
-  author+an =  {1=student;5=highlight}
+  author+an =  {1=student;5=highlight},
+  thumbnail = {/assets/pub-pics/wang2023accelerating.png}
 }
 
 
@@ -123,7 +133,8 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   abstract  = {Generating desirable molecular structures in 3D is a fundamental problem for drug discovery. Despite the considerable progress we have achieved, existing methods usually generate molecules in atom resolution and ignore intrinsic local structures such as rings, which leads to poor quality in generated structures, especially when generating large molecules. Fragment-based molecule generation is a promising strategy, however, it is nontrivial to be adapted for 3D non-autoregressive generations because of the combinational optimization problems. In this paper, we utilize a coarse-to-fine strategy to tackle this problem, in which a Hierarchical Diffusion-based model (i.e.~HierDiff) is proposed to preserve the validity of local segments without relying on autoregressive modeling. Specifically, HierDiff first generates coarse-grained molecule geometries via an equivariant diffusion process, where each coarse-grained node reflects a fragment in a molecule. Then the coarse-grained nodes are decoded into fine-grained fragments by a message-passing process and a newly designed iterative refined sampling module. Lastly, the fine-grained fragments are then assembled to derive a complete atomic molecular structure. Extensive experiments demonstrate that HierDiff consistently improves the quality of molecule generation over existing methods.},
   code = {https://github.com/qiangbo1222/HierDiff},
   eprint    = {https://proceedings.mlr.press/v202/qiang23a/qiang23a.pdf},
-  author+an =  {6=highlight}
+  author+an =  {6=highlight},
+  thumbnail = {/assets/pub-pics/qiang2023icml.png}
 }
 @InProceedings{wyq2023iclr,
   author    = {Yiqun Wang and Yuning Shen and Shi Chen and Lihao Wang and Fei Ye and Hao Zhou},
@@ -133,7 +144,8 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   month     = jan,
   abstract  = {Molecular representation learning plays a crucial role in AI-assisted drug discovery research. Encoding 3D molecular structures through Euclidean neural networks has become the prevailing method in the geometric deep learning community. However, the equivariance constraints and message passing in Euclidean space may limit the network expressive power. In this work, we propose a Harmonic Molecular Representation learning (HMR) framework, which represents a molecule using the Laplace-Beltrami eigenfunctions of the molecular surface. HMR offers a multi-resolution representation of molecular geometric and chemical properties on 2D Riemannian manifold. We also introduce a harmonic message passing method to realize efficient spectral message passing over the surface manifold for better molecular encoding. Our proposed method shows comparable predictive power to current models in small molecule property prediction, and outperforms the state-of-the-art deep learning models for the rigid protein docking challenge, demonstrating its versatility in molecular representation learning.},
   eprint    = {https://openreview.net/pdf?id=ySCL-NG_I3},
-  author+an =  {6=highlight}
+  author+an =  {6=highlight},
+  thumbnail = {/assets/pub-pics/wyq2023iclr.png}
 }
 @InProceedings{wdq2023iclr,
   author    = {Danqing Wang and Fei Ye and Hao Zhou},
@@ -142,8 +154,9 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   year      = {2023},
   month     = jan,
   abstract  = {Antibodies are vital proteins offering robust protection for the human body from pathogens. The development of general protein and antibody-specific pre-trained language models both facilitate antibody prediction tasks. However, few studies comprehensively explore the representation capability of distinct pre-trained language models on different antibody problems. Here, to investigate the problem, we aim to answer the following key questions: (1) How do pre-trained language models perform in antibody tasks with different specificity? (2) How many benefits will the model gain if we introduce the specific biological mechanism to the pretraining process? (3) Do the learned antibody pre-trained representations make sense in real-world antibody problems, like drug discovery and immune process understanding? Previously, no benchmark available largely hindered the study to answer these questions. To facilitate the investigation, we provide an AnTibody Understanding Evaluation (ATUE) benchmark. We comprehensively evaluate the performance of protein pretrained language models by empirical study along with conclusions and new insights.},
-  eprint    = {https://openreview.net/pdf?id=ySCL-NG_I3},
-  author+an =  {3=highlight}
+  eprint    = {https://openreview.net/forum?id=zaq4LV55xHl},
+  author+an =  {3=highlight},
+  thumbnail = {/assets/pub-pics/wdq2023iclr.png}
 }
 @InProceedings{long2022neurips,
   author    = {Siyu Long and Yi Zhou and Xinyu Dai and Hao Zhou},
@@ -154,7 +167,8 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   abstract  = {Drug design is a crucial step in the drug discovery cycle. Recently, various deep learning-based methods design drugs by generating novel molecules from scratch, avoiding traversing large-scale drug libraries. However, they depend on scarce experimental data or time-consuming docking simulation, leading to overfitting issues with limited training data and slow generation speed. In this study, we propose the zero-shot drug design method DESERT (Drug dEsign by SkEtching and geneRaTing). Specifically, DESERT splits the design process into two stages: sketching and generating, and bridges them with the molecular shape. The two-stage fashion enables our method to utilize the large-scale molecular database to reduce the need for experimental data and docking simulation. Experiments show that DESERT achieves a new state-of-the-art at a fast speed.},
   eprint    = {https://arxiv.org/abs/2209.13865},
   author+an =  {1=student; 4=highlight},
-  student = {1}
+  student = {1},
+  thumbnail = {/assets/pub-pics/long2022neurips.png}
 }
 @InProceedings{wang2022neurips,
   author    = {Lihao Wang and Yi Zhou and Yiqun Wang and Xiaoqing Zheng and Xuanjing Huang and Hao Zhou},
@@ -165,7 +179,8 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   abstract  = {Predicting energetically favorable 3-dimensional conformations of organic molecules from molecular graph plays a fundamental role in computer-aided drug discovery research. However, effectively exploring the high-dimensional conformation space to identify (meta) stable conformers is anything but trivial.In this work, we introduce RMCF, a novel framework to generate a diverse set of low-energy molecular conformations through sampling from a regularized molecular conformation field. We develop a data-driven molecular segmentation algorithm to automatically partition each molecule into several structural building blocks to reduce the modeling degrees of freedom. Then, we employ a Markov Random Field to learn the joint probability distribution of fragment configurations and inter-fragment dihedral angles, which enables us to sample from different low-energy regions of a conformation space. Our model constantly outperforms state-of-the-art models for the conformation generation task on the GEOM-Drugs dataset. We attribute the success of RMCF to modeling in a regularized feature space and learning a global fragment configuration distribution for effective sampling. The proposed method could be generalized to deal with larger biomolecular systems.},
   eprint    = {https://openreview.net/forum?id=7XCFxnG8nGS},
   author+an =  {1=student; 6=highlight},
-  student = {1}
+  student = {1},
+  thumbnail = {/assets/pub-pics/wang2022neurips.png}
 }
 
 @InProceedings{huang2022icmla,
@@ -177,7 +192,8 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   abstract  = {Non-autoregressive Transformers (NATs) significantly reduce the decoding latency by generating all tokens in parallel. However, such independent predictions prevent NATs from capturing the dependencies between the tokens for generating multiple possible translations. In this paper, we propose Directed Acyclic Transfomer (DA-Transformer), which represents the hidden states in a Directed Acyclic Graph (DAG), where each path of the DAG corresponds to a specific translation. The whole DAG simultaneously captures multiple translations and facilitates fast predictions in a non-autoregressive fashion. Experiments on the raw training data of WMT benchmark show that DA-Transformer substantially outperforms previous NATs by about 3 BLEU on average, which is the first NAT model that achieves competitive results with autoregressive Transformers without relying on knowledge distillation.},
   eprint    = {https://arxiv.org/abs/2205.07459},
   author+an =  {1=student; 2=highlight},
-  student = {1}
+  student = {1},
+  thumbnail = {/assets/pub-pics/huang2022icmla.png}
 }
 @InProceedings{huang2022icmlb,
   author    = {Fei Huang and Tianhua Tao and Hao Zhou and Lei Li and Minlie Huang},
@@ -188,9 +204,11 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   abstract  = {Non-autoregressive Transformer (NAT) is a family of text generation models, which aims to reduce the decoding latency by predicting the whole sentences in parallel. However, such latency reduction sacrifices the ability to capture left-to-right dependencies, thereby making NAT learning very challenging. In this paper, we present theoretical and empirical analyses to reveal the challenges of NAT learning and propose a unified perspective to understand existing successes. First, we show that simply training NAT by maximizing the likelihood can lead to an approximation of marginal distributions but drops all dependencies between tokens, where the dropped information can be measured by the dataset's conditional total correlation. Second, we formalize many previous objectives in a unified framework and show that their success can be concluded as maximizing the likelihood on a proxy distribution, leading to a reduced information loss. Empirical studies show that our perspective can explain the phenomena in NAT learning and guide the design of new training methods.},
   eprint    = {https://arxiv.org/abs/2206.05975},
   author+an =  {1=student; 3=highlight},
-  student = {1}
+  student = {1},
+  thumbnail = {/assets/pub-pics/huang2022icmlb.png}
 }
 @InProceedings{chen2022mtg,
+  thumbnail = {/assets/pub-pics/chen2022mtg.png},
   author    = {Chen, Yiran and Song, Zhenqiao and Wu, Xianze and Wang, Danqing and Xu, Jingjing and Chen, Jiaze and Zhou, Hao and Li, Lei},
   booktitle = {Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT Findings)},
   title     = {{MTG}: A Benchmark Suite for Multilingual Text Generation},
@@ -198,7 +216,8 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   month     = jul,
   abstract  = {We introduce MTG, a new benchmark suite for training and evaluating multilingual text generation. It is the first and largest multilingual multiway text generation benchmark with 400k human-annotated data for four generation tasks (story generation, question generation, title generation and text summarization) across five languages (English, German, French, Spanish and Chinese). Its multiway characteristic makes it possible to achieve direct cross-lingual generation between any two languages, thus facilitating knowledge transfer. Based on MTG, we set various evaluation scenarios and conduct deep analyses of several popular multilingual generation models from different aspects. Our benchmark suite can foster model performance enhancement with more human-annotated parallel data and encourage model evaluation with more diverse generation scenarios.},
   eprint    = {https://arxiv.org/abs/2108.07140},
-  author+an =	 {7=highlight}
+  author+an =	 {7=highlight},
+  thumbnail = {/assets/pub-pics/chen2022mtg.png}
 }
 @InProceedings{bao2022latent,
   author    = {Yu Bao and Hao Zhou and Shujian Huang and Dongqi Wang and Lihua Qian and Xinyu Dai and Jiajun Chen and Lei Li},
@@ -210,7 +229,8 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   code      = {https://github.com/baoy-nlp/Latent-GLAT},
   eprint    = {https://openreview.net/forum?id=y4xCe0MSoWx},
   author+an =	 {1=student; 2=highlight},
-  student = {1}
+  student = {1},
+  thumbnail = {/assets/pub-pics/bao2022latent.png}
 }
 @InProceedings{fu2022contextual,
   author    = {Zhiyi Fu and Wangchunshu Zhou and Jingjing Xu and Hao Zhou and Lei Li},
@@ -221,7 +241,8 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   abstract  = {How do masked language models (MLMs) such as BERT learn contextual representations? In this work, we analyze the learning dynamics of MLMs. We find that MLMs adopt sampled embeddings as anchors to estimate and inject contextual semantics to representations, which limits the efficiency and effectiveness of MLMs. To address these issues, we propose TACO, a simple yet effective representation learning approach to directly model global semantics. TACO extracts and aligns contextual semantics hidden in contextualized representations to encourage models to attend global semantics when generating contextualized representations. Experiments on the GLUE benchmark show that TACO achieves up to 5x speedup and up to 1.2 points average improvement over existing MLMs.},
   code      = {https:// github.com/FUZHIYI/TACO},
   eprint    = {https://openreview.net/forum?id=KWL_ElhUejN},
-  author+an =	 {4=highlight}
+  author+an =	 {4=highlight},
+  thumbnail = {/assets/pub-pics/fu2022contextual.png}
 }
 @InProceedings{chen2022e,
   author    = {Jiangjie Chen and Rui Xu and Ziquan Fu and Wei Shi and Zhongqiao Li and Xinbo Zhang and Changzhi Sun and Lei Li and Yanghua Xiao and Hao Zhou},
@@ -232,7 +253,8 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   abstract  = {The ability to recognize analogies is fundamental to human cognition. Existing benchmarks to test word analogy do not reveal the underneath process of analogical reasoning of neural models. Holding the belief that models capable of reasoning should be right for the right reasons, we propose a first-of-its- kind Explainable Knowledge-intensive Analogical Reasoning benchmark (E-KAR). Our benchmark consists of 1,655 (in Chinese) and 1,251 (in English) problems sourced from the Civil Service Exams, which require intensive background knowledge to solve. More importantly, we design a free-text explanation scheme to explain whether an analogy should be drawn, and manually annotate them for each and every question and candidate answer. Empirical results suggest that this benchmark is very challenging for some state-of-the-art models for both explanation generation and analogical question answering tasks, which invites further research in this area. Project page of E-KAR can be found at https:// ekar-leaderboard.github.io.},
   eprint    = {https://openreview.net/forum?id=9kXOFRtrEj},
   url       = {https://ekar-leaderboard.github.io},
-  author+an =	 {1=student; 10=highlight;}
+  author+an =	 {1=student; 10=highlight;},
+  thumbnail = {/assets/pub-pics/chen2022e.png}
 }
 @InProceedings{sun2022rethinking,
   author    = {Zewei Sun and Mingxuan Wang and Hao Zhou and Chengqi Zhao and Shujian Huang and Jiajun Chen and Lei Li},
@@ -243,7 +265,8 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   abstract  = {This paper does not aim at introducing a novel model for document-level neural machine translation. Instead, we head back to the original Transformer model and hope to answer the following question: Is the capacity of current models strong enough for document-level translation? Interestingly, we observe that the original Transformer with appropriate training techniques can achieve strong results for document translation, even with a length of 2000 words. We evaluate this model and several recent approaches on nine document-level datasets and two sentence-level datasets across six languages. Experiments show that document-level Transformer models outperforms sentence-level ones and many previous methods in a comprehensive set of metrics, including BLEU, four lexical indices, three newly proposed assistant linguistic indicators, and human evaluation. Our new datasets and evaluation scripts are in https://github. com/sunzewei2715/Doc2Doc_NMT.},
   code      = {https://github. com/sunzewei2715/Doc2Doc_NMT},
   eprint    = {https://openreview.net/forum?id=sU9fYzNZ3xX},
-  author+an =	 {3=highlight}
+  author+an =	 {3=highlight},
+  thumbnail = {/assets/pub-pics/sun2022rethinking.png}
 }
 @InProceedings{song2022switch,
   author    = {Zhenqiao Song and Hao Zhou and Lihua Qian and Jingjing Xu and Shanbo Cheng and Mingxuan Wang and Lei Li},
@@ -254,7 +277,8 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   eprint    = {https://openreview.net/forum?id=5HvpvYd68b},
   abstract  = {Multilingual machine translation aims to develop a single model for multiple language directions. However, existing multilingual models based on Transformer are limited in terms of both translation performance and inference speed. In this paper, we propose switch-GLAT, a non-autoregressive multilingual machine translation model with a code-switch decoder. It can generate contextual code-switched translations for a given source sentence, and perform code-switch back-translation, greatly boosting multilingual translation performance. In addition, its inference is highly efficient thanks to its parallel decoder. Experiments show that our proposed switch-GLAT outperform the multilingual Transformer with as much as 1.16 BLEU improvement and 6.6x faster decoding speed in inference.},
   author+an =  {1=student; 2=highlight; 3=student},
-  student = {1}
+  student = {1},
+  thumbnail = {/assets/pub-pics/song2022switch.png}
 }
 @InProceedings{yang2022enhancing,
   author    = {Huiyun Yang and Huadong Chen and Hao Zhou and Lei Li},
@@ -265,9 +289,11 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   eprint    = {https://openreview.net/forum?id=OjPmfr9GkVv},
   abstract  = {Based on large-scale pre-trained multilingual representations, recent cross-lingual transfer methods have achieved impressive transfer performances. However, the performance of target languages still lags far behind the source language. In this paper, our analyses indicate such a performance gap is strongly associated with the cross-lingual representation discrepancy. To achieve better cross-lingual transfer performance, we propose the cross-lingual manifold mixup (X-Mixup) method, which adaptively calibrates the representation discrepancy and gives a compromised representation for target languages. Experiments on the XTREME benchmark show X-Mixup achieves 1.8% performance gains on multiple text understanding tasks, compared with strong baselines, and significantly reduces the cross-lingual representation discrepancy.},
   author+an =	 {1=student; 3=highlight},
-  student = {1}
+  student = {1},
+  thumbnail = {/assets/pub-pics/yang2022enhancing.png}
 }
 @InProceedings{huang2022non,
+  thumbnail = {/assets/pub-pics/huang2022non.png},
   author    = {Chenyang Huang and Hao Zhou and Osmar Zaiane and Lili Mou and Lei Li},
   booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)},
   title     = {Non-Autoregressive Translation with Layer-Wise Prediction and Deep Supervision},
@@ -280,6 +306,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{chen-gan2022aaai,
+  thumbnail = {/assets/pub-pics/chen-gan2022aaai.png},
   title={Unsupervised Editing for Counterfactual Stories},
   author={Chen, Jiangjie and Gan, Chun and Chen, Sijie and Zhou, Hao and Xiao, Yanghua and Li, Lei},
   year={2022},
@@ -292,6 +319,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
 }
 
 @InProceedings{chen2022loren,
+  thumbnail = {/assets/pub-pics/chen2022loren.png},
   title={LOREN: Logic-Regularized Reasoning for Interpretable Fact Verification},
   author={Chen, Jiangjie and Bao, Qiaoben and Sun, Changzhi and Zhang, Xinbo and Chen, Jiaze and Zhou, Hao and Xiao, Yanghua and Li, Lei},
   year={2022},
@@ -303,6 +331,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   author+an =	 {6=highlight},
 }
 @InProceedings{zheng2021duplex,
+  thumbnail = {/assets/pub-pics/zheng2021duplex.png},
   author    = {Zaixiang Zheng and Hao Zhou and Shujian Huang and Jiajun Chen and Jingjing Xu and Lei Li},
   booktitle = {the 35th Conference on Neural Information Processing Systems (NeurIPS)},
   title     = {Duplex Sequence-to-Sequence Learning for Reversible Machine Translation},
@@ -315,6 +344,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
 
 }
 @InProceedings{qian2021volctrans,
+  thumbnail = {/assets/pub-pics/qian2021volctrans.png},
   author       = {Lihua Qian and Yi Zhou and Zaixiang Zheng and Yaoming Zhu and Zehui Lin and Jiangtao Feng and Shanbo Cheng and Lei Li and Mingxuan Wang and Hao Zhou},
   booktitle    = {Sixth Conference on Machine Translation (WMT21)},
   title        = {The {Volctrans} {GLAT} System: Non-autoregressive Translation Meets {WMT21}},
@@ -329,17 +359,20 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{ru2021learning,
+  thumbnail = {/assets/pub-pics/ru2021learning.png},
   author    = {Dongyu Ru and Changzhi Sun and Jiangtao Feng and Lin Qiu and Hao Zhou and Weinan Zhang and Yong Yu and Lei Li},
   booktitle = {the Conference on Empirical Methods in Natural Language Processing (EMNLP)},
   title     = {Learning Logic Rules for Document-level Relation Extraction},
   year      = {2021},
   month     = nov,
   abstract  = {Document-level relation extraction aims to identify relations between entities in a whole document. Prior efforts to capture long-range dependencies have relied heavily on implicitly powerful representations learned through (graph) neural networks, which makes the model less transparent. To tackle this challenge, in this paper, we propose LogiRE, a novel probabilistic model for document-level relation extraction by learning logic rules. LogiRE treats logic rules as latent variables and consists of two modules: a rule generator and a relation extractor. The rule generator is to generate logic rules potentially contributing to final predictions, and the relation extractor outputs final predictions based on the generated logic rules. Those two modules can be efficiently optimized with the expectation--maximization (EM) algorithm. By introducing logic rules into neural networks, LogiRE can explicitly capture long-range dependencies as well as enjoy better interpretation. Empirical results show that LogiRE significantly outperforms several strong baselines in terms of relation performance (∼1.8 F1 score) and logical consistency (over 3.3 logic score). Our code is available at https://github. com/rudongyu/LogiRE.},
+  eprint    = {https://aclanthology.org/2021.emnlp-main.95.pdf},
   code      = {https://github.com/rudongyu/LogiRE},
   video     = {https://underline.io/lecture/38055-learning-logic-rules-for-document-level-relation-extraction},
   author+an =	 {5=highlight}
 }
 @InProceedings{wang2021cnewsum,
+  thumbnail = {/assets/pub-pics/wang2021cnewsum.png},
   author    = {Danqing Wang and Jiaze Chen and Xianze Wu and Hao Zhou and Lei Li},
   booktitle = {The 10th CCF International Conference on Natural Language Processing and Chinese Computing (NLPCC)},
   title     = {{CNewSum}: A Large-scale Chinese News Summarization Dataset with Human-annotated Adequacy and Deducibility Level},
@@ -352,6 +385,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   author+an =	 {4=highlight}
 }
 @InProceedings{shi-song2021ecml,
+  thumbnail = {/assets/pub-pics/shi-song2021ecml.png},
   author    = {Wenxian Shi and Yuxuan Song and Bohan Li and Hao Zhou and Lei Li},
   booktitle = {the European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD)},
   title     = {Follow Your Path: a Progressive Method for Knowledge Distillation},
@@ -363,6 +397,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{qian2021acl,
+  thumbnail = {/assets/pub-pics/qian2021acl.png},
   author    = {Lihua Qian and Hao Zhou and Yu Bao and Mingxuan Wang and Lin Qiu and Weinan Zhang and Yong Yu and Lei Li},
   booktitle = {the 59th Annual Meeting of the Association for Computational Linguistics (ACL)},
   title     = {Glancing Transformer for Non-Autoregressive Neural Machine Translation},
@@ -375,6 +410,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{xu2021acl,
+  thumbnail = {/assets/pub-pics/xu2021acl.png},
   author    = {Jingjing Xu and Hao Zhou and Chun Gan and Zaixiang Zheng and Lei Li},
   booktitle = {the 59th Annual Meeting of the Association for Computational Linguistics (ACL) - Best Paper Award},
   title     = {Vocabularization via Optimal Transport for Neural Machine Translation},
@@ -389,6 +425,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   author+an =	 {1=student; 2=highlight; 3=student; 4=student}
 }
 @InProceedings{wang2021acl,
+  thumbnail = {/assets/pub-pics/wang2021acl.png},
   author    = {Yijun Wang and Changzhi Sun and Yuanbin Wu and Hao Zhou and Lei Li and Junchi Yan},
   booktitle = {the 59th Annual Meeting of the Association for Computational Linguistics (ACL)},
   title     = {A Unified Label Space for Entity Relation Extraction},
@@ -401,16 +438,19 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   author+an =	 {4=highlight}
 }
 @InProceedings{sunzhang2021acl,
+  thumbnail = {/assets/pub-pics/sunzhang2021acl.png},
   author    = {Changzhi Sun and Xinbo Zhang and Jiangjie Chen and Chun Gan and Yuanbin Wu and Jiaze Chen and Hao Zhou and Lei Li},
   booktitle = {the 59th Annual Meeting of the Association for Computational Linguistics (ACL) - Finding},
   title     = {Probabilistic Graph Reasoning for Natural Proof Generation},
   year      = {2021},
+  abstract  = {In this paper, we investigate the problem of reasoning over natural language statements. Prior neural based approaches do not explicitly consider the inter-dependency among answers and their proofs. In this paper, we propose PRobr, a novel approach for joint answer prediction and proof generation. PRobr defines a joint probabilistic distribution over all possible proof graphs and answers via an induced graphical model. We then optimize the model using variational approximation on top of neural textual representation. Experiments on multiple datasets under diverse settings (fully supervised, few-shot and zero-shot evaluation) verify the effectiveness of PRobr, e.g., achieving 10%-30% improvement on QA accuracy in few/zero-shot evaluation.},
   month     = jul,
   code      = {https://github.com/changzhisun/PRobr/},
   eprint    = {https://arxiv.org/abs/2107.02418},
   author+an =	 {7=highlight}
 }
 @InProceedings{wangdq2021acl,
+  thumbnail = {/assets/pub-pics/wangdq2021acl.png},
   author    = {Danqing Wang and Jiaze Chen and Hao Zhou and Xipeng Qiu and Lei Li},
   booktitle = {the 59th Annual Meeting of the Association for Computational Linguistics (ACL) - Finding},
   title     = {Contrastive Aligned Joint Learning for Multilingual Summarization},
@@ -420,18 +460,22 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   url       = {https://dqwang122.github.io/projects/CALMS/},
   video     = {https://underline.io/lecture/26333-contrastive-aligned-joint-learning-for-multilingual-summarization},
   eprint = {https://aclanthology.org/2021.findings-acl.242.pdf},
+  abstract  = {Multilingual text summarization requires the ability to understand documents in multiple languages and generate summaries in the corresponding language, which poses more challenges on current summarization systems. However, this problem has been rarely studied due to the lack of large-scale supervised summarization data in multiple languages. In this paper, we first provide a large-scale multilingual summarization corpus MLGSum consisting of 1.1 million articles and summaries in 12 different languages. Based on it, we develop a unified summarization model to understand the document and generate summaries in different languages. We use the contrastive learning strategy to train our multilingual summarization system (CALMS), which consists of two training objectives, contrastive sentence ranking (CSR) and sentence aligned substitution (SAS). The two training objectives are designed to share salient information extractive ability and align sentencelevel representation across different languages. Experimental results indicate that CALMS achieves significant improvement over monolingual models in all languages. We further transfer CALMS to other languages and find that it will also benefit similar languages. O},
   author+an =	 {3=highlight}
 }
 @InProceedings{wang2021enpar,
+  thumbnail = {/assets/pub-pics/wang2021enpar.png},
   author    = {Yijun Wang and Changzhi Sun and Yuanbin Wu and Hao Zhou and Lei Li and Junchi Yan},
   booktitle = {Proceedings of European Chapter of the Association for Computational Linguistics (EACL)},
   title     = {{ENPAR}: Enhancing Entity and Entity Pair Representations for Joint Entity Relation Extraction},
+  abstract = {Current state-of-the-art systems for joint entity relation extraction (Luan et al., 2019; Wad-den et al., 2019) usually adopt the multi-task learning framework. However, annotations for these additional tasks such as coreference resolution and event extraction are always equally hard (or even harder) to obtain. In this work, we propose a pre-training method ENPAR to improve the joint extraction performance. ENPAR requires only the additional entity annotations that are much easier to collect. Unlike most existing works that only consider incorporating entity information into the sentence encoder, we further utilize the entity pair information. Specifically, we devise four novel objectives,i.e., masked entity typing, masked entity prediction, adversarial context discrimination, and permutation prediction, to pre-train an entity encoder and an entity pair encoder. Comprehensive experiments show that the proposed pre-training method achieves significant improvement over BERT on ACE05, SciERC, and NYT, and outperforms current state-of-the-art on ACE05.},
   year      = {2021},
   month     = apr,
   eprint = {https://aclanthology.org/2021.eacl-main.251/},
   author+an =	 {4=highlight}
 }
 @InProceedings{yutongICLR,
+  thumbnail = {/assets/pub-pics/yutongICLR.png},
   author    = {Yutong Xie and Chence Shi and Hao Zhou and Yuwei Yang and Weinan Zhang and Yong Yu and Lei Li},
   booktitle = {International Conference on Learning Representations (ICLR) - Spotlight},
   title     = {MARS: Markov Molecular Sampling for Multi-objective Drug Discovery},
@@ -445,6 +489,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{huang2021acmo,
+  thumbnail = {/assets/pub-pics/huang2021acmo.png},
   author    = {Xunpeng Huang and Runxin Xu and Hao Zhou and Zhe Wang and Zhengyang Liu and Lei Li},
   booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)},
   title     = {ACMo: Angle-Calibrated Moment Methods for Stochastic Optimization},
@@ -458,6 +503,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{dong2021listen,
+  thumbnail = {/assets/pub-pics/dong2021listen.png},
   author    = {Qianqian Dong and Rong Ye and Mingxuan Wang and Hao Zhou and Shuang Xu and Bo Xu and Lei Li},
   booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)},
   title     = {Listen, Understand and Translate: Triple Supervision Decouples End-to-end Speech-to-text Translation},
@@ -465,10 +511,12 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   month     = feb,
   code      = {https://github.com/dqqcasia/st},
   eprint    = {https://arxiv.org/abs/2009.09704},
+  abstract  = {An end-to-end speech-to-text translation (ST) takes audio in a source language and outputs the text in a target language. Existing methods are limited by the amount of parallel corpus. Can we build a system to fully utilize signals in a parallel ST corpus? We are inspired by human understanding system which is composed of auditory perception and cognitive processing. In this paper, we propose Listen-Understand-Translate, (LUT), a unified framework with triple supervision signals to decouple the end-to-end speech-to-text translation task. LUT is able to guide the acoustic encoder to extract as much information from the auditory input. In addition, LUT utilizes a pre-trained BERT model to enforce the upper encoder to produce as much semantic information as possible, without extra data. We perform experiments on a diverse set of speech translation benchmarks, including Librispeech English-French, IWSLT English-German and TED English-Chinese. Our results demonstrate LUT achieves the state-of-the-art performance, outperforming previous methods.},
   url       = {https://dqqcasia.github.io/projects/LUT/},
   author+an =	 {4=highlight}
 }
 @InProceedings{dong2021consecutive,
+  thumbnail = {/assets/pub-pics/dong2021consecutive.png},
   author    = {Qianqian Dong and Mingxuan Wang and Hao Zhou and Shuang Xu and Bo Xu and Lei Li},
   booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)},
   title     = {Consecutive Decoding for Speech-to-text Translation},
@@ -476,10 +524,12 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   month     = feb,
   code      = {https://github.com/dqqcasia/st},
   eprint    = {https://arxiv.org/abs/2009.09737},
+  abstract  = {Speech-to-text translation (ST), which directly translates the source language speech to the target language text, has attracted intensive attention recently. However, the combination of speech recognition and machine translation in a single model poses a heavy burden on the direct cross-modal cross-lingual mapping. To reduce the learning difficulty, we propose COnSecutive Transcription and Translation (COSTT), an integral approach for speech-to-text translation. The key idea is to generate source transcript and target translation text with a single decoder. It benefits the model training so that additional large parallel text corpus can be fully exploited to enhance the speech translation training. Our method is verified on three mainstream datasets, including Augmented LibriSpeech English-French dataset, IWSLT2018 English-German dataset, and TED English-Chinese dataset. Experiments show that our proposed COSTT outperforms or on par with the previous state-of-the-art methods on the three datasets.},
   url       = {https://dqqcasia.github.io/projects/COSTT/},
   author+an =	 {3=highlight}
 }
 @InProceedings{song2021triangular,
+  thumbnail = {/assets/pub-pics/song2021triangular.png},
   author    = {Zhenqiao Song and Jiaze Chen and Hao Zhou and Lei Li},
   booktitle = {Proceedings of the 14th International Conference on Web Search and Data Mining (WSDM)},
   title     = {Triangular Bidword Generation for Sponsored Search Auction},
@@ -490,6 +540,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{li2020sentence,
+  thumbnail = {/assets/pub-pics/li2020sentence.png},
   author    = {Bohan Li and Hao Zhou and Junxian He and Mingxuan Wang and Yiming Yang and Lei Li},
   booktitle = {the Conference on Empirical Methods in Natural Language Processing (EMNLP)},
   title     = {On the Sentence Embeddings from Pre-trained Language Models},
@@ -502,6 +553,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{lin2020pre,
+  thumbnail = {/assets/pub-pics/lin2020pre.png},
   author    = {Zehui Lin and Xiao Pan and Mingxuan Wang and Xipeng Qiu and Jiangtao Feng and Hao Zhou and Lei Li},
   booktitle = {the Conference on Empirical Methods in Natural Language Processing (EMNLP)},
   title     = {Pre-training Multilingual Neural Machine Translation by Leveraging Alignment Information},
@@ -513,6 +565,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   author+an =	 {6=highlight}
 }
 @InProceedings{ru2020active,
+  thumbnail = {/assets/pub-pics/ru2020active.png},
   author    = {Dongyu Ru and Jiangtao Feng and Lin Qiu and Hao Zhou and Mngxuan Wang and Weinan Zhang and Yong Yu and Lei Li},
   booktitle = {the Conference on Empirical Methods in Natural Language Processing (EMNLP) - Findings},
   title     = {Active Sentence Learning by Adversarial Uncertainty Sampling in Discrete Space},
@@ -524,6 +577,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{shi2020dispersed,
+  thumbnail = {/assets/pub-pics/shi2020dispersed.png},
   author    = {Wenxian Shi and Hao Zhou and Ning Miao and Lei Li},
   booktitle = {Proceedings of the 37th International Conference on Machine learning (ICML)},
   title     = {Dispersing Exponential Family Mixture {VAE}s for Interpretable Text Generation},
@@ -540,6 +594,8 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   author       = {Dongyu Ru and Zhenghui Wang and Lin Qiu and Hao Zhou and Lei Li and Weinan Zhang and Yong Yu},
   booktitle    = {the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR) - System Demonstrations},
   title        = {{QuAChIE}: Question Answering based {Chinese} Information Extraction System},
+  abstract = {In this paper, we present the design of QuAChIE, a Question Answering based Chinese Information Extraction system. QuAChIE mainly depends on a well-trained question answering model to extract high-quality triples. The group of head entity and relation are regarded as a question given the input text as the context. For the training and evaluation of each model in the system, we build a large-scale information extraction dataset using Wikidata and Wikipedia pages by distant supervision. The advanced models implemented on top of the pre-trained language model and the enormous distant supervision data enable QuAChIE to extract relation triples from documents with cross-sentence correlations. The experimental results on the test set and the case study based on the interactive demonstration show its satisfactory Information Extraction quality on Chinese document-level texts.},
+  eprint = {https://dl.acm.org/doi/abs/10.1145/3397271.3401411},
   year         = {2020},
   month        = jul,
   entrysubtype = {demo},
@@ -547,6 +603,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{miao2020do,
+  thumbnail = {/assets/pub-pics/miao2020do.png},
   author    = {Ning Miao and Yuxuan Song and Hao Zhou and Lei Li},
   booktitle = {the 58th Annual Meeting of the Association for Computational Linguistics (ACL) - short papers},
   title     = {Do you have the right scissors? Tailoring Pre-trained Language Models via {Monte}-{Carlo} Methods},
@@ -560,6 +617,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @inproceedings{liu-etal-2020-unsupervised,
+  thumbnail = {/assets/pub-pics/liu-etal-2020-unsupervised.png},
     title = "Unsupervised Paraphrasing by Simulated Annealing",
     author = "Liu, Xianggen  and
       Mou, Lili  and
@@ -575,6 +633,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
     author+an =	 {1=student; 4=highlight},
 }
 @InProceedings{xu2020xiaomingbot,
+  thumbnail = {/assets/pub-pics/xu2020xiaomingbot.png},
   author       = {Runxin Xu and Jun Cao and Mingxuan Wang and Jiaze Chen and Hao Zhou and Ying Zeng and Yuping Wang and Li Chen and Xiang Yin and Xijin Zhang and Songcheng Jiang and Yuxuan Wang and Lei Li},
   booktitle    = {the 58th Annual Meeting of the Association for Computational Linguistics (ACL) - System Demonstrations},
   title        = {Xiaomingbot: A Multilingual Robot News Reporter},
@@ -586,6 +645,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   author+an =	 {1=student; 5=highlight}
 }
 @InProceedings{song2020improving,
+  thumbnail = {/assets/pub-pics/song2020improving.png},
   author    = {Yuxuan Song and Ning Miao and Hao Zhou and Lantao Yu and Mingxuan Wang and Lei Li},
   booktitle = {The 23rd International Conference on Artificial Intelligence and Statistics (AISTATS)},
   title     = {Improving Maximum Likelihood Training for Text Generation with Density Ratio Estimation},
@@ -597,6 +657,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{ye2020variational,
+  thumbnail = {/assets/pub-pics/ye2020variational.png},
   author    = {Rong Ye and Wenxian Shi and Hao Zhou and Zhongyu Wei and Lei Li},
   booktitle = {International Conference on Learning Representations (ICLR)},
   title     = {Variational Template Machine for Data-to-Text Generation},
@@ -610,6 +671,7 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{zheng2020mirror,
+  thumbnail = {/assets/pub-pics/zheng2020mirror.png},
   author    = {Zaixiang Zheng and Hao Zhou and Shujian Huang and Lei Li and Xinyu Dai and Jiajun Chen},
   booktitle = {International Conference on Learning Representations (ICLR) - Oral},
   title     = {Mirror Generative Models for Neural Machine Translation},
@@ -623,16 +685,19 @@ focus on peptide sequence attributes and do not consider crucial structure infor
   student = {1}
 }
 @InProceedings{song2020infomax,
+  thumbnail = {/assets/pub-pics/song2020infomax.png},
   title={Infomax Neural Joint Source-Channel Coding via Adversarial Bit Flip},
   author={Song, Yuxuan and Xu, Minkai and Yu, Lantao and Zhou, Hao and Shao, Shuo and Yu, Yong},
   booktitle = {the 34th {AAAI} Conference on Artificial Intelligence ({AAAI})},
   year={2020},
   month     = feb,
   eprint = {https://arxiv.org/abs/2004.01454},
+  abstract = {Although Shannon theory states that it is asymptotically optimal to separate the source and channel coding as two independent processes, in many practical communication scenarios this decomposition is limited by the finite bit-length and computational power for decoding. Recently, neural joint source-channel coding (NECST) is proposed to sidestep this problem. While it leverages the advancements of amortized inference and deep learning to improve the encoding and decoding process, it still cannot always achieve compelling results in terms of compression and error correction performance due to the limited robustness of its learned coding networks. In this paper, motivated by the inherent connections between neural joint source-channel coding and discrete representation learning, we propose a novel regularization method called Infomax Adversarial-Bit-Flip (IABF) to improve the stability and robustness of the neural joint source-channel coding scheme. More specifically, on the encoder side, we propose to explicitly maximize the mutual information between the codeword and data; while on the decoder side, the amortized reconstruction is regularized within an adversarial framework. Extensive experiments conducted on various real-world datasets evidence that our IABF can achieve state-of-the-art performances on both compression and error correction benchmarks and outperform the baselines by a significant margin.},
   author+an =	 {1=student; 2=student; 4=highlight},
   student = {1}
 }
 @InProceedings{yang2020towards,
+  thumbnail = {/assets/pub-pics/yang2020towards.png},
   author    = {Jiacheng Yang and Mingxuan Wang and Hao Zhou and Chengqi Zhao and Weinan Zhang and Yong Yu and Lei Li},
   booktitle = {the 34th {AAAI} Conference on Artificial Intelligence ({AAAI})},
   title     = {Towards Making the Most of {BERT} in Neural Machine Translation},
@@ -645,6 +710,7 @@ to 3 BLEU score on the WMT14 English-German language pair which even surpasses t
   
 }
 @InProceedings{wu2020importance,
+  thumbnail = {/assets/pub-pics/wu2020importance.png},
   author    = {Qingyang Wu and Lei Li and Hao Zhou and Ying Zeng and Zhou Yu},
   booktitle = {the 34th {AAAI} Conference on Artificial Intelligence (AAAI)},
   title     = {Importance-Aware Learning for Neural Headline Editing},
@@ -655,6 +721,7 @@ to 3 BLEU score on the WMT14 English-German language pair which even surpasses t
   author+an =	 {1=student; 3=highlight}
 }
 @InProceedings{fu2019rethinking,
+  thumbnail = {/assets/pub-pics/fu2019rethinking.png},
   author    = {Fu, Yao and Zhou, Hao and Chen, Jiaze and Li, Lei},
   booktitle = {the 12th International Conference on Natural Language Generation (INLG)},
   title     = {Rethinking Text Attribute Transfer: A Lexical Analysis},
@@ -666,6 +733,7 @@ to 3 BLEU score on the WMT14 English-German language pair which even surpasses t
   student = {1}
 }
 @InProceedings{miao2019kernelized,
+  thumbnail = {/assets/pub-pics/miao2019kernelized.png},
   author    = {Miao, Ning and Zhou, Hao and Zhao, Chengqi and Shi, Wenxian and Li, Lei},
   booktitle = {the 33rd Conference on Neural Information Processing Systems (NeurIPS)},
   title     = {Kernelized {Bayesian} Softmax for Text Generation},
@@ -678,6 +746,7 @@ to 3 BLEU score on the WMT14 English-German language pair which even surpasses t
   student = {1}
 }
 @inproceedings{qiu-etal-2019-dynamically,
+  thumbnail = {/assets/pub-pics/qiu-etal-2019-dynamically.png},
     title = "Dynamically Fused Graph Network for Multi-hop Reasoning",
     author = "Qiu, Lin  and
       Xiao, Yunxuan  and
@@ -690,13 +759,14 @@ to 3 BLEU score on the WMT14 English-German language pair which even surpasses t
     month = jul,
     year = "2019",
     abstract  = {Text-based question answering (TBQA) has been studied extensively in recent years. Most existing approaches focus on finding the answer to a question within a single paragraph. However, many difficult questions require multiple supporting evidence from scattered text across two or more documents. In this paper, we propose the Dynamically Fused Graph Network (DFGN), a novel method to answer those questions requiring multiple scattered evidence and reasoning over them. Inspired by human’s step-by-step reasoning behavior, DFGN includes a dynamic fusion layer that starts from the entities mentioned in the given query, explores along the entity graph dynamically built from the text, and gradually finds relevant supporting entities from the given documents. We evaluate DFGN on HotpotQA, a public TBQA dataset requiring multi-hop reasoning. DFGN achieves competitive results on the public board. Furthermore, our analy- sis shows DFGN could produce interpretable reasoning chains.},
-  eprint      = {https://https://www.aclweb.org/anthology/P19-1617},
+  eprint      = {https://aclanthology.org/P19-1617/},
   code = {https://github.com/woshiyyya/DFGN-pytorch},
     author+an =	 {1=student; 2=student; 3=student; 4=highlight},
   }
   student = {1}
 }
 @inproceedings{zhang-etal-2019-generating-fluent,
+  thumbnail = {/assets/pub-pics/zhang-etal-2019-generating-fluent.png},
     title = "Generating Fluent Adversarial Examples for Natural Languages",
     author = "Zhang, Huangzhao  and
       Zhou, Hao  and
@@ -706,11 +776,12 @@ to 3 BLEU score on the WMT14 English-German language pair which even surpasses t
     month = jul,
     year = "2019",
     abstract  = {Efficiently building an adversarial attacker fornatural language processing (NLP) tasks is areal challenge. Firstly, as the sentence spaceis discrete, it is difficult to make small perturbations along the direction of gradients. Secondly,the fluency of the generated examples can not be guaranteed. In this paper, we propose MHA, which addresses both problemsby performing Metropolis-Hastings sampling,whose proposal is designed with the guidanceof gradients. Experiments on IMDB and SNLIshow that our proposed MHA outperforms thebaseline model on attacking capability. Adversarial training with MHA also leads to better robustness and performance.},
-    eprint      = {https://www.aclweb.org/anthology/P19-1559},
+    eprint      = {https://aclanthology.org/P19-1559},
     author+an =	 {1=student; 3=student; 2=highlight},
   student = {1}
 }
 @inproceedings{bao-etal-2019-generating,
+  thumbnail = {/assets/pub-pics/bao-etal-2019-generating.png},
     title = "Generating Sentences from Disentangled Syntactic and Semantic Spaces",
     author = "Bao, Yu  and
       Zhou, Hao  and
@@ -725,11 +796,12 @@ to 3 BLEU score on the WMT14 English-German language pair which even surpasses t
     year = "2019",
     abstract  = {Variational auto-encoders (VAEs) are widely used in natural language generation due to the regularization of the latent space. However, generating sentences from the continuous latent space does not explicitly model the syntactic information. In this paper, we propose to generate sentences from disentangled syntactic and semantic spaces. Our proposed method explicitly models syntactic information in the VAE’s latent space by using the linearized tree sequence, leading to better performance of language generation. Additionally, the advantage of sampling in the disentangled syntactic and semantic latent spaces enables us to perform novel applications, such as the unsupervised paraphrase generation and syntax-transfer generation. Experimental results show that our proposed model achieves similar or better performance in various tasks, compared with state-of-the-art related work.},
   code      = {https://github.com/baoy-nlp/DSS-VAE},
-  eprint      = {https://www.aclweb.org/anthology/P19-1602},
+  eprint      = {https://aclanthology.org/P19-1602},
     author+an =	 {1=student; 2=highlight},
   student = {1}
 }
 @inproceedings{wei-etal-2019-imitation,
+  thumbnail = {/assets/pub-pics/wei-etal-2019-imitation.png},
     title = "Imitation Learning for Non-Autoregressive Neural Machine Translation",
     author = "Wei, Bingzhen  and
       Wang, Mingxuan  and
@@ -737,12 +809,14 @@ to 3 BLEU score on the WMT14 English-German language pair which even surpasses t
       Lin, Junyang  and
       Sun, Xu",
     booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics (ACL)",
+    abstract = {Non-autoregressive translation models (NAT) have achieved impressive inference speedup. A potential issue of the existing NAT algorithms, however, is that the decoding is conducted in parallel, without directly considering previous context. In this paper, we propose an imitation learning framework for non-autoregressive machine translation, which still enjoys the fast translation speed but gives comparable translation performance compared to its auto-regressive counterpart. We conduct experiments on the IWSLT16, WMT14 and WMT16 datasets. Our proposed model achieves a significant speedup over the autoregressive models, while keeping the translation quality comparable to the autoregressive models. By sampling sentence length in parallel at inference time, we achieve the performance of 31.85 BLEU on WMT16 Ro→En and 30.68 BLEU on IWSLT16 En→De.},
     month = jul,
     year = "2019",
-  eprint      = {https://www.aclweb.org/anthology/P19-1125},
+  eprint      = {https://aclanthology.org/P19-1125},
     author+an =	 {3=highlight}
 }
 @inproceedings{ijcai2019-0730,
+  thumbnail = {/assets/pub-pics/ijcai2019-0730.png},
   title     = {Correct-and-Memorize: Learning to Translate from Interactive Revisions},
   author    = {Weng, Rongxiang and Zhou, Hao and Huang, Shujian and Li, Lei and Xia, Yifan and Chen, Jiajun},
   booktitle = {Proceedings of the Twenty-Eighth International Joint Conference on
@@ -758,17 +832,20 @@ to 3 BLEU score on the WMT14 English-German language pair which even surpasses t
 }
 
 @InProceedings{sun2019graspsnooker,
+  thumbnail = {/assets/pub-pics/sun2019graspsnooker.png},
   author       = {Sun, Zhaoyue and Chen, Jiaze and Zhou, Hao and Zhou, Deyu and Li, Lei and Jiang, Mingmin},
   booktitle    = {the 28th International Joint Conference on Artificial Intelligence (IJCAI)  - System Demonstrations},
   title        = {{GraspSnooker}: Automatic {Chinese} Commentary Generation for Snooker Videos},
   year         = {2019},
   month        = aug,
-  eprint      = {https://www.ijcai.org/proceedings/2019/0730.pdf},
+  abstract = {We demonstrate a web-based software system, GraspSnooker, which is able to automatically generate Chinese text commentaries for snooker game videos. It consists of a video analyzer, a strategy predictor and a commentary generator. As far as we know, it is the first attempt on snooker commentary generation, which might be helpful for snooker learners to understand the game.},
+  eprint      = {https://www.ijcai.org/proceedings/2019/0959.pdf},
   code = {https://github.com/wengrx/CAMIT},
   author+an =	 {1=student; 3=highlight},
   student = {1}
 }
 @inproceedings{bahuleyan-etal-2019-stochastic,
+  thumbnail = {/assets/pub-pics/bahuleyan-etal-2019-stochastic.png},
     title = "Stochastic {W}asserstein Autoencoder for Probabilistic Sentence Generation",
     author = "Bahuleyan, Hareesh  and
       Mou, Lili  and
@@ -776,20 +853,24 @@ to 3 BLEU score on the WMT14 English-German language pair which even surpasses t
       Vechtomova, Olga",
     booktitle = "Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics (NAACL)",
     month = jun,
+    abstract = {The variational autoencoder (VAE) imposes a probabilistic distribution (typically Gaussian) on the latent space and penalizes the Kullback-Leibler (KL) divergence between the posterior and prior. In NLP, VAEs are extremely difficult to train due to the problem of KL collapsing to zero. One has to implement various heuristics such as KL weight annealing and word dropout in a carefully engineered manner to successfully train a VAE for text. In this paper, we propose to use the Wasserstein autoencoder (WAE) for probabilistic sentence generation, where the encoder could be either stochastic or deterministic. We show theoretically and empirically that, in the original WAE, the stochastically encoded Gaussian distribution tends to become a Dirac-delta function, and we propose a variant of WAE that encourages the stochasticity of the encoder. Experimental results show that the latent space learned by WAE exhibits properties of continuity and smoothness as in VAEs, while simultaneously achieving much higher BLEU scores for sentence reconstruction.},
     year = "2019",
-    eprint      = {https://www.aclweb.org/anthology/N19-1411},
+    eprint      = {https://aclanthology.org/N19-1411},
     code = {https://github.com/HareeshBahuleyan/probabilistic_nlg},
     author+an =	 {3=highlight}
 }
 @inproceedings{wei2019neural,
+  thumbnail = {/assets/pub-pics/wei2019neural.png},
   title={Why do neural dialog systems generate short and meaningless replies? a comparison between dialog and translation},
   author={Wei, Bolin and Lu, Shuai and Mou, Lili and Zhou, Hao and Poupart, Pascal and Li, Ge and Jin, Zhi},
   booktitle={International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
   year={2019},
   eprint      = {https://arxiv.org/abs/1712.02250},
+  abstract = {This paper addresses the question: Why do neural dialog systems generate short and meaningless replies? We conjecture that, in a dialog system, an utterance may have multiple equally plausible replies, causing the deficiency of neural networks in the dialog application. We propose a systematic way to mimic the dialog scenario in a machine translation system, and manage to reproduce the phenomenon of generating short and less meaningful sentences in the translation setting, showing evidence of our conjecture.},
   author+an =	 {4=highlight}
 }
 @inproceedings{miao2019cgmh,
+  thumbnail = {/assets/pub-pics/miao2019cgmh.png},
   title={CGMH: Constrained sentence generation by metropolis-hastings sampling},
   author={Miao, Ning and Zhou, Hao and Mou, Lili and Yan, Rui and Li, Lei},
   booktitle={Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)},
@@ -820,7 +901,8 @@ is released at https://github.com/NingMiao/CGMH},
   author+an =	 {1=student; 2=highlight},
   student = {1}
 }
-@inproceedings{NEURIPS2018_734e6bfc,
+@inproceedings{cao2018brits,
+  thumbnail = {/assets/pub-pics/cao2018brits.png},
  author = {Cao, Wei and Wang, Dong and Li, Jian and Zhou, Hao and Li, Lei and Li, Yitan},
  booktitle = {Advances in Neural Information Processing Systems (NIPS)},
  title = {BRITS: Bidirectional Recurrent Imputation for Time Series},
@@ -832,6 +914,7 @@ is released at https://github.com/NingMiao/CGMH},
   student = {1}
 }
 @inproceedings{shi2018tree,
+  thumbnail = {/assets/pub-pics/shi2018tree.png},
     title={On Tree-Based Neural Sentence Modeling},
     author={Shi, Haoyue and Zhou, Hao and Chen, Jiaze and Li, Lei},
     booktitle={Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP)},
@@ -843,6 +926,7 @@ is released at https://github.com/NingMiao/CGMH},
   student = {1}
 }
 @article{zheng-etal-2018-modeling,
+  thumbnail = {/assets/pub-pics/zheng-etal-2018-modeling.png},
     title = "Modeling Past and Future for Neural Machine Translation",
     author = "Zheng, Zaixiang  and
       Zhou, Hao  and
@@ -856,9 +940,11 @@ is released at https://github.com/NingMiao/CGMH},
     eprint      = {https://arxiv.org/abs/1711.09502},
     code = {https://github.com/zhengzx-nlp/past-and-future-nmt},
     author+an =	 {1=student; 2=highlight},
+    abstract = {Existing neural machine translation systems do not explicitly model what has been translated and what has not during the decoding phase. To address this problem, we propose a novel mechanism that separates the source information into two parts: translated Past contents and untranslated Future contents, which are modeled by two additional recurrent layers. The Past and Future contents are fed to both the attention model and the decoder states, which offers NMT systems the knowledge of translated and untranslated contents. Experimental results show that the proposed approach significantly improves translation performance in Chinese-English, German-English and English-German translation tasks. Specifically, the proposed model outperforms the conventional coverage model in both of the translation quality and the alignment error rate.},
   student = {1}
 }
 @inproceedings{zhou-etal-2017-word,
+  thumbnail = {/assets/pub-pics/zhou-etal-2017-word.png},
     title = "Word-Context Character Embeddings for {C}hinese Word Segmentation",
     author = "Zhou, Hao  and
       Yu, Zhenting  and
@@ -869,11 +955,13 @@ is released at https://github.com/NingMiao/CGMH},
     booktitle = "Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
     month = sep,
     year = "2017",
-    eprint      = {http://www.aclweb.org/anthology/D17-1079},
+    eprint      = {http://aclanthology.org/D17-1079},
+    abstract = {Neural parsers have benefited from automatically labeled data via dependency-context word embeddings. We investigate training character embeddings on a word-based context in a similar way, showing that the simple method improves state-of-the-art neural word segmentation models significantly, beating tri-training baselines for leveraging auto-segmented data.},
     code = {https://github.com/zhouh/WCC-Segmentation},
     author+an =	 {1=highlight}
 }
 @inproceedings{zhou-etal-2017-chunk,
+  thumbnail = {/assets/pub-pics/zhou-etal-2017-chunk.png},
     title = "Chunk-Based Bi-Scale Decoder for Neural Machine Translation",
     author = "Zhou, Hao  and
       Tu, Zhaopeng  and
@@ -885,10 +973,12 @@ is released at https://github.com/NingMiao/CGMH},
     month = jul,
     year = "2017",
     eprint      = {http://aclweb.org/anthology/P17-2092},
+    abstract = {In typical neural machine translation (NMT), the decoder generates a sentence word by word, packing all linguistic granularities in the same time-scale of RNN. In this paper, we propose a new type of decoder for NMT, which splits the decode state into two parts and updates them in two different time-scales. Specifically, we first predict a chunk time-scale state for phrasal modeling, on top of which multiple word time-scale states are generated. In this way, the target sentence is translated hierarchically from chunks to words, with information in different granularities being leveraged. Experiments show that our proposed model significantly improves the translation performance over the state-of-the-art NMT model.},
     code      = {https://github.com/zhouh/chunk-nmt},
     author+an =	 {1=highlight}
 }
 @inproceedings{zhou-etal-2016-search,
+  thumbnail = {/assets/pub-pics/zhou-etal-2016-search.png},
     title = "A Search-Based Dynamic Reranking Model for Dependency Parsing",
     author = "Zhou, Hao  and
       Zhang, Yue  and
@@ -900,20 +990,24 @@ is released at https://github.com/NingMiao/CGMH},
     month = aug,
     year = "2016",
     eprint      = {http://aclweb.org/anthology/P16-1132},
+    abstract = {We propose a novel reranking method to extend a deterministic neural dependency parser. Different to conventional k-best reranking, the proposed model integrates search and learning by utilizing a dynamic action revising process, using the reranking model to guide modification for the base outputs and to rerank the candidates. The dynamic reranking model achieves an absolute 1.78% accuracy improvement over the deterministic baseline parser on PTB, which is the highest improvement by neural rerankers in the literature.},
     code      = {https://github.com/zhouh/dynamic-reranker},
     author+an =	 {1=highlight}
 }
 @InProceedings{ZHOU16.150,
+  thumbnail = {/assets/pub-pics/ZHOU16.150.png},
   author = {Hao Zhou and Yue Zhang and Shujian Huang and Xin-Yu Dai and Jiajun Chen},
   title = {Evaluating a Deterministic Shift-Reduce Neural Parser for Constituent Parsing},
   booktitle = {Proceedings of the Tenth International Conference on Language Resources and Evaluation (LREC)},
   year = {2016},
   month = {may},
   eprint      = {http://www.lrec-conf.org/proceedings/lrec2016/pdf/150_Paper.pdf},
+  abstract = {Greedy transition-based parsers are appealing for their very fast speed, with reasonably high accuracies. In this paper, we build a fast shift-reduce neural constituent parser by using a neural network to make local decisions. One challenge to the parsing speed is the large hidden and output layer sizes caused by the number of constituent labels and branching options. We speed up the parser by using a hierarchical output layer, inspired by the hierarchical log-bilinear neural language model. In standard WSJ experiments, the neural parser achieves an almost 2.4 time speed up (320 sen/sec) compared to a non-hierarchical baseline without significant accuracy loss (89.06 vs 89.13 F-score).},
   code      = {https://github.com/zhouh/StructNNConParser},
   author+an =	 {1=highlight}
  }
 @article{zhou15-jair,
+  thumbnail = {/assets/pub-pics/zhou15-jair.png},
     title = "A Neural Probabilistic Structured-Prediction Method for Transition-Based Natural Language Processing",
     author = "Zhou, Hao  and
       Zhang, Yue  and
@@ -923,7 +1017,8 @@ is released at https://github.com/NingMiao/CGMH},
       Chen, Jiajun",
     journal = "Journal of Artificial Intelligence Research (JAIR)",
     year = "2016",
-    eprint      = {http://www.jair.org/papers/paper5259.html},
+    abstract = {We propose a neural probabilistic structured-prediction method for transition-based natural language processing, which integrates beam search and contrastive learning. The method uses a global optimization model, which can leverage arbitrary features over non-local context. Beam search is used for efficient heuristic decoding, and contrastive learning is performed for adjusting the model according to search errors. When evaluated on both chunking and dependency parsing tasks, the proposed method achieves significant accuracy improvements over the locally normalized greedy baseline on the two tasks, respectively.},
+    eprint      = {https://jair.org/index.php/jair/article/view/11054},
     author+an =	 {1=highlight}
 }
 
@@ -940,10 +1035,12 @@ is released at https://github.com/NingMiao/CGMH},
     journal = "ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP)",
     year = "2015",
     eprint      = {https://dl.acm.org/citation.cfm?id=2820902},
+    abstract = {Current shift-reduce parsers “understand” the context by embodying a large number of binary indicator features with a discriminative model. In this article, we propose the action n-gram model, which utilizes the action sequence to help parsing disambiguation. The action n-gram model is trained on action sequences produced by parsers with the n-gram estimation method, which gives a smoothed maximum likelihood estimation of the action probability given a specific action history. We show that incorporating action n-gram models into a state-of-the-art parsing framework could achieve parsing accuracy improvements on three datasets across two languages.},
     code      = {https://github.com/zhouh/NJU-Parser},
     author+an =	 {1=highlight}
 }
 @inproceedings{zhou-etal-2015-neural,
+  thumbnail = {/assets/pub-pics/zhou-etal-2015-neural.png},
     title = "A Neural Probabilistic Structured-Prediction Model for Transition-Based Dependency Parsing",
     author = "Zhou, Hao  and
       Zhang, Yue  and
@@ -953,5 +1050,6 @@ is released at https://github.com/NingMiao/CGMH},
     year = "2015",
     eprint      = {http://aclweb.org/anthology/P15-1117},
     code      = {https://github.com/zhouh/StructNNDepParser},
+    abstract = {Neural probabilistic parsers are attractive for their capability of automatic feature combination and small data sizes. A transition-based greedy neural parser has given better accuracies over its linear counterpart. We propose a neural probabilistic structured-prediction model for transition-based dependency parsing, which integrates search and learning. Beam search is used for decoding, and contrastive learning is performed for maximizing the sentence-level log-likelihood. In standard Penn Treebank experiments, the structured neural parser achieves a 1.8% accuracy improvement upon a competitive greedy neural parser baseline, giving performance comparable to the best linear parser.},
     author+an =	 {1=highlight}
 }

@@ -1,0 +1,44 @@
+.blog-item {
+  border-bottom: 1px solid var(--primary-color);
+}
+
+h4.blog-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-top: 1.5rem;
+}
+
+.blog-create {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  padding-bottom: 1.5rem;
+  padding-right: 1rem;
+  color: var(--primary-color);
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.filter-tag-button {
+  text-transform: none;
+  font-size: 1.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 16px;
+  padding: 0 1rem;
+}
+
+.filter-tag-button.active {
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: #eee;
+}
+
+.filter-tag {
+  margin-right: 1rem;
+}
+
+.filter-tags {
+  margin-bottom: 1rem;
+}

@@ -1,27 +1,18 @@
-<div class="spacer"></div>
-<nav class="navbar-mod">
-  <div class="container">
+<nav class="navbar-mod primary-bg-color">
+  <div class="">
     <div class="navbar-container">
-      <a href="{{ site.baseurl | append: '/' }}"><img src="{{ site.baseurl }}/assets/gensi.png" alt="Logo"></a>
+      <a href="{{ site.baseurl | append: '/' }}"><img src="/assets/gensi_white.png" alt="Logo"></a>
       <ul class="navbar-links" data-active="lab-all">
-        <li>
-          <a id="nav-about" class="navbar-link-base navbar-link" href={{ '/' | prepend: site.baseurl }}>About</a>
-        </li>
         {% for mod in site.modules %}
         {% if mod.marker %}
         {% assign navid = mod.marker | downcase | prepend: 'nav-' %}
         <li>
-          <a id="{{ navid }}" class="navbar-link-base navbar-link" href='{{ mod.url | prepend: site.baseurl }}'>
-            {{ mod.marker }}
+          <a id="{{ navid }}" class="navbar-link-base navbar-link" href='{{ mod.url | prepend: site.baseurl }}'
+            data-i18n="{{ mod.marker | prepend: 'footer:'}}">
           </a>
         </li>
         {% endif %}
         {% endfor %}
-
-        <select class="i18n" id="langSwitcher">
-          <option value="en" class="i18n">English</option>
-          <option value="zh" class="i18n">中文</option>
-        </select>
       </ul>
     </div>
   </div>

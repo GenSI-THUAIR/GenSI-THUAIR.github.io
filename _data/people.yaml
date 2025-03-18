@@ -1,42 +1,99 @@
 Postdoctoral Fellows:
   - name: Yawen Ouyang
-    description: PhD at NJU
+    description: Ph.D. at NJU
     thumbnail: /assets/lab-pics/yawen-ouyang.jpeg
     url: https://yawenouyang.github.io/about/
-  - name: Jingjing Gong
-    description: PhD at FDU
-    thumbnail: /assets/lab-pics/jingjing-gong.jpeg
-    url: https://scholar.google.com.hk/citations?user=IlNreT4AAAAJ
+  - name: Jiangtao Feng
+    description: Research Assistant at THUAIR
+    thumbnail: /assets/lab-pics/jiangtao-feng.jpg
+    url: https://jiangtaofeng.github.io/
+  - name: Fanyou Meng
+    description: Research Assistant at THUAIR
+    thumbnail: /assets/lab-pics/fanyou-meng.png
+    url: 
+  - name: Siyu Long
+    description: Ph.D. at NJU
+    thumbnail: /assets/lab-pics/siyu-long.jpg
+    url: https://longlongman.github.io/
+  - name: Hao Wang
+    description: Ph.D. at THU
+    thumbnail: /assets/lab-pics/hao-wang.jpg
+
 
 Doctoral Students:
-  - name: Hanlin Wu
-    description: PhD at THU, co-supervised with Prof. Jingjing Liu
-  - name: Ziyao Cao
-    description: PhD at THU, co-supervised with Prof. Weiying Ma
-  - name: Botian Wang
-    description: PhD at THU, co-supervised with Prof. Weiying Ma
-  - name: Qiying Yu
-    description: PhD at THU, co-supervised with Prof. Jingjing Liu
-  - name: Keyue Qiu
-    description: PhD at THU, co-supervised with Prof. Weiying Ma
-    thumbnail_web: https://avatars.githubusercontent.com/u/48824043
-    url: https://qky18.github.io/
-    domain: MolGen
   - name: Yuxuan Song
-    description: PhD at THU, co-supervised with Prof. Weiying Ma
-  - name: Yanru Qu
-    description: intern at THUAIR, PhD at UIUC
-  - name: Yaohui Li
-    description: intern at THUAIR, PhD at NJU
-  - name: Mianzhi Pan
-    description: intern at THUAIR, PhD at NJU
-  - name: Siyu Long
-    description: intern at THUAIR, PhD at NJU
-  - name: Junwei Yang
-    description: intern at THUAIR, PhD at PKU
-  - name: Kangjie Zheng
-    description: intern at THUAIR, PhD at PKU
+    description: Ph.D. at THUAIR and CSD
+    thumbnail: https://yuxuansong.com/images/songyuxuan_2022.JPG
+    url: yuxuansong.com
+  - name: Keyue Qiu
+    description: Ph.D. at THU
+    thumbnail: /assets/lab-pics/keyue-qiu.png
+    url: https://qky18.github.io/
+  - name: Qiying Yu
+    description: Ph.D. at THUAIR
+    thumbnail: /assets/lab-pics/qiying-yu.png
+    url: https://yqy2001.github.io/
+  - name: Botian Wang
+    description: Ph.D. at THUAIR
+    thumbnail: /assets/lab-pics/botian-wang.JPG
+    url: https://openreview.net/profile?id=~Botian_Wang1
+  - name: Ziyao Cao
+    description: Ph.D. at THUAIR
+    thumbnail: /assets/lab-pics/ziyao-cao.jpg
+    url: https://github.com/Eyotoye
+  - name: Hanlin Wu
+    description: Ph.D. at THU
+    thumbnail: /assets/lab-pics/hanlin-wu.png
+    url: https://wu-han-lin.github.io/
+  - name: Yu Pei
+    description: Incoming Ph.D. at THUAIR
+    thumbnail: /assets/lab-pics/yu-pei.jpg
+    url: https://github.com/hhhhh789
+  - name: Tianyu Lu
+    description: Incoming Ph.D. at THUAIR
+    thumbnail: /assets/lab-pics/tianyu-lu.jpg
+    url: https://github.com/lutianyu21
+  - name: Weinan Dai
+    description: Incoming Ph.D. at THU
+    thumbnail: /assets/lab-pics/weinan-dai.jpg
+    url: https://github.com/nwiad
+  - name: Hongli Yu
+    description: Incoming Ph.D. at THUAIR
+    thumbnail: /assets/lab-pics/hongli-yu.jpg
+    url: https://github.com/huiyeruzhou
+  - name: Zhicheng Cai
+    description: Incoming Ph.D. at THUAIR
+    thumbnail: /assets/lab-pics/zhicheng-cai.jpeg
+
 
 Intern Students:
-  - name: San Zhang
-    description: intern at THUAIR, PhD at Whatever
+  - name: Zhilong Zhang
+    description: intern at THUAIR
+    thumbnail: /assets/lab-pics/zhilong-zhang.jpg
+    url: https://scholar.google.com/citations?user=irQZ_qgAAAAJ&hl=zh-CN&oi=ao
+  - name: Mianzhi Pan
+    description: intern at THUAIR
+    thumbnail: /assets/lab-pics/mianzhi-pan.jpg
+    url: https://github.com/panmianzhi
+  - name: Wenhao Huang
+    thumbnail: /assets/lab-pics/wenhao-huang.jpg
+    description: intern at THUAIR
+    url: https://github.com/EZ-hwh
+  - name: Peidong Liu
+    description: intern at THUAIR
+    thumbnail: /assets/lab-pics/peidong-liu.png
+    url: https://HUGHNew.github.io
+  - name: Yuanhang Tang
+    thumbnail: /assets/lab-pics/yuanhang-tang.png
+    description: intern at THUAIR
+    url: https://github.com/yuanhangtangle
+  - name: Wei Liu
+    description: intern at THUAIR
+    thumbnail: /assets/lab-pics/wei-liu.jpg
+  - name: Aili Chen
+    description: intern at THUAIR
+    thumbnail: /assets/lab-pics/aili-chen.jpeg
+  - name: Zhe Zhang
+    description: intern at THUAIR
+    thumbnail: /assets/lab-pics/zhe-zhang.jpg
+    url: https://scholar.google.com/citations?user=REO8n9IAAAAJ&hl=en

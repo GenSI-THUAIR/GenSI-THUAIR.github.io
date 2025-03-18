@@ -1,14 +1,53 @@
-<section class="header">
-  <div class="row">
-    <div class="three columns">
-      <a href="{{ site.baseurl }}/"><img class="u-max-full-width" src='{{ site.data.gensi.logo }}'></a>
-    </div>
-    <div class="nine columns main-description">
-        <h1>{{ site.data.gensi.name }}</h1>
-        <p>{{ site.data.gensi.title }}</p>
-        <p>{{ site.data.gensi.affiliation }}</p>
-        <br/>
-        <p>Slogan: {{ site.data.gensi.slogan }}</p>
-    </div>
-  </div>
-</section>
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>{{ site.data.gensi.name }} | {{ page.title }}</title>
+  <meta name="description" content="GenSI Homepage">
+  <meta name="author" content="Hugh">
+  <meta property="og:title" content="{{ site.data.gensi.name }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ site.baseurl }}" />
+  <meta property="og:site_name" content="{{ site.data.gensi.site_name }}" />
+  <!-- <link rel="canonical" href="http://www.martinsaveski.com" /> -->
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- <link rel="stylesheet" href={{ "/libs/external/skeleton/normalize.css" | prepend: site.baseurl }}> -->
+  <link rel="stylesheet" href={{ "/libs/external/skeleton/skeleton.css" | prepend: site.baseurl }}>
+  <link rel="stylesheet" href={{ "/libs/custom/css/main.css" | prepend: site.baseurl }}>
+  <link rel="stylesheet" href={{ "/libs/custom/css/news.css" | prepend: site.baseurl }}>
+  <link rel="stylesheet" href={{ "/libs/custom/css/people.css" | prepend: site.baseurl }}>
+  <link rel="stylesheet" href={{ "/libs/custom/css/research.css" | prepend: site.baseurl }}>
+  <link rel="stylesheet" href={{ "/libs/custom/css/blog.css" | prepend: site.baseurl }}>
+  <link rel="stylesheet" href={{ "/libs/custom/css/contact.css" | prepend: site.baseurl }}>
+  <link rel="stylesheet" href={{ "/libs/custom/css/footer.css" | prepend: site.baseurl }}>
+
+  <!-- JQuery
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src={{ "/libs/external/jquery-3.1.1.min.js" | prepend: site.baseurl }}></script>
+
+  <!-- Font-Awesome
+  –––––––––––––––––––––––––––––––––––––––––––––––––– 
+  <link rel="stylesheet" href={{ "/libs/external/font-awesome-4.7.0/css/font-awesome.min.css" | prepend: site.baseurl }}> -->
+  <link rel="stylesheet" href={{ "/libs/external/fontawesome-free-6.6.0-web/css/all.min.css" | prepend: site.baseurl }}>
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src={{ "/libs/custom/js/main.js" | prepend: site.baseurl }}></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href={{ "/libs/icon.png" | prepend: site.baseurl }}>
+  <link rel="shortcut icon" type="image/png" href={{ "/libs/icon.png" | prepend: site.baseurl }}>
+
+</head>

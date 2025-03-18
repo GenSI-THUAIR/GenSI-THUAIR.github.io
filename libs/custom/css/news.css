@@ -1,0 +1,23 @@
+.news-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.news-item {
+  margin-right: 2rem;
+}
+
+p.news-date {
+  margin-bottom: 1rem;
+}
+
+p.news-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .news-block {
+    grid-template-columns: 1fr;
+  }
+}

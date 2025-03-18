@@ -1,13 +1,25 @@
 ---
 layout: singleton
 ---
+<!-- MathJax for LaTeX equation support
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript"></script>
+
+<style>
+  img {
+    max-width: 100%;
+    aspect-ratio: initial;
+  }
+</style>
+
 <div class="docs-section">
   {% if page.subtitle == "" or page.subtitle == nil %}
-  	<h3>{{ page.title }}</h3>
+  <h3>{{ page.title }}</h3>
   {% else %}
-    <div class="title-subtitle">
-      <h3>{{ page.title }}</h3>
-    </div>
+  <div class="title-subtitle">
+    <h3>{{ page.title }}</h3>
+  </div>
   {% endif %}
 
   {{ content }}

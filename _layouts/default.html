@@ -1,74 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  {% if page.marker %}
-  <title>{{ site.data.gensi.name }} | {{ page.marker }}</title>
-  {% else %}
-  <title>{{ site.data.gensi.name }} | {{ page.title }}</title>
-  {% endif %}
-  <meta name="description" content="GenSI Homepage">
-  <meta name="author" content="Hugh">
-  <meta property="og:title" content="{{ site.data.gensi.name }}" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="{{ site.baseurl }}" />
-  <meta property="og:site_name" content="{{ site.data.gensi.site_name }}" />
-  <!-- <link rel="canonical" href="http://www.martinsaveski.com" /> -->
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
-
-  <!-- MathJax for LaTeX equation support
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href={{ "/libs/external/skeleton/normalize.css" | prepend: site.baseurl }}>
-  <link rel="stylesheet" href={{ "/libs/external/skeleton/skeleton.css" | prepend: site.baseurl }}>
-  <link rel="stylesheet" href={{ "/libs/custom/my_css.css" | prepend: site.baseurl }}>
-
-  <!-- JQuery
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src={{ "/libs/external/jquery-3.1.1.min.js" | prepend: site.baseurl }}></script>
-
-  <!-- Font-Awesome
-  –––––––––––––––––––––––––––––––––––––––––––––––––– 
-  <link rel="stylesheet" href={{ "/libs/external/font-awesome-4.7.0/css/font-awesome.min.css" | prepend: site.baseurl }}> -->
-  <link rel="stylesheet" href={{ "/libs/external/fontawesome-free-6.6.0-web/css/all.min.css" | prepend: site.baseurl }}>
-
-  <!-- Skeleton tabs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href={{ "/libs/external/skeleton_tabs/skeleton-tabs.css" | prepend: site.baseurl }}>
-  <script src={{ "/libs/external/skeleton_tabs/skeleton-tabs.js" | prepend: site.baseurl }}></script>
-
-  <!-- Scripts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!--<link rel="stylesheet" href={{ "/libs/external/github-prettify-theme.css" | prepend: site.baseurl }}>-->
-  <script src={{ "/libs/custom/my_js.js" | prepend: site.baseurl }}></script>
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href={{ "/libs/icon.png" | prepend: site.baseurl }}>
-  <link rel="shortcut icon" type="image/png" href={{ "/libs/icon.png" | prepend: site.baseurl }}>
-
-</head>
+{% include header.html %}
 <body>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- <div style="margin-bottom: 4rem;"></div> -->
+  {% if page.banner != false %}
+  <a href="{{ site.baseurl }}/" style="text-decoration: none;"><div class="banner">GenSI</div></a>
+  {% endif %}
+  <div class="main-content">
+    {{ content }}
+  </div>
+  
   {% include navbar.html %}
-  <div style="margin-bottom: 4rem;"></div>
-  {{ content }}
-
   {% include footer.html %}
   <!-- <div id="toast"></div> --> <!-- disabled toast -->
 
