@@ -12,3 +12,5 @@ collections:
 exclude:
   - docker
   - "*.py"
+  - backend
+  - _deprecated

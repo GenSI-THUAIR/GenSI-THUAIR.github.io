@@ -4,21 +4,21 @@ marker: contact
 title: Contact
 permalink: /contact.html
 ---
-
+<script src="{{ '/libs/custom/js/contact.js' | site.baseurl }}"></script>
 <section class="contact-container">
   <h1 class="contact-title">Contact</h1>
   <p class="contact-prompt">Feel free to contact us</p>
   <div class="contact-block">
     <div class="contact-input-block">
       <div class="contact-name">
-        <input class="contact-input" type="text" placeholder="First Name">
-        <input class="contact-input" type="text" placeholder="Last Name">
+        <input class="contact-input" type="text" placeholder="First Name" id="contact-fname">
+        <input class="contact-input" type="text" placeholder="Last Name" id="contact-lname">
       </div>
       <div class="contact-email">
-        <input class="contact-input" type="email" placeholder="Email Address">
+        <input class="contact-input" type="email" placeholder="Email Address" id="contact-email">
       </div>
       <div class="contact-message">
-        <input class="contact-input" type="text" placeholder="Message">
+        <input class="contact-input" type="text" placeholder="Message" id="contact-message">
       </div>
     </div>
 
@@ -32,5 +32,5 @@ permalink: /contact.html
       <div><a class="contact-info-email" href="mailto:{{site.data.profile.email}}">gen_si@163.com</a></div>
     </div>
   </div>
-  <button class="contact-submit-btn">Submit</button>
+  <button class="contact-submit-btn" onclick="submitContact()">Submit</button>
 </section>

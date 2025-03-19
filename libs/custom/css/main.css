@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #222;
+  --primary-color: #000000;
   /* --primary-color: #828282; */
   /* --primary-color: rgb(92, 109, 192); */
   /* --primary-color: rgb(132, 196, 236); */
@@ -14,7 +14,10 @@
   --primary-gold-color: rgb(135, 117, 77);
   --primary-silver-color: rgb(141, 145, 148);
   /* --secondary-color: #fff; */
-  --secondary-color: #fff;
+  --secondary-color: #f0f0f0;
+  --secondary-var-color: #ffffff;
+  --on-primary-color: #d7ff39;
+  --on-secondary-color: #9ee8ff;
 }
 
 .primary-bg-color {
@@ -438,6 +441,10 @@ h3.text-center {
 
 
 /* main section */
+.container.page {
+  background-image: url('/assets/home-w.svg');
+}
+
 .main-text-block {
   display: flex;
   flex-direction: column;
@@ -459,7 +466,8 @@ h3.text-center {
 
 .main-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr; */
+  width: 100%;
 }
 
 .main-overview {
