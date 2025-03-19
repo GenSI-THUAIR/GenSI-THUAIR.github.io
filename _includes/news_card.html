@@ -1,0 +1,21 @@
+<div class="footer-post-item">
+  <div class="footer-wechat">
+    <div class="footer-wechat-header">
+      <div class="footer-wechat-header-user">
+        <img class="footer-wechat-icon" src="/assets/gs-icon.png">
+        <div class="footer-wechat-name">GenSI</div>
+      </div>
+      <img scr="{{ include.post.icon | prepend: site.baseurl }}">
+    </div>
+    <div class="footer-card-base footer-wechat-title">{{ include.post.title }}</div>
+    <div class="footer-card-base footer-wechat-description">{{ include.post.description }}</div>
+    {% if include.post.thumbnail != null %}
+    <img class="footer-card-base footer-wechat-thumbnail" src="{{include.post.thumbnail}}" alt="wechat">
+    {% elsif include.post.thumbnail_url != null %}
+    <img class="footer-card-base footer-wechat-thumbnail" src="{{include.post.thumbnail_url}}" alt="wechat">
+    {% endif %}
+    <div class="footer-card-base footer-wechat-redirect" onclick="window.open('{{ include.post.link }}', '_blank')">
+      Read more
+    </div>
+  </div>
+</div>

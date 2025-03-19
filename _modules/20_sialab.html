@@ -28,5 +28,10 @@ permalink: /sialab.html
 <section id="sialab-sec-project">
   <div class="container">
     <h3 class="text" data-i18n="sialab:proj-title"></h3>
+    <div class="footer-post">
+      {% for poster in site.data.posts.sia limit:2 %}
+      {% include news_card.html post=poster %}
+      {% endfor %}
+      </div>
   </div>
 </section>
