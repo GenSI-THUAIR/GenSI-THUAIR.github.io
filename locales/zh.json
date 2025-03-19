@@ -15,9 +15,13 @@
   
   
   "footer:people": "团队成员",
+  "footer:sialab": "SIA-Lab",
   "footer:research": "研究成果",
   "footer:blog": "团队博客",
   "footer:contact": "联系我们",
 
-  "footer:address": "北京市海淀区清华科技园启迪科技大厦C座11层"
+  "footer:address": "北京市海淀区清华科技园启迪科技大厦C座11层",
+
+  "sialab:news-title": "最新消息",
+  "sialab:proj-title": "最近项目"
 }

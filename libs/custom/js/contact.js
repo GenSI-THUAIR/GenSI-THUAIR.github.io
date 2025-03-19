@@ -17,7 +17,7 @@ function contact(fname, lname, email, message) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Origin": "http://61.241.63.126",
+      "Origin": "http://gensi-thuair.com",
     },
     body: JSON.stringify(data)
   })

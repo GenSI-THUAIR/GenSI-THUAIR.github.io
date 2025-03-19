@@ -15,9 +15,13 @@
   
   
   "footer:people": "People",
+  "footer:sialab": "SIA-Lab",
   "footer:research": "Research",
   "footer:blog": "Blog",
   "footer:contact": "Contact",
 
-  "footer:address": "11 / F, block C, Qidi science and technology building, Tsinghua Science and Technology Park, Haidian District, Beijing"
+  "footer:address": "11 / F, block C, Qidi science and technology building, Tsinghua Science and Technology Park, Haidian District, Beijing",
+
+  "sialab:news-title": "Latest news",
+  "sialab:proj-title": "Recent projects"
 }

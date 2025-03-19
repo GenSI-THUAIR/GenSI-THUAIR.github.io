@@ -1,0 +1,30 @@
+{% assign entry = include.entry %}
+<div class="paper">
+  <a href="{{ entry.paper }}" target="_blank"><img loading="lazy" class="paper-thumb"
+      src="{{ entry.thumbnail | default: '/assets/gensi.png' }}"></a>
+  <div class="paper-content">
+    <p class="title" onclick="window.open('{{ entry.paper }}', '_blank')">{{ entry.title }}</p>
+    {% assign sentences = entry.abstract | split: ". " %}
+    {% assign visible_abs = "" %}
+    {% for sent in sentences limit:2 %}
+      {% assign visible_abs = visible_abs | append: sent | append: ". " %}
+    {% endfor %}
+    
+    <p class="paper-abstract">{{ visible_abs }}</p>
+
+    <div class="paper-buttons" data-tags="{{ entry.tags | join: ',' }}">
+      <a class="button bibtex" data-bib="{{ entry.bib }}">bib</a>
+      {% assign resources = "code,poster,video,data,slides"|split: "," %}
+      {% for key in resources %}
+      {% for kv in paper %}
+      {% if kv[0] == key %}
+      <a class="button" href="{{ kv[1] }}" target="_blank">{{ kv[0] }}</a>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="paper-date">
+    {{ entry.year }}
+  </div>
+</div>

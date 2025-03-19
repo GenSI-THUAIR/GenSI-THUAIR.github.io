@@ -56,6 +56,31 @@ img.paper-thumb:hover{
   opacity: 0.4;
 }
 
+@media (max-width: 480px) {
+  .paper {
+    grid-template-columns: auto 8fr;
+  }
+
+  .paper-date {
+    display: none;
+  }
+
+  .paper-content {
+    margin-left: 8px;
+    margin-right: 0px;
+  }
+  
+  .paper-abstract {
+    display: none;
+  }
+
+  .paper-thumb {
+    width: 100px;
+    height: 75px;
+  }
+}
+
+
 .search-container {
   display: flex;
   flex-direction: row;
@@ -77,7 +102,7 @@ button.search-reset-button {
   border-radius: 8px;
   font-size: 1.5rem;
   padding: 0 1rem;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-var-color);
   /* text-transform: none; */
 }
 
@@ -149,7 +174,7 @@ button.search-reset-button {
 
 .project-description {
   font-size: 1.5rem;
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .project-caption {
