@@ -28,3 +28,10 @@ build_python:
 			--build-arg _USER=$USER \
 			-f docker/python.docker -t python:gensi docker; \
 	fi
+
+sync: sync_fe sync_be
+
+sync_fe:
+	rsync -e ssh -r _site/ air:~/homepage/frontend
+sync_be:
+	rsync -e ssh -r backend/*.py air:~/homepage/backend
