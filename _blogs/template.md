@@ -5,6 +5,7 @@ subtitle: <!-- short description of the blog -->
 category: <!-- solo category -->
 uid: <!--unique id of this blog for HTML element id (no space here) -->
 hide: true
+thumb: <!-- thumbnail -->
 ---
 Demo page for GenSI homepage.
 

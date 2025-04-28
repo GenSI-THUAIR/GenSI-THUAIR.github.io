@@ -1,7 +1,13 @@
-entry:
-  - key: "main:news:profile-bfn"
-    link: https://openreview.net/forum?id=PSiijdQjNU
+entries:
+  - key: "main:news:dapo"
+    link: https://dapo-sia.github.io/
+    thumb: /assets/news-pics/dapo.png
   - key: "main:news:sia-lab"
     link: https://mp.weixin.qq.com/s/MWM_HA2fBhkbwNXBFnmhIg
+    thumb: /assets/news-pics/sia-lab.png
   - key: "main:news:misc-hire"
-count: 3
+    thumb: /assets/news-pics/hire.png
+  - key: "main:news:profile-bfn"
+    link: https://openreview.net/forum?id=PSiijdQjNU
+    thumb: /assets/news-pics/profile-bfn.png
+count: 4

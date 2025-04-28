@@ -100,7 +100,6 @@ button.search-reset-button {
   margin-bottom: 1.5rem; /* keep same with input */
   margin-right: 1rem;
   border-radius: 8px;
-  font-size: 1.5rem;
   padding: 0 1rem;
   border: 1px solid var(--primary-var-color);
   /* text-transform: none; */
@@ -119,12 +118,11 @@ button.search-reset-button {
 }
 
 .research-show-button {
-  font-size: 2rem;
-  font-weight: bold;
-  text-transform: none;
   color: var(--secondary-color);
+  text-transform: uppercase;
   background-color: var(--primary-color);
-  border-radius: 16px;
+  border: none;
+  margin: 0;
 }
 
 .research-show-button:hover {
@@ -137,10 +135,12 @@ button.search-reset-button {
 
 .project-container {
   width: 100%;
-  overflow-x: auto;
-  display: inline-flex;
+  /* overflow-x: auto; */
+  /* display: inline-flex; */
   margin: 3rem 0;
   /* white-space: nowrap; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .project-content:hover {
@@ -166,14 +166,13 @@ button.search-reset-button {
 
 .project-image {
   border: 0.25px solid #555;
-  max-width: 300px;
-  max-height: 200px;
+  max-width: 90%;
+  /* max-height: 200px; */
   aspect-ratio: 16/9;
   overflow: hidden;
 }
 
 .project-description {
-  font-size: 1.5rem;
   color: var(--secondary-color);
 }
 

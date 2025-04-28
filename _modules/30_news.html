@@ -1,0 +1,14 @@
+---
+layout: singleton
+marker: news
+title: News
+permalink: /news.html
+---
+
+<section>
+  <h3 class="text-center">News from GenSI</h3>
+  {% for item in site.data.news.entries %}
+  {% include main/w_news_card.html item=item %}
+  {% endfor %}
+  <div class="research-papers-bottom"></div>
+</section>

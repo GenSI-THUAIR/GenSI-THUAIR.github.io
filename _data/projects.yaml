@@ -1,12 +1,9 @@
-- name: 
-  description: Generative Modeling of Scientific Data
-  image: /assets/proj-pics/molcraft.png
-  link: 
-- name: 
-  description: Large Scale Language Model
-  image: /assets/proj-pics/geobfn.png
-  link: 
-- name: 
-  description: Foundation Models of AI4S
-  image: /assets/proj-pics/molcraft.png
-  link: 
+- title: Generative Modeling of Scientific Data
+  thumb: /assets/proj-pics/molcraft.png
+  page: main/projs/gms.html
+- title: Large Language Model
+  thumb: /assets/news-pics/dapo.png
+  page: main/projs/llm.html
+- title: Foundation Models of AI4S
+  thumb: /assets/pub-pics/zheng2024icml.png
+  page: main/projs/ai4s.html

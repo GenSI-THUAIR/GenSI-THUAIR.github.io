@@ -1,0 +1,15 @@
+@media (max-width: 480px) {
+  :root {
+    --people-prof-img-size: 72px;
+  }
+
+  .person-title {
+    font-size: 9px;
+  }
+
+  .people-alumni {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    margin-top: 1rem;
+  }
+}
+

@@ -1,0 +1,12 @@
+<div class="main-block-follow-item">
+  <div class="main-block-follow-header">
+    {% include main/account_{{item.platform}}.html %}
+  </div>
+  <div class="main-block-follow-content">
+    <div class="text">{{ item.date }}</div>
+    <div class="main-block-follow-post bold">{{ item.content }}</div>
+    <a href="{{item.link}}">
+      <img class="main-block-follow-img" src="{{ item.thumbnail }}">
+    </a>
+  </div>
+</div>

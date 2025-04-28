@@ -1,0 +1,9 @@
+- title: "main:block:news"
+  page: main/news.html
+  read_all: /news.html
+- title: "main:block:project"
+  page: main/project.html
+  read_all: /research.html
+  class: "main-research-bg"
+- title: "main:block:follow"
+  page: main/follow.html

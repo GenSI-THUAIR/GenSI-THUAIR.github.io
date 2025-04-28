@@ -1,11 +1,14 @@
 /* jshint browser: true */
 /* jshint indent: 2 */
-const host = "127.0.0.1";
-const port = "5002";
-const endpoint = "http://" + host + ":" + port;
+export const host = "61.241.63.126";
+// const host = "127.0.0.1";
+export const port = "5000";
+export const prefix = "/api";
+// const prefix = "";
+export const endpoint = "http://" + host + ":" + port + prefix;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function contact(fname, lname, email, message) {
+function contact(fname, lname, email, message, post_fn) {
   const post = "/contact";
   var data = {
     "fname": fname,
@@ -17,18 +20,25 @@ function contact(fname, lname, email, message) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Origin": "http://gensi-thuair.com",
+      // "Origin": "http://gensi-thuair.com",
     },
     body: JSON.stringify(data)
   })
   request.then(response => {
-    if (response.ok) {
-      alert("Thank you for your message!");
-    } else {
-      alert("Error sending message. Please try again.");
-    }
+    response.json().then(data => {
+      console.log(data);
+      alert(data.message);
+      post_fn();
+    })
   })
+}
 
+function submitButtonToggle() {
+  const act_btn = document.getElementById("contact-subtn");
+  const dis_btn = document.getElementById("contact-disable");
+  // toggle class `none`
+  act_btn.classList.toggle("none");
+  dis_btn.classList.toggle("none");
 }
 
 function submitContact() {
@@ -44,5 +54,6 @@ function submitContact() {
     alert("Empty message is not allowed.");
     return;
   }
-  contact(fname, lname, email, message);
+  submitButtonToggle();
+  contact(fname, lname, email, message, submitButtonToggle);
 }

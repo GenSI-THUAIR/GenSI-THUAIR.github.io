@@ -7,19 +7,22 @@ permalink: /blog.html
 <h3 class="text-center">Posts from GenSI</h3>
 
 <div id="blog-gallery" class="blog-container">
-  <div class="blog-barline"></div>
+  <!-- <div class="blog-barline"></div> -->
   {% for page in site.blogs %}
   {% if page.hide != true %}
-  <a class="navbar-link-base" href="{{ page.url }}">
-    <div class="blog-item">
-      <h4 class="blog-title">{{ page.title }}</h4>
-      <div class="blog-create">
-        <div class="blog-author">{{ page.author | default: "Anonymous" }}</div>
-        <div class="blog-date">{{ page.time | default: "Unknown Date" }}</div>
-      </div>
+  <div class="blog-item">
+    <div class="center-vbox no-overflow">
+      <img loading="lazy" class="news-w-img" src="{{page.thumb}}">
     </div>
-  </a>
+    <a class="navbar-link-base" href="{{ page.url }}">
+      <div class="main-block-research-content">
+        <p class="dim">{{ page.time | default: "Unknown Date" }} by {{ page.author | default: "Anonymous" }}</p>
+        <h2 class="semibold blog-text">{{ page.title }}</h2>
+      </div>
+    </a>
+  </div>
+
   {% endif %}
   {% endfor %}
+  <div class="research-papers-bottom"></div>
 </div>
-

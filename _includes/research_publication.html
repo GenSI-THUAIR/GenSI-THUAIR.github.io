@@ -1,48 +1,50 @@
-<h3 class="text-center" id="pub-title">Publications</h3>
 <script src="{{ '/libs/custom/js/search.js' | prepend: site.baseurl }}"></script>
-
-<div class="filter-tags">
-  <ul class="filter-tags-list navbar-links" id="tagSelect"> <!-- like radio -->
-    {% for tag in site.data.publications.tags %}
-    <li class="filter-tag">
-      <button class="filter-tag-button" onclick="clickTagButton(this)">{{ tag[0] }}</button>
-    </li>
-    {% endfor %}
-  </ul>
-</div>
-<div class="search-container">
-  <button class="search-reset-button" onclick="resetSearch()">Reset</button>
-  <input id="pub-search" type="text" placeholder="Press 'enter' to search" class="search-input"
-    onfocus="bindKeyEventForSearch()" data-search="0">
-</div>
-
-<div class="simple-follow-spacer" />
-
-<button class="simple-follow-spacer" id="paper-expand-button"></button>
-
-<div id="research-papers-limited">
-  {% for entry in site.data.publications.entries | limit: 5 %}
-  {% include research_papers.html entry=entry %}
-  {% endfor %}
-  <div class="research-papers-bottom"></div>
-  <div class="research-show">
-    <button class="research-show-button" onclick="clickShowAllButton()">Show all</button>
+<section id="sec-publications">
+  {% include common_title.html title="Publications" %}
+  
+  <div class="filter-tags">
+    <ul class="filter-tags-list navbar-links" id="tagSelect"> <!-- like radio -->
+      {% for tag in site.data.publications.tags %}
+      <li class="filter-tag">
+        <button class="filter-tag-button text" onclick="clickTagButton(this)">{{ tag[0] }}</button>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
-</div>
+  <div class="search-container">
+    <button class="search-reset-button text" onclick="resetSearch()">Reset</button>
+    <input id="pub-search" type="text" placeholder="Press 'enter' to search" class="search-input"
+    onfocus="bindKeyEventForSearch()" data-search="0">
+  </div>
 
-<div id="research-papers" style="display: none;">
-  {% for entry in site.data.publications.entries %}
-  {% include research_papers.html entry=entry %}
-  {% endfor %}
-  <div class="research-papers-bottom"></div>
-</div>
+  <div class="simple-follow-spacer" />
 
+  <button class="simple-follow-spacer" id="paper-expand-button"></button>
+
+  <div id="research-papers-limited">
+    {% for entry in site.data.publications.entries | limit: 5 %}
+    {% include research_papers.html entry=entry %}
+    {% endfor %}
+    <div class="research-papers-bottom"></div>
+    <!-- <div class="research-show">
+      <button class="research-show-button" onclick="clickShowAllButton()">Show all</button>
+    </div> -->
+    <h2 class="main-block-more center-hbox" style="margin-bottom: 4rem;" onclick="clickShowAllButton()">SHOW ALL</h2>
+  </div>
+
+  <div id="research-papers" style="display: none;">
+    {% for entry in site.data.publications.entries %}
+    {% include research_papers.html entry=entry %}
+    {% endfor %}
+    <div class="research-papers-bottom"></div>
+  </div>
+</section>
 <!-- 
-<script>
-  function scrollUp() {
-    document.getElementById('pub-title').scrollIntoView({ behavior: 'smooth' });
-  }
-</script>
-
-<button id="pub-btn-scrollup" onclick="scrollUp()">↑</button>
--->
+  <script>
+    function scrollUp() {
+      document.getElementById('pub-title').scrollIntoView({ behavior: 'smooth' });
+      }
+  </script>
+  
+  <button id="pub-btn-scrollup" onclick="scrollUp()">↑</button>
+  -->

@@ -1,0 +1,14 @@
+<div class="news-w-item">
+  <div class="center-vbox no-overflow">
+    <img loading="lazy" class="news-w-img" src="{{item.thumb}}">
+  </div>
+  <div class="main-block-research-content">
+    <p class="dim" data-i18n="{{item.key}}-date"></p>
+    
+    <h2 class="semibold news-w-text" data-i18n="{{item.key}}"></h2>
+    {% if item.link %}
+    <a class="common-link" data-i18n="main:news:more" href="{{item.link}}"></a>
+    {% endif %}
+
+  </div>
+</div>

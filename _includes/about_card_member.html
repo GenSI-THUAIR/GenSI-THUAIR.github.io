@@ -1,0 +1,13 @@
+<div class="people-profile">
+  {% if person.thumbnail_web %}
+  {% assign thumb_url = person.thumbnail_web %}
+  {% else %}
+  {% assign thumb_url = person.thumbnail | default: '/assets/lab-pics/lab-holder.png' | prepend: site.baseurl %}
+  {% endif %}
+  {% include about_flip_photo.html a={{thumb_url}} b={{person.thumb_comic}} %}
+  {% if person.url %}
+  <a class="common-link navbar-link-base person-title" href="{{person.url}}">{{ person.name }}</a>
+  {% else %}
+  <p class="person-title">{{ person.name }}</p>
+  {% endif %}
+</div>

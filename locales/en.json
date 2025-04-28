@@ -1,26 +1,40 @@
 {
+  "main:page": "We are the GenSI Lab, affiliated with the Institute for Al Industry Research (AIR) at Tsinghua University and the Shanghai Artificial Intelligence Laboratory. Our primary research focuses on ultra-large-scale language models and AI for Science. We aim to achieve intelligence through large-scale language models and explore intelligent environments using AI4S foundational models, thereby reaching the research objectives of AI scientists. By enabling AI scientists to autonomously conduct scientific research, we ultimately strive to assist humanity in realizing AGI.",
   "main:intro": "We are GenSI @ THU AIR",
   "main:mission": "Continuously iterate the technologies of LLM and AI4S to realize AGI for Science and accelerate scientific innovation and imagination.",
   "main:vision": "Improving Human X Possibilities.",
   "main:team-title": "Get to know our team",
   "main:news-title": "Latest news",
 
+  "main:block:news": "Latest News",
+  "main:block:project": "Recent Project",
+  "main:block:follow": "Follow us",
+  "main:block:more": "READ ALL",
 
+
+  "main:news:more": "Read more",
   "main:news:misc-hire-date": "Jun. 2024",
   "main:news:misc-hire": "We're Hiring! Looking for posdoc fellowship (2 hc) and research asistant (2 hc) to join us. Also welcome students to intern in our lab. Please feel free to contact us if you are interested. ",
   "main:news:sia-lab-date": "Oct. 2024",
   "main:news:sia-lab": "AIR has teamed up with ByteDance to establish the Scalable Large-Model Intelligent Technology Joint Research Center (SIA Lab), with Zhou Hao as the director of the center.",
   "main:news:profile-bfn-date": "Feb. 2025",
   "main:news:profile-bfn": "*Steering Protein Family Design through Profile Bayesian Flow* is accepted as ICLR 2025 Oral!",
+  "main:news:dapo-date": "Mar. 2025",
+  "main:news:dapo": "We propose the Decoupled Clip and Dynamic sAmpling Policy Optimization (DAPO) algorithm.",
   
   
-  "footer:people": "People",
-  "footer:sialab": "SIA-Lab",
-  "footer:research": "Research",
-  "footer:blog": "Blog",
-  "footer:contact": "Contact",
+  "navbar:people": "People",
+  "navbar:sialab": "SIA-Lab",
+  "navbar:research": "Research",
+  "navbar:news": "News",
+  "navbar:blog": "Blog",
+  "navbar:about": "About",
+  "navbar:contact": "Contact",
 
-  "footer:address": "11 / F, block C, Qidi science and technology building, Tsinghua Science and Technology Park, Haidian District, Beijing",
+  "footer:contact": "Contact us",
+  "footer:follow": "follow us",
+  "footer:addr-title": "meet us",
+  "footer:address": "11 / F, block C<br/>Qidi science and technology building, Tsinghua Science and Technology Park, Haidian District, Beijing",
 
   "sialab:news-title": "Latest news",
   "sialab:proj-title": "Recent projects"

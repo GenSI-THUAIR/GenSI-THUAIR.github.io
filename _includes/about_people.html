@@ -1,0 +1,50 @@
+<section class="simple-spacer" id="sec-people">
+  <h1 id="people-professor" class="people-group-title"> Professor </h1>
+  <div class="people-group">
+    <div class="people-profile">
+      {% include about_flip_photo.html side_b="/assets/lab-pics/hao-zhou.png" side_a="/assets/lab-pics/comic/hao-zhou.png" %}
+      <a class="common-link person-title" href="{{ site.data.profile.link }}" target="_blank">
+        {{ site.data.profile.name }}
+      </a>
+      <p>{{ site.data.profile.title }}</p>
+    </div>
+  </div>
+
+  <h1 id="people-student" class="people-group-title"> Members </h1>
+  <div class="people-group">
+  {% for people in site.data.people %}
+    {% for person in people[1] %}
+    <div class="people-profile">
+      {% if person.thumbnail_web %}
+      {% assign thumb_url = person.thumbnail_web %}
+      {% else %}
+      {% assign thumb_url = person.thumbnail | default: '/assets/lab-pics/lab-holder.png' | prepend: site.baseurl %}
+      {% endif %}
+
+      {% if person.thumb_comic %}
+      {% include about_flip_photo.html side_b=thumb_url side_a=person.thumb_comic %}
+      {% else %}
+      <div class="people-prof-box"><img loading="lazy" src="{{ thumb_url }}"></div>
+      {% endif %}
+
+      {% if person.url %}
+      <p>
+        <a class="common-link navbar-link-base person-title" href="{{person.url}}">{{ person.name }}</a>
+      </p>
+      {% else %}
+      <p class="person-title">{{ person.name }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  {% endfor %}
+  </div>
+
+  <h1 id="people-alumni" class="people-group-title">Alumni</h1>
+  <div class="people-alumni">
+    {% for ap in site.data.alumni %}
+    <div class="" people-alumni-profile">
+      <p>{{ ap.name }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>

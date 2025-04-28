@@ -6,48 +6,20 @@ banner: false
 
 <section class="two page primary-bg-color">
   <div class="primary page">
-    <div class="container main-title">
-      <div class="main-inner">
-        <div class="main-title-group">
-          <p class="main-title-text">GenSI</p>
-          <p class="main-title-text">根思</p>
-          <p class="main-title-text">从根本思考</p>
-        </div>
-        <!-- <div class="main-overview"><img class="main-overview-img" src="/assets/gensi-main.png"></div> -->
+    <div class="center-vbox">
+      <img class="main-logo main-default-margin" src="/assets/gensi-bv.svg">
+      <div class="main-gallery main-gallery-default">
+        {% for idx in (0..9) %}
+        <img class="main-gallery-item" src="/assets/main-pics/line{{idx}}.png">
+        {% endfor %}
       </div>
+      <h1 class="main-page-content" data-i18n="main:page"></h1>
     </div>
   </div>
-  <div class="container fit-page">
-    <div class="main-text-block">
-      <div class="main-text" data-i18n="main:mission"></div>
-      <div class="main-text" data-i18n="main:vision"></div>
-    </div>
-  </div>
+  <img class="fit-page main-overview-img" src="/assets/main-pics/main-overview.png">
 </section>
 
-<!-- News section -->
-<section class="space-extender" id="sec-news">
-  <div class="container">
-    <h3 class="text" data-i18n="main:news-title"></h3>
-    <div class="news-block">
-      {% for piece in site.data.news.entry limit: 3 %}
-      <div class="news-item">
-        <p class="news-date" data-i18n="{{piece.key}}-date"></p>
-        {% if piece.link %}
-        <a href="{{piece.link}}" style="text-decoration: none; color: inherit;">
-          {% endif %}
-          <p class="news-title" data-i18n="{{piece.key}}"></p>
-          {% if piece.link %}
-        </a>
-        {% endif %}
-      </div>
-      {% endfor %}
-    </div>
-  </div>
 
-  <div class="footer-post">
-  {% for poster in site.data.posts.air limit:2 %}
-  {% include news_card.html post=poster %}
-  {% endfor %}
-  </div>
-</section>
+{% for block in site.data.blocks %}
+{% include main_block.html block=block %}
+{% endfor %}

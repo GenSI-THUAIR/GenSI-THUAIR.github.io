@@ -1,0 +1,5 @@
+<div class="main-block-research">
+  {% for item in site.data.projects limit: 3 %}
+  {% include main/proj_card.html item=item %}
+  {% endfor %}
+</div>

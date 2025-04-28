@@ -10,7 +10,7 @@ update_bib:
 	fi
 
 livereload:
-	docker run --rm -v $PWD:/srv/jekyll -p 4000:4000 jekyll:gensi jekyll s -IlH 0.0.0.0
+	docker run -it --rm -v $PWD:/srv/jekyll -u root -p 4000:4000 -p 35729:35729  jekyll:gensi jekyll s -IlH 0.0.0.0
 
 build_all: build_python build_jekyll
 
@@ -32,6 +32,6 @@ build_python:
 sync: sync_fe sync_be
 
 sync_fe:
-	rsync -e ssh -r _site/ air:~/homepage/frontend
+	rsync -e ssh -r --delete _site/ air:~/homepage/frontend
 sync_be:
-	rsync -e ssh -r backend/*.py air:~/homepage/backend
+	rsync -e ssh -r --delete backend/*.py air:~/homepage/backend

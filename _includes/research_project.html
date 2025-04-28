@@ -1,19 +1,15 @@
-<h3 class="text-center">Projects</h3>
-
-<div class="project-container">
-  {% for project in site.data.projects %}
-  <div class="project-content">
-    <!-- name, image, link, description -->
-    {% if project.link %}
-    <a href="{{ project.link }}" class="navbar-link-base">
-      {% endif %}
-      <div class="project-item">
-        <img src="{{ project.image }}" alt="{{ project.description}}" class="project-image">
-        <p class="project-description">{{ project.description }}</p>
-      </div>
-      {% if project.link %}
-    </a>
-    {% endif %}
+<section id="sec-projects">
+  {% include common_title.html title="Projects" %}
+  
+  <div class="project-container">
+    {% for project in site.data.projects %}
+    <div class="project-content">
+      <!-- title, thumb -->
+        <div class="project-item">
+          <img src="{{ project.thumb }}" alt="{{ project.title}}" class="project-image">
+          <p class="project-description text">{{ project.title }}</p>
+        </div>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
+</section>

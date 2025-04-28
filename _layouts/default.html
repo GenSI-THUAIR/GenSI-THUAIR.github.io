@@ -6,14 +6,11 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <!-- <div style="margin-bottom: 4rem;"></div> -->
-  {% if page.banner != false %}
-  <a href="{{ site.baseurl }}/" style="text-decoration: none;"><div class="banner">GenSI</div></a>
-  {% endif %}
+  {% include navbar.html %}
   <div class="main-content">
     {{ content }}
   </div>
   
-  {% include navbar.html %}
   {% include footer.html %}
   <!-- <div id="toast"></div> --> <!-- disabled toast -->
 

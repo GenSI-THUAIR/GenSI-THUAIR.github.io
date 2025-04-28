@@ -46,7 +46,7 @@ input.contact-input:focus {
   font-weight: bold;
 }
 
-.contact-submit-btn {
+.contact-submit-btn-base {
   text-transform: none;
   font-size: 2rem;
   font-weight: bold;
@@ -55,6 +55,14 @@ input.contact-input:focus {
   padding: 1rem 2rem;
   height: fit-content;
   border-radius: 0;
+}
+
+.contact-submit-btn {
+  color: var(--primary-dark);
+}
+
+button:disabled.contact-submit-btn {
+  color: var(--secondary-dark);
 }
 
 @media (max-width: 480px) {
@@ -71,10 +79,29 @@ input.contact-input:focus {
   }
 
   .contact-prompt {
-    font-size: 2.5rem;
+    font-size: 12px;
+  }
+  
+  input.contact-input {
+    font-size: 12px;
+    margin: 0;
   }
 
   .contact-info-block {
     margin-top: 2rem;
+  }
+
+  .contact-name, .contact-email, .contact-message {
+    margin-top: 1rem;
+  }
+
+  .contact-info-title, .contact-info-name, .contact-info-email {
+    font-size: 12px;
+  }
+
+  .contact-submit-btn-base {
+    padding: 4px 8px;
+    margin: 2rem 0;
+    font-size: 12px;
   }
 }

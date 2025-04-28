@@ -43,3 +43,4 @@ RUN adduser --disabled-password --shell /bin/bash --no-create-home ${_USER}
 USER ${_USER}:${_USER}
 
 EXPOSE 4000
+EXPOSE 35729

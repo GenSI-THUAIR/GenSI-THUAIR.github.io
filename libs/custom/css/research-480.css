@@ -1,0 +1,10 @@
+@media (max-width: 480px) {
+  .filter-tags {
+    margin: 1rem 0;
+  }
+
+  .filter-tag-button {
+    line-height: normal;
+    height: 2rem;
+  }
+}

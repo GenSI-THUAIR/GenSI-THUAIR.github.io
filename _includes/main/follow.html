@@ -1,0 +1,5 @@
+<div class="main-block-follow">
+  {% for item in site.data.follows limit: 2 %}
+  {% include main/follow_card.html item=item %}
+  {% endfor %}
+</div>

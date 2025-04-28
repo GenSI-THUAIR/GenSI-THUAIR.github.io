@@ -1,0 +1,20 @@
+# platform: [zhihu, xhs, twitter, wechat]
+- platform: wechat
+  date: Apr 1, 2025
+  content: 「GenSI深度」｜俯瞰深度生成模型发展脉络！从扩散模型，到流匹配再到贝叶斯流网络。本文将帮助读者理解FMs和BFNs的工作原理，以及它们如何改进DMs。
+  link: https://mp.weixin.qq.com/s/a1A--GxSKEPRfw5Z9x6Weg
+  # thumbnail: https://mmbiz.qpic.cn/mmbiz_png/bsqgXlggRdAoj6037z7f9HYg2dFm63Y9Akia3LkUHicHf4Aqe1dXOG7xtXhMJlKcsyUrmWrgVek6L83sAlJxdkFg/640
+  thumbnail: /assets/blog-pics/DeepGenModel/thumb.png
+- platform: xhs
+  date: Mar 27, 2025
+  content: 请进，GenSI上新了科研机会。 如果你对AI前沿技术、生成模型或AI在科学领域的应用充满兴趣，热爱挑战，欢迎关注和联系我们！
+  link: http://xhslink.com/a/g4CWL9eSIYZab
+  thumbnail: /assets/news-pics/hire.png
+- platform: zhihu
+  date: Sep 17, 2024
+  content: ICML'24 | 清华 AIR 等提出 ESM-AA，实现多尺度蛋白质语言模型实现分子统一建模
+  thumbnail: https://pic1.zhimg.com/70/v2-ee85824a2b32acf73dc3f90ede160fdb_1440w.avis
+# - platform: xhs
+#   date:
+#   content:
+#   thumbnail:

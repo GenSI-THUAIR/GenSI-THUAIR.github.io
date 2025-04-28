@@ -5,6 +5,7 @@ category: GM
 uid: 2025-DeepGenModel
 time: 2025/02/25
 author: 张至隆
+thumb: /assets/blog-pics/DeepGenModel/thumb.png
 ---
 
 近年来，扩散模型（Diffusion Models, DMs）凭借其高质量的生成能力，迅速成为AI生成领域的主流方法。然而，随着研究的深入，DMs的局限性也逐渐显现：**采样效率低**（需要数百甚至上千步迭代）以及对**复杂模态数据**（如离散数据、蛋白质结构等）的建模能力不足。为了解决这些问题，研究人员提出了两种新的生成模型——**流匹配（Flow Matching, FMs）**[1]和**贝叶斯流网络（Bayesian Flow Networks, BFNs）**[2]。这两种模型不仅在采样效率上大幅提升，还扩展了生成模型的适用范围，为新药研发、蛋白质设计、材料科学等领域带来了新的可能性。本文将帮助读者理解FMs和BFNs的工作原理，以及它们如何改进DMs。

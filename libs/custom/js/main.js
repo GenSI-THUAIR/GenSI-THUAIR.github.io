@@ -2,12 +2,9 @@
 $(document).ready(function () {
   // Variables
   var $codeSnippets = $('.code-example-body'),
-    // $nav = $('.navbar'),
-    $nav = $('.navbar-mod'),
     $body = $('body'),
     $window = $(window),
     $popoverLink = $('[data-popover]'),
-    navOffsetTop = $nav.offset().top,
     $document = $(document),
     entityMap = {
       "&": "&amp;",
@@ -17,16 +14,17 @@ $(document).ready(function () {
       "'": '&#39;',
       "/": '&#x2F;'
     }
-  let isScrolling;
 
   function init() {
-    $window.on('scroll', onScroll)
-    $window.on('resize', resize)
     $popoverLink.on('click', openPopover)
     $document.on('click', closePopover)
-    $('a[href^="#"]').on('click', smoothScroll)
+    $('a[href^="#"]').on('click', smoothScroll);
+    $('.people-prof-ic').on('click', function() {
+      this.classList.toggle('flipped');
+    });
+    
     buildSnippets();
-    onScroll();
+    makeExternalLinkOnBlank();
   }
   
   function smoothScroll(e) {
@@ -59,32 +57,6 @@ $(document).ready(function () {
       scrollTop: $("#elementtoScrollToID").offset().top
     }, 2000);
   });
-
-  function resize() {
-    $body.removeClass('has-docked-nav')
-    navOffsetTop = $nav.offset().top
-    onScroll();
-  }
-  
-  function makeNavbarSticky() {
-    navOffsetTop = $nav.offset().top
-    const windowY = window.scrollY;
-    // console.log("win Y: ", windowY, "nav offset: ", navOffsetTop)
-    if (navOffsetTop > windowY && !$body.hasClass('has-docked-nav')) {
-      $body.addClass('has-docked-nav');
-      // $nav.width($(".spacer").width());
-    }
-    if (navOffsetTop < windowY && $body.hasClass('has-docked-nav')) {
-      $body.removeClass('has-docked-nav')
-    }
-  }
-  
-  function onScroll() {
-    window.clearTimeout(isScrolling);
-    isScrolling = setTimeout(function () {
-      makeNavbarSticky();
-    }, 100);
-  }
 
   function escapeHtml(string) {
     return String(string).replace(/[&<>"'\/]/g, function (s) {
@@ -120,6 +92,13 @@ $(document).ready(function () {
   // setInterval(makeNavbarSticky, 10000);
   initI18n();
 });
+
+function makeExternalLinkOnBlank() {
+  var links = document.querySelectorAll('a.common-link[href^="http"]');
+  links.forEach(link => {
+    link.setAttribute('target', '_blank');
+  });
+}
 
 function unsecuredCopyToClipboard(text, x, y) {
   // var copyArea = $('<div id="copyArea">' + '</div>');
@@ -184,7 +163,8 @@ let lastLang = "en";
 function getLang() {
   // const savedLang = localStorage.getItem('userLang');
   const browserLang = navigator.language.split('-')[0];
-  const defaultLang = allowLangs.includes(browserLang) ? browserLang : 'en';
+  const defaultLang = 'en';
+  // const defaultLang = allowLangs.includes(browserLang) ? browserLang : 'en';
   // return savedLang || defaultLang;
   return defaultLang;
 }
@@ -234,6 +214,7 @@ function applyLangViaBrowser() {
     applyTranslations(translations[lang]);
   });
   document.documentElement.setAttribute('lang-loaded', 'true');
+  document.documentElement.setAttribute('lang', lang);
 }
 
 function initI18n() {

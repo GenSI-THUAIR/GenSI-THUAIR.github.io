@@ -4,10 +4,10 @@ air:
     thumbnail:
     thumbnail_url: https://pic1.zhimg.com/70/v2-ee85824a2b32acf73dc3f90ede160fdb_1440w.avis
     link: https://zhuanlan.zhihu.com/p/720509312
-    icon: /assets/media-pics/wechat.svg
+    icon: /assets/media-pics/wechat.png
 sia:
   - title: 超越DeepSeek GRPO的关键RL算法，字节、清华AIR开源DAPO
     description: 清华 AIR 和字节联合 SIA Lab 发布了他们的第一项研究成果：DAPO，即 Decoupled Clip and Dynamic sAmpling Policy Optimization（解耦剪辑和动态采样策略优化）。这是一个可实现大规模 LLM 强化学习的开源 SOTA 系统。此外，使用该算法训练的模型也将在近期开源发布。
     thumbnail: /assets/news-pics/dapo_thumb.png
     link: https://mp.weixin.qq.com/s/_w_HtjNQiG-yP5LEN85o0Q
-    icon: /assets/media-pics/wechat.svg
+    icon: /assets/media-pics/wechat.png
