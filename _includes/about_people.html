@@ -10,9 +10,9 @@
     </div>
   </div>
 
-  <h1 id="people-student" class="people-group-title"> Members </h1>
-  <div class="people-group">
   {% for people in site.data.people %}
+  <h1 id="people-{{people[0] | lower}}" class="people-group-title"> {{people[0]}} </h1>
+  <div class="people-group">
     {% for person in people[1] %}
     <div class="people-profile">
       {% if person.thumbnail_web %}
@@ -36,8 +36,8 @@
       {% endif %}
     </div>
     {% endfor %}
-  {% endfor %}
   </div>
+  {% endfor %}
 
   <h1 id="people-alumni" class="people-group-title">Alumni</h1>
   <div class="people-alumni">

@@ -2,8 +2,8 @@
   <div class="main-block-news-img-container">
     <img class="main-block-news-img" src="{{item.thumb}}">
   </div>
-  <p class="main-block-news-date" data-i18n="{{item.key}}-date"></p>
-  <h2 class="main-block-news-title semibold" data-i18n="{{item.key}}"></h2>
+  <p class="main-block-news-date">{{ item.date }}</p>
+  <h2 class="main-block-news-title">{{ item.content }}</h2>
   {% if item.link %}
   <a class="common-link" data-i18n="main:news:more" href="{{item.link}}"></a>
   {% endif %}

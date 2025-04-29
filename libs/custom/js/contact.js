@@ -1,11 +1,11 @@
 /* jshint browser: true */
 /* jshint indent: 2 */
-export const host = "61.241.63.126";
+const host = "61.241.63.126";
 // const host = "127.0.0.1";
-export const port = "5000";
-export const prefix = "/api";
+const port = "5000";
+const prefix = "/api";
 // const prefix = "";
-export const endpoint = "http://" + host + ":" + port + prefix;
+const endpoint = "http://" + host + ":" + port + prefix;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function contact(fname, lname, email, message, post_fn) {

@@ -22,6 +22,14 @@ $(document).ready(function () {
     $('.people-prof-ic').on('click', function() {
       this.classList.toggle('flipped');
     });
+    cluster = setInterval(function () {
+      $("#clustrmaps-widget-v2").css("display", "none");
+      // console.log("hide  clustrmaps-widget-v2");
+    }, 1000);
+    setTimeout(function () {
+      clearInterval(cluster);
+    }, 10000);
+
     
     buildSnippets();
     makeExternalLinkOnBlank();

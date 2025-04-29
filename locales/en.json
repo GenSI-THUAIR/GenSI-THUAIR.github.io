@@ -1,6 +1,6 @@
 {
-  "main:page": "We are the GenSI Lab, affiliated with the Institute for Al Industry Research (AIR) at Tsinghua University and the Shanghai Artificial Intelligence Laboratory. Our primary research focuses on ultra-large-scale language models and AI for Science. We aim to achieve intelligence through large-scale language models and explore intelligent environments using AI4S foundational models, thereby reaching the research objectives of AI scientists. By enabling AI scientists to autonomously conduct scientific research, we ultimately strive to assist humanity in realizing AGI.",
-  "main:intro": "We are GenSI @ THU AIR",
+  "main:page": "Hi, this is GenSI Lab, the Generative Symbolic Intelligence Group affiliated with Tsinghua AIR, with some members also associated with the Shanghai AI Lab. Our long-term goal is to achieve AGI by creating AI scientists.",
+  "main:intro": "Our research directions include deeply unlocking intelligence through LLM, providing a favorable intelligent environment through AI4S foundational models, as well as exploring the in-depth interaction between these two aspects.",
   "main:mission": "Continuously iterate the technologies of LLM and AI4S to realize AGI for Science and accelerate scientific innovation and imagination.",
   "main:vision": "Improving Human X Possibilities.",
   "main:team-title": "Get to know our team",

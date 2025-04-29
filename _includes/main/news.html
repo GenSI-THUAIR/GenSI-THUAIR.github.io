@@ -1,5 +1,5 @@
 <div class="main-block-news">
-  {% for item in site.data.news.entries limit: 3 %}
+  {% for item in site.data.news.latest limit: 3 %}
   {% include main/news_card.html item=item %}
   {% endfor %}
 </div>

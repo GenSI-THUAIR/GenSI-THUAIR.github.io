@@ -2,12 +2,25 @@ entries:
   - key: "main:news:dapo"
     link: https://dapo-sia.github.io/
     thumb: /assets/news-pics/dapo.png
+  - key: "main:news:profile-bfn"
+    link: https://openreview.net/forum?id=PSiijdQjNU
+    thumb: /assets/news-pics/profile-bfn.png
   - key: "main:news:sia-lab"
     link: https://mp.weixin.qq.com/s/MWM_HA2fBhkbwNXBFnmhIg
     thumb: /assets/news-pics/sia-lab.png
   - key: "main:news:misc-hire"
     thumb: /assets/news-pics/hire.png
-  - key: "main:news:profile-bfn"
-    link: https://openreview.net/forum?id=PSiijdQjNU
-    thumb: /assets/news-pics/profile-bfn.png
+latest:
+  - date: Mar 2025
+    content: "We propose <b>DAPO</b> algorithm, outperforming DeepSeek GRPO!"
+    link: https://dapo-sia.github.io/
+    thumb: /assets/news-pics/dapo.png
+  - date: Oct 2024
+    content: "Our group and the <b>ByteDance Doubao LLM team</b> jointly established the <b>SIA Lab</b>."
+    link: https://mp.weixin.qq.com/s/MWM_HA2fBhkbwNXBFnmhIg
+    thumb: /assets/news-pics/sia-lab.png
+  - date: Jun 2024
+    content: "Ongoing openings for PhD students, postdocs, RAs and interns - <b> applications welcome!</b>"
+    thumb: /assets/news-pics/hire.png
+
 count: 4

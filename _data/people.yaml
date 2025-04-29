@@ -1,31 +1,42 @@
-Postdoctoral Fellows:
+Staff:
   - name: Yawen Ouyang
     description: Ph.D. at NJU
     thumbnail: /assets/lab-pics/yawen-ouyang.jpeg
     thumb_comic: /assets/lab-pics/comic/yawen-ouyang.png
     url: https://yawenouyang.github.io/about/
-  - name: Jiangtao Feng
-    description: Research Assistant at THUAIR
-    thumbnail: /assets/lab-pics/jiangtao-feng.jpg
-    thumb_comic: /assets/lab-pics/comic/jiangtao-feng.png
-    url: https://jiangtaofeng.github.io/
-  - name: Fanyou Meng
-    description: Research Assistant at THUAIR
-    thumbnail: /assets/lab-pics/fanyou-meng.png
-    thumb_comic: /assets/lab-pics/comic/fanyou-meng.png
-    url: 
   - name: Siyu Long
     description: Ph.D. at NJU
     thumbnail: /assets/lab-pics/siyu-long.jpg
     thumb_comic: /assets/lab-pics/comic/siyu-long.png
     url: https://longlongman.github.io/
+  - name: Yuanhang Tang
+    thumbnail: /assets/lab-pics/yuanhang-tang.png
+    thumb_comic: /assets/lab-pics/comic/yuanhang-tang.png
+    description: intern at THUAIR
+    url: https://github.com/yuanhangtangle
+  - name: Fanyou Meng
+    description: Research Assistant at THUAIR
+    thumbnail: /assets/lab-pics/fanyou-meng.png
+    thumb_comic: /assets/lab-pics/comic/fanyou-meng.png
+    url: 
+  - name: Jiangtao Feng
+    description: Research Assistant at THUAIR
+    thumbnail: /assets/lab-pics/jiangtao-feng.jpg
+    thumb_comic: /assets/lab-pics/comic/jiangtao-feng.png
+    url: https://jiangtaofeng.github.io/
   - name: Hao Wang
     description: Ph.D. at THU
     thumbnail: /assets/lab-pics/hao-wang.jpg
     thumb_comic: /assets/lab-pics/comic/hao-wang.png
+  - name: DX
+    thumbnail: /assets/lab-pics/comic/dx.png
+    # thumbnail: /assets/lab-pics/haowei-wu.jpg
+    # thumb_comic: /assets/lab-pics/comic/haowei-wu.png
+  - name: Kaijing Fan
+    thumbnail: /assets/lab-pics/kaijing-fan.jpg
+    thumb_comic: /assets/lab-pics/comic/kaijing-fan.png
 
-
-Doctoral Students:
+Student:
   - name: Yuxuan Song
     description: Ph.D. at THUAIR and CSD
     thumbnail: https://yuxuansong.com/images/songyuxuan_2022.JPG
@@ -41,6 +52,11 @@ Doctoral Students:
     thumbnail: /assets/lab-pics/qiying-yu.png
     thumb_comic: /assets/lab-pics/comic/qiying-yu.png
     url: https://yqy2001.github.io/
+  - name: Mianzhi Pan
+    description: intern at THUAIR
+    thumbnail: /assets/lab-pics/mianzhi-pan.jpg
+    thumb_comic: /assets/lab-pics/comic/mianzhi-pan.png
+    url: https://github.com/panmianzhi
   - name: Botian Wang
     description: Ph.D. at THUAIR
     thumbnail: /assets/lab-pics/botian-wang.jpg
@@ -82,17 +98,11 @@ Doctoral Students:
     thumb_comic: /assets/lab-pics/comic/zhicheng-cai.png
 
 
-Intern Students:
   - name: Zhilong Zhang
     description: intern at THUAIR
     thumbnail: /assets/lab-pics/zhilong-zhang.jpg
     thumb_comic: /assets/lab-pics/comic/zhilong-zhang.png
     url: https://scholar.google.com/citations?user=irQZ_qgAAAAJ&hl=zh-CN&oi=ao
-  - name: Mianzhi Pan
-    description: intern at THUAIR
-    thumbnail: /assets/lab-pics/mianzhi-pan.jpg
-    thumb_comic: /assets/lab-pics/comic/mianzhi-pan.png
-    url: https://github.com/panmianzhi
   - name: Wenhao Huang
     thumbnail: /assets/lab-pics/wenhao-huang.jpg
     thumb_comic: /assets/lab-pics/comic/wenhao-huang.png
@@ -103,11 +113,6 @@ Intern Students:
     thumbnail: /assets/lab-pics/peidong-liu.png
     thumb_comic: /assets/lab-pics/comic/peidong-liu.png
     url: https://HUGHNew.github.io
-  - name: Yuanhang Tang
-    thumbnail: /assets/lab-pics/yuanhang-tang.png
-    thumb_comic: /assets/lab-pics/comic/yuanhang-tang.png
-    description: intern at THUAIR
-    url: https://github.com/yuanhangtangle
   - name: Wei Liu
     description: intern at THUAIR
     thumbnail: /assets/lab-pics/wei-liu.jpg
@@ -122,11 +127,7 @@ Intern Students:
     thumb_comic: /assets/lab-pics/comic/zhe-zhang.png
     url: https://scholar.google.com/citations?user=REO8n9IAAAAJ&hl=en
 
-AILab Interns:
-  - name: Yuanning Feng
-    description: intern at THUAIR
-    thumbnail: /assets/lab-pics/yuanning-feng.jpg
-    thumb_comic: /assets/lab-pics/comic/yuanning-feng.png
+
   - name: Yikai Zhang
     thumbnail: /assets/lab-pics/yikai-zhang.jpg
     thumb_comic: /assets/lab-pics/comic/yikai-zhang.png
@@ -134,16 +135,15 @@ AILab Interns:
   - name: Jiang Zhou
     thumbnail: /assets/lab-pics/jiang-zhou.jpg
     thumb_comic: /assets/lab-pics/comic/jiang-zhou.png
-  - name: Tinghong Chen
-    thumbnail: /assets/lab-pics/tinghong-chen.png
-    thumb_comic: /assets/lab-pics/comic/tinghong-chen.png
   - name: Changze Lv
     thumbnail: /assets/lab-pics/changze-lv.jpeg
     thumb_comic: /assets/lab-pics/comic/changze-lv.png
     url: https://lvchangze.github.io/
-  - name: HW
-    thumbnail: /assets/lab-pics/comic/hw.png
-    # thumbnail: /assets/lab-pics/haowei-wu.jpg
-    # thumb_comic: /assets/lab-pics/comic/haowei-wu.png
-  - name: DX
-    thumbnail: /assets/lab-pics/comic/dx.png
+  - name: Tinghong Chen
+    thumbnail: /assets/lab-pics/tinghong-chen.png
+    thumb_comic: /assets/lab-pics/comic/tinghong-chen.png
+  - name: Yuanning Feng
+    description: intern at THUAIR
+    thumbnail: /assets/lab-pics/yuanning-feng.jpg
+    thumb_comic: /assets/lab-pics/comic/yuanning-feng.png
+

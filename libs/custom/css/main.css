@@ -20,7 +20,7 @@
   font-weight: 700;
 }
 
-.semibold {
+b, .semibold {
   font-weight: 600;
 }
 
@@ -375,14 +375,14 @@ a.common-link[href^="http"]::after {
 
 .fit-page {
   min-height: 20vh;
-  max-height: 100vh;
+  max-height: 150vh;
   max-width: 100%;
   height: fit-content;
 }
 
 .two.page {
   min-height: 120vh;
-  max-height: 200vh;
+  max-height: 250vh;
   height: auto;
 }
 
@@ -411,6 +411,14 @@ a.common-link[href^="http"]::after {
   width: 80%;
   text-align: center;
   line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+div.main-page-content {
+  width: 90%;
+  margin-top: 2rem;
+  font-size: 24px;
+  margin-bottom: 8rem;
 }
 
 .main-inner {
@@ -420,8 +428,9 @@ a.common-link[href^="http"]::after {
 }
 
 .main-overview {
-  padding-top: 20vh;
-  animation: fadein 2s ease;
+  background-color: var(--secondary-light);
+  /* padding-top: 20vh; */
+  /* animation: fadein 2s ease; */
 }
 
 .main-overview-img {
@@ -457,7 +466,7 @@ a.common-link[href^="http"]::after {
 /* main.block.news */
 .main-block-news {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding-top: 4rem;
 }
@@ -487,6 +496,8 @@ a.common-link[href^="http"]::after {
 
 .main-block-news-title {
   margin: 2rem 0;
+  letter-spacing: 1px;
+  font-size: 19px;
 }
 
 .main-block-news-date {
@@ -607,8 +618,4 @@ a.common-link[href^="http"]::after {
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-div.clustrmaps-map-control {
-  display: none;
 }
