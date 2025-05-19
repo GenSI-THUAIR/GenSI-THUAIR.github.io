@@ -1,44 +1,22 @@
 /* jshint browser: true */
 /* jshint indent: 2 */
-// const host = "127.0.0.1";
 const host = "61.241.63.126";
+// const host = "127.0.0.1";
 const port = "5000";
-// const prefix = "";
 const prefix = "/api";
-const endpoint = host + ":" + port + prefix;
+// const prefix = "";
+const endpoint = "http://" + host + ":" + port + prefix;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function wsContact(fname, lname, email, message, post_fn) {
-  const post = "/ws";
-  const protocol = "ws://";
-  var data = {
-    "fname": fname,
-    "lname": lname,
-    "email": email,
-    "message": message
-  }
-  let socket = new WebSocket(protocol + endpoint + post);
-  socket.onopen = function (event) {
-    socket.send(JSON.stringify(data));
-  }
-  socket.onmessage = function (event) {
-    resp = JSON.parse(event.data);
-    alert(resp.message);
-  }
-  socket.onclose = function (event) {
-    post_fn();
-  }
-}
 function contact(fname, lname, email, message, post_fn) {
   const post = "/contact";
-  const protocol = "http://";
   var data = {
     "fname": fname,
     "lname": lname,
     "email": email,
     "message": message
   }
-  let request = fetch(protocol + endpoint + post, {
+  let request = fetch(endpoint + post, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -77,5 +55,5 @@ function submitContact() {
     return;
   }
   submitButtonToggle();
-  wsContact(fname, lname, email, message, submitButtonToggle);
+  contact(fname, lname, email, message, submitButtonToggle);
 }
