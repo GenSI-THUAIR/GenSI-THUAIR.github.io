@@ -25,7 +25,7 @@ $(document).ready(function () {
     cluster = setInterval(function () {
       $("#clustrmaps-widget-v2").css("display", "none");
       // console.log("hide  clustrmaps-widget-v2");
-    }, 1000);
+    }, 500);
     setTimeout(function () {
       clearInterval(cluster);
     }, 10000);
