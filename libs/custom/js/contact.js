@@ -30,6 +30,9 @@ function contact(fname, lname, email, message, post_fn) {
       alert(data.message);
       post_fn();
     })
+  }).catch(error => {
+    console.error(error);
+    alert("Contact is not available for now. Please click the email link instead.");
   })
 }
 

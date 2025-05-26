@@ -25,10 +25,10 @@ $(document).ready(function () {
     cluster = setInterval(function () {
       $("#clustrmaps-widget-v2").css("display", "none");
       // console.log("hide  clustrmaps-widget-v2");
-    }, 1000);
+    }, 200);
     setTimeout(function () {
       clearInterval(cluster);
-    }, 10000);
+    }, 5000);
 
     
     buildSnippets();
