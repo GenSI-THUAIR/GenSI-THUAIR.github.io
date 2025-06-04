@@ -1,9 +1,10 @@
 ---
 layout: blog
 title: template <!-- title -->
-subtitle: <!-- short description of the blog -->
 category: <!-- solo category -->
 uid: <!--unique id of this blog for HTML element id (no space here) -->
+time: <!-- YYYY/MM/DD -->
+author: <!---->
 hide: true
 thumb: <!-- thumbnail -->
 ---

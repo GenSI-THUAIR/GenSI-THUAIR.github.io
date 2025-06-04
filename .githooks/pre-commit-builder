@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if git diff --cached --name-only | grep -q 'pub.bib'; then
+    echo "pub.bib is updated. Running builder.py..."
+    if ! make update_bib; then
+      echo "make update_bib failed. Fallback to local build."
+      if ! python3 builder.py; then
+        echo "builder.py failed. Aborting commit."
+        exit 1
+      fi
+    fi
+fi
+
+exit 0
