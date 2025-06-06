@@ -8,6 +8,10 @@
   border-top: 1px solid var(--primary-dark);
 }
 
+.blog-abbr {
+  font-size: 5rem;
+}
+
 .blog-text {
   margin: 0;
   margin-top: 2rem;

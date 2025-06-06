@@ -8,13 +8,17 @@ permalink: /blog.html
 
 <div id="blog-gallery" class="blog-container">
   <!-- <div class="blog-barline"></div> -->
-  {% for page in site.blogs %}
+  {% for page in site.blogs reversed %}
   {% if page.hide != true %}
   <div class="blog-item">
     <div class="center-vbox no-overflow">
+      {% if page.href %} <!-- not real blog -->
+      <div class="blog-abbr bold">{{page.abbr}}</div>
+      {% else %}
       <img loading="lazy" class="news-w-img" src="{{page.thumb}}">
+      {% endif %}
     </div>
-    <a class="navbar-link-base" href="{{ page.url }}">
+    <a class="navbar-link-base" href="{{ page.href | default: page.url }}">
       <div class="main-block-research-content">
         <p class="dim">{{ page.time | default: "Unknown Date" }} by {{ page.author | default: "Anonymous" }}</p>
         <h2 class="semibold blog-text">{{ page.title }}</h2>
