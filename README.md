@@ -153,6 +153,24 @@ latest:
 
 注意: 等式需要用 `$$` 包裹  如 `$$\alpha$$`
 
+还可以添加PDF blog 只需要编辑新文件的front matter
+
+示例如下
+- `href` 表示PDF资源路径 这个必填
+- `abbr` 表示展示的缩写文本
+
+```yaml
+---
+title: Autonomous Generalist Scientist (Part1)
+abbr: AGS
+href: /assets/rg-pdfs/AutonomousGeneralistScientist-Part1.pdf
+category: Agent
+uid: 2025-AGS-P1
+time: 2025/06/06
+author: 龙思宇
+---
+```
+
 ### 修改成员信息
 
 > 人员列表见[此](_data/people.yaml)
