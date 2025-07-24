@@ -1,1 +1,0 @@
-import{d as o,l as s,P as a,b as t,o as l,e as n}from"./index-Bcrky2em.js";const c={class:"h-full"},r=["src"],_=o({__name:"[url]",props:{url:{}},setup(d){return s(()=>{console.log("mounted")}),a(()=>{console.log("activated")}),(e,i)=>(l(),t("div",c,[n("iframe",{id:"iframePage",class:"size-full",src:e.url},null,8,r)]))}});export{_ as default};
