@@ -1,0 +1,55 @@
+@import './reset.css';
+@import './nprogress.css';
+@import './transition.css';
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  /* 防止水平滚动 */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* 优化触摸体验 */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* 统一移动端容器间距 */
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  
+  /* 优化文字选择 */
+  ::selection {
+    background-color: rgba(215, 255, 57, 0.3);
+  }
+  
+  ::-moz-selection {
+    background-color: rgba(215, 255, 57, 0.3);
+  }
+}
+
+@keyframes animate-aurora {
+  0% {
+    background-position:
+      50% 50%,
+      50% 50%;
+  }
+  100% {
+    background-position:
+      350% 50%,
+      350% 50%;
+  }
+}
+
