@@ -19,8 +19,8 @@
       <!-- Sidebar Navigation (Desktop - Fixed on left side) -->
       <aside class="sidebar-nav-fixed" :class="{ 'collapsed': sidebarCollapsed }" :style="sidebarStyle" v-if="contentSections.length > 0">
         <div class="sidebar-header">
-          <span class="sidebar-title">目录</span>
-          <button class="sidebar-collapse-btn" @click="toggleSidebar" title="收起侧边栏">
+          <span class="sidebar-title">Table of Contents</span>
+          <button class="sidebar-collapse-btn" @click="toggleSidebar" title="Close Sidebar">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <polyline points="11 17 6 12 11 7"></polyline>
@@ -36,7 +36,7 @@
                 :class="{ 'has-children': hasChildren(index, 1) }">
                 <div class="nav-link-wrapper">
                   <a @click.prevent="scrollToSection(section.id)" class="nav-link"
-                    :class="{ 'active': activeSection === section.id }" :title="section.title">
+                    :class="{ 'active': activeSection === section.id }" :title="section.fullTitle || section.title">
                     {{ section.title }}
                   </a>
                   <button v-if="hasChildren(index, 1)" class="collapse-toggle" @click.stop="toggleSection(section.id)"
@@ -53,7 +53,7 @@
                 :class="{ 'hidden': isChildHidden(index), 'has-children': hasChildren(index, 2) }">
                 <div class="nav-link-wrapper">
                   <a @click.prevent="scrollToSection(section.id)" class="nav-link"
-                    :class="{ 'active': activeSection === section.id }" :title="section.title">
+                    :class="{ 'active': activeSection === section.id }" :title="section.fullTitle || section.title">
                     {{ section.title }}
                   </a>
                   <button v-if="hasChildren(index, 2)" class="collapse-toggle" @click.stop="toggleSection(section.id)"
@@ -70,7 +70,7 @@
                 :class="{ 'hidden': isChildHidden(index), 'has-children': hasChildren(index, 3) }">
                 <div class="nav-link-wrapper">
                   <a @click.prevent="scrollToSection(section.id)" class="nav-link"
-                    :class="{ 'active': activeSection === section.id }" :title="section.title">
+                    :class="{ 'active': activeSection === section.id }" :title="section.fullTitle || section.title">
                     {{ section.title }}
                   </a>
                   <button v-if="hasChildren(index, 3)" class="collapse-toggle" @click.stop="toggleSection(section.id)"
@@ -85,7 +85,7 @@
               <!-- Level 4+ items (leaf items) -->
               <li v-else class="nav-item" :class="[`level-${section.level}`, { 'hidden': isChildHidden(index) }]">
                 <a @click.prevent="scrollToSection(section.id)" class="nav-link"
-                  :class="{ 'active': activeSection === section.id }" :title="section.title">
+                  :class="{ 'active': activeSection === section.id }" :title="section.fullTitle || section.title">
                   {{ section.title }}
                 </a>
               </li>
@@ -483,13 +483,18 @@ const extractSections = (htmlContent: string, startIndex: number = 0) => {
 
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlContent, 'text/html');
-  const headings = doc.querySelectorAll('h1, h2, h3, h4');
+  const headings = doc.querySelectorAll('h1, h2, h3, h4, h5');
 
   return Array.from(headings).map((heading, index) => {
     const id = `section-${startIndex + index}`;
+    const fullTitle = heading.textContent || '';
+    // 取第一个冒号前面的内容作为目录显示标题（不包括冒号），如果没有冒号则使用完整标题
+    const colonIndex = fullTitle.indexOf(':');
+    const title = colonIndex > 0 ? fullTitle.substring(0, colonIndex).trim() : fullTitle;
     return {
       id,
-      title: heading.textContent || '',
+      title,
+      fullTitle,
       level: parseInt(heading.tagName.charAt(1))
     };
   });
@@ -623,7 +628,7 @@ const addIdsToHeadings = () => {
 
     // Process introducing content headings
     if (introducingContent.value) {
-      const headings = introducingContent.value.querySelectorAll('h1, h2, h3, h4');
+      const headings = introducingContent.value.querySelectorAll('h1, h2, h3, h4, h5');
       headings.forEach((heading) => {
         const id = `section-${globalIndex}`;
         heading.setAttribute('id', id);
@@ -638,7 +643,7 @@ const addIdsToHeadings = () => {
 
     // Process main content headings
     if (mainContent.value) {
-      const headings = mainContent.value.querySelectorAll('h1, h2, h3, h4');
+      const headings = mainContent.value.querySelectorAll('h1, h2, h3, h4, h5');
       headings.forEach((heading) => {
         const id = `section-${globalIndex}`;
         heading.setAttribute('id', id);
@@ -651,7 +656,7 @@ const addIdsToHeadings = () => {
       flexContentRefs.value.forEach((flexEl) => {
         if (!flexEl) return;
         globalIndex++; // Account for the flex section's top-level entry (flex-content-X)
-        const headings = flexEl.querySelectorAll('h1, h2, h3, h4');
+        const headings = flexEl.querySelectorAll('h1, h2, h3, h4, h5');
         headings.forEach((heading) => {
           const id = `section-${globalIndex}`;
           heading.setAttribute('id', id);
@@ -985,7 +990,7 @@ onUnmounted(() => {
 
 .sidebar-title {
   font-family: 'Sora', sans-serif;
-  font-size: 0.9375rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #000;
   letter-spacing: 0.02em;
@@ -1395,6 +1400,11 @@ onUnmounted(() => {
   padding-left: 3.25rem;
 }
 
+/* Level 5 items */
+.nav-item.level-5 .nav-link {
+  padding-left: 4.25rem;
+}
+
 .nav-link {
   font-family: 'Noto Sans', sans-serif;
   font-size: 1.1875rem;
@@ -1485,7 +1495,8 @@ html {
 .section-content :deep(h1),
 .section-content :deep(h2),
 .section-content :deep(h3),
-.section-content :deep(h4) {
+.section-content :deep(h4),
+.section-content :deep(h5) {
   font-family: 'Sora', sans-serif;
   font-weight: 700;
   color: #000000;
@@ -1507,6 +1518,11 @@ html {
 
 .section-content :deep(h4) {
   font-size: 1.3125rem;
+  font-weight: 600;
+}
+
+.section-content :deep(h5) {
+  font-size: 1.1875rem;
   font-weight: 600;
 }
 
@@ -1830,6 +1846,10 @@ html {
     font-size: 17.5px;
   }
 
+  .section-content :deep(h5) {
+    font-size: 16.5px;
+  }
+
   .section-content :deep(th),
   .section-content :deep(td) {
     padding: 0.5rem 0.75rem;
@@ -1886,6 +1906,10 @@ html {
 
   .section-content :deep(h4) {
     font-size: 15px;
+  }
+
+  .section-content :deep(h5) {
+    font-size: 14px;
   }
 
   .section-content :deep(th),
