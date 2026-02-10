@@ -5,8 +5,29 @@
 
     <!-- Main Content -->
     <main class="main-content" v-if="blogPost">
+      <!-- Sidebar Toggle Button (when collapsed) -->
+      <button v-if="contentSections.length > 0 && sidebarCollapsed" class="sidebar-expand-btn" @click="toggleSidebar"
+        :style="sidebarTopOffset > 0 ? { top: sidebarTopOffset + 'px' } : {}">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
       <!-- Sidebar Navigation (Desktop - Fixed on left side) -->
-      <aside class="sidebar-nav-fixed" :style="sidebarStyle" v-if="contentSections.length > 0">
+      <aside class="sidebar-nav-fixed" :class="{ 'collapsed': sidebarCollapsed }" :style="sidebarStyle" v-if="contentSections.length > 0">
+        <div class="sidebar-header">
+          <span class="sidebar-title">目录</span>
+          <button class="sidebar-collapse-btn" @click="toggleSidebar" title="收起侧边栏">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="11 17 6 12 11 7"></polyline>
+              <polyline points="18 17 13 12 18 7"></polyline>
+            </svg>
+          </button>
+        </div>
         <nav class="content-nav">
           <ul class="nav-list">
             <template v-for="(section, index) in contentSections" :key="index">
@@ -15,7 +36,7 @@
                 :class="{ 'has-children': hasChildren(index, 1) }">
                 <div class="nav-link-wrapper">
                   <a @click.prevent="scrollToSection(section.id)" class="nav-link"
-                    :class="{ 'active': activeSection === section.id }">
+                    :class="{ 'active': activeSection === section.id }" :title="section.title">
                     {{ section.title }}
                   </a>
                   <button v-if="hasChildren(index, 1)" class="collapse-toggle" @click.stop="toggleSection(section.id)"
@@ -32,7 +53,7 @@
                 :class="{ 'hidden': isChildHidden(index), 'has-children': hasChildren(index, 2) }">
                 <div class="nav-link-wrapper">
                   <a @click.prevent="scrollToSection(section.id)" class="nav-link"
-                    :class="{ 'active': activeSection === section.id }">
+                    :class="{ 'active': activeSection === section.id }" :title="section.title">
                     {{ section.title }}
                   </a>
                   <button v-if="hasChildren(index, 2)" class="collapse-toggle" @click.stop="toggleSection(section.id)"
@@ -44,10 +65,27 @@
                   </button>
                 </div>
               </li>
-              <!-- Level 3+ items (leaf items) -->
+              <!-- Level 3 items (can also be collapsible) -->
+              <li v-else-if="section.level === 3" class="nav-item level-3"
+                :class="{ 'hidden': isChildHidden(index), 'has-children': hasChildren(index, 3) }">
+                <div class="nav-link-wrapper">
+                  <a @click.prevent="scrollToSection(section.id)" class="nav-link"
+                    :class="{ 'active': activeSection === section.id }" :title="section.title">
+                    {{ section.title }}
+                  </a>
+                  <button v-if="hasChildren(index, 3)" class="collapse-toggle" @click.stop="toggleSection(section.id)"
+                    :class="{ 'collapsed': collapsedSections[section.id] }">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </li>
+              <!-- Level 4+ items (leaf items) -->
               <li v-else class="nav-item" :class="[`level-${section.level}`, { 'hidden': isChildHidden(index) }]">
                 <a @click.prevent="scrollToSection(section.id)" class="nav-link"
-                  :class="{ 'active': activeSection === section.id }">
+                  :class="{ 'active': activeSection === section.id }" :title="section.title">
                   {{ section.title }}
                 </a>
               </li>
@@ -58,7 +96,7 @@
 
       <div class="container">
         <!-- Title Section -->
-        <section class="title-section">
+        <section class="title-section" ref="titleSectionRef">
           <h1 class="blog-title">{{ blogPost.title }}</h1>
           <p class="blog-subtitle" v-if="blogPost.subtitle">
             {{ blogPost.subtitle }}
@@ -304,6 +342,8 @@ const activeSection = ref<string>('');
 const mainContent = ref<HTMLElement | null>(null);
 const introducingContent = ref<HTMLElement | null>(null);
 const flexContentRefs = ref<HTMLElement[]>([]);
+const titleSectionRef = ref<HTMLElement | null>(null);
+const sidebarTopOffset = ref(0);
 
 // 解析后的 flex_content 数组
 const flexSections = computed(() => {
@@ -321,6 +361,11 @@ const flexSections = computed(() => {
 });
 const collapsedSections = ref<Record<string, boolean>>({});
 const sidebarBottomOffset = ref(0); // 侧边栏底部偏移量
+const sidebarCollapsed = ref(false); // 侧边栏收起状态
+
+const toggleSidebar = () => {
+  sidebarCollapsed.value = !sidebarCollapsed.value;
+};
 
 // 评论相关
 const comments = ref<Api.BlogComment.BlogCommentItem[]>([]);
@@ -349,25 +394,36 @@ const $message = useMessage();
 
 // 计算侧边栏样式（处理底部边界）
 const sidebarStyle = computed(() => {
-  if (sidebarBottomOffset.value > 0) {
-    return {
-      position: 'absolute' as const,
-      bottom: `${sidebarBottomOffset.value}px`,
-      top: 'auto'
-    };
+  const style: Record<string, string> = {};
+  if (sidebarTopOffset.value > 0) {
+    style.top = `${sidebarTopOffset.value}px`;
   }
-  return {};
+  if (sidebarBottomOffset.value > 0) {
+    style.position = 'absolute';
+    style.bottom = `${sidebarBottomOffset.value}px`;
+    style.top = 'auto';
+  }
+  return style;
 });
 
-// 初始化所有有子项的目录项为收起状态
+// 更新侧边栏顶部偏移量，使其与标题对齐
+const updateSidebarTopOffset = () => {
+  if (titleSectionRef.value) {
+    const rect = titleSectionRef.value.getBoundingClientRect();
+    // 获取标题在页面中的固定位置（相对于视口顶部）
+    sidebarTopOffset.value = rect.top + window.scrollY;
+  }
+};
+
+// 初始化所有有子项的目录项为展开状态
 const initCollapsedSections = (sections: any[]) => {
   const collapsed: Record<string, boolean> = {};
   sections.forEach((section, index) => {
     // 检查当前项是否有子项
     const nextIndex = index + 1;
     if (nextIndex < sections.length && sections[nextIndex].level > section.level) {
-      // 有子项的项目默认收起
-      collapsed[section.id] = true;
+      // 有子项的项目默认展开
+      collapsed[section.id] = false;
     }
   });
   collapsedSections.value = collapsed;
@@ -427,7 +483,7 @@ const extractSections = (htmlContent: string, startIndex: number = 0) => {
 
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlContent, 'text/html');
-  const headings = doc.querySelectorAll('h1, h2, h3');
+  const headings = doc.querySelectorAll('h1, h2, h3, h4');
 
   return Array.from(headings).map((heading, index) => {
     const id = `section-${startIndex + index}`;
@@ -567,7 +623,7 @@ const addIdsToHeadings = () => {
 
     // Process introducing content headings
     if (introducingContent.value) {
-      const headings = introducingContent.value.querySelectorAll('h1, h2, h3');
+      const headings = introducingContent.value.querySelectorAll('h1, h2, h3, h4');
       headings.forEach((heading) => {
         const id = `section-${globalIndex}`;
         heading.setAttribute('id', id);
@@ -582,7 +638,7 @@ const addIdsToHeadings = () => {
 
     // Process main content headings
     if (mainContent.value) {
-      const headings = mainContent.value.querySelectorAll('h1, h2, h3');
+      const headings = mainContent.value.querySelectorAll('h1, h2, h3, h4');
       headings.forEach((heading) => {
         const id = `section-${globalIndex}`;
         heading.setAttribute('id', id);
@@ -595,7 +651,7 @@ const addIdsToHeadings = () => {
       flexContentRefs.value.forEach((flexEl) => {
         if (!flexEl) return;
         globalIndex++; // Account for the flex section's top-level entry (flex-content-X)
-        const headings = flexEl.querySelectorAll('h1, h2, h3');
+        const headings = flexEl.querySelectorAll('h1, h2, h3, h4');
         headings.forEach((heading) => {
           const id = `section-${globalIndex}`;
           heading.setAttribute('id', id);
@@ -743,6 +799,11 @@ const loadBlogPost = async () => {
       await nextTick();
       addIdsToHeadings();
 
+      // 计算侧边栏顶部对齐位置
+      setTimeout(() => {
+        updateSidebarTopOffset();
+      }, 100);
+
       // 加载评论
       await loadComments();
     }
@@ -841,6 +902,7 @@ function debouncedHandleResize() {
   }
   resizeTimeout = setTimeout(() => {
     updateRootRem();
+    updateSidebarTopOffset();
   }, 200);
 }
 
@@ -897,34 +959,104 @@ onUnmounted(() => {
 /* Sidebar Navigation - Fixed on left side */
 .sidebar-nav-fixed {
   position: fixed;
-  left: 2rem;
-  top: 12rem;
-  width: 15rem;
-  max-height: calc(100vh - 14rem);
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 22rem;
   overflow-y: auto;
-  z-index: 100;
-  transition: all 0.3s ease;
+  z-index: 200;
+  background: transparent;
+  padding-top: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-nav-fixed.collapsed {
+  transform: translateX(-100%);
+}
+
+/* Sidebar header with title and collapse button */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1.5rem 0.5rem 2rem;
+  z-index: 10;
+}
+
+.sidebar-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-collapse-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.sidebar-collapse-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #333;
+}
+
+/* Expand button (shown when sidebar is collapsed) */
+.sidebar-expand-btn {
+  position: fixed;
+  left: 0.75rem;
+  top: 10rem;
+  z-index: 199;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: #555;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.sidebar-expand-btn:hover {
+  background: #f5f5f5;
+  color: #000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Content nav padding inside sidebar */
+.sidebar-nav-fixed .content-nav {
+  padding: 0.75rem  1.25rem ;
 }
 
 /* Mobile Navigation - Removed */
 
-/* Adjust for large screens - position sidebar better */
+/* Adjust for large screens */
 @media (min-width: 1440px) {
   .sidebar-nav-fixed {
-    left: calc((100vw - 60rem) / 2 - 18rem);
+    width: 24rem;
   }
 }
 
 /* Hide fixed sidebar on smaller screens */
-@media (max-width: 1280px) {
-  .sidebar-nav-fixed {
-    left: 1rem;
-    width: 12rem;
-  }
-}
-
 @media (max-width: 1100px) {
   .sidebar-nav-fixed {
+    display: none;
+  }
+
+  .sidebar-expand-btn {
     display: none;
   }
 }
@@ -1140,11 +1272,7 @@ onUnmounted(() => {
 /* Content Navigation */
 .content-nav {
   background: transparent;
-  backdrop-filter: blur(10px);
-  /* border: 1px solid rgba(0, 0, 0, 0.08); */
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: 0 0.75rem 0 1.25rem;
 }
 
 .nav-title {
@@ -1253,22 +1381,34 @@ onUnmounted(() => {
 }
 
 /* Level 3 items */
-.nav-item.level-3 .nav-link {
+.nav-item.level-3 .nav-link-wrapper,
+.nav-item.level-3>.nav-link {
   padding-left: 2rem;
-  font-size: 1.125rem;
+}
+
+.nav-item.level-3 .nav-link {
+  padding-left: 0.25rem;
+}
+
+/* Level 4 items */
+.nav-item.level-4 .nav-link {
+  padding-left: 3.25rem;
 }
 
 .nav-link {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.1875rem;
   color: #333333;
   text-decoration: none;
   transition: all 0.2s ease;
   cursor: pointer;
   display: block;
-  padding: 0.5rem 0.75rem;
+  padding: 0.2rem 0.75rem;
   border-radius: 0.375rem;
-  line-height: 1.5;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   position: relative;
 }
 
@@ -1344,7 +1484,8 @@ html {
 
 .section-content :deep(h1),
 .section-content :deep(h2),
-.section-content :deep(h3) {
+.section-content :deep(h3),
+.section-content :deep(h4) {
   font-family: 'Sora', sans-serif;
   font-weight: 700;
   color: #000000;
@@ -1361,7 +1502,12 @@ html {
 }
 
 .section-content :deep(h3) {
-  font-size: 1.375rem;
+  font-size: 1.5rem;
+}
+
+.section-content :deep(h4) {
+  font-size: 1.3125rem;
+  font-weight: 600;
 }
 
 .section-content :deep(p) {
@@ -1531,7 +1677,6 @@ html {
 
 /* References Content */
 .references-content :deep(p) {
-  font-size: 0.9375rem;
   line-height: 1.7;
 }
 
@@ -1678,7 +1823,11 @@ html {
   }
 
   .section-content :deep(h3) {
-    font-size: 18px;
+    font-size: 19px;
+  }
+
+  .section-content :deep(h4) {
+    font-size: 17.5px;
   }
 
   .section-content :deep(th),
@@ -1732,6 +1881,10 @@ html {
   }
 
   .section-content :deep(h3) {
+    font-size: 15.5px;
+  }
+
+  .section-content :deep(h4) {
     font-size: 15px;
   }
 
