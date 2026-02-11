@@ -5,6 +5,7 @@ import {
   NFormItem, NTag, NDatePicker, NSelect, NTooltip, useMessage,
   NSwitch, NInputNumber, NPopconfirm
 } from 'naive-ui';
+import CosUploader from '@/components/common/CosUploader.vue';
 import type { DataTableColumns } from 'naive-ui';
 
 // TinyMCE 核心
@@ -88,7 +89,7 @@ const tagsOptions = [
   { label: 'diffusion-models', value: 'diffusion-models' }
 ];
 
-const formData = reactive<GensiblogFormData>({
+const formData = reactive<GensiblogFormData & { blog_img?: string }>({
   title: '',
   subtitle: '',
   author: '',
@@ -115,7 +116,8 @@ const formData = reactive<GensiblogFormData>({
   introduction_label: 'Introduction',
   content_label: 'Content',
   reference_label: 'Reference',
-  citation_label: 'Citation'
+  citation_label: 'Citation',
+  blog_img: ''
 });
 
 // flex_content 动态内容数组
@@ -525,7 +527,8 @@ function handleAdd() {
     introduction_label: 'Introduction',
     content_label: 'Content',
     reference_label: 'Reference',
-    citation_label: 'Citation'
+    citation_label: 'Citation',
+    blog_img: ''
   });
   flexContentList.value = [];
   editingLabel.value = null;
@@ -562,7 +565,8 @@ function handleEdit(row: GensiblogItem) {
     introduction_label: row.introduction_label || 'Introduction',
     content_label: row.content_label || 'Content',
     reference_label: row.reference_label || 'Reference',
-    citation_label: row.citation_label || 'Citation'
+    citation_label: row.citation_label || 'Citation',
+    blog_img: row.blog_img || ''
   });
 
   // 解析 flex_content JSON 回填到数组
@@ -649,7 +653,8 @@ async function handleSave() {
       content_label: formData.content_label || 'Content',
       reference_label: formData.reference_label || 'Reference',
       citation_label: formData.citation_label || 'Citation',
-      flex_content: flexContentJson
+      flex_content: flexContentJson,
+      blog_img: formData.blog_img || ''
     };
 
     if (editMode.value && formData.id) {
@@ -917,6 +922,12 @@ onMounted(() => {
               clearable
               filterable
             />
+          </NFormItem>
+
+          <NFormItem label="缩略图" path="blog_img">
+            <NSpace vertical style="width: 100%">
+              <CosUploader v-model="formData.blog_img" prefix="gensiblog/cover/" />
+            </NSpace>
           </NFormItem>
           
           <NFormItem label="所属单位描述" path="affiliations_des">
