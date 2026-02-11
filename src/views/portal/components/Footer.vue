@@ -47,11 +47,11 @@
               <div class="social-icon" @click="toNewTab('https://huggingface.co/GenSI')">
                 <img src="../assests/home/huggingface.png" alt="Hugging Face" />
               </div>
-              <div class="social-icon" @click="toNewTab('https://x.com/GenSI_official')">
+              <div class="social-icon" @click="toNewTab('https://x.com/hello_gensi')">
                 <img src="../assests/home/x.png" alt="X" />
               </div>
-              <div class="social-icon" @click="toNewTab('https://www.zhihu.com/people/generative-si/posts')">
-                <img src="../assests/home/zh.png" alt="知乎" />
+              <div class="social-icon" @click="toNewTab('https://www.youtube.com/@hello_gensi')">
+                <img src="../assests/home/youtube.png" alt="youtube" />
               </div>
               <div class="social-icon"
                 @click="toNewTab('https://www.xiaohongshu.com/user/profile/65465f81000000000301f9bd')">
@@ -116,7 +116,7 @@ function toProjects(event?: Event) {
   if (event) {
     event.preventDefault();
   }
-  router.push('/portal/research');
+  router.push('/portal/project');
 }
 
 // 跳转到 research 页面的 Publications 部分
@@ -124,7 +124,7 @@ function toPublications(event?: Event) {
   if (event) {
     event.preventDefault();
   }
-  router.push({ path: '/portal/research', hash: '#publications' });
+  router.push({ path: '/portal/publications', });
 }
 
 // 外部链接跳转

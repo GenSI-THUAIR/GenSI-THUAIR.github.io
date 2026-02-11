@@ -334,10 +334,14 @@ const columns: DataTableColumns<GensiblogItem> = [
     width: 150,
     render(row) {
       if (!row || !row.author) return '-';
-      return h(NTag, {
-        type: 'info',
-        size: 'small'
-      }, { default: () => row.author });
+      return h(NTooltip, {}, {
+        trigger: () => h(NTag, {
+          type: 'info',
+          size: 'small',
+          style: 'max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'
+        }, { default: () => row.author }),
+        default: () => row.author
+      });
     }
   },
   {
@@ -389,11 +393,15 @@ const columns: DataTableColumns<GensiblogItem> = [
             type: 'primary',
             onClick: () => handleEdit(row)
           }, { default: () => '编辑' }),
-          h(NButton, {
-            size: 'small',
-            type: 'error',
-            onClick: () => handleDelete(row.id)
-          }, { default: () => '删除' })
+          h(NPopconfirm, {
+            onPositiveClick: () => handleDelete(row.id)
+          }, {
+            trigger: () => h(NButton, {
+              size: 'small',
+              type: 'error'
+            }, { default: () => '删除' }),
+            default: () => '确定要删除这条记录吗？'
+          })
         ]
       });
     }
@@ -800,13 +808,17 @@ onMounted(() => {
             clearable
             style="width: 280px"
           />
-          <NButton 
-            type="error" 
-            :disabled="selectedRowKeys.length === 0"
-            @click="handleBatchDelete"
-          >
-            批量删除 ({{ selectedRowKeys.length }})
-          </NButton>
+          <NPopconfirm @positive-click="handleBatchDelete">
+            <template #trigger>
+              <NButton 
+                type="error" 
+                :disabled="selectedRowKeys.length === 0"
+              >
+                批量删除 ({{ selectedRowKeys.length }})
+              </NButton>
+            </template>
+            确定要删除选中的 {{ selectedRowKeys.length }} 条记录吗？
+          </NPopconfirm>
           <NButton type="primary" @click="handleAdd">
             新增记录
           </NButton>

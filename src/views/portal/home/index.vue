@@ -1125,11 +1125,11 @@ const currentPage = computed(() => {
       <div class="follow-social" @click="toNewTab('https://huggingface.co/GenSI')">
         <img src="../assests/home/huggingface.png" alt="">  
       </div>
-      <div class="follow-social" @click="toNewTab('https://x.com/GenSI_official')">
+      <div class="follow-social" @click="toNewTab('https://x.com/hello_gensi')">
         <img src="../assests/home/x.png" alt="">
       </div>
-      <div class="follow-social" @click="toNewTab('https://www.zhihu.com/people/generative-si/posts')">
-        <img src="../assests/home/zh.png"  alt="">
+      <div class="follow-social" @click="toNewTab('https://www.youtube.com/@hello_gensi')">
+        <img src="../assests/home/youtube.png"  alt="">
       </div>
     </div>
   </footer>

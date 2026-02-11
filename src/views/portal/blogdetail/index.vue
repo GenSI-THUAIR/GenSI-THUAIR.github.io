@@ -946,7 +946,7 @@ onUnmounted(() => {
 }
 
 .container {
-  max-width: 75rem;
+  max-width: 63rem;
   margin: 0 auto;
   padding: 0 3rem;
 }
@@ -967,7 +967,7 @@ onUnmounted(() => {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 22rem;
+  width: 30rem;
   overflow-y: auto;
   z-index: 200;
   background: transparent;
@@ -1051,7 +1051,7 @@ onUnmounted(() => {
 /* Adjust for large screens */
 @media (min-width: 1440px) {
   .sidebar-nav-fixed {
-    width: 24rem;
+    width: 30rem;
   }
 }
 
@@ -1478,7 +1478,7 @@ html {
   font-size: 1.825rem;
   font-weight: 700;
   color: #000000;
-  margin: 0 0 1.25rem 0;
+  margin: 0 0 0.25rem 0;
   padding-bottom: 0;
   border-bottom: none;
   letter-spacing: -0.01em;
@@ -1500,7 +1500,7 @@ html {
   font-family: 'Sora', sans-serif;
   font-weight: 700;
   color: #000000;
-  margin: 2.75rem 0 1.25rem 0;
+  margin: 0.75rem 0 1.25rem 0;
   letter-spacing: -0.01em;
 }
 
@@ -1527,7 +1527,7 @@ html {
 }
 
 .section-content :deep(p) {
-  margin: 1.75rem 0;
+  margin: 1.25rem 0;
   text-align: justify;
 }
 
@@ -1625,7 +1625,7 @@ html {
 .section-content :deep(.table-wrapper) {
   width: 100%;
   overflow-x: auto;
-  margin: 1.75rem 0;
+  margin: 1.5rem 0;
   -webkit-overflow-scrolling: touch;
 }
 
