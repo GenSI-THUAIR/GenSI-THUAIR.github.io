@@ -363,6 +363,29 @@ const collapsedSections = ref<Record<string, boolean>>({});
 const sidebarBottomOffset = ref(0); // 侧边栏底部偏移量
 const sidebarCollapsed = ref(false); // 侧边栏收起状态
 
+// Safari 检测 & 侧边栏宽度修正
+// Safari 不会将祖先 zoom(0.87) 正确应用到 position:fixed 子元素，导致侧边栏以未缩放宽度渲染与 container 重叠
+const isSafari = ref(false);
+const safariSidebarMaxWidth = ref(0);
+const PORTAL_ZOOM = 0.87; // 与 blank-layout 中 .portal-zoom { zoom: 0.87 } 保持一致
+
+function detectSafari() {
+  if (typeof navigator !== 'undefined') {
+    isSafari.value = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  }
+}
+
+function updateSafariSidebarWidth() {
+  if (!isSafari.value) return;
+  const vw = window.innerWidth;
+  const scale = Math.min(1.5, Math.max(0.75, vw / remBaselineWidth));
+  const currentRem = remBaseFontPx * scale;
+  // container 可视左边距 = (视口宽度 - containerMaxWidth * zoom) / 2
+  const containerVisualLeft = (vw - 63 * currentRem * PORTAL_ZOOM) / 2;
+  // 侧边栏最大宽度 = container 左边距 - 安全间距
+  safariSidebarMaxWidth.value = Math.max(200, Math.floor(containerVisualLeft - 12));
+}
+
 const toggleSidebar = () => {
   sidebarCollapsed.value = !sidebarCollapsed.value;
 };
@@ -392,7 +415,7 @@ const copyCitation = async () => {
 
 const $message = useMessage();
 
-// 计算侧边栏样式（处理底部边界）
+// 计算侧边栏样式（处理底部边界 + Safari 宽度修正）
 const sidebarStyle = computed(() => {
   const style: Record<string, string> = {};
   if (sidebarTopOffset.value > 0) {
@@ -402,6 +425,10 @@ const sidebarStyle = computed(() => {
     style.position = 'absolute';
     style.bottom = `${sidebarBottomOffset.value}px`;
     style.top = 'auto';
+  }
+  // Safari: 限制侧边栏宽度，防止与居中 container 重叠
+  if (isSafari.value && safariSidebarMaxWidth.value > 0) {
+    style.maxWidth = `${safariSidebarMaxWidth.value}px`;
   }
   return style;
 });
@@ -908,10 +935,15 @@ function debouncedHandleResize() {
   resizeTimeout = setTimeout(() => {
     updateRootRem();
     updateSidebarTopOffset();
+    updateSafariSidebarWidth();
   }, 200);
 }
 
 onMounted(async () => {
+  // Safari 检测 & 侧边栏宽度修正
+  detectSafari();
+  updateSafariSidebarWidth();
+
   // 初始化 rem 根字号并监听窗口变化
   if (typeof document !== 'undefined') {
     originalRootFontSize = document.documentElement.style.fontSize;
