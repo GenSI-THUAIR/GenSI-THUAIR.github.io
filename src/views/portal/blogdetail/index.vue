@@ -1100,7 +1100,7 @@ onUnmounted(() => {
 
 /* Title Section */
 .title-section {
-  margin-bottom: 2.5rem;
+  /* margin-bottom: 2.5rem; */
   padding-bottom: 1.5rem;
   border-bottom: none;
 }
@@ -1111,7 +1111,6 @@ onUnmounted(() => {
   font-size: 2.5rem;
   color: #000000;
   line-height: 1.4;
-  margin: 0 0 1.25rem 0;
   letter-spacing: -0.02em;
 }
 
@@ -1309,7 +1308,7 @@ onUnmounted(() => {
 /* Content Navigation */
 .content-nav {
   background: transparent;
-  padding: 0 0.75rem 0 1.25rem;
+  padding: 0 1.75rem 0 1.25rem;
 }
 
 .nav-title {
@@ -1502,7 +1501,7 @@ html {
 
 /* Content Sections */
 .content-section {
-  margin-bottom: 3.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .section-title {
@@ -1532,7 +1531,7 @@ html {
   font-family: 'Sora', sans-serif;
   font-weight: 700;
   color: #000000;
-  margin: 0.75rem 0 1.25rem 0;
+  margin: 1.75rem 0 1.25rem 0;
   letter-spacing: -0.01em;
 }
 
@@ -1768,6 +1767,10 @@ html {
 }
 
 /* References Content */
+.references-content {
+  margin-top:1.5rem;
+}
+
 .references-content :deep(p) {
   line-height: 1.7;
 }
@@ -1997,8 +2000,8 @@ html {
 
 /* ========== Comments Section ========== */
 .comments-section {
-  margin-top: 4rem;
-  padding-top: 3rem;
+  margin-top: 3rem;
+  padding-top: 2.5rem;
   border-top: 1px solid #e5e5e5;
 }
 
@@ -2007,7 +2010,7 @@ html {
   border: 1px solid #e8e8e8;
   border-radius: 1rem;
   padding: 1.5rem;
-  margin-bottom: 2.5rem;
+  margin: 1.5rem 0 2.5rem 0;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
