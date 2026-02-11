@@ -1691,6 +1691,50 @@ html {
   color: #2C2C2C;
 }
 
+/* ====== 合并表格样式 ====== */
+/* 同时兼容旧版 WangEditor data-w-e-type 包裹 和 TinyMCE 直接生成的带 colspan/rowspan 表格 */
+
+/* 旧版合并表格容器（向后兼容） */
+.section-content :deep(div[data-w-e-type="mergedTable"]) {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1.75rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.section-content :deep(div[data-w-e-type="mergedTable"]) table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 0.95em;
+  border: 1px solid #d0d0d0;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.section-content :deep(div[data-w-e-type="mergedTable"]) th,
+.section-content :deep(div[data-w-e-type="mergedTable"]) td {
+  border: 1px solid #d0d0d0;
+  padding: 0.625rem 1rem;
+  text-align: left;
+}
+
+/* 含合并单元格的表格（TinyMCE 生成）：用 collapse 确保 colspan/rowspan 边框正确 */
+.section-content :deep(table:has([colspan])),
+.section-content :deep(table:has([rowspan])) {
+  border-collapse: collapse;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.section-content :deep(table:has([colspan])) th,
+.section-content :deep(table:has([colspan])) td,
+.section-content :deep(table:has([rowspan])) th,
+.section-content :deep(table:has([rowspan])) td {
+  border: 1px solid #d0d0d0;
+}
+
 /* References Content */
 .references-content :deep(p) {
   line-height: 1.7;

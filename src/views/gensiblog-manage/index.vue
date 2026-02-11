@@ -1,50 +1,48 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted, onBeforeUnmount, computed, h, nextTick, shallowRef } from 'vue';
+import { ref, reactive, onMounted, computed, h, nextTick, shallowRef } from 'vue';
 import { 
   NCard, NInput, NButton, NSpace, NDataTable, NModal, NForm, 
   NFormItem, NTag, NDatePicker, NSelect, NTooltip, useMessage,
   NSwitch, NInputNumber, NPopconfirm
 } from 'naive-ui';
 import type { DataTableColumns } from 'naive-ui';
-import { Editor, Toolbar } from '@wangeditor/editor-for-vue';
-import { Boot } from '@wangeditor/editor';
-import type { IDomEditor, IEditorConfig, IToolbarConfig, IButtonMenu } from '@wangeditor/editor';
-import '@wangeditor/editor/dist/css/style.css';
+
+// TinyMCE 核心
+import 'tinymce/tinymce';
+import 'tinymce/themes/silver';
+import 'tinymce/models/dom';
+import 'tinymce/icons/default';
+// TinyMCE 插件（表格插件原生支持合并单元格）
+import 'tinymce/plugins/table';
+import 'tinymce/plugins/image';
+import 'tinymce/plugins/lists';
+import 'tinymce/plugins/link';
+import 'tinymce/plugins/code';
+import 'tinymce/plugins/advlist';
+import 'tinymce/plugins/autolink';
+import 'tinymce/plugins/searchreplace';
+import 'tinymce/plugins/fullscreen';
+import 'tinymce/plugins/media';
+import 'tinymce/plugins/wordcount';
+import 'tinymce/plugins/codesample';
+// TinyMCE 皮肤（页面 UI）
+import 'tinymce/skins/ui/oxide/skin.min.css';
+// TinyMCE 编辑区内容 CSS（注入到编辑器 iframe）
+// @ts-ignore Vite raw import
+import contentCss from 'tinymce/skins/content/default/content.min.css?raw';
+// @ts-ignore Vite raw import
+import contentUiCss from 'tinymce/skins/ui/oxide/content.min.css?raw';
+import TinymceEditor from '@tinymce/tinymce-vue';
+
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
-// ====== 公式弹窗状态（定义在 class 之前，供 class 闭包访问）======
+// ====== 公式弹窗状态 ======
 const showFormulaModal = ref(false);
 const formulaInput = ref('');
 const formulaDisplayMode = ref(false); // false=行内, true=块级
-const activeFormulaEditor = shallowRef<IDomEditor | null>(null);
-const savedEditorSelection = shallowRef<any>(null); // 保存打开弹窗时的选区
+const activeFormulaEditor = shallowRef<any>(null);
 
-// ====== 注册自定义公式工具栏按钮 ======
-const FORMULA_MENU_KEY = 'insertFormula';
-
-class FormulaMenu implements IButtonMenu {
-  readonly title = '插入公式';
-  readonly tag = 'button';
-  readonly iconSvg = `<svg viewBox="0 0 1024 1024" width="1em" height="1em"><path d="M256 192h512v128H445.44L640 512 445.44 704H768v128H256l256-320z" fill="currentColor"/></svg>`;
-
-  getValue() { return ''; }
-  isActive() { return false; }
-  isDisabled() { return false; } // 始终可点击，不依赖 selection 状态
-
-  exec(editor: IDomEditor) {
-    activeFormulaEditor.value = editor;
-    // 尝试保存当前选区；如果编辑器已失焦 selection 为 null，则插入时会追加到末尾
-    savedEditorSelection.value = editor.selection ? JSON.parse(JSON.stringify(editor.selection)) : null;
-    formulaInput.value = '';
-    formulaDisplayMode.value = false;
-    showFormulaModal.value = true;
-  }
-}
-
-try {
-  Boot.registerMenu({ key: FORMULA_MENU_KEY, factory: () => new FormulaMenu() });
-} catch { /* 热更新时已注册，跳过 */ }
 import { 
   fetchGensiblogList, 
   createGensiblog, 
@@ -71,8 +69,6 @@ const editMode = ref(false);
 const searchValue = ref('');
 const selectedRowKeys = ref<string[]>([]);
 
-// WangEditor 实例管理
-const editorInstances = shallowRef<IDomEditor[]>([]);
 
 // 评论管理相关
 const showCommentsModal = ref(false);
@@ -170,40 +166,55 @@ function cancelEditLabel() {
 
 const gensiblogData = ref<GensiblogItem[]>([]);
 
-// WangEditor 工具栏配置（末尾追加公式按钮）
-const toolbarConfig: Partial<IToolbarConfig> = {
-  insertKeys: {
-    index: -1,
-    keys: [FORMULA_MENU_KEY]
-  }
-};
-
-// WangEditor 编辑器配置
-const editorConfig: Partial<IEditorConfig> = {
+// TinyMCE 编辑器初始化配置（表格插件原生支持合并/拆分单元格）
+const tinymceInit = {
+  license_key: 'gpl',
+  skin: false,
+  content_css: false,
+  content_style: `${contentCss}\n${contentUiCss}\nbody { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 14px; line-height: 1.6; color: #333; padding: 12px 16px; } table { border-collapse: collapse; width: 100%; } th, td { border: 1px solid #ccc; padding: 8px 12px; }`,
+  height: 350,
+  menubar: 'file edit view insert format tools table',
+  plugins: 'table image lists link code advlist autolink searchreplace fullscreen media wordcount codesample',
+  toolbar1: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify',
+  toolbar2: 'bullist numlist | outdent indent | table image link media | insertFormula codesample code | searchreplace fullscreen',
+  table_toolbar: 'tableprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol | tablecellprops tablemergecells tablesplitcells',
   placeholder: '请输入内容...',
-  MENU_CONF: {
-    uploadImage: {
-      maxFileSize: 5 * 1024 * 1024,
-      allowedFileTypes: ['image/*'],
-      // 自定义图片上传：上传到 Supabase Storage 获取 URL，而非嵌入 base64
-      async customUpload(file: File, insertFn: (url: string, alt?: string, href?: string) => void) {
-        const msgReactive = $message.loading('正在上传图片...', { duration: 0 });
-        try {
-          const url = await uploadBlogImage(file);
-          insertFn(url);
-          msgReactive.destroy();
-          $message.success('图片上传成功');
-        } catch (error: any) {
-          msgReactive.destroy();
-          console.error('图片上传失败:', error);
-          $message.error(`图片上传失败: ${error.message || '请重试'}`);
-        }
-      }
-    },
-    uploadVideo: {
-      maxFileSize: 50 * 1024 * 1024,
-      allowedFileTypes: ['video/*']
+  promotion: false,
+  branding: false,
+  table_advtab: true,
+  table_cell_advtab: true,
+  table_row_advtab: true,
+  table_default_styles: {
+    'border-collapse': 'collapse',
+    'width': '100%'
+  },
+  images_upload_handler: async (blobInfo: any) => {
+    const msgReactive = $message.loading('正在上传图片...', { duration: 0 });
+    try {
+      const file = blobInfo.blob();
+      const url = await uploadBlogImage(file);
+      msgReactive.destroy();
+      $message.success('图片上传成功');
+      return url;
+    } catch (error: any) {
+      msgReactive.destroy();
+      console.error('图片上传失败:', error);
+      $message.error(`图片上传失败: ${error.message || '请重试'}`);
+      throw error;
     }
+  },
+  setup: (editor: any) => {
+    // 注册自定义"插入公式"工具栏按钮
+    editor.ui.registry.addButton('insertFormula', {
+      text: 'ƒ(x)',
+      tooltip: '插入 LaTeX 公式',
+      onAction: () => {
+        activeFormulaEditor.value = editor;
+        formulaInput.value = '';
+        formulaDisplayMode.value = false;
+        showFormulaModal.value = true;
+      }
+    });
   }
 };
 
@@ -415,18 +426,6 @@ const filteredData = computed(() => {
   });
 });
 
-// WangEditor 创建回调，记录实例以便后续销毁
-// 同时清理已销毁的旧实例，并替换同 fieldKey 的实例（解决弹窗关闭再打开后工具栏消失的问题）
-function handleEditorCreated(editor: IDomEditor) {
-  const fieldKey = (editor as any).__fieldKey;
-  editorInstances.value = [
-    ...editorInstances.value.filter(e =>
-      !(e as any).isDestroyed && (e as any).__fieldKey !== fieldKey
-    ),
-    editor
-  ];
-}
-
 // 公式实时预览（KaTeX 渲染）
 const formulaPreviewHtml = computed(() => {
   const input = formulaInput.value.trim();
@@ -448,7 +447,6 @@ function confirmInsertFormula() {
   if (!input || !activeFormulaEditor.value) return;
 
   const editor = activeFormulaEditor.value;
-  const selection = savedEditorSelection.value;
   const delimiter = formulaDisplayMode.value ? '$$' : '$';
 
   // HTML 转义公式中的特殊字符，防止被解析为 HTML
@@ -465,25 +463,11 @@ function confirmInsertFormula() {
   showFormulaModal.value = false;
   formulaInput.value = '';
 
-  // 等弹窗 DOM 关闭后再操作编辑器，否则编辑器无法正确获得焦点
+  // 等弹窗 DOM 关闭后再操作编辑器
   nextTick(() => {
-    // 恢复编辑器焦点
     editor.focus();
-
-    // 恢复之前保存的光标位置
-    if (selection) {
-      try {
-        editor.select(selection);
-      } catch {
-        // 选区恢复失败时继续，focus() 已将光标放回编辑器末尾
-      }
-    }
-
-    // 插入公式 HTML
-    editor.dangerouslyInsertHtml(html);
-
+    editor.insertContent(html);
     activeFormulaEditor.value = null;
-    savedEditorSelection.value = null;
     $message.success('公式已插入，发布后将显示为渲染效果');
   });
 }
@@ -803,15 +787,6 @@ onMounted(() => {
   loadData();
 });
 
-// 组件卸载前销毁所有 WangEditor 实例，防止内存泄漏
-onBeforeUnmount(() => {
-  editorInstances.value.forEach(editor => {
-    if (editor && !(editor as any).isDestroyed) {
-      editor.destroy();
-    }
-  });
-  editorInstances.value = [];
-});
 </script>
 
 <template>
@@ -1077,14 +1052,11 @@ onBeforeUnmount(() => {
               </span>
             </template>
             <div class="editor-container">
-              <Toolbar :editor="editorInstances.find(e => (e as any).__fieldKey === 'introducing')" :defaultConfig="toolbarConfig" mode="default" />
-              <Editor
-                :defaultConfig="{ ...editorConfig }"
-                :modelValue="formData.introducing || ''"
-                mode="default"
-                style="height: 300px; overflow-y: hidden;"
-                @onCreated="(editor: IDomEditor) => { (editor as any).__fieldKey = 'introducing'; handleEditorCreated(editor); }"
-                @onChange="(editor: IDomEditor) => { formData.introducing = editor.getHtml(); }"
+              <TinymceEditor
+                :model-value="formData.introducing || ''"
+                :init="tinymceInit"
+                license-key="gpl"
+                @update:model-value="(val: string) => { formData.introducing = val; }"
               />
             </div>
           </NFormItem>
@@ -1116,14 +1088,11 @@ onBeforeUnmount(() => {
               </span>
             </template>
             <div class="editor-container">
-              <Toolbar :editor="editorInstances.find(e => (e as any).__fieldKey === 'content')" :defaultConfig="toolbarConfig" mode="default" />
-              <Editor
-                :defaultConfig="{ ...editorConfig }"
-                :modelValue="formData.content || ''"
-                mode="default"
-                style="height: 300px; overflow-y: hidden;"
-                @onCreated="(editor: IDomEditor) => { (editor as any).__fieldKey = 'content'; handleEditorCreated(editor); }"
-                @onChange="(editor: IDomEditor) => { formData.content = editor.getHtml(); }"
+              <TinymceEditor
+                :model-value="formData.content || ''"
+                :init="tinymceInit"
+                license-key="gpl"
+                @update:model-value="(val: string) => { formData.content = val; }"
               />
             </div>
           </NFormItem>
@@ -1152,14 +1121,11 @@ onBeforeUnmount(() => {
               </span>
             </template>
             <div class="editor-container">
-              <Toolbar :editor="editorInstances.find(e => (e as any).__fieldKey === `flex_${index}`)" :defaultConfig="toolbarConfig" mode="default" />
-              <Editor
-                :defaultConfig="{ ...editorConfig }"
-                :modelValue="item.content || ''"
-                mode="default"
-                style="height: 300px; overflow-y: hidden;"
-                @onCreated="(editor: IDomEditor) => { (editor as any).__fieldKey = `flex_${index}`; handleEditorCreated(editor); }"
-                @onChange="(editor: IDomEditor) => { item.content = editor.getHtml(); }"
+              <TinymceEditor
+                :model-value="item.content || ''"
+                :init="tinymceInit"
+                license-key="gpl"
+                @update:model-value="(val: string) => { item.content = val; }"
               />
             </div>
           </NFormItem>
@@ -1191,14 +1157,11 @@ onBeforeUnmount(() => {
               </span>
             </template>
             <div class="editor-container">
-              <Toolbar :editor="editorInstances.find(e => (e as any).__fieldKey === 'references')" :defaultConfig="toolbarConfig" mode="default" />
-              <Editor
-                :defaultConfig="{ ...editorConfig }"
-                :modelValue="formData.references || ''"
-                mode="default"
-                style="height: 250px; overflow-y: hidden;"
-                @onCreated="(editor: IDomEditor) => { (editor as any).__fieldKey = 'references'; handleEditorCreated(editor); }"
-                @onChange="(editor: IDomEditor) => { formData.references = editor.getHtml(); }"
+              <TinymceEditor
+                :model-value="formData.references || ''"
+                :init="{ ...tinymceInit, height: 300 }"
+                license-key="gpl"
+                @update:model-value="(val: string) => { formData.references = val; }"
               />
             </div>
           </NFormItem>   
@@ -1316,6 +1279,7 @@ onBeforeUnmount(() => {
         </NSpace>
       </template>
     </NModal>
+
   </div>
 </template>
 
@@ -1343,42 +1307,19 @@ onBeforeUnmount(() => {
   overflow: hidden;
 }
 
-/* WangEditor 工具栏样式 */
-:deep(.w-e-toolbar) {
-  border-bottom: 1px solid #e0e0e6 !important;
+/* TinyMCE 编辑器容器样式 */
+:deep(.tox-tinymce) {
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+:deep(.tox .tox-toolbar__primary) {
   background-color: #fafafa !important;
 }
 
-/* WangEditor 编辑区域样式 */
-:deep(.w-e-text-container) {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-:deep(.w-e-text-container [data-slate-editor]) {
-  min-height: 200px;
-  padding: 12px 16px;
-}
-
-/* WangEditor 弹出层 z-index */
-:deep(.w-e-modal) {
+/* TinyMCE 弹出层 z-index 确保在 NModal 之上 */
+:deep(.tox-tinymce-aux) {
   z-index: 9999 !important;
-}
-
-:deep(.w-e-text-placeholder) {
-  color: #c2c2c2;
-  font-style: normal;
-}
-
-/* 编辑器内公式代码样式 - 让 $...$ 公式在编辑器中更醒目 */
-:deep(.w-e-text-container code) {
-  background: #f0ebff;
-  color: #6d28d9;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: 'Courier New', Consolas, monospace;
-  font-size: 0.9em;
-  border: 1px solid #e0d4fc;
 }
 
 /* 优化滚动条样式 */
@@ -1537,6 +1478,13 @@ onBeforeUnmount(() => {
 
 .formula-preview-content :deep(.katex) {
   font-size: 1.2em;
+}
+</style>
+
+<!-- TinyMCE 弹出层（对话框、菜单等）挂载到 body 上，需要全局样式确保 z-index 在 NModal 之上 -->
+<style>
+.tox-tinymce-aux {
+  z-index: 10000 !important;
 }
 </style>
 
