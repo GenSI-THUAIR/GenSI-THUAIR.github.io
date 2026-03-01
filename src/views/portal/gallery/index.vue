@@ -1,5 +1,5 @@
 <template>
-  <div class="vod-page">
+  <div class="vod-page" :class="{ 'is-dark': isDark }">
     <Header />
     <!-- Hero Section (aligned with About page) -->
     <section class="header-section">
@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 import { Motion } from 'motion-v'
 // @ts-ignore
 import Footer from '../components/Footer.vue';
@@ -50,8 +50,11 @@ import Footer from '../components/Footer.vue';
 import Header from '@/views/portal/components/Header.vue'
 import posterSrc from '@/views/portal/assests/img/fm.png'
 import { useAppStore } from '@/store/modules/app'
+import { useThemeStore } from '@/store/modules/theme'
  
 const errorMessage = ref('')
+const themeStore = useThemeStore()
+const isDark = computed(() => themeStore.darkMode)
 const VIDEO_SRC = 'https://1313402205.vod-qcloud.com/bf18547evodsh1313402205/c4d9e6a65145403697153612379/UFl6AL1u3TIA.mp4'
 
 // i18n-aware hard-coded texts
@@ -159,6 +162,10 @@ function debouncedHandleResize() {
     background: #c8bbf1;
     border-bottom: none;
 }
+
+.header.is-dark {
+  background: #2a2040;
+}
 .vod-page {
   display: flex;
   flex-direction: column;
@@ -224,6 +231,35 @@ function debouncedHandleResize() {
 .error {
   margin-top: 0.75rem;
   color: #e5484d;
+}
+
+/* ========== Dark Mode Styles ========== */
+.vod-page.is-dark {
+  background: #121212;
+}
+
+.vod-page.is-dark .header-section {
+  background: #2a2040;
+}
+
+.vod-page.is-dark .main-title {
+  color: #e0e0e0;
+}
+
+.vod-page.is-dark .main-description {
+  color: #e0e0e0;
+}
+
+.vod-page.is-dark .typewriter-text::after {
+  color: #e0e0e0;
+}
+
+.vod-page.is-dark .player-wrap {
+  background: #121212;
+}
+
+.vod-page.is-dark .player-box {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* 响应式设计 */

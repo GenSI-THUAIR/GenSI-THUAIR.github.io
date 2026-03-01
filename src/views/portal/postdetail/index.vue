@@ -1,5 +1,5 @@
 <template>
-    <div class="posts-detail-page">
+    <div class="posts-detail-page" :class="{ 'is-dark': isDark }">
       <!-- 头部组件 -->
       <Header />
       
@@ -84,6 +84,7 @@
   import supabase from '@/supabase/supabase';
   import { $t } from '@/locales';
   import { useAppStore } from '@/store/modules/app';
+  import { useThemeStore } from '@/store/modules/theme';
   
   defineOptions({
     name: 'PortalPosts'
@@ -91,6 +92,8 @@
   
   const router = useRouter();
   const appStore = useAppStore();
+  const themeStore = useThemeStore();
+  const isDark = computed(() => themeStore.darkMode);
   const type = ref('');
   // 搜索查询
   const searchQuery = ref('');
@@ -212,6 +215,9 @@
   .header{
     border-bottom: none;
     background-color: #9ee8ff;
+  }
+  .header.is-dark {
+    background: #1a2a35;
   }
   
   /* 全局样式 */
@@ -570,6 +576,99 @@
       background-color: #000000;
       color: #d7ff39;
       border-color: #000000;
+    }
+  }
+
+  /* ========== Dark Mode Styles ========== */
+  .posts-detail-page.is-dark {
+    background: #121212;
+  }
+
+  .posts-detail-page.is-dark .header-section {
+    background: #1a2a35;
+  }
+
+  .posts-detail-page.is-dark .main-title {
+    color: #e0e0e0;
+  }
+
+  .posts-detail-page.is-dark .search-input {
+    color: #e0e0e0;
+    border-bottom-color: #e0e0e0;
+  }
+
+  .posts-detail-page.is-dark .search-input::placeholder {
+    color: rgba(224, 224, 224, 0.5);
+  }
+
+  .posts-detail-page.is-dark .search-icon svg path {
+    stroke: #e0e0e0;
+  }
+
+  .posts-detail-page.is-dark .posts-section {
+    background: #121212;
+  }
+
+  .posts-detail-page.is-dark .category-section {
+    background-color: #1e1e1e;
+  }
+
+  .posts-detail-page.is-dark .category-title {
+    color: #e0e0e0;
+    border-bottom-color: #0d4a5e;
+  }
+
+  .posts-detail-page.is-dark .post-item {
+    border-bottom-color: #444;
+  }
+
+  .posts-detail-page.is-dark .post-title {
+    color: #e0e0e0;
+  }
+
+  .posts-detail-page.is-dark .post-author {
+    color: #999;
+  }
+
+  .posts-detail-page.is-dark .post-date {
+    color: #999;
+  }
+
+  .posts-detail-page.is-dark .action-button {
+    background-color: #2a2a2a;
+    border-color: #555;
+    color: #e0e0e0;
+  }
+
+  .posts-detail-page.is-dark .post-item:hover .action-button {
+    background-color: #e0e0e0;
+    color: #1a1a1a;
+    border-color: #e0e0e0;
+  }
+
+  .posts-detail-page.is-dark .empty-state {
+    color: #999;
+  }
+
+  @media (max-width: 768px) {
+    .posts-detail-page.is-dark .post-item:hover {
+      background-color: transparent;
+    }
+
+    .posts-detail-page.is-dark .post-item:active {
+      background-color: #1e1e1e;
+    }
+
+    .posts-detail-page.is-dark .post-item:hover .action-button {
+      background-color: #2a2a2a;
+      color: #e0e0e0;
+      border-color: #555;
+    }
+
+    .posts-detail-page.is-dark .post-item:active .action-button {
+      background-color: #e0e0e0;
+      color: #1a1a1a;
+      border-color: #e0e0e0;
     }
   }
   

@@ -1,6 +1,6 @@
 <template>
   <!-- 页脚 -->
-  <footer class="footer">
+  <footer class="footer" :class="{ 'is-dark': isDark }">
     <div class="container">
       <div class="footer-content">
         <!-- Logo Section -->
@@ -73,11 +73,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { useThemeStore } from '@/store/modules/theme';
 import { $t } from '@/locales';
 
 const router = useRouter();
+const themeStore = useThemeStore();
+const isDark = computed(() => themeStore.darkMode);
 
 // 内部路由跳转
 function navigateTo(path: string, event?: Event) {
@@ -365,6 +368,54 @@ onUnmounted(() => {
 .wx-icon.active .wx-qrcode {
   opacity: 1;
   visibility: visible;
+}
+
+/* ========== Dark Mode Styles ========== */
+.footer.is-dark {
+  background-color: #111111;
+  background-image: none;
+  color: #e0e0e0;
+}
+
+.footer.is-dark .footer-logo-icon {
+  filter: brightness(0) invert(1);
+}
+
+.footer.is-dark .footer-title {
+  color: #e0e0e0;
+}
+
+.footer.is-dark .menu-link {
+  color: #ccc;
+}
+
+.footer.is-dark .menu-link::before {
+  background-color: #9ee8ff;
+}
+
+.footer.is-dark .menu-link::after {
+  background-color: #9ee8ff;
+}
+
+.footer.is-dark .menu-link:hover {
+  color: #9ee8ff;
+}
+
+.footer.is-dark .footer-address {
+  color: #bbb;
+}
+
+.footer.is-dark .social-icon:nth-child(-n+3) img {
+  filter: brightness(0) invert(1);
+}
+
+.footer.is-dark .wx-qrcode {
+  background: #2a2a2a;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.footer.is-dark .wx-qrcode::before {
+  border-top-color: #2a2a2a;
 }
 
 /* 响应式设计 */

@@ -1,5 +1,5 @@
 <template>
-  <header class="header" ref="headerRef">
+  <header class="header" :class="{ 'is-dark': isDark }" ref="headerRef">
     <div class="container">
       <div class="logo" @click="navigateTo('/portal_home', $event)">
         <img src="../assests/home/logo.png" alt="GenSI Logo" class="logo-icon" />
@@ -62,6 +62,22 @@
           <span class="lang-separator">|</span>
           <span class="lang-other">{{ otherLangLabel }}</span>
         </div>
+        <button class="theme-toggle" @click="toggleTheme" :title="themeTooltip">
+          <svg v-if="!isDark" class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg v-else class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
       </nav>
       <!-- 移动端汉堡菜单按钮 -->
       <button class="mobile-menu-btn" :class="{ active: mobileMenuActive }" @click="toggleMobileMenu">
@@ -134,6 +150,23 @@
           <span class="mobile-lang-separator">|</span>
           <span class="mobile-lang-other">{{ otherLangLabel }}</span>
         </div>
+        <button class="mobile-theme-toggle" @click="toggleTheme">
+          <svg v-if="!isDark" class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg v-else class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <span class="mobile-theme-label">{{ isDark ? 'Light Mode' : 'Dark Mode' }}</span>
+        </button>
       </nav>
     </div>
     <!-- 移动端菜单遮罩 -->
@@ -145,11 +178,20 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useAppStore } from '@/store/modules/app';
+import { useThemeStore } from '@/store/modules/theme';
 import { $t } from '@/locales';
 
 const router = useRouter();
 const route = useRoute();
 const appStore = useAppStore();
+const themeStore = useThemeStore();
+
+const isDark = computed(() => themeStore.darkMode);
+const themeTooltip = computed(() => isDark.value ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+
+function toggleTheme() {
+  themeStore.setThemeScheme(isDark.value ? 'light' : 'dark');
+}
 
 // 计算当前活跃的导航项
 const isResearchActive = computed(() =>
@@ -759,6 +801,211 @@ onUnmounted(() => {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  background: #000;
+  color: #fff;
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Mobile Theme Toggle */
+.mobile-theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  width: 100%;
+}
+
+.mobile-theme-toggle:hover {
+  color: #666;
+}
+
+.mobile-theme-toggle .theme-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.mobile-theme-label {
+  font-family: 'Sora', sans-serif;
+}
+
+/* ========== Dark Mode Styles ========== */
+.header.is-dark {
+  background: #1a1a1a;
+  border-bottom-color: #333;
+}
+
+.header.is-dark .nav-link {
+  color: #e0e0e0;
+}
+
+.header.is-dark .nav-link:hover {
+  color: #9ee8ff;
+}
+
+.header.is-dark .nav-link.active::after {
+  background-color: #9ee8ff;
+}
+
+.header.is-dark .logo-icon {
+  filter: brightness(0) invert(1);
+}
+
+.header.is-dark .dropdown-menu {
+  background: #2a2a2a;
+  border-color: #444;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.header.is-dark .dropdown-item {
+  color: #e0e0e0;
+}
+
+.header.is-dark .dropdown-item::before {
+  background-color: #9ee8ff;
+}
+
+.header.is-dark .dropdown-item::after {
+  background-color: #9ee8ff;
+}
+
+.header.is-dark .dropdown-arrow {
+  color: #e0e0e0;
+}
+
+.header.is-dark .lang-switch {
+  color: #e0e0e0;
+}
+
+.header.is-dark .lang-switch:hover {
+  color: #9ee8ff;
+}
+
+.header.is-dark .lang-current {
+  color: #e0e0e0;
+}
+
+.header.is-dark .lang-separator {
+  color: #555;
+}
+
+.header.is-dark .lang-other {
+  color: #888;
+}
+
+.header.is-dark .lang-other:hover {
+  color: #e0e0e0;
+}
+
+.header.is-dark .theme-toggle {
+  border-color: #e0e0e0;
+  color: #e0e0e0;
+}
+
+.header.is-dark .theme-toggle:hover {
+  background: #e0e0e0;
+  color: #1a1a1a;
+}
+
+/* Mobile Dark Mode */
+.header.is-dark .mobile-menu-btn span {
+  background: #e0e0e0;
+}
+
+.header.is-dark .mobile-menu {
+  background: #1a1a1a;
+  border-top-color: #333;
+}
+
+.header.is-dark .mobile-nav-link {
+  color: #e0e0e0;
+  border-bottom-color: #333;
+}
+
+.header.is-dark .mobile-nav-link:hover {
+  color: #9ee8ff;
+}
+
+.header.is-dark .mobile-nav-link.active {
+  border-bottom-color: #9ee8ff;
+}
+
+.header.is-dark .mobile-dropdown-menu {
+  background: #2a2a2a;
+}
+
+.header.is-dark .mobile-dropdown-item {
+  color: #e0e0e0;
+  border-bottom-color: #333;
+}
+
+.header.is-dark .mobile-dropdown-item::before {
+  background-color: #9ee8ff;
+}
+
+.header.is-dark .mobile-dropdown-item::after {
+  background-color: #9ee8ff;
+}
+
+.header.is-dark .mobile-lang-switch {
+  color: #e0e0e0;
+  border-bottom-color: #333;
+}
+
+.header.is-dark .mobile-lang-current {
+  color: #e0e0e0;
+}
+
+.header.is-dark .mobile-lang-separator {
+  color: #555;
+}
+
+.header.is-dark .mobile-lang-other {
+  color: #888;
+}
+
+.header.is-dark .mobile-theme-toggle {
+  color: #e0e0e0;
+  border-bottom-color: #333;
+}
+
+.header.is-dark .mobile-theme-toggle:hover {
+  color: #9ee8ff;
+}
+
+.header.is-dark .mobile-menu-overlay {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 /* 桌面端额外断点缩放 */

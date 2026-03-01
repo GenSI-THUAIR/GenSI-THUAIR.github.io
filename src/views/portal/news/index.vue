@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 // @ts-ignore
 import Header from '../components/Header.vue';
 // @ts-ignore
@@ -9,6 +9,7 @@ import BackToTop from '../components/BackToTop.vue';
 import { useRouter } from 'vue-router';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
+import { useThemeStore } from '@/store/modules/theme';
 
 import supabase from '@/supabase/supabase';
 
@@ -18,6 +19,8 @@ defineOptions({
 
 const router = useRouter();
 const appStore = useAppStore();
+const themeStore = useThemeStore();
+const isDark = computed(() => themeStore.darkMode);
 
 // 搜索关键词
 const searchKeyword = ref('');
@@ -243,7 +246,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="news-page">
+  <div class="news-page" :class="{ 'is-dark': isDark }">
     <Header />
     <!-- Hero Section (aligned with About page) -->
     <section class="header-section">
@@ -254,7 +257,7 @@ onUnmounted(() => {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
                 d="M20.561 20.561L16.061 16.061M18.061 11.061C18.061 14.3747 15.3747 17.061 12.061 17.061C8.74728 17.061 6.06101 14.3747 6.06101 11.061C6.06101 7.74728 8.74728 5.06101 12.061 5.06101C15.3747 5.06101 18.061 7.74728 18.061 11.061Z"
-                stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
           <input type="text" v-model="searchKeyword" :placeholder="$t('portal.news.newsSearchPlaceholder')"
@@ -276,7 +279,7 @@ onUnmounted(() => {
                 <button class="btn btn-news" @click="toNewTab(news.news_link)">
                   {{ $t('portal.home.readMore') }}
                   <svg class="arrow-icon" viewBox="0 0 20 20" fill="none">
-                    <path d="M5 10L15 10M12 7L15 10L12 13" stroke="white" stroke-width="2" stroke-linecap="round"
+                    <path d="M5 10L15 10M12 7L15 10L12 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                       stroke-linejoin="round" />
                   </svg>
                 </button>
@@ -332,6 +335,9 @@ onUnmounted(() => {
   background-color: #d7ff39;
 }
 
+.header.is-dark {
+  background: #2a3a10;
+}
 .news-page {
   min-height: 100vh;
   background: #ffffff;
@@ -797,9 +803,100 @@ onUnmounted(() => {
   box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
 }
 
+/* ========== Dark Mode Styles ========== */
+.news-page.is-dark {
+  background: #121212;
+}
+
+.news-page.is-dark .header-section {
+  background: #2a3a10;
+}
+
+.news-page.is-dark .main-title {
+  color: #e0e0e0;
+}
+
+.news-page.is-dark .search-container {
+  color: #e0e0e0;
+}
+
+.news-page.is-dark .search-input {
+  color: #e0e0e0;
+  border-bottom-color: #e0e0e0;
+}
+
+.news-page.is-dark .search-input::placeholder {
+  color: rgba(224, 224, 224, 0.5);
+}
+
+.news-page.is-dark .news-section {
+  background: #1a1a1a;
+}
+
+.news-page.is-dark .news-card {
+  background: #222;
+  border-color: #444;
+}
+
+.news-page.is-dark .news-card.horizontal-card:hover {
+  border-color: #666;
+  box-shadow: 0.3rem 0.3rem 0 0 rgba(215, 255, 57, 0.3);
+  background: linear-gradient(135deg, #2a3a10 0%, #3a4a15 50%, #4a5a1a 100%);
+}
+
+.news-page.is-dark .news-title,
+.news-page.is-dark .news-title :deep(*) {
+  color: #e0e0e0 !important;
+}
+
+.news-page.is-dark .news-description,
+.news-page.is-dark .news-description :deep(*) {
+  color: #ccc !important;
+}
+
+.news-page.is-dark .news-date {
+  color: #999;
+}
+
+.news-page.is-dark .news-image {
+  background: #2a2a2a;
+}
+
+.news-page.is-dark .btn-news {
+  background: #e0e0e0;
+  color: #1a1a1a;
+  border-color: #e0e0e0;
+}
+
+.news-page.is-dark .btn-news::after {
+  background: #e0e0e0;
+  border-color: #e0e0e0;
+}
+
+.news-page.is-dark .btn-news:hover {
+  background: #d7ff39;
+  color: #1a1a1a;
+  box-shadow: 0 6px 20px rgba(215, 255, 57, 0.3);
+}
+
+.news-page.is-dark .image-preview-container {
+  background: #2a2a2a;
+}
+
+.news-page.is-dark .image-preview-header {
+  background: #333;
+  border-bottom-color: #444;
+}
+
+.news-page.is-dark .close-btn:hover {
+  background: #444;
+}
+
+.news-page.is-dark .close-btn svg {
+  color: #ccc;
+}
+
 /* Responsive Design */
-
-
 
 @media (max-width: 768px) {
   .header-section .container {

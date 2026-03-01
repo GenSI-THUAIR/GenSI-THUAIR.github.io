@@ -12,9 +12,12 @@ import  supabase  from "@/supabase/supabase";
 import { useMessage } from 'naive-ui';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
+import { useThemeStore } from '@/store/modules/theme';
 
 const router = useRouter();
 const appStore = useAppStore();
+const themeStore = useThemeStore();
+const isDark = computed(() => themeStore.darkMode);
 
 const navigateTo = (path: string, event: Event) => {
   event.preventDefault();
@@ -378,8 +381,8 @@ const secondRow = computed(() => {
 </script>
 
 <template>
-  <div class="about-page">
-    <Header />
+  <div class="about-page" :class="{ 'is-dark': isDark }">
+    <Header  />
     <!-- Header Section -->
     <section class="header-section">
       <div class="container">
@@ -513,12 +516,14 @@ const secondRow = computed(() => {
 
     <!-- Left Gradient -->
     <div
-      class="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"
+      class="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r"
+      :class="isDark ? 'from-[#121212]' : 'from-white'"
     ></div>
 
     <!-- Right Gradient -->
     <div
-      class="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"
+      class="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l"
+      :class="isDark ? 'from-[#121212]' : 'from-white'"
     ></div>
   </div>
     </section>
@@ -633,11 +638,14 @@ const secondRow = computed(() => {
   display: none;
 }
 
-.header{
+.header{  
   border-bottom: none;
   background-color: #f0f0f0;
 }
 
+.header.is-dark {
+  background:#1e1e1e !important;
+}
 .form-item {
   margin-bottom: 0.75rem;
   position: relative;
@@ -1048,6 +1056,162 @@ const secondRow = computed(() => {
 
 
 
+
+/* ========== Dark Mode Styles ========== */
+.about-page.is-dark {
+  background: #121212;
+  --portal-header-bg: #1e1e1e;
+}
+
+.about-page.is-dark .header-section {
+  background: #1e1e1e;
+}
+
+.about-page.is-dark .main-title {
+  color: #e0e0e0;
+}
+
+.about-page.is-dark .main-description {
+  color: #e0e0e0;
+}
+
+.about-page.is-dark .typewriter-text::after {
+  color: #e0e0e0;
+}
+
+.about-page.is-dark .section {
+  background: #121212;
+}
+
+.about-page.is-dark .section-title {
+  color: #e0e0e0;
+}
+
+.about-page.is-dark .alumni-section {
+  background: #121212;
+}
+
+.about-page.is-dark .alumni-tag {
+  background: #2a2a2a;
+  color: #e0e0e0;
+}
+
+.about-page.is-dark .alumni-tag:hover {
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.3);
+}
+
+.about-page.is-dark .contact-section {
+  background: #121212;
+}
+
+.about-page.is-dark .contact-form {
+  background: #121212;
+}
+
+.about-page.is-dark .form-input,
+.about-page.is-dark .form-textarea {
+  background: #2a2a2a;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+.about-page.is-dark .form-input::placeholder,
+.about-page.is-dark .form-textarea::placeholder {
+  color: rgba(224, 224, 224, 0.4);
+}
+
+.about-page.is-dark .form-input:focus,
+.about-page.is-dark .form-textarea:focus {
+  border-color: #9ee8ff;
+}
+
+.about-page.is-dark .form-item:focus-within {
+  background-color: #0d4a5e;
+}
+
+.about-page.is-dark .form-item:focus-within .form-input,
+.about-page.is-dark .form-item:focus-within .form-textarea {
+  border-color: #9ee8ff;
+  background-color: #1a1a1a;
+}
+
+.about-page.is-dark .progress-bar {
+  background-color: #333;
+}
+
+.about-page.is-dark .character-count {
+  color: #999;
+}
+
+.about-page.is-dark .submit-button {
+  background: #e0e0e0;
+  color: #1a1a1a;
+  border-color: #e0e0e0;
+}
+
+.about-page.is-dark .submit-button:hover {
+  background: #9ee8ff;
+}
+
+.about-page.is-dark .contact-info {
+  background: #0d4a5e;
+}
+
+.about-page.is-dark .contact-details h3,
+.about-page.is-dark .contact-item h3 {
+  color: #e0e0e0;
+}
+
+.about-page.is-dark .contact-details p {
+  color: #ccc;
+}
+
+.about-page.is-dark .contact-details a,
+.about-page.is-dark .contact-item a {
+  color: #9ee8ff;
+}
+
+.about-page.is-dark .contact-icon {
+  color: #e0e0e0;
+}
+
+.about-page.is-dark :deep(.member-name) {
+  color: #e0e0e0;
+}
+
+.about-page.is-dark :deep(.action-button) {
+  background-color: #2a2a2a;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+.about-page.is-dark :deep(.member-link:hover .action-button) {
+  background-color: #e0e0e0;
+  color: #1a1a1a;
+  border-color: #e0e0e0;
+}
+
+
+.about-page.is-dark :deep(figure) {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.about-page.is-dark :deep(figure:hover) {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.about-page.is-dark :deep(figure span) {
+  color: #e0e0e0 !important;
+}
+
+.about-page.is-dark :deep(figure p) {
+  color: rgba(224, 224, 224, 0.4) !important;
+}
+
+.about-page.is-dark :deep(figure blockquote) {
+  color: #ccc !important;
+}
 
 /* 移动端样式：768px及以下 */
 @media (max-width: 768px) {

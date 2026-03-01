@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-detail-page">
+  <div class="blog-detail-page" :class="{ 'is-dark': isDark }">
     <!-- Header -->
     <Header />
 
@@ -328,6 +328,7 @@ import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
 import BackToTop from '../components/BackToTop.vue';
 import { fetchGensiblogById, fetchBlogCommentsByBlogId, submitBlogComment } from '@/service/api/gensiblog';
+import { useThemeStore } from '@/store/modules/theme';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
@@ -336,6 +337,8 @@ defineOptions({
 });
 
 const route = useRoute();
+const themeStore = useThemeStore();
+const isDark = computed(() => themeStore.darkMode);
 const blogPost = ref<any>(null);
 const contentSections = ref<any[]>([]);
 const activeSection = ref<string>('');
@@ -2309,5 +2312,366 @@ html {
     align-items: flex-start;
     gap: 0.25rem;
   }
+}
+
+/* ========== Dark Mode Styles ========== */
+.blog-detail-page.is-dark {
+  background: #121212;
+}
+
+.blog-detail-page.is-dark .main-content {
+  background: transparent;
+}
+
+/* Sidebar */
+.blog-detail-page.is-dark .sidebar-nav-fixed {
+  background: transparent;
+}
+
+.blog-detail-page.is-dark .sidebar-title {
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .sidebar-collapse-btn {
+  color: #999;
+}
+
+.blog-detail-page.is-dark .sidebar-collapse-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .sidebar-expand-btn {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.blog-detail-page.is-dark .sidebar-expand-btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+.blog-detail-page.is-dark .nav-link {
+  color: #bbb;
+}
+
+.blog-detail-page.is-dark .nav-item.level-1 .nav-link {
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .nav-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.blog-detail-page.is-dark .nav-link.active {
+  color: #fff;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.blog-detail-page.is-dark .nav-link.active::before {
+  background: #9ee8ff;
+}
+
+.blog-detail-page.is-dark .collapse-toggle {
+  color: #777;
+}
+
+.blog-detail-page.is-dark .collapse-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ccc;
+}
+
+.blog-detail-page.is-dark .collapse-toggle.collapsed {
+  color: #888;
+}
+
+.blog-detail-page.is-dark .collapse-toggle.collapsed:hover {
+  color: #e0e0e0;
+}
+
+/* Sidebar scrollbar */
+.blog-detail-page.is-dark .sidebar-nav-fixed::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.blog-detail-page.is-dark .sidebar-nav-fixed::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Title Section */
+.blog-detail-page.is-dark .blog-title {
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .blog-subtitle {
+  color: #bbb;
+}
+
+/* Meta Section */
+.blog-detail-page.is-dark .meta-section {
+  border-bottom-color: #444;
+}
+
+.blog-detail-page.is-dark .meta-label {
+  color: #999;
+}
+
+.blog-detail-page.is-dark .meta-value {
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .info-label {
+  color: #999;
+}
+
+.blog-detail-page.is-dark .info-content {
+  color: #e0e0e0;
+}
+
+/* Tags */
+.blog-detail-page.is-dark .tag-badge {
+  background: #2a2a2a;
+  color: #ccc;
+  border-color: #444;
+}
+
+.blog-detail-page.is-dark .tag-badge:hover {
+  background: #333;
+  border-color: #555;
+}
+
+/* Content Sections */
+.blog-detail-page.is-dark .section-title {
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .section-content {
+  color: #ccc;
+}
+
+.blog-detail-page.is-dark .section-content :deep(h1),
+.blog-detail-page.is-dark .section-content :deep(h2),
+.blog-detail-page.is-dark .section-content :deep(h3),
+.blog-detail-page.is-dark .section-content :deep(h4),
+.blog-detail-page.is-dark .section-content :deep(h5) {
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .section-content :deep(p) {
+  color: #ccc;
+}
+
+.blog-detail-page.is-dark .section-content :deep(li) {
+  color: #ccc;
+}
+
+.blog-detail-page.is-dark .section-content :deep(a) {
+  color: #6cb8ff;
+}
+
+.blog-detail-page.is-dark .section-content :deep(a:hover) {
+  border-bottom-color: #6cb8ff;
+}
+
+.blog-detail-page.is-dark .section-content :deep(strong) {
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .section-content :deep(code) {
+  background: #2a2a2a;
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .section-content :deep(pre) {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+.blog-detail-page.is-dark .section-content :deep(img) {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Tables */
+.blog-detail-page.is-dark .section-content :deep(table) {
+  border-color: #444;
+}
+
+.blog-detail-page.is-dark .section-content :deep(thead) {
+  background: #2a2a2a;
+}
+
+.blog-detail-page.is-dark .section-content :deep(th) {
+  color: #e0e0e0;
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+.blog-detail-page.is-dark .section-content :deep(td) {
+  color: #ccc;
+  border-color: #444;
+}
+
+.blog-detail-page.is-dark .section-content :deep(th),
+.blog-detail-page.is-dark .section-content :deep(td) {
+  border-bottom-color: #444;
+  border-right-color: #444;
+}
+
+.blog-detail-page.is-dark .section-content :deep(tbody tr:nth-child(even)) {
+  background-color: #1e1e1e;
+}
+
+.blog-detail-page.is-dark .section-content :deep(tbody tr:hover) {
+  background-color: #2a2a2a;
+}
+
+/* Merged table dark mode */
+.blog-detail-page.is-dark .section-content :deep(div[data-w-e-type="mergedTable"]) table {
+  border-color: #444;
+}
+
+.blog-detail-page.is-dark .section-content :deep(div[data-w-e-type="mergedTable"]) th,
+.blog-detail-page.is-dark .section-content :deep(div[data-w-e-type="mergedTable"]) td {
+  border-color: #444;
+}
+
+.blog-detail-page.is-dark .section-content :deep(table:has([colspan])) th,
+.blog-detail-page.is-dark .section-content :deep(table:has([colspan])) td,
+.blog-detail-page.is-dark .section-content :deep(table:has([rowspan])) th,
+.blog-detail-page.is-dark .section-content :deep(table:has([rowspan])) td {
+  border-color: #444;
+}
+
+/* References */
+.blog-detail-page.is-dark .references-content :deep(p) {
+  color: #bbb;
+}
+
+/* Citation Section */
+.blog-detail-page.is-dark .citation-code {
+  background: #1e1e1e;
+  border-color: #444;
+  color: #ccc;
+}
+
+.blog-detail-page.is-dark .copy-btn {
+  background: #2a2a2a;
+  border-color: #555;
+  color: #ccc;
+}
+
+.blog-detail-page.is-dark .copy-btn:hover {
+  background: #333;
+  border-color: #666;
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .copy-btn.copied {
+  background: #059669;
+  border-color: #059669;
+  color: #fff;
+}
+
+/* Comments Section */
+.blog-detail-page.is-dark .comments-section {
+  border-top-color: #444;
+}
+
+.blog-detail-page.is-dark .comment-form {
+  background: linear-gradient(135deg, #1e1e1e 0%, #242424 100%);
+  border-color: #444;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.blog-detail-page.is-dark .form-header {
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .form-header svg {
+  color: #999;
+}
+
+.blog-detail-page.is-dark .comment-input {
+  background: #1a1a1a;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .comment-input:focus {
+  border-color: #9ee8ff;
+  box-shadow: 0 0 0 3px rgba(158, 232, 255, 0.1);
+}
+
+.blog-detail-page.is-dark .comment-input::placeholder {
+  color: #666;
+}
+
+.blog-detail-page.is-dark .char-count {
+  color: #666;
+}
+
+.blog-detail-page.is-dark .submit-btn {
+  background: #e0e0e0;
+  color: #1a1a1a;
+}
+
+.blog-detail-page.is-dark .submit-btn:hover:not(:disabled) {
+  background: #9ee8ff;
+  color: #1a1a1a;
+}
+
+.blog-detail-page.is-dark .submit-btn:disabled {
+  background: #444;
+  color: #777;
+}
+
+.blog-detail-page.is-dark .comments-header {
+  border-bottom-color: #333;
+}
+
+.blog-detail-page.is-dark .comments-count {
+  color: #999;
+}
+
+.blog-detail-page.is-dark .comment-item {
+  border-bottom-color: #2a2a2a;
+}
+
+.blog-detail-page.is-dark .comment-item:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.blog-detail-page.is-dark .comment-author {
+  color: #e0e0e0;
+}
+
+.blog-detail-page.is-dark .comment-time {
+  color: #666;
+}
+
+.blog-detail-page.is-dark .comment-content {
+  color: #bbb;
+}
+
+.blog-detail-page.is-dark .comments-empty {
+  color: #666;
+}
+
+.blog-detail-page.is-dark .comments-empty svg {
+  color: #555;
+}
+
+/* Loading State */
+.blog-detail-page.is-dark .loading-container {
+  color: #999;
+}
+
+.blog-detail-page.is-dark .loading-spinner {
+  border-color: #333;
+  border-top-color: #e0e0e0;
 }
 </style>

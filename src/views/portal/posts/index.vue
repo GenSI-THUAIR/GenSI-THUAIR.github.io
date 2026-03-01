@@ -1,5 +1,5 @@
 <template>
-  <div class="posts-page">
+  <div class="posts-page" :class="{ 'is-dark': isDark }">
     <!-- 头部组件 -->
     <Header />
     
@@ -113,6 +113,7 @@ import BackToTop from '../components/BackToTop.vue';
 import supabase from '@/supabase/supabase';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
+import { useThemeStore } from '@/store/modules/theme';
 
 defineOptions({
   name: 'PortalPosts'
@@ -120,6 +121,8 @@ defineOptions({
 
 const router = useRouter();
 const appStore = useAppStore();
+const themeStore = useThemeStore();
+const isDark = computed(() => themeStore.darkMode);
 
 // 打字机效果
 const animatedDescription = ref('');
@@ -320,6 +323,9 @@ function debouncedHandleResize() {
   background-color: #9ee8ff;
 }
 
+.header.is-dark {
+  background: #1a2a35;
+}
 /* 全局样式 */
 .container {
   max-width: 65%;
@@ -541,6 +547,97 @@ function debouncedHandleResize() {
 }
 
 
+
+/* ========== Dark Mode Styles ========== */
+.posts-page.is-dark {
+  background: #121212;
+}
+
+.posts-page.is-dark .header-section {
+  background: #1a2a35;
+}
+
+.posts-page.is-dark .main-title {
+  color: #e0e0e0;
+}
+
+.posts-page.is-dark .typewriter-text {
+  color: #e0e0e0;
+}
+
+.posts-page.is-dark .typewriter-text::after {
+  color: #e0e0e0;
+}
+
+.posts-page.is-dark .posts-section {
+  background: #121212;
+}
+
+.posts-page.is-dark .column-section {
+  background-color: #222;
+  border-color: #444;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.posts-page.is-dark .column-section:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.posts-page.is-dark .category-header {
+  border-bottom-color: #333;
+}
+
+.posts-page.is-dark .category-title {
+  color: #e0e0e0;
+}
+
+.posts-page.is-dark .read-all-link {
+  color: #9ee8ff;
+}
+
+.posts-page.is-dark .read-all-link:hover {
+  color: #7ecef4;
+}
+
+.posts-page.is-dark .post-item {
+  border-bottom-color: #333;
+}
+
+.posts-page.is-dark .post-item:hover {
+  background-color: #2a2a2a;
+}
+
+.posts-page.is-dark .post-title {
+  color: #e0e0e0;
+}
+
+.posts-page.is-dark .post-item:hover .post-title {
+  color: #9ee8ff;
+}
+
+.posts-page.is-dark .post-author {
+  color: #999;
+}
+
+.posts-page.is-dark .post-date {
+  color: #999;
+}
+
+.posts-page.is-dark .action-button {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #999;
+}
+
+.posts-page.is-dark .post-item:hover .action-button {
+  background-color: #e0e0e0;
+  color: #1a1a1a;
+  border-color: #e0e0e0;
+}
+
+.posts-page.is-dark .empty-state {
+  color: #999;
+}
 
 /* 响应式设计 */
 

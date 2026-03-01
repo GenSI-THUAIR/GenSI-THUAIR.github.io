@@ -1,5 +1,5 @@
 <template>
-  <div class="publications-page">
+  <div class="publications-page" :class="{ 'is-dark': isDark }">
     <!-- Navigation Header -->
     <Header />
 
@@ -15,7 +15,7 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
                 d="M20.561 20.561L16.061 16.061M18.061 11.061C18.061 14.3747 15.3747 17.061 12.061 17.061C8.74728 17.061 6.06101 14.3747 6.06101 11.061C6.06101 7.74728 8.74728 5.06101 12.061 5.06101C15.3747 5.06101 18.061 7.74728 18.061 11.061Z"
-                stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
           <input type="text" v-model="searchQuery" :placeholder="$t('portal.publications.searchPlaceholder')"
@@ -240,6 +240,7 @@ import supabase from '@/supabase/supabase';
 import { useMessage } from 'naive-ui';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
+import { useThemeStore } from '@/store/modules/theme';
 
 defineOptions({
   name: 'PortalPublications'
@@ -249,6 +250,8 @@ const message = useMessage();
 const router = useRouter();
 const route = useRoute();
 const appStore = useAppStore();
+const themeStore = useThemeStore();
+const isDark = computed(() => themeStore.darkMode);
 
 
 // Define filter tag interface
@@ -840,6 +843,10 @@ onUnmounted(() => {
 .header {
   background: #c8bbf1;
   border-bottom: none;
+}
+
+.header.is-dark {
+  background: #2a2040;
 }
 
 .publications-page {
@@ -1701,6 +1708,234 @@ onUnmounted(() => {
   object-fit: contain;
   border-radius: 0.5rem;
   box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* ========== Dark Mode Styles ========== */
+.publications-page.is-dark {
+  background: #121212;
+}
+
+.publications-page.is-dark .hero {
+  background: #2a2040;
+}
+
+.publications-page.is-dark .hero-title {
+  color: #e0e0e0;
+}
+
+.publications-page.is-dark .search-container {
+  border-bottom-color: #e0e0e0;
+  color: #e0e0e0;
+}
+
+.publications-page.is-dark .search-input {
+  color: #e0e0e0;
+  border-bottom-color: #e0e0e0;
+}
+
+.publications-page.is-dark .search-input::placeholder {
+  color: rgba(224, 224, 224, 0.5);
+}
+
+.publications-page.is-dark .publications {
+  background: #1a1a1a;
+}
+
+.publications-page.is-dark .section-title {
+  color: #e0e0e0;
+}
+
+.publications-page.is-dark .count-badge {
+  color: #999;
+}
+
+.publications-page.is-dark .filter-group-title {
+  color: #e0e0e0;
+}
+
+.publications-page.is-dark .filter-tag {
+  background: #2a2a2a;
+  color: #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.publications-page.is-dark .filter-tag:hover {
+  border-color: #c8bbf1;
+  color: #e0e0e0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.publications-page.is-dark .filter-tag.active {
+  background: #3a2d5e;
+  color: #c8bbf1;
+  border-color: #c8bbf1;
+}
+
+.publications-page.is-dark .filter-tag.active .tag-count {
+  color: #c8bbf1;
+}
+
+.publications-page.is-dark .year-tag {
+  background: #2a2a2a !important;
+  border-color: #444 !important;
+  color: #ccc !important;
+}
+
+.publications-page.is-dark .year-tag:hover:not(.active) {
+  border-color: #888 !important;
+  color: #e0e0e0 !important;
+  background: #333 !important;
+}
+
+.publications-page.is-dark .year-tag.active {
+  background: #555 !important;
+  border-color: #777 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(100, 100, 100, 0.3) !important;
+}
+
+.publications-page.is-dark .active-filters-label {
+  color: #999;
+}
+
+.publications-page.is-dark .active-filter-item {
+  background: #2a3a2a;
+  color: #8fbc8f;
+}
+
+.publications-page.is-dark .remove-filter {
+  color: #999;
+}
+
+.publications-page.is-dark .remove-filter:hover {
+  background: #3a4a3a;
+  color: #8fbc8f;
+}
+
+.publications-page.is-dark .publication-item {
+  border-bottom-color: #333;
+}
+
+.publications-page.is-dark .publication-image {
+  background: #2a2a2a;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.publications-page.is-dark .publication-title {
+  color: #e0e0e0;
+}
+
+.publications-page.is-dark .publication-author {
+  color: #999;
+}
+
+.publications-page.is-dark .publication-description {
+  color: #ccc;
+}
+
+.publications-page.is-dark .publication-link {
+  color: #c8bbf1;
+}
+
+.publications-page.is-dark .publication-link:hover {
+  color: #a89de0;
+}
+
+.publications-page.is-dark .publication-year {
+  color: #999;
+}
+
+.publications-page.is-dark .tag-chip.tag-year {
+  background: #2a3a2a;
+  color: #8fbc8f;
+}
+
+.publications-page.is-dark .tag-chip.tag-conference {
+  background: #3a3020;
+  color: #f0c060;
+}
+
+.publications-page.is-dark .loading-spinner {
+  border-color: #333;
+  border-top-color: #c8bbf1;
+}
+
+.publications-page.is-dark .loading-text {
+  color: #999;
+}
+
+.publications-page.is-dark .no-more-data {
+  color: #999;
+  border-top-color: #333;
+}
+
+.publications-page.is-dark .empty-state {
+  color: #999;
+}
+
+.publications-page.is-dark .empty-state h3 {
+  color: #e0e0e0;
+}
+
+.publications-page.is-dark .clear-filters-btn {
+  background: #3a2d5e;
+  color: #c8bbf1;
+}
+
+.publications-page.is-dark .clear-filters-btn:hover {
+  background: #4a3d6e;
+  box-shadow: 0 4px 12px rgba(200, 187, 241, 0.2);
+}
+
+.publications-page.is-dark .bib-modal-content {
+  background: #2a2a2a;
+}
+
+.publications-page.is-dark .bib-modal-header {
+  border-bottom-color: #444;
+}
+
+.publications-page.is-dark .bib-modal-header h3 {
+  color: #e0e0e0;
+}
+
+.publications-page.is-dark .bib-content {
+  background: #1a1a1a;
+  border-color: #444;
+}
+
+.publications-page.is-dark .bib-content pre {
+  color: #e0e0e0;
+}
+
+.publications-page.is-dark .copy-btn {
+  background: #c8bbf1;
+  color: #1a1a1a;
+}
+
+.publications-page.is-dark .copy-btn:hover {
+  background: #a89de0;
+}
+
+.publications-page.is-dark .image-preview-container {
+  background: #2a2a2a;
+}
+
+.publications-page.is-dark .image-preview-header {
+  background: #333;
+  border-bottom-color: #444;
+}
+
+.publications-page.is-dark .image-preview-title {
+  color: #e0e0e0;
+}
+
+.publications-page.is-dark .close-btn:hover {
+  background: #444;
+}
+
+.publications-page.is-dark .close-btn svg {
+  color: #ccc;
 }
 
 /* Responsive Design */

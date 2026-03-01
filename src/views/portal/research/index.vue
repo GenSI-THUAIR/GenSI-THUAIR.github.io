@@ -1,5 +1,5 @@
 <template>
-  <div class="research-page">
+  <div class="research-page" :class="{ 'is-dark': isDark }">
     <!-- Navigation Header -->
     <Header />
 
@@ -302,6 +302,7 @@ import { useRouter, useRoute } from 'vue-router';
 import supabase from '@/supabase/supabase';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
+import { useThemeStore } from '@/store/modules/theme';
 
 defineOptions({
   name: 'PortalResearch'
@@ -311,6 +312,8 @@ const message = useMessage();
 const router = useRouter();
 const route = useRoute();
 const appStore = useAppStore();
+const themeStore = useThemeStore();
+const isDark = computed(() => themeStore.darkMode);
 
 // Define dot type interface
 interface DotType {
@@ -757,6 +760,9 @@ function navigateToBlogDetail(blog: any) {
   border-bottom: none;
 }
 
+.header.is-dark {
+  background: #1e1e1e !important;
+}
 /* 打字机效果样式 */
 .typewriter-text {
   position: relative;
@@ -2185,5 +2191,182 @@ function navigateToBlogDetail(blog: any) {
   .image-overlay span {
     font-size: 14px;
   }
+}
+
+/* ========== Dark Mode Styles ========== */
+.research-page.is-dark {
+  background: #121212;
+}
+
+.research-page.is-dark .header-section {
+  background: #1e1e1e;
+}
+
+.research-page.is-dark .main-title {
+  color: #e0e0e0;
+}
+
+.research-page.is-dark .main-description {
+  color: #e0e0e0;
+}
+
+.research-page.is-dark .typewriter-text::after {
+  color: #e0e0e0;
+}
+
+.research-page.is-dark .section-title {
+  color: #e0e0e0;
+}
+
+.research-page.is-dark .projects {
+  background: #1a1a1a;
+}
+
+.research-page.is-dark .project-title {
+  color: #e0e0e0;
+}
+
+.research-page.is-dark .project-description,
+.research-page.is-dark .project-description :deep(*) {
+  color: #ccc !important;
+}
+
+.research-page.is-dark .project-item {
+  border-bottom-color: #444;
+}
+
+.research-page.is-dark .project-image {
+  background: #2a2a2a;
+}
+
+.research-page.is-dark .btn-news {
+  background: #e0e0e0;
+  color: #1a1a1a;
+}
+
+.research-page.is-dark .btn-news:hover {
+  background: #9ee8ff;
+  color: #1a1a1a;
+}
+
+.research-page.is-dark .btn-news::after {
+  background: #e0e0e0;
+}
+
+.research-page.is-dark .read-more-link {
+  color: #e0e0e0;
+}
+
+.research-page.is-dark .read-more-link:hover {
+  color: #9ee8ff;
+}
+
+.research-page.is-dark .read-more-link-bottom {
+  color: #e0e0e0;
+}
+
+.research-page.is-dark .read-more-link-bottom:hover {
+  color: #9ee8ff;
+}
+
+.research-page.is-dark .blog-section {
+  background: #1a1a1a;
+}
+
+.research-page.is-dark .blog-title {
+  color: #e0e0e0;
+}
+
+.research-page.is-dark .blog-title:hover {
+  color: #9ee8ff;
+}
+
+.research-page.is-dark .blog-description,
+.research-page.is-dark .blog-description :deep(*) {
+  color: #ccc !important;
+}
+
+.research-page.is-dark .blog-item {
+  border-bottom-color: #444;
+}
+
+.research-page.is-dark .blog-date,
+.research-page.is-dark .blog-read-time {
+  color: #999;
+}
+
+.research-page.is-dark .publications {
+  background: #1a1a1a;
+}
+
+.research-page.is-dark .publication-item {
+  border-bottom-color: #444;
+}
+
+.research-page.is-dark .publication-image {
+  background: #2a2a2a;
+}
+
+.research-page.is-dark .publication-title {
+  color: #e0e0e0;
+}
+
+.research-page.is-dark .publication-author {
+  color: #999;
+}
+
+.research-page.is-dark .publication-link {
+  color: #9ee8ff;
+}
+
+.research-page.is-dark .publication-year {
+  color: #999;
+}
+
+.research-page.is-dark .tag-year {
+  background: #1a3a2a;
+  color: #6ecf6e;
+}
+
+.research-page.is-dark .tag-conference {
+  background: #3a2a1a;
+  color: #f5a623;
+}
+
+.research-page.is-dark .bib-modal-content {
+  background: #1e1e1e;
+}
+
+.research-page.is-dark .bib-modal-header {
+  border-bottom-color: #444;
+}
+
+.research-page.is-dark .bib-modal-header h3 {
+  color: #e0e0e0;
+}
+
+.research-page.is-dark .bib-content {
+  background: #2a2a2a;
+}
+
+.research-page.is-dark .bib-content pre {
+  color: #e0e0e0;
+}
+
+.research-page.is-dark .close-btn:hover {
+  background: #333;
+}
+
+.research-page.is-dark .close-btn svg {
+  color: #999;
+}
+
+.research-page.is-dark .image-preview-container {
+  background: #1e1e1e;
+}
+
+.research-page.is-dark .image-preview-header {
+  background: #2a2a2a;
+  border-bottom-color: #444;
 }
 </style>

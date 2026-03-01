@@ -13,6 +13,7 @@ import BackToTop from '../components/BackToTop.vue';
 import supabase from '@/supabase/supabase';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
+import { useThemeStore } from '@/store/modules/theme';
 
 defineOptions({
   name: 'PortalHome'
@@ -25,6 +26,8 @@ console.log(`PortalHome component created with ID: ${componentId}`);
 const router = useRouter();
 const route = useRoute();
 const appStore = useAppStore();
+const themeStore = useThemeStore();
+const isDark = computed(() => themeStore.darkMode);
 
 // 图片资源常量
 const imgImage21 = "http://localhost:3845/assets/fe7b77240dcdd8e5964d2c0dc379c69312712f30.png";
@@ -764,9 +767,9 @@ const currentPage = computed(() => {
 
 <template>
 
-  <div class="gensi-home">
+  <div class="gensi-home" :class="{ 'is-dark': isDark }">
     <!-- 顶部导航 -->
-<div style="background: radial-gradient(ellipse 150% 100% at center 8%, #e8ff91 0%, #f0f8d4 20%, #f8fce8 40%, #ffffff 67%);">
+<div class="hero-wrapper">
   <Header /> 
     <!-- 英雄区域 -->
 
@@ -1162,6 +1165,9 @@ const currentPage = computed(() => {
 @import url('../assests/common.css');
 
 .header{
+  background: transparent;
+}
+.header.is-dark {
   background: transparent;
 }
 
@@ -2634,6 +2640,234 @@ const currentPage = computed(() => {
 .platform-name {
   font-size: 1.75rem;
   font-weight: bold;
+}
+
+.hero-wrapper {
+  background: radial-gradient(ellipse 150% 100% at center 8%, #e8ff91 0%, #f0f8d4 20%, #f8fce8 40%, #ffffff 67%);
+}
+
+/* ========== Dark Mode Styles ========== */
+.gensi-home.is-dark {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+.gensi-home.is-dark .hero-wrapper {
+  background: radial-gradient(ellipse 150% 100% at center 8%, #1a2e10 0%, #162414 20%, #14191a 40%, #121212 67%);
+}
+
+.gensi-home.is-dark .research-title {
+  color: #e0e0e0;
+}
+
+.gensi-home.is-dark .research-description {
+  color: #ccc;
+}
+
+.gensi-home.is-dark .typewriter-text::after {
+  color: #e0e0e0;
+}
+
+.gensi-home.is-dark .research-section {
+  background-color: #121212;
+}
+
+.gensi-home.is-dark .research-categories-centered img {
+  filter: brightness(0.85) contrast(1.1);
+}
+
+.gensi-home.is-dark .section-title {
+  color: #e0e0e0;
+}
+
+.gensi-home.is-dark .section-header .read-all-link {
+  color: #9ee8ff;
+}
+
+.gensi-home.is-dark .section-header .read-all-link:hover {
+  color: #7bd8f4;
+}
+
+.gensi-home.is-dark .project-section {
+  background: linear-gradient(135deg,
+      rgba(20, 60, 80, 0.4) 0%,
+      rgba(15, 50, 70, 0.5) 25%,
+      rgba(20, 60, 80, 0.6) 50%,
+      rgba(15, 50, 70, 0.5) 75%,
+      rgba(20, 60, 80, 0.4) 100%);
+}
+
+.gensi-home.is-dark .project-section::before {
+  background: linear-gradient(135deg,
+      rgba(20, 60, 80, 0.1) 0%,
+      rgba(15, 50, 70, 0.2) 20%,
+      rgba(20, 60, 80, 0.3) 40%,
+      rgba(15, 50, 70, 0.4) 60%,
+      rgba(20, 60, 80, 0.3) 80%,
+      rgba(15, 50, 70, 0.1) 100%);
+}
+
+.gensi-home.is-dark .project-card {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+.gensi-home.is-dark .project-title {
+  color: #e0e0e0;
+}
+
+.gensi-home.is-dark .project-description,
+.gensi-home.is-dark .project-description :deep(*) {
+  color: #ccc !important;
+}
+
+.gensi-home.is-dark .accordion-card.expanded-project {
+  border-color: #555;
+}
+
+.gensi-home.is-dark .accordion-card.expanded-project:hover {
+  border-color: #777;
+  box-shadow: 0.3rem 0.3rem 0 0 rgba(158, 232, 255, 0.3);
+  background: linear-gradient(135deg, #0d3a4e 0%, #153040 50%, #0d3a4e 100%);
+}
+
+.gensi-home.is-dark .accordion-card.expanded-project .project-description ul li {
+  color: #ccc;
+}
+
+.gensi-home.is-dark .btn-project {
+  background: #e0e0e0;
+  color: #1a1a1a;
+  border-color: #e0e0e0;
+}
+
+.gensi-home.is-dark .btn-project:hover {
+  background: #9ee8ff;
+  color: #1a1a1a;
+  box-shadow: 0 8px 25px rgba(158, 232, 255, 0.3);
+}
+
+.gensi-home.is-dark .btn-project::after {
+  background: #e0e0e0;
+}
+
+.gensi-home.is-dark .accordion-card.expanded-project .btn-project {
+  background: #e0e0e0;
+  color: #1a1a1a;
+  border-color: #555;
+}
+
+.gensi-home.is-dark .accordion-card.expanded-project .btn-project:hover {
+  background: #9ee8ff;
+  color: #1a1a1a;
+}
+
+.gensi-home.is-dark .follow-section {
+  background: #1a1a1a;
+}
+
+.gensi-home.is-dark .follow-card {
+  background: #1e1e1e;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+.gensi-home.is-dark .follow-card::before {
+  background: #0d4a5e;
+}
+
+.gensi-home.is-dark .follow-text {
+  color: #e0e0e0;
+}
+
+.gensi-home.is-dark .follow-date {
+  color: #999;
+}
+
+.gensi-home.is-dark .platform-name {
+  color: #e0e0e0;
+}
+
+.gensi-home.is-dark .follow-footer {
+  background: #1a1a1a;
+}
+
+.gensi-home.is-dark .follow-social {
+  background-color: #2a2a2a;
+}
+
+.gensi-home.is-dark .follow-social:nth-child(-n+3) img {
+  filter: brightness(0) invert(1);
+}
+
+.gensi-home.is-dark .news-card {
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+
+.gensi-home.is-dark .card-content {
+  color: #e0e0e0;
+  background: rgba(30, 30, 30, 0.85);
+}
+
+.gensi-home.is-dark .card-main-title,
+.gensi-home.is-dark .card-main-title :deep(*) {
+  color: #e0e0e0 !important;
+}
+
+.gensi-home.is-dark .card-title,
+.gensi-home.is-dark .card-title :deep(*) {
+  color: #ccc !important;
+}
+
+.gensi-home.is-dark .read-more-link {
+  color: #9ee8ff;
+}
+
+.gensi-home.is-dark .carousel-dot {
+  background: rgba(60, 60, 60, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.gensi-home.is-dark .carousel-dot.active {
+  background: #d7ff39;
+  border-color: #d7ff39;
+}
+
+.gensi-home.is-dark .hero-greeting {
+  color: #999;
+}
+
+.gensi-home.is-dark .hero-title {
+  color: #e0e0e0;
+}
+
+.gensi-home.is-dark .hero-description {
+  color: #ccc;
+}
+
+.gensi-home.is-dark .project-item {
+  background-color: #1e1e1e;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+.gensi-home.is-dark .project-arrow {
+  background: #2a2a2a;
+  color: #e0e0e0;
+}
+
+.gensi-home.is-dark .project-arrow.open {
+  background: #0d4a5e;
+}
+
+.gensi-home.is-dark .arrowbox {
+  filter: brightness(0.8) invert(0.1);
+}
+
+
+.gensi-home.is-dark .image-preview-modal {
+  background: rgba(0, 0, 0, 0.85);
 }
 
 /* PC断点控制移除：采用 rem + 根字号缩放实现无级调节 */

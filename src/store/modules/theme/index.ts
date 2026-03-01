@@ -179,6 +179,15 @@ export const useThemeStore = defineStore(SetupStoreId.Theme, () => {
       { immediate: true }
     );
 
+    // persist themeScheme to localStorage
+    watch(
+      () => settings.value.themeScheme,
+      val => {
+        localStg.set('themeScheme', val);
+      },
+      { immediate: true }
+    );
+
     watch(
       [grayscaleMode, colourWeaknessMode],
       val => {

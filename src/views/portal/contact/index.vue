@@ -3,6 +3,7 @@ import { ref, computed, defineAsyncComponent, onMounted, onUnmounted, watch } fr
 import { useMessage } from 'naive-ui';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
+import { useThemeStore } from '@/store/modules/theme';
 const Header = defineAsyncComponent(() => import('../components/Header.vue'));
 const Footer = defineAsyncComponent(() => import('../components/Footer.vue'));
 const BackToTop = defineAsyncComponent(() => import('../components/BackToTop.vue'));
@@ -13,6 +14,8 @@ defineOptions({
 });
 
 const appStore = useAppStore();
+const themeStore = useThemeStore();
+const isDark = computed(() => themeStore.darkMode);
 
 // 表单数据（复用 About 页 Contact Section 逻辑）
 const formData = ref({
@@ -173,7 +176,7 @@ function debouncedHandleResize() {
 </script>
 
 <template>
-  <div class="contact-page">
+  <div class="contact-page" :class="{ 'is-dark': isDark }">
     <Header />
 
     <!-- Header Section -->
@@ -293,6 +296,9 @@ function debouncedHandleResize() {
   text-align: left;
 }
 
+.header.is-dark {
+  background: #1a2a35;
+}
 /* 使 Contact 页头部区域与 About 页保持一致的容器宽度与内边距 */
 .header-section .container {
   max-width: 65%;
@@ -551,6 +557,111 @@ function debouncedHandleResize() {
   color: #000000;
   margin: 0 0 0.5rem 0;
   line-height: normal;
+}
+
+/* ========== Dark Mode Styles ========== */
+.contact-page.is-dark {
+  background: #121212;
+  --portal-header-bg: #1a2a35;
+}
+
+.contact-page.is-dark .header-section {
+  background: #1a2a35;
+}
+
+.contact-page.is-dark .main-title {
+  color: #e0e0e0;
+}
+
+.contact-page.is-dark .main-description {
+  color: #e0e0e0;
+}
+
+.contact-page.is-dark .typewriter-text::after {
+  color: #e0e0e0;
+}
+
+.contact-page.is-dark .contact-section {
+  background: #121212;
+}
+
+.contact-page.is-dark .contact-form {
+  background: #121212;
+}
+
+.contact-page.is-dark .form-input,
+.contact-page.is-dark .form-textarea {
+  background: #2a2a2a;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+.contact-page.is-dark .form-input::placeholder,
+.contact-page.is-dark .form-textarea::placeholder {
+  color: rgba(224, 224, 224, 0.4);
+}
+
+.contact-page.is-dark .form-input:focus,
+.contact-page.is-dark .form-textarea:focus {
+  border-color: #9ee8ff;
+}
+
+.contact-page.is-dark .form-item:focus-within {
+  background-color: #0d4a5e;
+}
+
+.contact-page.is-dark .form-item:focus-within .form-input,
+.contact-page.is-dark .form-item:focus-within .form-textarea {
+  border-color: #9ee8ff;
+  background-color: #1a1a1a;
+}
+
+.contact-page.is-dark .progress-bar {
+  background-color: #333;
+}
+
+.contact-page.is-dark .progress-fill {
+  background-color: #9ee8ff;
+}
+
+.contact-page.is-dark .character-count {
+  color: #999;
+}
+
+.contact-page.is-dark .submit-button {
+  background: #e0e0e0;
+  color: #1a1a1a;
+  border-color: #e0e0e0;
+}
+
+.contact-page.is-dark .submit-button:hover {
+  background: #9ee8ff;
+}
+
+.contact-page.is-dark .contact-info {
+  background: #0d4a5e;
+}
+
+.contact-page.is-dark .contact-details h3,
+.contact-page.is-dark .contact-item h3 {
+  color: #e0e0e0;
+}
+
+.contact-page.is-dark .contact-details p {
+  color: #ccc;
+}
+
+.contact-page.is-dark .contact-details a,
+.contact-page.is-dark .contact-item a {
+  color: #9ee8ff;
+}
+
+.contact-page.is-dark .contact-icon {
+  color: #e0e0e0;
+}
+
+.contact-page.is-dark .section-title {
+  color: #e0e0e0;
 }
 
 @media (max-width: 768px) {

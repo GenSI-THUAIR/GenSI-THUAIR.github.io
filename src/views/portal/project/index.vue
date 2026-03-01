@@ -1,5 +1,5 @@
 <template>
-  <div class="project-page">
+  <div class="project-page" :class="{ 'is-dark': isDark }">
     <!-- Navigation Header -->
     <Header />
 
@@ -15,7 +15,7 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
                 d="M20.561 20.561L16.061 16.061M18.061 11.061C18.061 14.3747 15.3747 17.061 12.061 17.061C8.74728 17.061 6.06101 14.3747 6.06101 11.061C6.06101 7.74728 8.74728 5.06101 12.061 5.06101C15.3747 5.06101 18.061 7.74728 18.061 11.061Z"
-                stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
           <input type="text" v-model="searchQuery" :placeholder="$t('portal.project.searchPlaceholder')"
@@ -84,7 +84,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import { Motion } from "motion-v"
 // @ts-ignore
 import Header from '../components/Header.vue';
@@ -95,6 +95,7 @@ import BackToTop from '../components/BackToTop.vue';
 import { useRouter } from 'vue-router';
 import supabase from '@/supabase/supabase';
 import { useAppStore } from '@/store/modules/app';
+import { useThemeStore } from '@/store/modules/theme';
 import { $t } from '@/locales';
 
 defineOptions({
@@ -103,6 +104,8 @@ defineOptions({
 
 const router = useRouter();
 const appStore = useAppStore();
+const themeStore = useThemeStore();
+const isDark = computed(() => themeStore.darkMode);
 
 // Projects data
 const projects = ref<any[]>([])
@@ -293,6 +296,10 @@ onUnmounted(() => {
 .header {
   background: #d7ff39;
   border-bottom: none;
+}
+
+.header.is-dark {
+  background: #2a3a10;
 }
 
 /* Hero Section */
@@ -712,6 +719,95 @@ onUnmounted(() => {
   object-fit: contain;
   border-radius: 0.5rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== Dark Mode Styles ========== */
+.project-page.is-dark {
+  background: #121212;
+}
+
+.project-page.is-dark .header-section {
+  background: #2a3a10;
+}
+
+.project-page.is-dark .main-title {
+  color: #e0e0e0;
+}
+
+.project-page.is-dark .search-container {
+  border-bottom-color: #e0e0e0;
+  color: #e0e0e0;
+}
+
+.project-page.is-dark .search-input {
+  color: #e0e0e0;
+  border-bottom-color: #e0e0e0;
+}
+
+.project-page.is-dark .search-input::placeholder {
+  color: rgba(224, 224, 224, 0.5);
+}
+
+.project-page.is-dark .projects {
+  background: #1a1a1a;
+}
+
+.project-page.is-dark .section-title {
+  color: #e0e0e0;
+}
+
+.project-page.is-dark .project-item {
+  border-bottom-color: #333;
+}
+
+.project-page.is-dark .project-title {
+  color: #e0e0e0;
+}
+
+.project-page.is-dark .project-description,
+.project-page.is-dark .project-description :deep(*) {
+  color: #ccc !important;
+}
+
+.project-page.is-dark .btn-news {
+  background: #e0e0e0;
+  color: #1a1a1a;
+}
+
+.project-page.is-dark .btn-news::after {
+  background: #e0e0e0;
+}
+
+.project-page.is-dark .btn-news:hover {
+  background: #d7ff39;
+  color: #1a1a1a;
+  box-shadow: 0 8px 25px rgba(215, 255, 57, 0.3);
+}
+
+.project-page.is-dark .project-image {
+  background: #2a2a2a;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.3);
+}
+
+.project-page.is-dark .project-image:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.project-page.is-dark .image-preview-container {
+  background: #2a2a2a;
+}
+
+.project-page.is-dark .image-preview-header {
+  background: #333;
+  border-bottom-color: #444;
+}
+
+.project-page.is-dark .close-btn:hover {
+  background: #444;
+}
+
+.project-page.is-dark .close-btn svg {
+  color: #ccc;
 }
 
 /* Responsive Styles */

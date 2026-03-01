@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-page">
+  <div class="blog-page" :class="{ 'is-dark': isDark }">
     <!-- Navigation Header -->
     <Header />
 
@@ -15,7 +15,7 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
                 d="M20.561 20.561L16.061 16.061M18.061 11.061C18.061 14.3747 15.3747 17.061 12.061 17.061C8.74728 17.061 6.06101 14.3747 6.06101 11.061C6.06101 7.74728 8.74728 5.06101 12.061 5.06101C15.3747 5.06101 18.061 7.74728 18.061 11.061Z"
-                stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
           <input type="text" v-model="searchQuery" :placeholder="$t('portal.blog.searchPlaceholder')"
@@ -93,7 +93,7 @@
                 <button class="btn btn-blog" @click="navigateToDetail(post)">
                   {{ $t('portal.home.readMore') || 'Read More' }}
                   <svg class="arrow-icon" viewBox="0 0 20 20" fill="none">
-                    <path d="M5 10L15 10M12 7L15 10L12 13" stroke="white" stroke-width="2" stroke-linecap="round"
+                    <path d="M5 10L15 10M12 7L15 10L12 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                       stroke-linejoin="round" />
                   </svg>
                 </button>
@@ -155,6 +155,7 @@ import supabase from '@/supabase/supabase';
 import { useMessage } from 'naive-ui';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
+import { useThemeStore } from '@/store/modules/theme';
 
 defineOptions({
   name: 'PortalBlog'
@@ -164,6 +165,8 @@ const message = useMessage();
 const router = useRouter();
 const route = useRoute();
 const appStore = useAppStore();
+const themeStore = useThemeStore();
+const isDark = computed(() => themeStore.darkMode);
 
 // Define filter tag interface
 interface FilterTag {
@@ -555,6 +558,11 @@ onUnmounted(() => {
 .header {
   background: #9ee8ff;
   border-bottom: none;
+}
+
+/* 修改暗色系的背景颜色 */
+.header.is-dark {
+  background: #1a2a35;
 }
 
 /* Hero Section */
@@ -1020,6 +1028,165 @@ onUnmounted(() => {
   height: 0.0625rem;
   width: 100%;
   margin-top: 1.25rem;
+}
+
+/* ========== Dark Mode Styles ========== */
+.blog-page.is-dark {
+  background: #121212;
+}
+
+.blog-page.is-dark .hero {
+  background: #1a2a35;
+}
+
+.blog-page.is-dark .hero-title {
+  color: #e0e0e0;
+}
+
+.blog-page.is-dark .search-container {
+  border-bottom-color: #e0e0e0;
+  color: #e0e0e0;
+}
+
+.blog-page.is-dark .search-input {
+  color: #e0e0e0;
+  border-bottom-color: #e0e0e0;
+}
+
+.blog-page.is-dark .search-input::placeholder {
+  color: rgba(224, 224, 224, 0.5);
+}
+
+.blog-page.is-dark .blog-posts {
+  background: #1a1a1a;
+}
+
+.blog-page.is-dark .filter-group-title {
+  color: #e0e0e0;
+}
+
+.blog-page.is-dark .filter-tag {
+  background: #2a2a2a;
+  color: #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.blog-page.is-dark .filter-tag:hover {
+  border-color: #9ee8ff;
+  color: #e0e0e0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.blog-page.is-dark .filter-tag.active {
+  background: #0d4a5e;
+  color: #9ee8ff;
+  border-color: #9ee8ff;
+}
+
+.blog-page.is-dark .active-filters-label {
+  color: #999;
+}
+
+.blog-page.is-dark .active-filter-item {
+  background: #1a3a4a;
+  color: #9ee8ff;
+}
+
+.blog-page.is-dark .remove-filter {
+  color: #999;
+}
+
+.blog-page.is-dark .remove-filter:hover {
+  background: #0d4a5e;
+  color: #9ee8ff;
+}
+
+.blog-page.is-dark .blog-card {
+  background: #222222;
+  border-color: #444;
+}
+
+.blog-page.is-dark .blog-card.horizontal-card {
+  border-color: #444;
+}
+
+.blog-page.is-dark .blog-card.horizontal-card:hover {
+  border-color: #666;
+  box-shadow: 0.3rem 0.3rem 0 0 rgba(158, 232, 255, 0.3);
+  background: linear-gradient(135deg, #1a3a4a 0%, #0d4a5e 50%, #1a5570 100%);
+}
+
+.blog-page.is-dark .blog-title {
+  color: #e0e0e0;
+}
+
+.blog-page.is-dark .blog-title:hover {
+  color: #9ee8ff;
+}
+
+.blog-page.is-dark .blog-description,
+.blog-page.is-dark .blog-description :deep(*) {
+  color: #ccc !important;
+}
+
+.blog-page.is-dark .blog-date {
+  color: #999;
+}
+
+.blog-page.is-dark .btn-blog {
+  background: #e0e0e0;
+  color: #1a1a1a;
+  border-color: #e0e0e0;
+}
+
+.blog-page.is-dark .btn-blog:hover {
+  background: #9ee8ff;
+  color: #1a1a1a;
+  box-shadow: 0 6px 20px rgba(158, 232, 255, 0.3);
+}
+
+.blog-page.is-dark .btn-blog:hover .arrow-icon {
+  stroke: #1a1a1a;
+}
+
+.blog-page.is-dark .btn-blog::after {
+  background: #e0e0e0;
+  border-color: #e0e0e0;
+}
+
+.blog-page.is-dark .blog-image {
+  background: #2a2a2a;
+}
+
+.blog-page.is-dark .loading-spinner {
+  border-color: #333;
+  border-top-color: #9ee8ff;
+}
+
+.blog-page.is-dark .loading-text {
+  color: #999;
+}
+
+.blog-page.is-dark .no-more-data {
+  color: #999;
+}
+
+.blog-page.is-dark .empty-state {
+  color: #999;
+}
+
+.blog-page.is-dark .empty-state h3 {
+  color: #e0e0e0;
+}
+
+.blog-page.is-dark .clear-filters-btn {
+  background: #0d4a5e;
+  color: #9ee8ff;
+}
+
+.blog-page.is-dark .clear-filters-btn:hover {
+  background: #1a5570;
+  box-shadow: 0 4px 12px rgba(158, 232, 255, 0.2);
 }
 
 /* Responsive Design */
