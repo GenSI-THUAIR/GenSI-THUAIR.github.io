@@ -49,8 +49,8 @@ const formData = reactive<BlogFormData>({
   cover: '',
   create_by: '',
   time: null,
-  link_url: '', // 添加外部链接字段
-  type: '根思五分钟系列' // 默认选择根思五分钟系列
+  link_url: '',
+  type: '根思五分钟系列'
 });
 
 const blogData = ref<BlogItem[]>([]);
@@ -274,7 +274,7 @@ function handleAdd() {
     create_by: '',
     time: null,
     link_url: '',
-    type: '根思五分钟系列' // 默认选择根思五分钟系列
+    type: '根思五分钟系列'
   });
   showModal.value = true;
 }
@@ -336,11 +336,11 @@ async function handleSave() {
     const blogInfo = {
       title: formData.title || '',
       title_cn: formData.title_cn || '',
-      content: '', // 不再保存富文本内容
+      content: '',
       cover: formData.cover || '',
       create_by: formData.create_by || '管理员',
       time: timeValue,
-      link_url: formData.link_url || '', // 两种类型都保存外部链接
+      link_url: formData.link_url || '',
       type: formData.type || '根思五分钟系列'
     };
 
@@ -544,6 +544,7 @@ const imageDelete = () => {
             clearable
           />
         </NFormItem>
+
       </NForm>
       
       <template #action>

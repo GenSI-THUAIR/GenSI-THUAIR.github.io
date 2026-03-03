@@ -453,6 +453,7 @@ const getBlogs = async () => {
   const { data, error } = await supabase
     .from('gensiblog')
     .select('*')
+    .eq('isshow', 1)
     .order('publish_time', { ascending: false })
     .limit(5)
   if (error) {

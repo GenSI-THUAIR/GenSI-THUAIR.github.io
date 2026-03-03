@@ -8,7 +8,10 @@ defineOptions({
 });
 
 const route = useRoute();
-const isPortal = computed(() => String(route.name ?? '').startsWith('portal_'));
+const isPortal = computed(() => {
+  const name = String(route.name ?? '');
+  return name.startsWith('portal_') || name === 'gensiblog-preview';
+});
 </script>
 
 <template>

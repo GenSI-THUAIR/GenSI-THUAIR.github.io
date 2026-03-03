@@ -181,7 +181,6 @@ const fiveMinutePosts = ref<any[]>([]);
 const deepPosts = ref<any[]>([]);
 
 async function getPosts(){
-  // 获取根思五分钟系列，限制2条
   const { data: fiveMinuteData, error: fiveMinuteError } = await supabase
     .from('blog')
     .select('*')
@@ -195,7 +194,6 @@ async function getPosts(){
     fiveMinutePosts.value = fiveMinuteData || [];
   }
 
-  // 获取根思深度系列，限制2条
   const { data: deepData, error: deepError } = await supabase
     .from('blog')
     .select('*')
@@ -209,7 +207,6 @@ async function getPosts(){
     deepPosts.value = deepData || [];
   }
 
-  // 合并所有数据到posts中（如果需要的话）
   posts.value = [...fiveMinutePosts.value, ...deepPosts.value];
 }
 

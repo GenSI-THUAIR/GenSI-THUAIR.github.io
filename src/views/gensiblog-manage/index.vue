@@ -44,6 +44,7 @@ const formulaInput = ref('');
 const formulaDisplayMode = ref(false); // false=行内, true=块级
 const activeFormulaEditor = shallowRef<any>(null);
 
+import { useRouter } from 'vue-router';
 import { 
   fetchGensiblogList, 
   createGensiblog, 
@@ -64,6 +65,7 @@ type GensiblogFormData = Omit<Partial<GensiblogItem>, 'publish_time' | 'tags'> &
 };
 
 const $message = useMessage();
+const router = useRouter();
 const loading = ref(false);
 const showModal = ref(false);
 const editMode = ref(false);
@@ -117,7 +119,8 @@ const formData = reactive<GensiblogFormData & { blog_img?: string }>({
   content_label: 'Content',
   reference_label: 'Reference',
   citation_label: 'Citation',
-  blog_img: ''
+  blog_img: '',
+  isshow: 0
 });
 
 // flex_content 动态内容数组
@@ -377,14 +380,31 @@ const columns: DataTableColumns<GensiblogItem> = [
     }
   },
   {
+    title: '是否显示',
+    key: 'isshow',
+    width: 100,
+    render(row) {
+      if (!row || !row.id) return '-';
+      return h(NSwitch, {
+        value: row.isshow === 1,
+        onUpdateValue: (val: boolean) => handleToggleShow(row, val)
+      });
+    }
+  },
+  {
     title: '操作',
     key: 'actions',
-    width: 220,
+    width: 280,
     fixed: 'right',
     render(row) {
       if (!row || !row.id) return '-';
       return h(NSpace, null, {
         default: () => [
+          h(NButton, {
+            size: 'small',
+            type: 'warning',
+            onClick: () => handlePreview(row)
+          }, { default: () => '预览' }),
           h(NButton, {
             size: 'small',
             type: 'info',
@@ -482,6 +502,24 @@ function confirmInsertFormula() {
   });
 }
 
+// 切换是否显示
+async function handleToggleShow(row: GensiblogItem, val: boolean) {
+  try {
+    await updateGensiblogApi(row.id, { isshow: val ? 1 : 0 });
+    $message.success(val ? '已设为显示' : '已设为隐藏');
+    await loadData();
+  } catch (error) {
+    console.error('切换显示状态失败:', error);
+    $message.error('操作失败');
+  }
+}
+
+// 预览（新窗口打开，携带 from=admin 标识）
+function handlePreview(row: GensiblogItem) {
+  const url = router.resolve({ path: '/gensiblog-preview', query: { id: row.id, from: 'admin' } });
+  window.open(url.href, '_blank');
+}
+
 // 加载数据
 async function loadData() {
   loading.value = true;
@@ -528,7 +566,8 @@ function handleAdd() {
     content_label: 'Content',
     reference_label: 'Reference',
     citation_label: 'Citation',
-    blog_img: ''
+    blog_img: '',
+    isshow: 0
   });
   flexContentList.value = [];
   editingLabel.value = null;
@@ -654,7 +693,8 @@ async function handleSave() {
       reference_label: formData.reference_label || 'Reference',
       citation_label: formData.citation_label || 'Citation',
       flex_content: flexContentJson,
-      blog_img: formData.blog_img || ''
+      blog_img: formData.blog_img || '',
+      isshow: formData.isshow ?? 0
     };
 
     if (editMode.value && formData.id) {
@@ -836,7 +876,7 @@ onMounted(() => {
         :data="filteredData"
         :pagination="{ pageSize: 10 }"
         :row-key="(row: GensiblogItem) => row?.id || ''"
-        :scroll-x="1600"
+        :scroll-x="1800"
         :checked-row-keys="selectedRowKeys"
         @update:checked-row-keys="handleCheck"
       >
@@ -922,6 +962,16 @@ onMounted(() => {
               clearable
               filterable
             />
+          </NFormItem>
+
+          <NFormItem label="是否显示" path="isshow">
+            <NSwitch
+              :value="formData.isshow === 1"
+              @update:value="(val: boolean) => { formData.isshow = val ? 1 : 0 }"
+            >
+              <template #checked>显示</template>
+              <template #unchecked>隐藏</template>
+            </NSwitch>
           </NFormItem>
 
           <NFormItem label="缩略图" path="blog_img">

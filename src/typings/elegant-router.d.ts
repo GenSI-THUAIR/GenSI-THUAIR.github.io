@@ -35,6 +35,7 @@ declare module "@elegant-router/types" {
     "404": "/404";
     "500": "/500";
     "blog-manage": "/blog-manage";
+    "gensiblog-preview": "/gensiblog-preview";
     "gensiblog-manage": "/gensiblog-manage";
     "followus": "/followus";
     "group-manage": "/group-manage";
@@ -109,6 +110,7 @@ declare module "@elegant-router/types" {
     | "500"
     | "blog-manage"
     | "followus"
+    | "gensiblog-preview"
     | "group-manage"
 
     | "iframe-page"
@@ -142,6 +144,7 @@ declare module "@elegant-router/types" {
     | "500"
     | "blog-manage"
     | "followus"
+    | "gensiblog-preview"
     | "group-manage"
     | "iframe-page"
     | "login"

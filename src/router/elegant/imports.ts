@@ -47,6 +47,7 @@ export const views: Record<LastLevelRouteKey, RouteComponent | (() => Promise<Ro
   404: createAsyncComponent(() => import("@/views/_builtin/404/index.vue")),
   500: createAsyncComponent(() => import("@/views/_builtin/500/index.vue")),
   "blog-manage": createAsyncComponent(() => import("@/views/blog-manage/index.vue"), "@/views/_builtin/404/index.vue"),
+  "gensiblog-preview": createAsyncComponent(() => import("@/views/gensiblog-preview/index.vue"), "@/views/_builtin/404/index.vue"),
   "gensiblog-manage": createAsyncComponent(() => import("@/views/gensiblog-manage/index.vue"), "@/views/_builtin/404/index.vue"),
   "followus": createAsyncComponent(() => import("@/views/followus/index.vue"), "@/views/_builtin/404/index.vue"),
   "group-manage": createAsyncComponent(() => import("@/views/group-manage/index.vue"), "@/views/_builtin/404/index.vue"),

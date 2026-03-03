@@ -249,6 +249,16 @@ export const getGensiblogList = async () => {
     return await getList('gensiblog');
 }
 
+// 获取可见Gensiblog列表（仅 isshow=1）
+export const getVisibleGensiblogList = async () => {
+    const { data, error } = await supabase.from('gensiblog').select('*').eq('isshow', 1);
+    if (error) {
+        console.error('获取可见Gensiblog列表失败:', error);
+        return [];
+    }
+    return data;
+}
+
 // 更新Gensiblog
 export const updateGensiblog = async (id: string, params: any) => {
     const res = await updateAction(id, 'gensiblog', params);

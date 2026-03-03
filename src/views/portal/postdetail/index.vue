@@ -160,7 +160,6 @@
   // 搜索处理
    async function handleSearch() {
       console.log('搜索:', searchQuery.value);
-      // 这里可以实现搜索逻辑
     const { data, error } = await supabase.from('blog').select('*').eq('type', type.value).or(`title.ilike.%${searchQuery.value}%,title_cn.ilike.%${searchQuery.value}%`).order('time', { ascending: false });
     console.log('data', data);
     if (error) {

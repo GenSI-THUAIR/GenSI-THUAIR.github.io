@@ -458,7 +458,7 @@ const handleEditorChange = (content: string) => {
             style="width: 100%"
           />
           <div style="font-size: 12px; color: #999;">
-              数值越大越靠前显示，建议设置为10的倍数便于调整顺序
+              数值越小越靠前显示，建议设置为10的倍数便于调整顺序
             </div>
             </NSpace>
         </NFormItem>

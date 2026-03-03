@@ -250,6 +250,7 @@ const getTagCounts = async () => {
     const { data, error } = await supabase
       .from('gensiblog')
       .select('publish_time, tags')
+      .eq('isshow', 1)
 
     if (error) {
       console.error('Error fetching tag counts:', error)
@@ -313,6 +314,7 @@ const getBlogPosts = async (page: number = 0, size: number = 10) => {
     let query = supabase
       .from('gensiblog')
       .select('*')
+      .eq('isshow', 1)
       .order('publish_time', { ascending: false })
 
     // Apply search filter

@@ -1,6 +1,7 @@
 import { request } from '../request';
 import { 
   getGensiblogList as getGensiblogListFromSupabase,
+  getVisibleGensiblogList as getVisibleGensiblogListFromSupabase,
   insertGensiblog as insertGensiblogToSupabase,
   updateGensiblog as updateGensiblogInSupabase,
   deleteGensiblog as deleteGensiblogFromSupabase,
@@ -12,9 +13,14 @@ import {
   deleteBlogComment as deleteBlogCommentFromSupabase
 } from '@/supabase/supabaseAction';
 
-/** Get gensiblog list */
+/** Get gensiblog list (all, for admin) */
 export function fetchGensiblogList(): Promise<Api.Gensiblog.GensiblogItem[]> {
   return getGensiblogListFromSupabase();
+}
+
+/** Get visible gensiblog list (isshow=1, for frontend) */
+export function fetchVisibleGensiblogList(): Promise<Api.Gensiblog.GensiblogItem[]> {
+  return getVisibleGensiblogListFromSupabase();
 }
 
 /** Get gensiblog by id */

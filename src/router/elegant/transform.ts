@@ -185,6 +185,7 @@ const routeMap: RouteMap = {
   "404": "/404",
   "500": "/500",
   "blog-manage": "/blog-manage",
+  "gensiblog-preview": "/gensiblog-preview",
   "gensiblog-manage": "/gensiblog-manage",
   "followus": "/followus",
   "group-manage": "/group-manage",

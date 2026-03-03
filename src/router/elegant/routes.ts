@@ -51,6 +51,18 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
+    name: 'gensiblog-preview',
+    path: '/gensiblog-preview',
+    component: 'layout.blank$view.gensiblog-preview',
+    meta: {
+      title: 'Gensiblog Preview',
+      i18nKey: 'route.gensiblog-manage',
+      constant: true,
+      hideInMenu: true,
+      keepAlive: false
+    }
+  },
+  {
     name: 'gensiblog-manage',
     path: '/gensiblog-manage',
     component: 'layout.base$view.gensiblog-manage',

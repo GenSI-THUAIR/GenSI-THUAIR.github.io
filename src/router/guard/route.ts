@@ -225,37 +225,38 @@ function handleRouteSwitch(to: RouteLocationNormalized, from: RouteLocationNorma
   next();
 
   // 检查是否需要在路由完成后刷新页面
-  const excludeRoutes = ['login', '403', '404', '500', 'iframe-page'];
+  const excludeRoutes = ['login', '403', '404', '500', 'iframe-page', 'gensiblog-preview'];
   const authStore = useSupabaseAuthStore();
   const isLogin = authStore.isLogin;
-  const needsRefresh = isLogin && 
-                      !excludeRoutes.includes(to.name as string) && 
-                      !excludeRoutes.includes(from.name as string) 
-                    
-  
+
+  const fromName = String(from.name ?? '');
+  const toName = String(to.name ?? '');
+  const isConstantRoute = !!to.meta.constant || !!from.meta.constant;
+  const isPortalRoute = toName.startsWith('portal_') || fromName.startsWith('portal_');
+
+  const needsRefresh = isLogin &&
+                      !excludeRoutes.includes(toName) &&
+                      !excludeRoutes.includes(fromName) &&
+                      !isConstantRoute &&
+                      !isPortalRoute;
+
   // 如果是路由切换（不是首次加载）且需要刷新
   if (needsRefresh && from.name && from.name !== to.name && !isReloading) {
     // 检查防抖时间
     if (isInDebounceTime()) {
-      console.log('🔄 Route switch detected but in debounce period, skipping reload:', from.name, '→', to.name);
       return;
     }
-    
-    console.log('🔄 Business route switch detected, will reload after navigation:', from.name, '→', to.name);
-    
+
     isReloading = true;
-    recordReloadTime(); // 记录刷新时间
-    
-    // 在路由完全完成后再刷新，避免干扰认证检查
+    recordReloadTime();
+
     setTimeout(() => {
       if (window.location.hash.includes(to.path)) {
-        console.log('🔄 Reloading page for:', to.path);
         window.location.reload();
       } else {
-        // 如果路径不匹配，重置刷新标记
         isReloading = false;
       }
-    }, 500); // 增加延迟，确保路由和认证都完成
+    }, 500);
   }
 }
 
