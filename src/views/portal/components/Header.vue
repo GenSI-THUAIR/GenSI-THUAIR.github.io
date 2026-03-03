@@ -165,7 +165,7 @@
           <svg v-else class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
-          <span class="mobile-theme-label">{{ isDark ? 'Light Mode' : 'Dark Mode' }}</span>
+          <span class="mobile-theme-label">{{ isDark ? 'Dark Mode' : 'Light Mode' }}</span>
         </button>
       </nav>
     </div>
