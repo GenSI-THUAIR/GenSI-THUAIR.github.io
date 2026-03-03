@@ -56,7 +56,7 @@
         </div>
         <a @click="toSia" class="nav-link">{{ $t('portal.nav.siaLab') }}</a>
         <a href="#" class="nav-link contact" @click="navigateTo('/portal/contact', $event)">{{ $t('portal.nav.contact')
-          }}</a>
+        }}</a>
         <div class="lang-switch" @click="toggleLanguage">
           <span class="lang-current">{{ currentLangLabel }}</span>
           <span class="lang-separator">|</span>
