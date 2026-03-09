@@ -23,8 +23,8 @@
             </div>
             <div class="menu-column">
               <a href="#" class="menu-link" @click="navigateTo('/portal/blog', $event)">{{ $t('portal.nav.blog') }}</a>
-              <a href="#" class="menu-link" @click="navigateTo('/portal/posts', $event)">{{ $t('portal.nav.posts')
-              }}</a>
+              <!-- <a href="#" class="menu-link" @click="navigateTo('/portal/posts', $event)">{{ $t('portal.nav.posts')
+              }}</a> -->
               <a href="#" class="menu-link" @click="toSia($event)">{{ $t('portal.nav.siaLab') }}</a>
               <a href="#" class="menu-link" @click="navigateTo('/portal/contact', $event)">{{ $t('portal.nav.contact')
                 }}</a>

@@ -44,10 +44,10 @@
               @click="navigateTo('/portal/news', $event)">
               <span>{{ $t('portal.nav.news') }}</span>
             </a>
-            <a href="#" class="dropdown-item" :class="{ active: isMediaBlogActive }"
+            <!-- <a href="#" class="dropdown-item" :class="{ active: isMediaBlogActive }"
               @click="navigateTo('/portal/posts', $event)">
               <span>{{ $t('portal.nav.posts') }}</span>
-            </a>
+            </a> -->
             <a href="#" class="dropdown-item" :class="{ active: isGalleryActive }"
               @click="navigateTo('/portal/gallery', $event)">
               <span>{{ $t('portal.nav.gallery') }}</span>
@@ -56,7 +56,7 @@
         </div>
         <a @click="toSia" class="nav-link">{{ $t('portal.nav.siaLab') }}</a>
         <a href="#" class="nav-link contact" @click="navigateTo('/portal/contact', $event)">{{ $t('portal.nav.contact')
-        }}</a>
+          }}</a>
         <div class="lang-switch" @click="toggleLanguage">
           <span class="lang-current">{{ currentLangLabel }}</span>
           <span class="lang-separator">|</span>
@@ -132,10 +132,10 @@
               @click="navigateTo('/portal/news', $event); closeMobileMenu($event)">
               {{ $t('portal.nav.news') }}
             </a>
-            <a href="#" class="mobile-dropdown-item" :class="{ active: isMediaBlogActive }"
+            <!-- <a href="#" class="mobile-dropdown-item" :class="{ active: isMediaBlogActive }"
               @click="navigateTo('/portal/posts', $event); closeMobileMenu($event)">
               {{ $t('portal.nav.posts') }}
-            </a>
+            </a> -->
             <a href="#" class="mobile-dropdown-item" :class="{ active: isGalleryActive }"
               @click="navigateTo('/portal/gallery', $event); closeMobileMenu($event)">
               <span>{{ $t('portal.nav.gallery') }}</span>
