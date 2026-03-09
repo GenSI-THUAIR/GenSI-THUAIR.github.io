@@ -332,7 +332,6 @@ onMounted(() => {
             type="textarea"
             placeholder="请输入内容"
             :rows="6"
-            maxlength="2000"
             show-count
           />
         </NFormItem>
@@ -344,7 +343,6 @@ onMounted(() => {
             type="textarea"
             placeholder="请输入中文内容"
             :rows="6"
-            maxlength="2000"
             show-count
           />
           <div style="font-size: 12px; color: #999;">

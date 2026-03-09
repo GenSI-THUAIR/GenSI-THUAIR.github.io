@@ -633,7 +633,6 @@ function closeImportResult() {
             type="textarea"
             placeholder="请输入发布内容"
             :rows="6"
-            maxlength="2000"
             show-count
           />
         </NFormItem>
@@ -680,7 +679,6 @@ function closeImportResult() {
             type="textarea"
             placeholder="请输入参考文献引用（支持BibTeX格式）"
             :rows="6"
-            maxlength="2000"
             show-count
           />
         </NFormItem>

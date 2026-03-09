@@ -1268,7 +1268,6 @@ onMounted(() => {
               type="textarea"
               placeholder="请输入引用信息"
               :rows="3"
-              maxlength="2000"
               show-count
             />
           </NFormItem>
