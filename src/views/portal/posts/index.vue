@@ -114,9 +114,16 @@ import supabase from '@/supabase/supabase';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
+import { useSeo } from '@/composables/useSeo';
 
 defineOptions({
   name: 'PortalPosts'
+});
+
+useSeo({
+  title: 'Posts',
+  description: 'Browse all posts and articles from GenSI Lab.',
+  keywords: 'GenSI, posts, articles, AI articles',
 });
 
 const router = useRouter();

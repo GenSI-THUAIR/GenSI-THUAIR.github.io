@@ -51,7 +51,14 @@ import Header from '@/views/portal/components/Header.vue'
 import posterSrc from '@/views/portal/assests/img/fm.png'
 import { useAppStore } from '@/store/modules/app'
 import { useThemeStore } from '@/store/modules/theme'
- 
+import { useSeo } from '@/composables/useSeo'
+
+useSeo({
+  title: 'Gallery',
+  description: 'Photo gallery from GenSI Lab events, conferences, and research activities.',
+  keywords: 'GenSI, gallery, photos, events',
+})
+
 const errorMessage = ref('')
 const themeStore = useThemeStore()
 const isDark = computed(() => themeStore.darkMode)

@@ -18,7 +18,7 @@
                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
-          <input type="text" v-model="searchQuery" :placeholder="$t('portal.blog.searchPlaceholder')"
+          <input type="text" v-model="searchQuery" :placeholder="$t('portal.publications.searchPlaceholder')"
             class="search-input" @keypress="handleKeyPress" @input="handleSearchInput" />
         </div>
       </div>
@@ -27,8 +27,6 @@
     <!-- Blog Posts Section -->
     <section class="blog-posts">
       <div class="container">
-
-
         <div class="filter-section">
           <!-- <div class="filter-group">
             <h4 class="filter-group-title">Tags</h4>
@@ -100,8 +98,16 @@
                 <span class="blog-date">{{ post.publish_time ? formatDate(post.publish_time) : '' }}</span>
               </div>
             </div>
-            <div v-if="post.blog_img" class="blog-image" @click="navigateToDetail(post)">
-              <img :src="post.blog_img" :alt="post.title" />
+            <div v-if="post.blog_img" class="blog-image" @click="openImagePreview(post.blog_img, post.title)">
+              <img :src="post.blog_img" :alt="post.title" @error="handleImageError" loading="lazy" />
+              <div class="image-overlay">
+                <svg class="preview-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" />
+                </svg>
+                <span>{{ $t('portal.home.clickToPreview') }}</span>
+              </div>
             </div>
           </div>
 
@@ -133,6 +139,26 @@
       </div>
     </section>
 
+    <!-- Image Preview Modal -->
+    <Teleport to="body">
+      <div v-if="imagePreview.show" class="image-preview-modal" @click="closeImagePreview">
+        <div class="image-preview-container">
+          <div class="image-preview-header">
+            <h3 class="image-preview-title">{{ imagePreview.title }}</h3>
+            <button class="close-btn" @click="closeImagePreview">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+          <div class="image-preview-content" @click.stop>
+            <img :src="imagePreview.src" :alt="imagePreview.title" class="preview-image" />
+          </div>
+        </div>
+      </div>
+    </Teleport>
+
     <!-- Footer -->
     <Footer />
 
@@ -156,9 +182,16 @@ import { useMessage } from 'naive-ui';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
+import { useSeo } from '@/composables/useSeo';
 
 defineOptions({
   name: 'PortalBlog'
+});
+
+useSeo({
+  title: 'Blog',
+  description: 'Latest blog posts from GenSI Lab covering AI research, experiments, and insights.',
+  keywords: 'GenSI, blog, AI, research blog, machine learning',
 });
 
 const message = useMessage();
@@ -487,6 +520,34 @@ const setupIntersectionObserver = () => {
   intersectionObserver.value.observe(loadMoreTrigger.value)
 }
 
+// Image preview
+const imagePreview = ref({
+  show: false,
+  src: '',
+  title: ''
+});
+
+const openImagePreview = (src: string, title: string) => {
+  imagePreview.value.src = src;
+  imagePreview.value.title = title;
+  imagePreview.value.show = true;
+};
+
+const closeImagePreview = () => {
+  imagePreview.value.show = false;
+};
+
+const handleEscKey = (event: KeyboardEvent) => {
+  if (event.key === 'Escape' && imagePreview.value.show) {
+    closeImagePreview();
+  }
+};
+
+const handleImageError = (e: Event) => {
+  const img = e.target as HTMLImageElement;
+  img.src = 'https://gensi-1313402205.cos.ap-guangzhou.myqcloud.com/news/cover/1754832796362-1.png';
+};
+
 // Navigate to new tab
 const toNewTab = (url: string) => {
   if (!url) return;
@@ -501,6 +562,7 @@ onMounted(async () => {
     updateRootRem();
   }
   window.addEventListener('resize', debouncedHandleResize);
+  document.addEventListener('keydown', handleEscKey);
 
   // Get tag counts
   await getTagCounts()
@@ -531,7 +593,8 @@ onUnmounted(() => {
     clearTimeout(searchTimeout.value)
   }
 
-  // 清理 resize 防抖与恢复根字号
+  // 清理事件监听
+  document.removeEventListener('keydown', handleEscKey);
   window.removeEventListener('resize', debouncedHandleResize)
   if (resizeTimeout) {
     clearTimeout(resizeTimeout)
@@ -597,18 +660,16 @@ onUnmounted(() => {
   width: 100%;
   padding: 0.75rem 1rem 0.75rem 3.25rem;
   font-family: 'Sora', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #000000;
   background: transparent;
   border: none;
-  border-bottom: 0.125rem solid #000000;
   outline: none;
 }
 
 .search-input::placeholder {
   color: rgba(0, 0, 0, 0.5);
-  font-size: 1.25rem;
-  line-height: 2rem;
+  font-size: 1rem;
 }
 
 .search-icon {
@@ -806,6 +867,42 @@ onUnmounted(() => {
   margin: auto 0;
   cursor: pointer;
   position: relative;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.blog-image:hover .image-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.preview-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.image-overlay span {
+  color: #ffffff;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 .blog-image img {
@@ -1032,6 +1129,101 @@ onUnmounted(() => {
   margin-top: 1.25rem;
 }
 
+/* Image Preview Modal */
+.image-preview-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.image-preview-container {
+  width: 90%;
+  max-width: 75rem;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1.25rem 3.75rem rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { transform: scale(0.9) translateY(-1.25rem); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.image-preview-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.image-preview-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.375rem;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: #e0e0e0;
+}
+
+.close-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #666666;
+}
+
+.image-preview-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  max-height: calc(90vh - 5rem);
+  overflow: auto;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
+}
+
 /* ========== Dark Mode Styles ========== */
 .blog-page.is-dark {
   background: #121212;
@@ -1158,6 +1350,27 @@ onUnmounted(() => {
 
 .blog-page.is-dark .blog-image {
   background: #2a2a2a;
+}
+
+.blog-page.is-dark .image-preview-container {
+  background: #2a2a2a;
+}
+
+.blog-page.is-dark .image-preview-header {
+  background: #333;
+  border-bottom-color: #444;
+}
+
+.blog-page.is-dark .image-preview-title {
+  color: #e0e0e0;
+}
+
+.blog-page.is-dark .close-btn:hover {
+  background: #444;
+}
+
+.blog-page.is-dark .close-btn svg {
+  color: #ccc;
 }
 
 .blog-page.is-dark .loading-spinner {

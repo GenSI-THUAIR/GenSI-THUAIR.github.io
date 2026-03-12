@@ -13,6 +13,7 @@ import { useMessage } from 'naive-ui';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
+import { useSeo } from '@/composables/useSeo';
 
 const router = useRouter();
 const appStore = useAppStore();
@@ -26,6 +27,12 @@ const navigateTo = (path: string, event: Event) => {
 
 defineOptions({
   name: 'PortalAbout'
+});
+
+useSeo({
+  title: 'About',
+  description: 'Learn about GenSI Lab - our mission, team, and research focus in generative social intelligence.',
+  keywords: 'GenSI, about, team, mission, AI lab',
 });
 
 // 表单数据

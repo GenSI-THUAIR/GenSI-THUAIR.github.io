@@ -8,9 +8,16 @@ const Header = defineAsyncComponent(() => import('../components/Header.vue'));
 const Footer = defineAsyncComponent(() => import('../components/Footer.vue'));
 const BackToTop = defineAsyncComponent(() => import('../components/BackToTop.vue'));
 import supabase from '@/supabase/supabase';
+import { useSeo } from '@/composables/useSeo';
 
 defineOptions({
   name: 'PortalContact'
+});
+
+useSeo({
+  title: 'Contact',
+  description: 'Get in touch with GenSI Lab. Contact information and collaboration inquiries.',
+  keywords: 'GenSI, contact, collaboration, inquiry',
 });
 
 const appStore = useAppStore();

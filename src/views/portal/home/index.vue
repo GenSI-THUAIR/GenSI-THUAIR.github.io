@@ -14,9 +14,16 @@ import supabase from '@/supabase/supabase';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
+import { useSeo } from '@/composables/useSeo';
 
 defineOptions({
   name: 'PortalHome'
+});
+
+useSeo({
+  title: 'Home',
+  description: 'GenSI Lab - Generative Social Intelligence. Exploring the frontiers of AI research in memory, reasoning, and autonomous agents.',
+  keywords: 'GenSI, AI research, social intelligence, autonomous agents, reasoning',
 });
 
 // 添加组件实例标识用于调试

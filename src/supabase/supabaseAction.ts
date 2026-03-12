@@ -124,9 +124,19 @@ export const insertPublication = async (publication: any) => {
     return res.data;
 }
 
-// 获取发布列表
+// 获取发布列表（年份降序 > 排序值升序 > 发布日期降序）
 export const getPublications = async () => {
-    return await getList('publications');
+    const { data, error } = await supabase
+        .from('publications')
+        .select('*')
+        .order('year', { ascending: false, nullsFirst: false })
+        .order('sort', { ascending: false, nullsFirst: false })
+        .order('date', { ascending: false, nullsFirst: false });
+    if (error) {
+        console.error('获取发布列表失败:', error);
+        return [];
+    }
+    return data;
 }
 
 // 更新发布

@@ -241,9 +241,16 @@ import { useMessage } from 'naive-ui';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
+import { useSeo } from '@/composables/useSeo';
 
 defineOptions({
   name: 'PortalPublications'
+});
+
+useSeo({
+  title: 'Publications',
+  description: 'Academic publications and papers from GenSI Lab researchers.',
+  keywords: 'GenSI, publications, papers, academic research, AI papers',
 });
 
 const message = useMessage();
@@ -407,7 +414,9 @@ const getPublications = async (page: number = 0, size: number = 10) => {
     let query = supabase
       .from('publications')
       .select('*')
-      .order('date', { ascending: false })
+      .order('year', { ascending: false, nullsFirst: false })
+      .order('sort', { ascending: false, nullsFirst: false })
+      .order('date', { ascending: false, nullsFirst: false })
 
     // Apply conference filter if not 'all'
     if (activeConferenceFilter.value !== 'all') {

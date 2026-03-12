@@ -614,7 +614,6 @@ function closeImportResult() {
           <NInput 
             v-model:value="formData.title" 
             placeholder="请输入发布标题" 
-            maxlength="200"
             show-count
           />
         </NFormItem>
@@ -705,7 +704,6 @@ function closeImportResult() {
           <NInput
             v-model:value="formData.author"
             placeholder="请输入作者"
-            maxlength="200"
             show-count
           />
         </NFormItem>

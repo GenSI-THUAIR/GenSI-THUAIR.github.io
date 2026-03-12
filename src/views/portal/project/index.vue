@@ -97,9 +97,16 @@ import supabase from '@/supabase/supabase';
 import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
 import { $t } from '@/locales';
+import { useSeo } from '@/composables/useSeo';
 
 defineOptions({
   name: 'PortalProject'
+})
+
+useSeo({
+  title: 'Projects',
+  description: 'Explore research projects and initiatives from GenSI Lab.',
+  keywords: 'GenSI, projects, AI projects, research projects',
 })
 
 const router = useRouter();

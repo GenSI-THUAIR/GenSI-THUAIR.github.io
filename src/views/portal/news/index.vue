@@ -12,9 +12,16 @@ import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
 
 import supabase from '@/supabase/supabase';
+import { useSeo } from '@/composables/useSeo';
 
 defineOptions({
   name: 'PortalNews'
+});
+
+useSeo({
+  title: 'News',
+  description: 'Latest news and announcements from GenSI Lab.',
+  keywords: 'GenSI, news, announcements, AI news',
 });
 
 const router = useRouter();

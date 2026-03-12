@@ -85,9 +85,16 @@
   import { $t } from '@/locales';
   import { useAppStore } from '@/store/modules/app';
   import { useThemeStore } from '@/store/modules/theme';
+  import { useSeo } from '@/composables/useSeo';
   
   defineOptions({
     name: 'PortalPosts'
+  });
+
+  useSeo({
+    title: 'Post Detail',
+    description: 'GenSI Lab post detail.',
+    keywords: 'GenSI, post, detail',
   });
   
   const router = useRouter();

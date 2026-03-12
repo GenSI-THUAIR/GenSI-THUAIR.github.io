@@ -251,7 +251,7 @@ function handleRouteSwitch(to: RouteLocationNormalized, from: RouteLocationNorma
     recordReloadTime();
 
     setTimeout(() => {
-      if (window.location.hash.includes(to.path)) {
+      if (window.location.pathname.includes(to.path) || window.location.hash.includes(to.path)) {
         window.location.reload();
       } else {
         isReloading = false;

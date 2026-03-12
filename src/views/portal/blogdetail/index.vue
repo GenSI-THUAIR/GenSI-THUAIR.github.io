@@ -331,9 +331,16 @@ import { fetchGensiblogById, fetchBlogCommentsByBlogId, submitBlogComment } from
 import { useThemeStore } from '@/store/modules/theme';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import { useSeo, updateSeo } from '@/composables/useSeo';
 
 defineOptions({
   name: 'PortalBlogDetail'
+});
+
+useSeo({
+  title: 'Blog Detail',
+  description: 'GenSI Lab blog article.',
+  keywords: 'GenSI, blog, article',
 });
 
 const route = useRoute();
@@ -822,6 +829,11 @@ const loadBlogPost = async () => {
       }
 
       blogPost.value = post;
+
+      updateSeo({
+        title: post.title || 'Blog Detail',
+        description: post.introducing?.replace(/<[^>]*>/g, '').slice(0, 160) || 'GenSI Lab blog article.',
+      });
 
       // Build complete navigation with top-level sections and content headings
       contentSections.value = buildNavigation();

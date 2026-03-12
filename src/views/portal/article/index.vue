@@ -103,6 +103,13 @@ import BackToTop from '../components/BackToTop.vue';
 import supabase from '@/supabase/supabase';
 import { ref, onMounted, computed, onUnmounted } from 'vue';
 import VuePdfEmbed from 'vue-pdf-embed';
+import { useSeo } from '@/composables/useSeo';
+
+useSeo({
+  title: 'Articles',
+  description: 'In-depth articles and insights from GenSI Lab researchers.',
+  keywords: 'GenSI, articles, insights, AI research',
+});
 // @ts-ignore
 import { marked } from 'marked';
 

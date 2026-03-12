@@ -159,7 +159,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal/about',
     component: 'layout.blank$view.portal_about',
     meta: {
-      title: 'GenSI',
+      title: 'About - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true,
@@ -171,7 +171,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal/contact',
     component: 'layout.blank$view.portal_contact',
     meta: {
-      title: 'GenSI',
+      title: 'Contact - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true
@@ -182,7 +182,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal_home',
     component: 'layout.blank$view.portal_home',
     meta: {
-      title: 'GenSI',
+      title: 'Home - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true,
@@ -194,7 +194,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal/news',
     component: 'layout.blank$view.portal_news',
     meta: {
-      title: 'GenSI',
+      title: 'News - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true,
@@ -206,7 +206,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal/article',
     component: 'layout.blank$view.portal_article',
     meta: {
-      title: 'GenSI',
+      title: 'Articles - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true,
@@ -218,7 +218,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal/posts',
     component: 'layout.blank$view.portal_posts',
     meta: {
-      title: 'GenSI',
+      title: 'Posts - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true,
@@ -230,7 +230,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal/postdetail',
     component: 'layout.blank$view.portal_postdetail',
     meta: {
-      title: 'GenSI',
+      title: 'Post Detail - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true,
@@ -242,7 +242,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal/research',
     component: 'layout.blank$view.portal_research',
     meta: {
-      title: 'GenSI',
+      title: 'Research - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true,
@@ -254,7 +254,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal/publications',
     component: 'layout.blank$view.portal_publications',
     meta: {
-      title: 'GenSI',
+      title: 'Publications - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true,
@@ -266,7 +266,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal/project',
     component: 'layout.blank$view.portal_project',
     meta: {
-      title: 'GenSI',
+      title: 'Projects - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true,
@@ -278,7 +278,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal/blog',
     component: 'layout.blank$view.portal_blog',
     meta: {
-      title: 'GenSI',
+      title: 'Blog - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true,
@@ -290,7 +290,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal/blogdetail',
     component: 'layout.blank$view.portal_blogdetail',
     meta: {
-      title: 'GenSI Blog Detail',
+      title: 'Blog Detail - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true,
@@ -302,7 +302,7 @@ export const generatedRoutes: GeneratedRoute[] = [
     path: '/portal/gallery',
     component: 'layout.blank$view.portal_gallery',
     meta: {
-      title: 'GenSI',
+      title: 'Gallery - GenSI',
       i18nKey: 'route.GenSI',
       constant: true,
       hideInMenu: true,

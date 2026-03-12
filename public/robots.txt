@@ -1,0 +1,22 @@
+User-agent: *
+
+# Allow portal pages
+Allow: /portal_home
+Allow: /portal/
+
+# Disallow admin pages
+Disallow: /login
+Disallow: /blog-manage
+Disallow: /gensiblog-manage
+Disallow: /gensiblog-preview
+Disallow: /member-manage
+Disallow: /news-manage
+Disallow: /publish-manage
+Disallow: /project-manage
+Disallow: /followus
+Disallow: /slideshow
+Disallow: /description
+Disallow: /alumni
+Disallow: /message-view
+
+Sitemap: https://www.gensi-thuair.com/sitemap.xml

@@ -303,9 +303,16 @@ import supabase from '@/supabase/supabase';
 import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
+import { useSeo } from '@/composables/useSeo';
 
 defineOptions({
   name: 'PortalResearch'
+})
+
+useSeo({
+  title: 'Research',
+  description: 'GenSI Lab research directions including memory, abstract modeling, induction, reasoning, and autonomous agents.',
+  keywords: 'GenSI, research, AI research, memory, reasoning, autonomous agents',
 })
 
 const message = useMessage();
@@ -354,8 +361,9 @@ const getPublications = async () => {
     let query = supabase
       .from('publications')
       .select('*')
-      .order('sort', { ascending: false })
-      .order('date', { ascending: false })
+      .order('year', { ascending: false, nullsFirst: false })
+      .order('sort', { ascending: false, nullsFirst: false })
+      .order('date', { ascending: false, nullsFirst: false })
       .limit(5)
 
     const { data, error } = await query

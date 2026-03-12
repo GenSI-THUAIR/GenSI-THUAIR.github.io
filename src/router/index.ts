@@ -17,8 +17,7 @@ const historyCreatorMap: Record<Env.RouterHistoryMode, (base?: string) => Router
   memory: createMemoryHistory
 };
 
-// 在生产环境下使用 hash 模式避免部署问题
-const routerHistoryMode = import.meta.env.PROD ? 'hash' : VITE_ROUTER_HISTORY_MODE;
+const routerHistoryMode = VITE_ROUTER_HISTORY_MODE;
 
 export const router = createRouter({
   history: historyCreatorMap[routerHistoryMode](VITE_BASE_URL),
