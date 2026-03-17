@@ -15,6 +15,8 @@ import { $t } from '@/locales';
 import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
 import { useSeo } from '@/composables/useSeo';
+import homethinkLight from '../assests/home/homethink.png';
+import homethinkDark from '../assests/home/homethink_b.png';
 
 defineOptions({
   name: 'PortalHome'
@@ -49,7 +51,7 @@ const researchItemsBase = [
 ];
 
 // 带国际化文本的研究方向数据
-const researchItems = computed(() => 
+const researchItems = computed(() =>
   researchItemsBase.map(item => ({
     ...item,
     text: $t(item.textKey as any)
@@ -66,7 +68,7 @@ const isPageVisible = ref(true);
 function handleVisibilityChange() {
   isPageVisible.value = !document.hidden;
   console.log(`[${componentId}] Page visibility changed:`, isPageVisible.value);
-  
+
   if (isPageVisible.value) {
     // 页面变为可见时，重新启动必要的定时器
     if (carouselData.value.length > 0) {
@@ -263,24 +265,24 @@ const carouselSlides = ref<any[]>([]);
 // 根据当前语言获取本地化内容的辅助函数
 function getLocalizedContent(item: any) {
   const isZhCN = appStore.locale === 'zh-CN';
-  
+
   if (item.type === 'slideshow') {
     // 轮播图数据：使用slideshow表的字段
-    return isZhCN 
-      ? (item.description_cn || item.description) 
+    return isZhCN
+      ? (item.description_cn || item.description)
       : (item.description || item.description_cn);
   } else if (item.type === 'news') {
     // 新闻项目：优先使用轮播图描述字段
-    return isZhCN 
-      ? (item.lbtcontent_cn || item.lbtcontent || item.content_cn || item.content) 
+    return isZhCN
+      ? (item.lbtcontent_cn || item.lbtcontent || item.content_cn || item.content)
       : (item.lbtcontent || item.lbtcontent_cn || item.content || item.content_cn);
   } else if (item.type === 'project') {
     // 项目：优先使用轮播图描述字段
-    return isZhCN 
-      ? (item.lbtcontent_cn || item.lbtcontent || item.content_cn || item.description) 
+    return isZhCN
+      ? (item.lbtcontent_cn || item.lbtcontent || item.content_cn || item.description)
       : (item.lbtcontent || item.lbtcontent_cn || item.description || item.content_cn);
   }
-  
+
   // 兜底情况
   return item.description_cn || item.description || item.lbtcontent || item.lbtcontent_cn || item.content || item.title || '';
 }
@@ -288,30 +290,30 @@ function getLocalizedContent(item: any) {
 // 根据当前语言获取轮播图项目主标题的辅助函数
 function getLocalizedTitle(item: any) {
   const isZhCN = appStore.locale === 'zh-CN';
-  
+
   if (item.type === 'slideshow') {
     // 轮播图数据：优先使用title字段，如果没有则使用description的前50个字符作为标题
     if (item.title_cn || item.title) {
-      return isZhCN 
-        ? (item.title_cn || item.title) 
+      return isZhCN
+        ? (item.title_cn || item.title)
         : (item.title || item.title_cn);
     } else {
-      return  '';
+      return '';
     }
-  } 
+  }
   return '';
 }
 
 // 根据当前语言获取轮播图项目副标题/描述的辅助函数
 function getLocalizedCarouselTitle(item: any) {
   const isZhCN = appStore.locale === 'zh-CN';
-  
+
   if (item.type === 'slideshow') {
     // 轮播图数据：如果有title字段，显示完整description；否则显示description的剩余部分
-    const desc = isZhCN 
-      ? (item.description_cn || item.description) 
+    const desc = isZhCN
+      ? (item.description_cn || item.description)
       : (item.description || item.description_cn);
-    
+
     if (item.title_cn || item.title) {
       // 有标题时，显示完整描述
       return desc || '';
@@ -321,16 +323,16 @@ function getLocalizedCarouselTitle(item: any) {
     }
   } else if (item.type === 'news') {
     // 新闻优先使用轮播图描述字段
-    return isZhCN 
-      ? (item.lbtcontent_cn || item.lbtcontent || item.content_cn || item.content) 
+    return isZhCN
+      ? (item.lbtcontent_cn || item.lbtcontent || item.content_cn || item.content)
       : (item.lbtcontent || item.lbtcontent_cn || item.content || item.content_cn);
   } else if (item.type === 'project') {
     // 项目优先使用轮播图描述字段
-    return isZhCN 
-      ? (item.lbtcontent_cn || item.lbtcontent || item.title_cn || item.title) 
+    return isZhCN
+      ? (item.lbtcontent_cn || item.lbtcontent || item.title_cn || item.title)
       : (item.lbtcontent || item.lbtcontent_cn || item.title || item.title_cn);
   }
-  
+
   // 兜底情况
   return item.description_cn || item.description || item.lbtcontent || item.lbtcontent_cn || item.content || '';
 }
@@ -338,16 +340,16 @@ function getLocalizedCarouselTitle(item: any) {
 // 根据当前语言获取项目标题的辅助函数
 function getLocalizedProjectTitle(project: any) {
   const isZhCN = appStore.locale === 'zh-CN';
-  return isZhCN 
-    ? (project.title_cn || project.title) 
+  return isZhCN
+    ? (project.title_cn || project.title)
     : (project.title || project.title_cn);
 }
 
 // 根据当前语言获取关注我们内容的辅助函数
 function getLocalizedFollowUsContent(item: any) {
   const isZhCN = appStore.locale === 'zh-CN';
-  return isZhCN 
-    ? (item.content_cn || item.content) 
+  return isZhCN
+    ? (item.content_cn || item.content)
     : (item.content || item.content_cn);
 }
 
@@ -359,14 +361,14 @@ const imagePreview = ref({
 });
 
 async function getNews() {
-    const { data, error } = await supabase.from('news').select('*').order('sort', { ascending: true });
-    console.log(data);
-    if (error) {
-      console.error('Error fetching news:', error);
-      return [];
-    }
-    return data;
+  const { data, error } = await supabase.from('news').select('*').order('sort', { ascending: true });
+  console.log(data);
+  if (error) {
+    console.error('Error fetching news:', error);
+    return [];
   }
+  return data;
+}
 
 async function getProject() {
   const { data, error } = await supabase.from('project').select('*').order('sort', { ascending: true }).limit(4);
@@ -387,13 +389,13 @@ const followUsList = ref<any[]>([]);
 
 async function getFollowUs() {
   const { data, error } = await supabase.from('followus').select('*').order('created_at', { ascending: false });
-  console.log(data,"followUs");
+  console.log(data, "followUs");
   return data;
 }
 
 async function getDescription() {
   const { data, error } = await supabase.from('description').select('*').eq('id', 1).single();
-  console.log(data,"description");
+  console.log(data, "description");
   return data;
 }
 
@@ -413,15 +415,15 @@ let typewriterTimer: NodeJS.Timeout | null = null;
 // 打字机效果函数
 function startTypewriter(text: string) {
   if (!text) return;
-  
+
   animatedDescription.value = '';
   let index = 0;
-  
+
   // 清理之前的定时器
   if (typewriterTimer) {
     clearInterval(typewriterTimer);
   }
-  
+
   typewriterTimer = setInterval(() => {
     if (index < text.length) {
       animatedDescription.value += text.charAt(index);
@@ -479,23 +481,23 @@ async function initializeData() {
     ]);
 
 
-    console.log(project,slideshow,followUs,description,"project,slideshow,followUs,description");
-    
+    console.log(project, slideshow, followUs, description, "project,slideshow,followUs,description");
+
     latestNews.value = [];
     projectList.value = project || [];
     followUsList.value = followUs || [];
     descriptionData.value = description || {};
-    
+
     // 使用slideshow数据用于轮播图
     const slideshowData = (slideshow || []).map((item: any) => ({ ...item, type: 'slideshow' }));
     carouselData.value = slideshowData;
-    
+
     // 限制轮播图最多显示9张
     carouselSlides.value = carouselData.value.slice(0, maxCarouselSlides);
-    
+
     // 重置轮播图位置到第一页
     currentSlide.value = 0;
-    
+
     console.log(`[${componentId}] Data initialized successfully`, {
       projects: project?.length || 0,
       slideshow: slideshow?.length || 0,
@@ -570,7 +572,7 @@ const maxCarouselSlides = 9;
 function nextSlide() {
   // 计算下一页的起始位置，实现全屏替换
   const nextStartIndex = currentSlide.value + slidesPerView.value;
-  
+
   if (nextStartIndex < carouselSlides.value.length) {
     currentSlide.value = nextStartIndex;
   } else {
@@ -582,7 +584,7 @@ function nextSlide() {
 function prevSlide() {
   // 计算上一页的起始位置，实现全屏替换
   const prevStartIndex = currentSlide.value - slidesPerView.value;
-  
+
   if (prevStartIndex >= 0) {
     currentSlide.value = prevStartIndex;
   } else {
@@ -594,7 +596,7 @@ function prevSlide() {
 function goToSlide(pageIndex: number) {
   // 根据页码计算对应的起始位置
   const startIndex = pageIndex * slidesPerView.value;
-  
+
   if (startIndex < carouselSlides.value.length) {
     currentSlide.value = startIndex;
   } else {
@@ -687,7 +689,7 @@ function checkMobile() {
   if (currentSlide.value > maxValidIndex) {
     currentSlide.value = maxValidIndex;
   }
-  
+
   // 如果从桌面端切换到移动端，收起所有项目
   if (!wasMobile && isMobile.value) {
     // 移动端显示所有项目，不需要activeProjectIndex控制
@@ -702,7 +704,7 @@ function checkMobile() {
 
 
 function toNewTab(url: string) {
-  if(!url) return;
+  if (!url) return;
   window.open(url, '_blank');
 }
 
@@ -724,7 +726,7 @@ const handleEscKey = (event: KeyboardEvent) => {
   }
 }
 
-function navTo(url: string){
+function navTo(url: string) {
   router.push(url);
 }
 
@@ -776,88 +778,57 @@ const currentPage = computed(() => {
 
   <div class="gensi-home" :class="{ 'is-dark': isDark }">
     <!-- 顶部导航 -->
-<div class="hero-wrapper">
-  <Header /> 
-    <!-- 英雄区域 -->
+    <div class="hero-wrapper">
+      <Header />
+      <!-- 英雄区域 -->
 
-    <section class="hero-section"> 
+      <section class="hero-section">
 
-      <div class="hero-carousel-container">
-      <h2 class="research-title relative" style=" margin-bottom: 20px;">{{ $t('portal.home.greeting') }}</h2>
-        <!-- 轮播图主体 -->
-        <div 
-          class="hero-carousel" 
-          ref="carouselContainer"
-          @mouseenter="stopAutoPlay"
-          @mouseleave="startAutoPlay"
-        >
-          <div 
-            class="carousel-track" 
-            :style="{ transform: `translateX(-${currentSlide * (100 / slidesPerView)}%)` }"
-          >
-            <div 
-              v-for="(item, index) in carouselSlides" 
-              :key="item.id ?? index" 
-              class="carousel-slide"
-            >
-              <div class="item-card">
-                <div class="news-card">
-                  <div class="card-image-container" @click="toNewTab(item.link_url)">
-                    <img 
-                      :src="item.cover || item.image || imgImage21" 
-                      :alt="getLocalizedContent(item) || item.title"
-                      class="card-image"
-                      role="button"
-                      tabindex="0"
-                    />
-                    <div class="image-overlay"></div>
-                  </div>
-                  <div class="card-content">
-                    <!-- 添加标题行 - 只在有标题时显示 -->
-                    <div v-if="getLocalizedTitle(item)" class="card-header">
-                      <h2 
-                        class="card-main-title" 
-                        v-html="getLocalizedTitle(item)"
-                        @click="toNewTab(item.link_url)"
-                        role="button"
-                        tabindex="0"
-                      ></h2>
+        <div class="hero-carousel-container">
+          <h2 class="research-title relative" style=" margin-bottom: 20px;">{{ $t('portal.home.greeting') }}</h2>
+          <!-- 轮播图主体 -->
+          <div class="hero-carousel" ref="carouselContainer" @mouseenter="stopAutoPlay" @mouseleave="startAutoPlay">
+            <div class="carousel-track" :style="{ transform: `translateX(-${currentSlide * (100 / slidesPerView)}%)` }">
+              <div v-for="(item, index) in carouselSlides" :key="item.id ?? index" class="carousel-slide">
+                <div class="item-card">
+                  <div class="news-card">
+                    <div class="card-image-container" @click="toNewTab(item.link_url)">
+                      <img :src="item.cover || item.image || imgImage21" :alt="getLocalizedContent(item) || item.title"
+                        class="card-image" role="button" tabindex="0" />
+                      <div class="image-overlay"></div>
                     </div>
-                    <div class="card-text" :class="{ 'no-title': !getLocalizedTitle(item) }">
-                      <h3 
-                        class="card-title" 
-                        v-html="getLocalizedCarouselTitle(item)"
-                        @click="toNewTab(item.link_url)"
-                        role="button"
-                        tabindex="0"
-                      ></h3>
-                    </div>
-                    <div class="read-more-link" @click="toNewTab(item.link_url)">
-                      <span>{{ $t('portal.home.readMore') }}</span>
-                      <svg class="arrow-icon" viewBox="0 0 20 20" fill="none">
-                        <path d="M5 10L15 10M12 7L15 10L12 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
+                    <div class="card-content">
+                      <!-- 添加标题行 - 只在有标题时显示 -->
+                      <div v-if="getLocalizedTitle(item)" class="card-header">
+                        <h2 class="card-main-title" v-html="getLocalizedTitle(item)" @click="toNewTab(item.link_url)"
+                          role="button" tabindex="0"></h2>
+                      </div>
+                      <div class="card-text" :class="{ 'no-title': !getLocalizedTitle(item) }">
+                        <h3 class="card-title" v-html="getLocalizedCarouselTitle(item)" @click="toNewTab(item.link_url)"
+                          role="button" tabindex="0"></h3>
+                      </div>
+                      <div class="read-more-link" @click="toNewTab(item.link_url)">
+                        <span>{{ $t('portal.home.readMore') }}</span>
+                        <svg class="arrow-icon" viewBox="0 0 20 20" fill="none">
+                          <path d="M5 10L15 10M12 7L15 10L12 13" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- 导航点 -->
+          <!-- 导航点 -->
           <div class="carousel-dots">
-            <button 
-              v-for="page in paginationIndexes" 
-              :key="page" 
-              class="carousel-dot" 
-              :class="{ active: currentPage === page }"
-              @click="goToSlide(page)"
-            ></button>
+            <button v-for="page in paginationIndexes" :key="page" class="carousel-dot"
+              :class="{ active: currentPage === page }" @click="goToSlide(page)"></button>
           </div>
-      </div>
-    </section>
-</div>
+        </div>
+      </section>
+    </div>
     <!-- <section class="hero-section"> 
       <div class="container">
         <div class="hero-content">
@@ -917,7 +888,6 @@ const currentPage = computed(() => {
     <!-- 研究方向 -->
     <section class="research-section">
       <div class="container">
-
         <div class="research-header-container">
           <div class="research-header">
             <h2 class="research-title relative">
@@ -925,13 +895,8 @@ const currentPage = computed(() => {
               <!-- <img src="../assests/home/zs.png" alt="Our research directions"
                 class="research-title-image absolute right-0 bottom-0 z-0" /> -->
             </h2>
-            <Motion 
-              as="p" 
-              class="research-description"
-              :initial="{ opacity: 0, y: 30 }"
-              :while-in-view="{ opacity: 1, y: 0 }"
-              :transition="{ delay: 0.3, duration: 0.8, ease: 'easeOut' }"
-            >
+            <Motion as="p" class="research-description" :initial="{ opacity: 0, y: 30 }"
+              :while-in-view="{ opacity: 1, y: 0 }" :transition="{ delay: 0.3, duration: 0.8, ease: 'easeOut' }">
               <span class="typewriter-text" :data-text="localizedHomeDescription" v-if="localizedHomeDescription">
                 {{ animatedDescription }}
               </span>
@@ -952,7 +917,7 @@ const currentPage = computed(() => {
             </div>
             <div class="category-label side-label">AI4S Foundation Model</div> -->
 
-            <img src="../assests/home/homethink.png" alt="">
+            <img :src="isDark ? homethinkDark : homethinkLight" alt="">
           </div>
 
           <!-- <div class="research-cards">
@@ -1020,37 +985,39 @@ const currentPage = computed(() => {
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">{{ $t('portal.home.recentProject') }}</h2>
-          <a  class="read-all-link" @click="navTo('/portal/research')">{{ $t('portal.home.readAll') }}</a>
+          <a class="read-all-link" @click="navTo('/portal/research')">{{ $t('portal.home.readAll') }}</a>
         </div>
 
         <div class="project-list">
           <div v-for="project in projectList" :key="project.name" class="project-accordion">
             <!-- 所有项目都展开显示完整卡片 -->
-              <div class="project-card accordion-card expanded-project">
-                <div class="project-content">
-                  <h3 class="project-title">{{ getLocalizedProjectTitle(project) }}</h3>
-                  <div class="project-description" v-html="appStore.locale === 'zh-CN' ? (project.content_cn || project.description) : (project.description || project.content_cn)">
-                    
-                  </div>
-                  <button class="btn btn-project" @click="toNewTab(project.link_url)">
-                    {{ $t('portal.home.readMore') }}
-                    <svg class="arrow-icon" viewBox="0 0 20 20" fill="none">
-                      <path d="M5 10L15 10M12 7L15 10L12 13" stroke="white" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    </svg>
-                  </button>
+            <div class="project-card accordion-card expanded-project">
+              <div class="project-content">
+                <h3 class="project-title">{{ getLocalizedProjectTitle(project) }}</h3>
+                <div class="project-description"
+                  v-html="appStore.locale === 'zh-CN' ? (project.content_cn || project.description) : (project.description || project.content_cn)">
+
                 </div>
-                <div v-if="project.cover" class="project-image" @click="openImagePreview(project.cover, project.title)">
-                  <img :src="project.cover" alt="Scientific Data Visualization" />
-                  <div class="image-overlay">
-                    <svg class="preview-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    <span>{{ $t('portal.home.clickToPreview') }}</span>
-                  </div>
+                <button class="btn btn-project" @click="toNewTab(project.link_url)">
+                  {{ $t('portal.home.readMore') }}
+                  <svg class="arrow-icon" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 10L15 10M12 7L15 10L12 13" stroke="white" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
+              <div v-if="project.cover" class="project-image" @click="openImagePreview(project.cover, project.title)">
+                <img :src="project.cover" alt="Scientific Data Visualization" />
+                <div class="image-overlay">
+                  <svg class="preview-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" />
+                  </svg>
+                  <span>{{ $t('portal.home.clickToPreview') }}</span>
                 </div>
               </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1061,7 +1028,7 @@ const currentPage = computed(() => {
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">{{ $t('portal.home.followUs') }}</h2>
-       
+
         </div>
 
         <div class="follow-cards">
@@ -1079,7 +1046,7 @@ const currentPage = computed(() => {
                 </span>
               </div>
             </div>
-            <div class="follow-date">{{item.time}}</div>
+            <div class="follow-date">{{ item.time }}</div>
 
             <div class="arrowbox flex justify-center items-center absolute right-0 bottom-0 w-24 h-24">
               <span class="arrow-icon font-bold text-2xl">→</span>
@@ -1116,7 +1083,8 @@ const currentPage = computed(() => {
             <span class="platform-name">GenSI根思</span>
           </div>
 
-          <div class="follow-platform" @click="toNewTab('https://www.xiaohongshu.com/user/profile/65465f81000000000301f9bd')">
+          <div class="follow-platform"
+            @click="toNewTab('https://www.xiaohongshu.com/user/profile/65465f81000000000301f9bd')">
             <div class="platform-icon xiaohongshu"></div>
             <span class="platform-name">GenSI根思</span>
           </div>
@@ -1128,57 +1096,59 @@ const currentPage = computed(() => {
 
     <!-- 关注我们 - 社交图标 -->
     <footer class="follow-footer">
-    <div class="follow-social-links">
-      <div class="follow-social" @click="toNewTab('https://github.com/GenSI-THUAIR')">
-        <img src="../assests/home/github.png" alt="">  
-      </div>
-      <div class="follow-social" @click="toNewTab('https://huggingface.co/GenSI')">
-        <img src="../assests/home/huggingface.png" alt="">  
-      </div>
-      <div class="follow-social" @click="toNewTab('https://x.com/hello_gensi')">
-        <img src="../assests/home/x.png" alt="">
-      </div>
-      <div class="follow-social" @click="toNewTab('https://www.youtube.com/@hello_gensi')">
-        <img src="../assests/home/youtube.png"  alt="">
-      </div>
-    </div>
-  </footer>
-  <Footer />
-  
-  <!-- 返回顶部按钮 -->
-  <BackToTop />
-  
-  <!-- Image Preview Modal -->
-  <Teleport to="body">
-    <div v-if="imagePreview.show" class="image-preview-modal" @click="closeImagePreview">
-      <div class="image-preview-container">
-        <div class="image-preview-header flex justify-end">
-          <button class="close-btn" @click="closeImagePreview">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+      <div class="follow-social-links">
+        <div class="follow-social" @click="toNewTab('https://github.com/GenSI-THUAIR')">
+          <img src="../assests/home/github.png" alt="">
         </div>
-        <div class="image-preview-content" @click.stop>
-          <img :src="imagePreview.src" :alt="imagePreview.title" class="preview-image" />
+        <div class="follow-social" @click="toNewTab('https://huggingface.co/GenSI')">
+          <img src="../assests/home/huggingface.png" alt="">
+        </div>
+        <div class="follow-social" @click="toNewTab('https://x.com/hello_gensi')">
+          <img src="../assests/home/x.png" alt="">
+        </div>
+        <div class="follow-social" @click="toNewTab('https://www.youtube.com/@hello_gensi')">
+          <img src="../assests/home/youtube.png" alt="">
         </div>
       </div>
-    </div>
-  </Teleport>
+    </footer>
+    <Footer />
+
+    <!-- 返回顶部按钮 -->
+    <BackToTop />
+
+    <!-- Image Preview Modal -->
+    <Teleport to="body">
+      <div v-if="imagePreview.show" class="image-preview-modal" @click="closeImagePreview">
+        <div class="image-preview-container">
+          <div class="image-preview-header flex justify-end">
+            <button class="close-btn" @click="closeImagePreview">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+          <div class="image-preview-content" @click.stop>
+            <img :src="imagePreview.src" :alt="imagePreview.title" class="preview-image" />
+          </div>
+        </div>
+      </div>
+    </Teleport>
   </div>
 </template>
 
 <style scoped>
 @import url('../assests/common.css');
 
-.header{
+.header {
   background: transparent;
 }
+
 .header.is-dark {
   background: transparent;
 }
 
-.hero-title span{
+.hero-title span {
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -1349,7 +1319,7 @@ const currentPage = computed(() => {
 } */
 
 .circle-1 {
-  
+
 
   top: 0;
   left: 0;
@@ -1951,7 +1921,8 @@ const currentPage = computed(() => {
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.read-all-link:hover{
+
+.read-all-link:hover {
   color: #c0c0c0;
   transition: all 0.3s ease;
 }
@@ -2282,9 +2253,9 @@ const currentPage = computed(() => {
   color: #a0e8fd;
 }
 
-.btn-contact:hover  {
-    color: #fff ;
-  }
+.btn-contact:hover {
+  color: #fff;
+}
 
 .btn-project:hover::after {
   opacity: 1;
@@ -2372,7 +2343,8 @@ const currentPage = computed(() => {
   transition: all 0.3s ease;
 
 }
-.accordion-card.expanded-project:hover{
+
+.accordion-card.expanded-project:hover {
   border: 0.15rem solid #000;
   transform: translateY(-0.2rem) translateX(-0.1rem);
   box-shadow: 0.3rem 0.3rem 0 0 rgba(0, 0, 0, 1);
@@ -2617,7 +2589,8 @@ const currentPage = computed(() => {
   font-size: 1rem;
   opacity: 0.8;
   margin-bottom: 0.5rem;
-  margin-left: 4.375rem; /* 与右侧文字内容左对齐 */
+  margin-left: 4.375rem;
+  /* 与右侧文字内容左对齐 */
 }
 
 .follow-platform {
@@ -2882,17 +2855,19 @@ const currentPage = computed(() => {
 
 
 @media (max-width: 768px) {
-  .research-title-image{
+  .research-title-image {
     opacity: 0;
   }
+
   /* 统一容器样式 */
   .container {
     max-width: 90% !important;
   }
-  
+
   /* 轮播图样式 - 769px及以下通用设置 */
   .hero-section {
-    height: 720px;  /* 增加轮播高度 */
+    height: 720px;
+    /* 增加轮播高度 */
     padding: 70px 0 110px 0;
   }
 
@@ -2917,9 +2892,10 @@ const currentPage = computed(() => {
     overflow: hidden !important;
     position: relative;
   }
-  
+
   .carousel-slide {
-    min-width: 50%; /* 默认双列显示 */
+    min-width: 50%;
+    /* 默认双列显示 */
     height: 100% !important;
     display: flex !important;
     align-items: center;
@@ -2932,7 +2908,7 @@ const currentPage = computed(() => {
     height: 100% !important;
     display: flex;
   }
-  
+
   .item-card {
     width: 100%;
     max-width: 100%;
@@ -2942,17 +2918,17 @@ const currentPage = computed(() => {
     box-sizing: border-box;
   }
 
-  .card-image-container { 
-    height: 65%; 
+  .card-image-container {
+    height: 65%;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     border-radius: 16px 16px 0 0;
   }
-  
-  .card-content { 
-    height: 35%; 
+
+  .card-content {
+    height: 35%;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -2961,53 +2937,62 @@ const currentPage = computed(() => {
     box-sizing: border-box;
     border-radius: 0 0 16px 16px;
   }
-  
+
   .card-header {
     margin-bottom: 8px;
   }
 
   .card-main-title {
-    font-size: 19px;  /* 确保标题字号大于内容 */
+    font-size: 19px;
+    /* 确保标题字号大于内容 */
     font-weight: 600;
     line-height: 1.3;
-    -webkit-line-clamp: 1;  /* 手机端标题限制为一行 */
+    -webkit-line-clamp: 1;
+    /* 手机端标题限制为一行 */
     line-clamp: 1;
   }
 
-  :deep(.card-title h1), 
-  :deep(.card-title h2), 
+  :deep(.card-title h1),
+  :deep(.card-title h2),
   :deep(.card-title h3) {
-    font-size: 19px !important;  /* 保持与主标题一致的字号 */
+    font-size: 19px !important;
+    /* 保持与主标题一致的字号 */
     font-weight: 600;
     line-height: 1.3;
-    -webkit-line-clamp: 1 !important;  /* 手机端标题限制为一行 */
+    -webkit-line-clamp: 1 !important;
+    /* 手机端标题限制为一行 */
     line-clamp: 1;
   }
-  
+
   .card-title {
-    font-size: 16px;  /* 内容字号小于标题 */
+    font-size: 16px;
+    /* 内容字号小于标题 */
     line-height: 1.3;
-    -webkit-line-clamp: 3;  /* 内容限制为3行 */
+    -webkit-line-clamp: 3;
+    /* 内容限制为3行 */
     line-clamp: 3;
   }
 
   .card-text.no-title .card-title {
-    -webkit-line-clamp: 4; /* 没有标题时显示更多行 */
+    -webkit-line-clamp: 4;
+    /* 没有标题时显示更多行 */
     line-clamp: 4;
-    word-break: break-word; /* 在单词边界处换行 */
-    hyphens: auto; /* 自动连字符 */
+    word-break: break-word;
+    /* 在单词边界处换行 */
+    hyphens: auto;
+    /* 自动连字符 */
   }
 
   .read-more-link {
     font-size: 16px;
     margin-top: 8px;
   }
-  
+
   .arrow-icon {
     width: 14px;
     height: 14px;
   }
-  
+
   .carousel-dots {
     left: 50%;
     transform: translateX(-50%);
@@ -3015,7 +3000,7 @@ const currentPage = computed(() => {
     position: absolute !important;
     z-index: 10;
   }
-  
+
   .carousel-dot {
     width: 20px;
     height: 6px;
@@ -3026,7 +3011,7 @@ const currentPage = computed(() => {
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   .carousel-dot.active {
     width: 32px;
     background: #000000;
@@ -3114,14 +3099,14 @@ const currentPage = computed(() => {
   }
 
   /* 移动端圆形图片优化 */
-  .circle > img {
+  .circle>img {
     width: 67%;
     height: 67%;
     object-fit: contain;
     transition: transform 0.3s ease;
   }
 
-  .circle:active > img {
+  .circle:active>img {
     transform: scale(0.9);
   }
 
@@ -3318,7 +3303,8 @@ const currentPage = computed(() => {
     color: #000;
     text-decoration: underline;
   }
-  .read-all-link:hover{
+
+  .read-all-link:hover {
     color: #c0c0c0;
   }
 
@@ -3339,7 +3325,7 @@ const currentPage = computed(() => {
     display: flex;
     flex-direction: column;
   }
-  
+
   /* 轮播图中的新闻卡片样式 - 移除min-height限制 */
   .hero-carousel .news-card {
     padding: 0;
@@ -3400,7 +3386,8 @@ const currentPage = computed(() => {
   }
 
   .project-item {
-    display: none; /* 隐藏手风琴样式的项目标题 */
+    display: none;
+    /* 隐藏手风琴样式的项目标题 */
   }
 
   .accordion-card {
@@ -3471,8 +3458,8 @@ const currentPage = computed(() => {
   }
 
   /* 平板端富文本标题样式 */
-  .accordion-card .project-description h1, 
-  .accordion-card .project-description h2, 
+  .accordion-card .project-description h1,
+  .accordion-card .project-description h2,
   .accordion-card .project-description h3,
   .accordion-card .project-description .ql-editor h1,
   .accordion-card .project-description .ql-editor h2,
@@ -3498,8 +3485,8 @@ const currentPage = computed(() => {
     transition: color 0.2s ease !important;
   }
 
-  .accordion-card .project-description h1:hover, 
-  .accordion-card .project-description h2:hover, 
+  .accordion-card .project-description h1:hover,
+  .accordion-card .project-description h2:hover,
   .accordion-card .project-description h3:hover,
   .accordion-card .project-description .ql-editor h1:hover,
   .accordion-card .project-description .ql-editor h2:hover,
@@ -3545,7 +3532,8 @@ const currentPage = computed(() => {
   }
 
   .project-arrow {
-    display: none; /* 隐藏箭头 */
+    display: none;
+    /* 隐藏箭头 */
   }
 
   /* 确保所有项目卡片都显示 */
@@ -3574,8 +3562,9 @@ const currentPage = computed(() => {
     padding: 80px 0 0;
     background: #fff;
   }
+
   .follow-footer {
-    padding:30px 0 0 !important;
+    padding: 30px 0 0 !important;
   }
 
   .section-header {
@@ -3630,7 +3619,8 @@ const currentPage = computed(() => {
   .follow-date {
     font-size: 14px;
     margin-bottom: 8px;
-    margin-left: 56px; /* 与dh宽度对齐 */
+    margin-left: 56px;
+    /* 与dh宽度对齐 */
     opacity: 0.8;
   }
 
@@ -3742,14 +3732,14 @@ const currentPage = computed(() => {
   }
 
   /* 小屏幕圆形图片优化 */
-  .circle > img {
+  .circle>img {
     width: 67%;
     height: 67%;
     object-fit: contain;
     transition: transform 0.3s ease;
   }
 
-  .circle:active > img {
+  .circle:active>img {
     transform: scale(0.9);
   }
 
@@ -3797,7 +3787,7 @@ const currentPage = computed(() => {
     padding: 20px;
     min-height: 460px;
   }
-  
+
   /* 轮播图中的新闻卡片样式 - 移除min-height限制 */
   .hero-carousel .news-card {
     padding: 0;
@@ -3844,8 +3834,8 @@ const currentPage = computed(() => {
   }
 
   /* 手机端富文本标题样式 */
-  .accordion-card .project-description h1, 
-  .accordion-card .project-description h2, 
+  .accordion-card .project-description h1,
+  .accordion-card .project-description h2,
   .accordion-card .project-description h3,
   .accordion-card .project-description .ql-editor h1,
   .accordion-card .project-description .ql-editor h2,
@@ -3871,8 +3861,8 @@ const currentPage = computed(() => {
     transition: color 0.2s ease !important;
   }
 
-  .accordion-card .project-description h1:hover, 
-  .accordion-card .project-description h2:hover, 
+  .accordion-card .project-description h1:hover,
+  .accordion-card .project-description h2:hover,
   .accordion-card .project-description h3:hover,
   .accordion-card .project-description .ql-editor h1:hover,
   .accordion-card .project-description .ql-editor h2:hover,
@@ -4108,8 +4098,9 @@ const currentPage = computed(() => {
 
 /* Follow footer (social icons under Follow Us) */
 .follow-footer {
-  background: #f8f9fa; /* unify with follow-section */
-  padding:30px 0 80px;
+  background: #f8f9fa;
+  /* unify with follow-section */
+  padding: 30px 0 80px;
 }
 
 .follow-social-links {
@@ -4154,10 +4145,14 @@ const currentPage = computed(() => {
 }
 
 @keyframes blink {
-  0%, 50% {
+
+  0%,
+  50% {
     opacity: 1;
   }
-  51%, 100% {
+
+  51%,
+  100% {
     opacity: 0;
   }
 }
@@ -4235,24 +4230,31 @@ const currentPage = computed(() => {
 }
 
 @media (max-width: 768px) {
+
   /* unify background with follow-section on mobile */
-  .follow-footer { background: #fff; }
+  .follow-footer {
+    background: #fff;
+  }
+
   .follow-social-links {
     gap: 60px;
     padding: 40px 0;
   }
+
   .follow-social {
     width: 36px;
     height: 36px;
     background-color: #d7ff39;
     border-radius: 50%;
   }
+
   .follow-social img {
     right: 9px;
     bottom: 9px;
     width: 18px;
     height: 18px;
   }
+
   .social-links {
     gap: 120px;
     padding: 80px 0;
@@ -4354,6 +4356,7 @@ const currentPage = computed(() => {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -4377,6 +4380,7 @@ const currentPage = computed(() => {
     transform: scale(0.9) translateY(-20px);
     opacity: 0;
   }
+
   to {
     transform: scale(1) translateY(0);
     opacity: 1;
@@ -4447,15 +4451,15 @@ const currentPage = computed(() => {
     max-height: 95vh;
     margin: 0 10px;
   }
-  
+
   .image-preview-header {
     padding: 16px 20px;
   }
-  
+
   .image-preview-title {
     font-size: 18px;
   }
-  
+
   .image-preview-content {
     padding: 16px;
     max-height: calc(95vh - 70px);
@@ -4467,17 +4471,19 @@ const currentPage = computed(() => {
     gap: 40px;
     padding: 30px 0;
   }
+
   .follow-social {
     width: 32px;
     height: 32px;
   }
+
   .follow-social img {
     right: 8px;
     bottom: 8px;
     width: 16px;
     height: 16px;
   }
-  
+
   /* Small screen image preview adjustments */
   .image-preview-container {
     width: 98%;
@@ -4485,24 +4491,24 @@ const currentPage = computed(() => {
     margin: 0 4px;
     border-radius: 8px;
   }
-  
+
   .image-preview-header {
     padding: 12px 16px;
   }
-  
+
   .image-preview-title {
     font-size: 16px;
   }
-  
+
   .image-preview-content {
     padding: 12px;
     max-height: calc(98vh - 60px);
   }
-  
+
   .close-btn {
     padding: 6px;
   }
-  
+
   .close-btn svg {
     width: 18px;
     height: 18px;
@@ -4525,7 +4531,7 @@ const currentPage = computed(() => {
   width: 100%;
   height: 100%;
   position: relative;
-  max-width:65%;
+  max-width: 65%;
   margin: 0 auto;
   transform-origin: center;
 }
@@ -4551,8 +4557,10 @@ const currentPage = computed(() => {
   justify-content: center;
   position: relative;
   flex-shrink: 0;
-  padding: 0 0.75rem; /* 留出左右间距 */
-  box-sizing: border-box; /* 确保padding不影响宽度计算 */
+  padding: 0 0.75rem;
+  /* 留出左右间距 */
+  box-sizing: border-box;
+  /* 确保padding不影响宽度计算 */
 }
 
 
@@ -4603,12 +4611,10 @@ const currentPage = computed(() => {
   left: 0;
   right: 0;
   height: 30%;
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.6) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(to top,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%);
   pointer-events: none;
 }
 
@@ -4645,7 +4651,8 @@ const currentPage = computed(() => {
   color: black;
   margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* 主标题最多显示2行 */
+  -webkit-line-clamp: 2;
+  /* 主标题最多显示2行 */
   line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -4661,17 +4668,22 @@ const currentPage = computed(() => {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  min-height: 0; /* 允许在容器内收缩，避免溢出 */
-  flex: 1 1 auto; /* 占据剩余空间 */
+  min-height: 0;
+  /* 允许在容器内收缩，避免溢出 */
+  flex: 1 1 auto;
+  /* 占据剩余空间 */
 }
 
 
 
 .card-text.no-title .card-title {
-  -webkit-line-clamp: 4; /* 没有标题时显示更多行 */
+  -webkit-line-clamp: 4;
+  /* 没有标题时显示更多行 */
   line-clamp: 4;
-  word-break: break-word; /* 在单词边界处换行 */
-  hyphens: auto; /* 自动连字符 */
+  word-break: break-word;
+  /* 在单词边界处换行 */
+  hyphens: auto;
+  /* 自动连字符 */
 }
 
 .card-title {
@@ -4682,13 +4694,16 @@ const currentPage = computed(() => {
   color: black;
   margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* 统一最多显示4行，避免不齐 */
+  -webkit-line-clamp: 3;
+  /* 统一最多显示4行，避免不齐 */
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  word-break: break-word; /* 在单词边界处换行 */
-  hyphens: auto; /* 自动连字符 */
+  word-break: break-word;
+  /* 在单词边界处换行 */
+  hyphens: auto;
+  /* 自动连字符 */
   margin-bottom: -8px;
 }
 
@@ -4704,7 +4719,8 @@ const currentPage = computed(() => {
   text-decoration: underline;
   margin-top: 8px;
   align-self: flex-start;
-  flex: 0 0 auto; /* 固定底部区域 */
+  flex: 0 0 auto;
+  /* 固定底部区域 */
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
@@ -4762,7 +4778,8 @@ const currentPage = computed(() => {
 /* 轮播区域针对481-768px的中等屏幕优化 - 双列显示 */
 @media (min-width: 481px) and (max-width: 768px) {
   .hero-section {
-    height: 750px;  /* 增加轮播高度 从650px增加到750px */
+    height: 750px;
+    /* 增加轮播高度 从650px增加到750px */
     padding: 80px 0 120px 0;
   }
 
@@ -4783,13 +4800,15 @@ const currentPage = computed(() => {
   }
 
   .hero-carousel {
-    height: 550px !important;  /* 增加轮播内容高度 从450px增加到550px */
+    height: 550px !important;
+    /* 增加轮播内容高度 从450px增加到550px */
     overflow: hidden !important;
     position: relative;
   }
-  
+
   .carousel-slide {
-    min-width: 50%; /* 每屏2张 */
+    min-width: 50%;
+    /* 每屏2张 */
     height: 100% !important;
     display: flex !important;
     align-items: center;
@@ -4802,27 +4821,28 @@ const currentPage = computed(() => {
     height: 100% !important;
     display: flex;
   }
-  
+
   .item-card {
     width: 100%;
     max-width: 100%;
-    height: 510px;  /* 增加卡片高度 从410px增加到510px */
+    height: 510px;
+    /* 增加卡片高度 从410px增加到510px */
     margin: 0;
     position: relative;
     box-sizing: border-box;
   }
 
-  .card-image-container { 
-    height: 65%; 
+  .card-image-container {
+    height: 65%;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     border-radius: 16px 16px 0 0;
   }
-  
-  .card-content { 
-    height: 35%; 
+
+  .card-content {
+    height: 35%;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -4831,53 +4851,62 @@ const currentPage = computed(() => {
     box-sizing: border-box;
     border-radius: 0 0 16px 16px;
   }
-  
+
   .card-header {
     margin-bottom: 8px;
   }
 
   .card-main-title {
-    font-size: 20px;  /* 增加主标题字号 从18px增加到20px */
+    font-size: 20px;
+    /* 增加主标题字号 从18px增加到20px */
     font-weight: 600;
     line-height: 1.3;
-    -webkit-line-clamp: 1;  /* 手机端标题限制为一行 */
+    -webkit-line-clamp: 1;
+    /* 手机端标题限制为一行 */
     line-clamp: 1;
   }
 
-  :deep(.card-title h1), 
-  :deep(.card-title h2), 
+  :deep(.card-title h1),
+  :deep(.card-title h2),
   :deep(.card-title h3) {
-    font-size: 20px !important;  /* 保持与主标题一致的字号 */
+    font-size: 20px !important;
+    /* 保持与主标题一致的字号 */
     font-weight: 600;
     line-height: 1.3;
-    -webkit-line-clamp: 1 !important;  /* 手机端标题限制为一行 */
+    -webkit-line-clamp: 1 !important;
+    /* 手机端标题限制为一行 */
     line-clamp: 1;
   }
-  
+
   .card-title {
-    font-size: 17px;  /* 增加内容字号，但保持小于标题 从16px增加到17px */
+    font-size: 17px;
+    /* 增加内容字号，但保持小于标题 从16px增加到17px */
     line-height: 1.3;
-    -webkit-line-clamp: 3;  /* 内容限制为3行 */
+    -webkit-line-clamp: 3;
+    /* 内容限制为3行 */
     line-clamp: 3;
   }
 
   .card-text.no-title .card-title {
-    -webkit-line-clamp: 4; /* 没有标题时显示更多行 */
+    -webkit-line-clamp: 4;
+    /* 没有标题时显示更多行 */
     line-clamp: 4;
-    word-break: break-word; /* 在单词边界处换行 */
-    hyphens: auto; /* 自动连字符 */
+    word-break: break-word;
+    /* 在单词边界处换行 */
+    hyphens: auto;
+    /* 自动连字符 */
   }
 
   .read-more-link {
     font-size: 16px;
     margin-top: 8px;
   }
-  
+
   .arrow-icon {
     width: 14px;
     height: 14px;
   }
-  
+
   .carousel-dots {
     left: 50%;
     transform: translateX(-50%);
@@ -4885,7 +4914,7 @@ const currentPage = computed(() => {
     position: absolute !important;
     z-index: 10;
   }
-  
+
   .carousel-dot {
     width: 20px;
     height: 6px;
@@ -4896,7 +4925,7 @@ const currentPage = computed(() => {
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   .carousel-dot.active {
     width: 32px;
     background: #000000;
@@ -4907,7 +4936,8 @@ const currentPage = computed(() => {
 /* 轮播区域针对480px以下的小屏幕优化 - 单列显示 */
 @media (max-width: 480px) {
   .hero-section {
-    height: 680px;  /* 增加轮播高度 从580px增加到680px */
+    height: 680px;
+    /* 增加轮播高度 从580px增加到680px */
     padding: 60px 0 100px 0;
   }
 
@@ -4929,13 +4959,15 @@ const currentPage = computed(() => {
   }
 
   .hero-carousel {
-    height: 520px !important;  /* 增加轮播内容高度 从420px增加到520px */
+    height: 520px !important;
+    /* 增加轮播内容高度 从420px增加到520px */
     overflow: hidden !important;
     position: relative;
   }
-  
+
   .carousel-slide {
-    min-width: 100%; /* 每屏1张 */
+    min-width: 100%;
+    /* 每屏1张 */
     height: 100% !important;
     display: flex !important;
     align-items: center;
@@ -4948,27 +4980,28 @@ const currentPage = computed(() => {
     height: 100% !important;
     display: flex;
   }
-  
+
   .item-card {
     width: 100%;
     max-width: 100%;
-    height: 480px;  /* 增加卡片高度 从380px增加到480px */
+    height: 480px;
+    /* 增加卡片高度 从380px增加到480px */
     margin: 0;
     position: relative;
     box-sizing: border-box;
   }
 
-  .card-image-container { 
-    height: 65%; 
+  .card-image-container {
+    height: 65%;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     border-radius: 14px 14px 0 0;
   }
-  
-  .card-content { 
-    height: 35%; 
+
+  .card-content {
+    height: 35%;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -4977,57 +5010,66 @@ const currentPage = computed(() => {
     box-sizing: border-box;
     border-radius: 0 0 14px 14px;
   }
-  
+
   .card-header {
     margin-bottom: 6px;
   }
 
   .card-main-title {
-    font-size: 18px;  /* 增加主标题字号 从16px增加到18px */
+    font-size: 18px;
+    /* 增加主标题字号 从16px增加到18px */
     font-weight: 600;
     line-height: 1.3;
-    -webkit-line-clamp: 1;  /* 手机端标题限制为一行 */
+    -webkit-line-clamp: 1;
+    /* 手机端标题限制为一行 */
     line-clamp: 1;
   }
 
-  :deep(.card-title h1), 
-  :deep(.card-title h2), 
+  :deep(.card-title h1),
+  :deep(.card-title h2),
   :deep(.card-title h3) {
-    font-size: 18px !important;  /* 保持与主标题一致的字号 */
+    font-size: 18px !important;
+    /* 保持与主标题一致的字号 */
     font-weight: 600;
     line-height: 1.3;
-    -webkit-line-clamp: 1 !important;  /* 手机端标题限制为一行 */
+    -webkit-line-clamp: 1 !important;
+    /* 手机端标题限制为一行 */
     line-clamp: 1;
   }
-  
+
   .card-title {
-    font-size: 1.1rem;  /* 保持内容字号适中，小于标题 */
+    font-size: 1.1rem;
+    /* 保持内容字号适中，小于标题 */
     line-height: 1.3;
-    -webkit-line-clamp: 3;  /* 内容限制为3行 */
+    -webkit-line-clamp: 3;
+    /* 内容限制为3行 */
     line-clamp: 3;
   }
 
   .card-text.no-title .card-title {
-    -webkit-line-clamp: 4; /* 没有标题时显示更多行 */
+    -webkit-line-clamp: 4;
+    /* 没有标题时显示更多行 */
     line-clamp: 4;
-    word-break: break-word; /* 在单词边界处换行 */
-    hyphens: auto; /* 自动连字符 */
+    word-break: break-word;
+    /* 在单词边界处换行 */
+    hyphens: auto;
+    /* 自动连字符 */
   }
 
   .read-more-link {
     font-size: 16px;
     margin-top: 8px;
   }
-  
+
   .card-text {
     gap: 8px;
   }
-    
+
   .arrow-icon {
     width: 12px;
     height: 12px;
   }
-  
+
   .carousel-dots {
     left: 50%;
     transform: translateX(-50%);
@@ -5035,7 +5077,7 @@ const currentPage = computed(() => {
     position: absolute !important;
     z-index: 10;
   }
-  
+
   .carousel-dot {
     width: 18px;
     height: 5px;
@@ -5046,7 +5088,7 @@ const currentPage = computed(() => {
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   .carousel-dot.active {
     width: 28px;
     background: #000000;
@@ -5057,7 +5099,7 @@ const currentPage = computed(() => {
 
 /* 桌面端默认样式 - 使用媒体查询确保不覆盖移动端设置 */
 @media (min-width: 769px) {
-  :deep(.card-title h1){
+  :deep(.card-title h1) {
     font-family: 'Sora', sans-serif;
     font-size: 1.125rem !important;
     font-weight: 600;
@@ -5065,7 +5107,8 @@ const currentPage = computed(() => {
     color: black;
     margin: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* 主标题最多显示2行 */
+    -webkit-line-clamp: 2;
+    /* 主标题最多显示2行 */
     line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -5073,7 +5116,8 @@ const currentPage = computed(() => {
     transition: color 0.2s ease;
     margin-bottom: 0.5rem;
   }
-  :deep(.card-title h2){
+
+  :deep(.card-title h2) {
     font-family: 'Sora', sans-serif;
     font-size: 1.125rem !important;
     font-weight: 600;
@@ -5081,7 +5125,8 @@ const currentPage = computed(() => {
     color: black;
     margin: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* 主标题最多显示2行 */
+    -webkit-line-clamp: 2;
+    /* 主标题最多显示2行 */
     line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
