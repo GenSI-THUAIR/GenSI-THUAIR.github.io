@@ -122,6 +122,7 @@
     "kolorist": "1.8.0",
     "lint-staged": "15.5.0",
     "pro-naive-ui-resolver": "^1.0.2",
+    "puppeteer": "^24.39.1",
     "sass": "1.86.0",
     "simple-git-hooks": "2.11.1",
     "tailwind-merge": "3.0.2",

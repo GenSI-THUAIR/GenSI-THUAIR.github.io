@@ -792,7 +792,7 @@ const handleScroll = () => {
 
 // Load blog post
 const loadBlogPost = async () => {
-  const id = route.query.id as string;
+  const id = route.params.id as string;
   if (!id) return;
 
   try {
@@ -861,7 +861,7 @@ const loadBlogPost = async () => {
 
 // 加载评论列表
 const loadComments = async () => {
-  const id = route.query.id as string;
+  const id = route.params.id as string;
   if (!id) return;
 
   try {
@@ -875,7 +875,7 @@ const loadComments = async () => {
 
 // 提交评论
 const submitComment = async () => {
-  const id = route.query.id as string;
+  const id = route.params.id as string;
   if (!id || !newComment.value.trim()) return;
 
   isSubmitting.value = true;

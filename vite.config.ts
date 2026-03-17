@@ -3,6 +3,7 @@ import { URL, fileURLToPath } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
 import { setupVitePlugins } from './build/plugins';
 import { createViteProxy, getBuildTime } from './build/config';
+import { setupPrerender } from './build/plugins/prerender';
 
 export default defineConfig(configEnv => {
   const viteEnv = loadEnv(configEnv.mode, process.cwd()) as unknown as Env.ImportMeta;
@@ -27,7 +28,13 @@ export default defineConfig(configEnv => {
         }
       }
     },
-    plugins: setupVitePlugins(viteEnv, buildTime),
+    plugins: [
+      setupVitePlugins(viteEnv, buildTime),
+      setupPrerender({
+        routes: ['/portal/blogdetail/3'],
+        renderAfterTime: 5000
+      })
+    ],
     define: {
       BUILD_TIME: JSON.stringify(buildTime)
     },
