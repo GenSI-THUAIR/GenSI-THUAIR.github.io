@@ -1,0 +1,1 @@
+import{d as o,l as s,R as a,o as t,b as l,e as n}from"./index-CHH7Fx4m.js";const c={class:"h-full"},r=["src"],_=o({__name:"[url]",props:{url:{}},setup(d){return s(()=>{console.log("mounted")}),a(()=>{console.log("activated")}),(e,i)=>(t(),l("div",c,[n("iframe",{id:"iframePage",class:"size-full",src:e.url},null,8,r)]))}});export{_ as default};
