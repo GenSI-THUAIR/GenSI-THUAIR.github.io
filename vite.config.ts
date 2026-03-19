@@ -1,9 +1,22 @@
+import { copyFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import process from 'node:process';
 import { URL, fileURLToPath } from 'node:url';
+import type { Plugin } from 'vite';
 import { defineConfig, loadEnv } from 'vite';
 import { setupVitePlugins } from './build/plugins';
 import { createViteProxy, getBuildTime } from './build/config';
 import { setupPrerender } from './build/plugins/prerender';
+
+function copy404Plugin(): Plugin {
+  return {
+    name: 'copy-index-to-404',
+    closeBundle() {
+      const outDir = resolve(process.cwd(), 'dist');
+      copyFileSync(resolve(outDir, 'index.html'), resolve(outDir, '404.html'));
+    }
+  };
+}
 
 export default defineConfig(configEnv => {
   const viteEnv = loadEnv(configEnv.mode, process.cwd()) as unknown as Env.ImportMeta;
@@ -33,7 +46,8 @@ export default defineConfig(configEnv => {
       setupPrerender({
         routes: ['/portal/blogdetail/3'],
         renderAfterTime: 5000
-      })
+      }),
+      copy404Plugin()
     ],
     define: {
       BUILD_TIME: JSON.stringify(buildTime)

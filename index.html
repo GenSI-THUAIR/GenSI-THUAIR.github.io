@@ -1,23 +1,57 @@
 <!doctype html>
 <html lang="zh-cmn-Hans">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/logo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="description" content="GenSI - Generative Social Intelligence Lab" />
-    <meta name="keywords" content="GenSI, AI, research, publications, blog, social intelligence" />
-    <meta property="og:title" content="GenSI" />
-    <meta property="og:description" content="GenSI - Generative Social Intelligence Lab" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="GenSI" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="GenSI" />
-    <meta name="twitter:description" content="GenSI - Generative Social Intelligence Lab" />
-    <title>%VITE_APP_TITLE%</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="GenSI - Generative Social Intelligence Lab" />
+  <meta name="keywords" content="GenSI, AI, research, publications, blog, social intelligence" />
+  <meta property="og:title" content="GenSI" />
+  <meta property="og:description" content="GenSI - Generative Social Intelligence Lab" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GenSI" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GenSI" />
+  <meta name="twitter:description" content="GenSI - Generative Social Intelligence Lab" />
+  <title>%VITE_APP_TITLE%</title>
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "vy01stv18o");
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    // Redirect legacy hash-mode URLs (e.g. /#/portal/blogdetail?id=3) to history-mode equivalents
+    (function () {
+      var hash = window.location.hash;
+      if (hash && hash.startsWith('#/')) {
+        var raw = hash.slice(1); // "/portal/blogdetail?id=3"
+        var qIndex = raw.indexOf('?');
+        var path = qIndex >= 0 ? raw.slice(0, qIndex) : raw;
+        var search = qIndex >= 0 ? raw.slice(qIndex) : '';
+        var params = new URLSearchParams(search);
+
+        // /portal/blogdetail?id=X -> /portal/blogdetail/X
+        if (path === '/portal/blogdetail' && params.has('id')) {
+          var id = params.get('id');
+          params.delete('id');
+          path = '/portal/blogdetail/' + id;
+        }
+
+        var remaining = params.toString();
+        var newUrl = path + (remaining ? '?' + remaining : '');
+        window.location.replace(newUrl);
+      }
+    })();
+  </script>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
