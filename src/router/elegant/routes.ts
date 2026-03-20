@@ -287,7 +287,7 @@ export const generatedRoutes: GeneratedRoute[] = [
   },
   {
     name: 'portal_blogdetail',
-    path: '/portal/blogdetail/:id',
+    path: '/portal/:routename/:id',
     component: 'layout.blank$view.portal_blogdetail',
     meta: {
       title: 'Blog Detail - GenSI',

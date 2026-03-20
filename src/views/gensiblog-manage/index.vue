@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted, computed, h, nextTick, shallowRef } from 'vue';
-import { 
-  NCard, NInput, NButton, NSpace, NDataTable, NModal, NForm, 
+import {
+  NCard, NInput, NButton, NSpace, NDataTable, NModal, NForm,
   NFormItem, NTag, NDatePicker, NSelect, NTooltip, useMessage,
   NSwitch, NInputNumber, NPopconfirm
 } from 'naive-ui';
@@ -45,10 +45,10 @@ const formulaDisplayMode = ref(false); // false=行内, true=块级
 const activeFormulaEditor = shallowRef<any>(null);
 
 import { useRouter } from 'vue-router';
-import { 
-  fetchGensiblogList, 
-  createGensiblog, 
-  updateGensiblog as updateGensiblogApi, 
+import {
+  fetchGensiblogList,
+  createGensiblog,
+  updateGensiblog as updateGensiblogApi,
   deleteGensiblog as deleteGensiblogApi,
   fetchBlogCommentsByBlogId,
   updateBlogComment as updateBlogCommentApi,
@@ -93,6 +93,7 @@ const tagsOptions = [
 
 const formData = reactive<GensiblogFormData & { blog_img?: string }>({
   title: '',
+  routename: 'blogdetail',
   subtitle: '',
   author: '',
   affiliations: '',
@@ -323,6 +324,17 @@ const columns: DataTableColumns<GensiblogItem> = [
     }
   },
   {
+    title: '路由名称',
+    key: 'routename',
+    width: 120,
+    ellipsis: {
+      tooltip: true
+    },
+    render(row) {
+      return row?.routename || 'blogdetail';
+    }
+  },
+  {
     title: '副标题',
     key: 'subtitle',
     width: 200,
@@ -432,21 +444,21 @@ const columns: DataTableColumns<GensiblogItem> = [
 
 const filteredData = computed(() => {
   let data = gensiblogData.value;
-  
+
   // 如果有搜索条件，先进行过滤
   if (searchValue.value) {
-    data = data.filter(item => 
+    data = data.filter(item =>
       item && // 确保 item 不为 null
-      (item.title?.includes(searchValue.value) || 
-       item.subtitle?.includes(searchValue.value) ||
-       item.author?.includes(searchValue.value) ||
-       item.affiliations?.includes(searchValue.value) ||
-       item.team?.includes(searchValue.value) ||
-       item.content?.includes(searchValue.value) ||
-       item.introducing?.includes(searchValue.value))
+      (item.title?.includes(searchValue.value) ||
+        item.subtitle?.includes(searchValue.value) ||
+        item.author?.includes(searchValue.value) ||
+        item.affiliations?.includes(searchValue.value) ||
+        item.team?.includes(searchValue.value) ||
+        item.content?.includes(searchValue.value) ||
+        item.introducing?.includes(searchValue.value))
     );
   }
-  
+
   // 按发布时间降序排序，最新的在最上面
   return data.sort((a, b) => {
     if (!a?.publish_time && !b?.publish_time) return 0;
@@ -540,6 +552,7 @@ function handleAdd() {
   editMode.value = false;
   Object.assign(formData, {
     title: '',
+    routename: 'blogdetail',
     subtitle: '',
     author: '',
     affiliations: '',
@@ -583,13 +596,13 @@ function handleEdit(row: GensiblogItem) {
     const [year, month, day] = row.publish_time.split('-').map(Number);
     timeValue = new Date(year, month - 1, day).getTime();
   }
-  
+
   // 处理 tags，将逗号分隔的字符串转换为数组
   let tagsArray: string[] = [];
   if (row.tags && row.tags.trim() !== '') {
     tagsArray = row.tags.split(',').map(tag => tag.trim()).filter(tag => tag);
   }
-  
+
   Object.assign(formData, {
     ...row,
     publish_time: timeValue,
@@ -627,11 +640,11 @@ function handleEdit(row: GensiblogItem) {
 // 验证日期格式是否有效
 function isValidDate(dateString: string): boolean {
   if (!dateString) return false;
-  
+
   // 检查是否为 YYYY-MM-DD 格式
   const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
   if (!dateRegex.test(dateString)) return false;
-  
+
   // 检查日期是否有效
   const date = new Date(dateString);
   return date instanceof Date && !isNaN(date.getTime());
@@ -658,7 +671,7 @@ async function handleSave() {
 
     // 处理 tags，将数组转换为逗号分隔的字符串
     const tagsString = Array.isArray(formData.tags) ? formData.tags.join(',') : '';
-    
+
     // 将 flexContentList 转为 JSON 字符串
     const flexContentJson = flexContentList.value.length > 0
       ? JSON.stringify(flexContentList.value.filter(item => item.labelname || item.content))
@@ -666,6 +679,7 @@ async function handleSave() {
 
     const gensiblogInfo = {
       title: formData.title || '',
+      routename: formData.routename || 'blogdetail',
       subtitle: formData.subtitle || '',
       author: formData.author || '',
       affiliations: formData.affiliations || '',
@@ -775,8 +789,8 @@ async function loadComments(blogId: string) {
   try {
     const allComments = await getAllBlogComments(blogId);
     // 过滤当前博客的评论，并按 sort 降序排列
-      commentsData.value = (allComments || [])
-      
+    commentsData.value = (allComments || [])
+
     console.log('commentsData', commentsData.value);
   } catch (error) {
     console.error('加载评论失败:', error);
@@ -847,18 +861,10 @@ onMounted(() => {
     <NCard :title="$t('route.gensiblog-manage')" :bordered="false">
       <template #header-extra>
         <NSpace>
-          <NInput
-            v-model:value="searchValue"
-            placeholder="搜索标题、作者、机构或团队"
-            clearable
-            style="width: 280px"
-          />
+          <NInput v-model:value="searchValue" placeholder="搜索标题、作者、机构或团队" clearable style="width: 280px" />
           <NPopconfirm @positive-click="handleBatchDelete">
             <template #trigger>
-              <NButton 
-                type="error" 
-                :disabled="selectedRowKeys.length === 0"
-              >
+              <NButton type="error" :disabled="selectedRowKeys.length === 0">
                 批量删除 ({{ selectedRowKeys.length }})
               </NButton>
             </template>
@@ -869,17 +875,10 @@ onMounted(() => {
           </NButton>
         </NSpace>
       </template>
-      
-      <NDataTable
-        :loading="loading"
-        :columns="columns"
-        :data="filteredData"
-        :pagination="{ pageSize: 10 }"
-        :row-key="(row: GensiblogItem) => row?.id || ''"
-        :scroll-x="1800"
-        :checked-row-keys="selectedRowKeys"
-        @update:checked-row-keys="handleCheck"
-      >
+
+      <NDataTable :loading="loading" :columns="columns" :data="filteredData" :pagination="{ pageSize: 10 }"
+        :row-key="(row: GensiblogItem) => row?.id || ''" :scroll-x="1800" :checked-row-keys="selectedRowKeys"
+        @update:checked-row-keys="handleCheck">
       </NDataTable>
     </NCard>
 
@@ -888,87 +887,47 @@ onMounted(() => {
       <template #header>
         {{ editMode ? '编辑记录' : '新增记录' }}
       </template>
-      
+
       <div class="form-container">
-        <NForm
-          :model="formData"
-          label-placement="left"
-          label-width="148px"
-          require-mark-placement="right-hanging"
-        >
+        <NForm :model="formData" label-placement="left" label-width="148px" require-mark-placement="right-hanging">
           <!-- 基本信息区域 - 两列布局 -->
           <div class="form-grid">
             <NFormItem label="标题" path="title">
-              <NInput 
-                v-model:value="formData.title" 
-                placeholder="请输入标题" 
-                maxlength="200"
-                show-count
-              />
+              <NInput v-model:value="formData.title" placeholder="请输入标题" maxlength="200" show-count />
             </NFormItem>
-            
+
+
+
             <NFormItem label="副标题" path="subtitle">
-              <NInput 
-                v-model:value="formData.subtitle" 
-                placeholder="请输入副标题" 
-                maxlength="200"
-                show-count
-              />
+              <NInput v-model:value="formData.subtitle" placeholder="请输入副标题" maxlength="200" show-count />
             </NFormItem>
-            
+
             <NFormItem label="作者" path="author">
-              <NInput
-                v-model:value="formData.author"
-                placeholder="请输入作者"
-                maxlength="100"
-              />
+              <NInput v-model:value="formData.author" placeholder="请输入作者" maxlength="100" />
             </NFormItem>
-            
+
             <NFormItem label="团队" path="team">
-              <NInput
-                v-model:value="formData.team"
-                placeholder="请输入团队"
-                maxlength="100"
-              />
+              <NInput v-model:value="formData.team" placeholder="请输入团队" maxlength="100" />
             </NFormItem>
-            
+
             <NFormItem label="所属单位" path="affiliations">
-              <NInput
-                v-model:value="formData.affiliations"
-                placeholder="请输入所属单位"
-                maxlength="200"
-              />
+              <NInput v-model:value="formData.affiliations" placeholder="请输入所属单位" maxlength="200" />
             </NFormItem>
-            
+
             <NFormItem label="发布时间" path="publish_time">
-              <NDatePicker
-                v-model:value="formData.publish_time"
-                value-format="yyyy-MM-dd"
-                type="date"
-                placeholder="请选择发布时间"
-                style="width: 100%"
-                clearable
-              />
+              <NDatePicker v-model:value="formData.publish_time" value-format="yyyy-MM-dd" type="date"
+                placeholder="请选择发布时间" style="width: 100%" clearable />
             </NFormItem>
           </div>
-          
+
           <!-- 单列字段 -->
           <NFormItem label="Tags" path="tags">
-            <NSelect
-              v-model:value="formData.tags"
-              :options="tagsOptions"
-              placeholder="请选择标签"
-              multiple
-              clearable
-              filterable
-            />
+            <NSelect v-model:value="formData.tags" :options="tagsOptions" placeholder="请选择标签" multiple clearable
+              filterable />
           </NFormItem>
 
           <NFormItem label="是否显示" path="isshow">
-            <NSwitch
-              :value="formData.isshow === 1"
-              @update:value="(val: boolean) => { formData.isshow = val ? 1 : 0 }"
-            >
+            <NSwitch :value="formData.isshow === 1" @update:value="(val: boolean) => { formData.isshow = val ? 1 : 0 }">
               <template #checked>显示</template>
               <template #unchecked>隐藏</template>
             </NSwitch>
@@ -979,99 +938,56 @@ onMounted(() => {
               <CosUploader v-model="formData.blog_img" prefix="gensiblog/cover/" />
             </NSpace>
           </NFormItem>
-          
+
           <NFormItem label="所属单位描述" path="affiliations_des">
-            <NInput
-              v-model:value="formData.affiliations_des"
-              placeholder="请输入所属单位描述"
-              maxlength="200"
-            />
+            <NInput v-model:value="formData.affiliations_des" placeholder="请输入所属单位描述" maxlength="200" />
           </NFormItem>
-          
-         
-          
+
+
+
           <!-- 链接区域 - 两列布局 -->
           <div class="form-grid">
-            
+
 
             <NFormItem label="Page链接" path="page">
-              <NInput
-                v-model:value="formData.page"
-                placeholder="请输入Page链接"
-                maxlength="500"
-              />
+              <NInput v-model:value="formData.page" placeholder="请输入Page链接" maxlength="500" />
             </NFormItem>
-            
+
             <NFormItem label="Page文字" path="page_text">
-              <NInput
-                v-model:value="formData.page_text"
-                placeholder="请输入Page文字"
-                maxlength="200"
-              />
+              <NInput v-model:value="formData.page_text" placeholder="请输入Page文字" maxlength="200" />
             </NFormItem>
 
             <NFormItem label="Paper链接" path="paper_link">
-              <NInput
-                v-model:value="formData.paper_link"
-                placeholder="请输入Paper链接"
-                maxlength="500"
-              />
+              <NInput v-model:value="formData.paper_link" placeholder="请输入Paper链接" maxlength="500" />
             </NFormItem>
 
             <NFormItem label="Paper文字" path="paper_text">
-              <NInput
-                v-model:value="formData.paper_text"
-                placeholder="请输入Paper文字"
-                maxlength="200"
-              />
+              <NInput v-model:value="formData.paper_text" placeholder="请输入Paper文字" maxlength="200" />
             </NFormItem>
             <NFormItem label="GitHub链接" path="github_link">
-              <NInput
-                v-model:value="formData.github_link"
-                placeholder="https://github.com/..."
-                maxlength="500"
-              />
-            </NFormItem>
-            
-            <NFormItem label="GitHub文字" path="github_text">
-              <NInput
-                v-model:value="formData.github_text"
-                placeholder="请输入GitHub文字"
-                maxlength="200"
-              />
+              <NInput v-model:value="formData.github_link" placeholder="https://github.com/..." maxlength="500" />
             </NFormItem>
 
-           
+            <NFormItem label="GitHub文字" path="github_text">
+              <NInput v-model:value="formData.github_text" placeholder="请输入GitHub文字" maxlength="200" />
+            </NFormItem>
+
+
 
             <NFormItem label="Model链接" path="model">
-              <NInput
-                v-model:value="formData.model"
-                placeholder="请输入Model链接"
-                maxlength="500"
-              />
+              <NInput v-model:value="formData.model" placeholder="请输入Model链接" maxlength="500" />
             </NFormItem>
-            
+
             <NFormItem label="Model文字" path="model_text">
-              <NInput
-                v-model:value="formData.model_text"
-                placeholder="请输入Model文字"
-                maxlength="200"
-              />
+              <NInput v-model:value="formData.model_text" placeholder="请输入Model文字" maxlength="200" />
             </NFormItem>
             <NFormItem label="Hugging Face链接" path="huggingface_link">
-              <NInput
-                v-model:value="formData.huggingface_link"
-                placeholder="https://huggingface.co/..."
-                maxlength="500"
-              />
+              <NInput v-model:value="formData.huggingface_link" placeholder="https://huggingface.co/..."
+                maxlength="500" />
             </NFormItem>
-            
-            <NFormItem label="HuggingFace文字" path="hug_text" >
-              <NInput
-                v-model:value="formData.hug_text"
-                placeholder="请输入HuggingFace文字"
-                maxlength="200"
-              />
+
+            <NFormItem label="HuggingFace文字" path="hug_text">
+              <NInput v-model:value="formData.hug_text" placeholder="请输入HuggingFace文字" maxlength="200" />
             </NFormItem>
 
             <NFormItem label="阅读时间" path="readtime">
@@ -1080,44 +996,42 @@ onMounted(() => {
                   阅读时间
                   <NTooltip trigger="hover">
                     <template #trigger>
-                      <svg style="width: 14px; height: 14px; cursor: help; color: #999;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                        <path d="M12 16v-4M12 8h.01" stroke-width="2" stroke-linecap="round"/>
+                      <svg style="width: 14px; height: 14px; cursor: help; color: #999;" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <circle cx="12" cy="12" r="10" stroke-width="2" />
+                        <path d="M12 16v-4M12 8h.01" stroke-width="2" stroke-linecap="round" />
                       </svg>
                     </template>
                     只需填写数字（如：10），前端会自动添加 "min" 单位为 "10 min"
                   </NTooltip>
                 </span>
               </template>
-              <NInput
-                v-model:value="formData.readtime"
-                placeholder="只填数字，例如：10"
-                maxlength="50"
-              />
+              <NInput v-model:value="formData.readtime" placeholder="只填数字，例如：10" maxlength="50" />
+            </NFormItem>
+            <NFormItem label="路由名称" path="routename">
+              <NInput v-model:value="formData.routename" placeholder="用于URL路径，如 blogdetail（仅限英文、数字、短横线）"
+                maxlength="100" />
             </NFormItem>
           </div>
-          
-        
+
+
 
           <NFormItem path="Introduction">
             <template #label>
               <div v-if="editingLabel === 'introduction_label'" class="label-edit-wrapper">
-                <input
-                  class="label-edit-input"
-                  v-model="editingLabelValue"
-                  @blur="confirmEditLabel('introduction_label')"
-                  @keyup.enter="confirmEditLabel('introduction_label')"
-                  @keyup.escape="cancelEditLabel"
-                   style="width: 100px;"
-                />
+                <input class="label-edit-input" v-model="editingLabelValue"
+                  @blur="confirmEditLabel('introduction_label')" @keyup.enter="confirmEditLabel('introduction_label')"
+                  @keyup.escape="cancelEditLabel" style="width: 100px;" />
               </div>
-              <span v-else class="editable-label" @dblclick="startEditLabel('introduction_label', formData.introduction_label || 'Introduction')">
+              <span v-else class="editable-label"
+                @dblclick="startEditLabel('introduction_label', formData.introduction_label || 'Introduction')">
                 {{ formData.introduction_label || 'Introduction' }}
                 <NTooltip trigger="hover" style="max-width: 300px;">
                   <template #trigger>
-                    <svg style="width: 14px; height: 14px; cursor: help; color: #999;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                      <path d="M12 16v-4M12 8h.01" stroke-width="2" stroke-linecap="round"/>
+                    <svg style="width: 14px; height: 14px; cursor: help; color: #999;" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor">
+                      <circle cx="12" cy="12" r="10" stroke-width="2" />
+                      <path d="M12 16v-4M12 8h.01" stroke-width="2" stroke-linecap="round" />
                     </svg>
                   </template>
                   双击标题编辑自定义标签
@@ -1125,35 +1039,28 @@ onMounted(() => {
               </span>
             </template>
             <div class="editor-container">
-              <TinymceEditor
-                :model-value="formData.introducing || ''"
-                :init="tinymceInit"
-                license-key="gpl"
-                @update:model-value="(val: string) => { formData.introducing = val; }"
-              />
+              <TinymceEditor :model-value="formData.introducing || ''" :init="tinymceInit" license-key="gpl"
+                @update:model-value="(val: string) => { formData.introducing = val; }" />
             </div>
           </NFormItem>
-          
+
           <NFormItem path="content">
             <template #label>
               <div v-if="editingLabel === 'content_label'" class="label-edit-wrapper">
-                <input
-                  class="label-edit-input"
-                  v-model="editingLabelValue"
-                  @blur="confirmEditLabel('content_label')"
-                  @keyup.enter="confirmEditLabel('content_label')"
-                  @keyup.escape="cancelEditLabel"
-                   style="width: 100px;"
-                  
-                />
+                <input class="label-edit-input" v-model="editingLabelValue" @blur="confirmEditLabel('content_label')"
+                  @keyup.enter="confirmEditLabel('content_label')" @keyup.escape="cancelEditLabel"
+                  style="width: 100px;" />
               </div>
-              <span v-else class="editable-label" @dblclick="startEditLabel('content_label', formData.content_label || 'Content')" style="display: inline-flex; align-items: center; gap: 4px;">
+              <span v-else class="editable-label"
+                @dblclick="startEditLabel('content_label', formData.content_label || 'Content')"
+                style="display: inline-flex; align-items: center; gap: 4px;">
                 {{ formData.content_label || 'Content' }}
                 <NTooltip trigger="hover" style="max-width: 300px;">
                   <template #trigger>
-                    <svg style="width: 14px; height: 14px; cursor: help; color: #999;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                      <path d="M12 16v-4M12 8h.01" stroke-width="2" stroke-linecap="round"/>
+                    <svg style="width: 14px; height: 14px; cursor: help; color: #999;" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor">
+                      <circle cx="12" cy="12" r="10" stroke-width="2" />
+                      <path d="M12 16v-4M12 8h.01" stroke-width="2" stroke-linecap="round" />
                     </svg>
                   </template>
                   使用编辑器工具栏中的标题功能（H1、H2、H3）添加章节标题，这些标题会自动生成左侧的目录导航（CONTENTS）双击标题编辑自定义标签
@@ -1161,12 +1068,8 @@ onMounted(() => {
               </span>
             </template>
             <div class="editor-container">
-              <TinymceEditor
-                :model-value="formData.content || ''"
-                :init="tinymceInit"
-                license-key="gpl"
-                @update:model-value="(val: string) => { formData.content = val; }"
-              />
+              <TinymceEditor :model-value="formData.content || ''" :init="tinymceInit" license-key="gpl"
+                @update:model-value="(val: string) => { formData.content = val; }" />
             </div>
           </NFormItem>
 
@@ -1180,49 +1083,38 @@ onMounted(() => {
           <NFormItem v-for="(item, index) in flexContentList" :key="index" :path="'flex_content_' + index">
             <template #label>
               <span class="editable-label" style="display: inline-flex; align-items: center; gap: 4px;">
-                <NInput
-                  v-model:value="item.labelname"
-                  placeholder="标签名称"
-                  size="small"
-                  style="width: 120px;"
-                />
+                <NInput v-model:value="item.labelname" placeholder="标签名称" size="small" style="width: 120px;" />
                 <NButton type="error" size="tiny" quaternary @click="removeFlexContentItem(index)">
-                  <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                    <path d="M18 6L6 18M6 6l12 12"/>
+                  <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round">
+                    <path d="M18 6L6 18M6 6l12 12" />
                   </svg>
                 </NButton>
               </span>
             </template>
             <div class="editor-container">
-              <TinymceEditor
-                :model-value="item.content || ''"
-                :init="tinymceInit"
-                license-key="gpl"
-                @update:model-value="(val: string) => { item.content = val; }"
-              />
+              <TinymceEditor :model-value="item.content || ''" :init="tinymceInit" license-key="gpl"
+                @update:model-value="(val: string) => { item.content = val; }" />
             </div>
           </NFormItem>
 
-            <!-- 富文本编辑器区域 -->
-            <NFormItem path="references">
+          <!-- 富文本编辑器区域 -->
+          <NFormItem path="references">
             <template #label>
               <div v-if="editingLabel === 'reference_label'" class="label-edit-wrapper">
-                <input
-                  class="label-edit-input"
-                  v-model="editingLabelValue"
-                  @blur="confirmEditLabel('reference_label')"
-                  @keyup.enter="confirmEditLabel('reference_label')"
-                  @keyup.escape="cancelEditLabel"
-                   style="width: 100px;"
-                />
+                <input class="label-edit-input" v-model="editingLabelValue" @blur="confirmEditLabel('reference_label')"
+                  @keyup.enter="confirmEditLabel('reference_label')" @keyup.escape="cancelEditLabel"
+                  style="width: 100px;" />
               </div>
-              <span v-else class="editable-label" @dblclick="startEditLabel('reference_label', formData.reference_label || 'Reference')">
+              <span v-else class="editable-label"
+                @dblclick="startEditLabel('reference_label', formData.reference_label || 'Reference')">
                 {{ formData.reference_label || 'Reference' }}
                 <NTooltip trigger="hover" style="max-width: 300px;">
                   <template #trigger>
-                    <svg style="width: 14px; height: 14px; cursor: help; color: #999;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                      <path d="M12 16v-4M12 8h.01" stroke-width="2" stroke-linecap="round"/>
+                    <svg style="width: 14px; height: 14px; cursor: help; color: #999;" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor">
+                      <circle cx="12" cy="12" r="10" stroke-width="2" />
+                      <path d="M12 16v-4M12 8h.01" stroke-width="2" stroke-linecap="round" />
                     </svg>
                   </template>
                   双击标题编辑自定义标签
@@ -1230,46 +1122,33 @@ onMounted(() => {
               </span>
             </template>
             <div class="editor-container">
-              <TinymceEditor
-                :model-value="formData.references || ''"
-                :init="{ ...tinymceInit, height: 300 }"
-                license-key="gpl"
-                @update:model-value="(val: string) => { formData.references = val; }"
-              />
+              <TinymceEditor :model-value="formData.references || ''" :init="{ ...tinymceInit, height: 300 }"
+                license-key="gpl" @update:model-value="(val: string) => { formData.references = val; }" />
             </div>
-          </NFormItem>   
+          </NFormItem>
           <NFormItem path="citation">
             <template #label>
               <div v-if="editingLabel === 'citation_label'" class="label-edit-wrapper">
-                <input
-                  class="label-edit-input"
-                  v-model="editingLabelValue"
-                  @blur="confirmEditLabel('citation_label')"
-                  @keyup.enter="confirmEditLabel('citation_label')"
-                  @keyup.escape="cancelEditLabel"
-                  style="width: 100px;"
-                />
+                <input class="label-edit-input" v-model="editingLabelValue" @blur="confirmEditLabel('citation_label')"
+                  @keyup.enter="confirmEditLabel('citation_label')" @keyup.escape="cancelEditLabel"
+                  style="width: 100px;" />
               </div>
-              <span v-else class="editable-label" @dblclick="startEditLabel('citation_label', formData.citation_label || 'Citation')">
+              <span v-else class="editable-label"
+                @dblclick="startEditLabel('citation_label', formData.citation_label || 'Citation')">
                 {{ formData.citation_label || 'Citation' }}
                 <NTooltip trigger="hover" style="max-width: 300px;">
                   <template #trigger>
-                    <svg style="width: 14px; height: 14px; cursor: help; color: #999;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                      <path d="M12 16v-4M12 8h.01" stroke-width="2" stroke-linecap="round"/>
+                    <svg style="width: 14px; height: 14px; cursor: help; color: #999;" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor">
+                      <circle cx="12" cy="12" r="10" stroke-width="2" />
+                      <path d="M12 16v-4M12 8h.01" stroke-width="2" stroke-linecap="round" />
                     </svg>
                   </template>
                   双击标题编辑自定义标签
                 </NTooltip>
               </span>
             </template>
-            <NInput
-              v-model:value="formData.citation"
-              type="textarea"
-              placeholder="请输入引用信息"
-              :rows="3"
-              show-count
-            />
+            <NInput v-model:value="formData.citation" type="textarea" placeholder="请输入引用信息" :rows="3" show-count />
           </NFormItem>
         </NForm>
       </div>
@@ -1284,33 +1163,23 @@ onMounted(() => {
     </NModal>
 
     <!-- 评论管理弹窗 -->
-    <NModal 
-      v-model:show="showCommentsModal" 
-      preset="card" 
-      style="width: 900px; max-height: 80vh;"
-      :title="`评论管理 - ${currentBlogTitle}`"
-    >
+    <NModal v-model:show="showCommentsModal" preset="card" style="width: 900px; max-height: 80vh;"
+      :title="`评论管理 - ${currentBlogTitle}`">
       <div class="comments-container">
         <div class="comments-tip">
           <NTag type="info" size="small">提示</NTag>
           <span>Sort值越大排序越靠前，最多展示10条状态为"展示"的评论</span>
         </div>
-        
-        <NDataTable
-          :loading="commentsLoading"
-          :columns="commentsColumns"
-          :data="commentsData"
-          :pagination="{ pageSize: 10 }"
-          :row-key="(row: Api.BlogComment.BlogCommentItem) => row?.id || 0"
-          :scroll-x="800"
-          max-height="400"
-        />
-        
+
+        <NDataTable :loading="commentsLoading" :columns="commentsColumns" :data="commentsData"
+          :pagination="{ pageSize: 10 }" :row-key="(row: Api.BlogComment.BlogCommentItem) => row?.id || 0"
+          :scroll-x="800" max-height="400" />
+
         <div v-if="commentsData.length === 0 && !commentsLoading" class="comments-empty">
           <span>暂无评论</span>
         </div>
       </div>
-      
+
       <template #footer>
         <NSpace justify="end">
           <NButton @click="showCommentsModal = false">关闭</NButton>
@@ -1319,12 +1188,14 @@ onMounted(() => {
     </NModal>
 
     <!-- 公式输入弹窗 -->
-    <NModal v-model:show="showFormulaModal" preset="dialog" title="插入 LaTeX 公式" style="width: 560px;" :show-icon="false">
+    <NModal v-model:show="showFormulaModal" preset="dialog" title="插入 LaTeX 公式" style="width: 560px;"
+      :show-icon="false">
       <div class="formula-dialog">
         <div class="formula-mode-row">
           <span class="formula-mode-label">公式类型：</span>
           <NSpace>
-            <NButton size="small" :type="!formulaDisplayMode ? 'primary' : 'default'" @click="formulaDisplayMode = false">
+            <NButton size="small" :type="!formulaDisplayMode ? 'primary' : 'default'"
+              @click="formulaDisplayMode = false">
               行内公式 <code>$...$</code>
             </NButton>
             <NButton size="small" :type="formulaDisplayMode ? 'primary' : 'default'" @click="formulaDisplayMode = true">
@@ -1332,13 +1203,9 @@ onMounted(() => {
             </NButton>
           </NSpace>
         </div>
-        <NInput
-          v-model:value="formulaInput"
-          type="textarea"
-          :rows="3"
+        <NInput v-model:value="formulaInput" type="textarea" :rows="3"
           placeholder="输入 LaTeX 公式，如：E=mc^2、\sum_{i=1}^{n} x_i、\frac{a}{b}"
-          style="margin-top: 12px; font-family: 'Courier New', monospace;"
-        />
+          style="margin-top: 12px; font-family: 'Courier New', monospace;" />
         <div v-if="formulaInput.trim()" class="formula-preview-box">
           <div class="formula-preview-label">预览效果：</div>
           <div class="formula-preview-content" v-html="formulaPreviewHtml"></div>
@@ -1559,4 +1426,3 @@ onMounted(() => {
   z-index: 10000 !important;
 }
 </style>
-

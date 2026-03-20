@@ -756,7 +756,7 @@ function formatBlogDate(dateString: string) {
 // 导航到博客详情页
 function navigateToBlogDetail(blog: any) {
   if (blog.id) {
-    router.push({ name: 'portal_blogdetail', params: { id: blog.id } })
+    router.push({ name: 'portal_blogdetail', params: { routename: blog.routename || 'blogdetail', id: blog.id } })
   }
 }
 </script>
