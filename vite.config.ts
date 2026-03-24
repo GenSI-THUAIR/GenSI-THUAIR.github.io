@@ -44,7 +44,7 @@ export default defineConfig(configEnv => {
     plugins: [
       setupVitePlugins(viteEnv, buildTime),
       setupPrerender({
-        // URL格式: /portal/{routename}/{id}，routename 需与数据库中该博客的 routename 字段一致
+        // URL格式: /portal/blogdetail/{id}
         routes: ['/portal/blogdetail/3'],
         renderAfterTime: 5000
       }),

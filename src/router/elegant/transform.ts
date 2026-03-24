@@ -209,7 +209,7 @@ const routeMap: RouteMap = {
   "publish-manage": "/publish-manage",
   "alumni": "/alumni",
   "description": "/description",
-  "portal_blogdetail": "/portal/:routename/:id"
+  "portal_blogdetail": "/portal/blogdetail/:id"
 };
 
 /**
