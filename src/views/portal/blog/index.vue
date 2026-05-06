@@ -464,7 +464,9 @@ const clearSearch = async () => {
 
 // Navigate to blog detail page
 const navigateToDetail = (post: any) => {
-  if (post.id) {
+  if (post.routename) {
+    router.push({ name: 'portal_blogdetail', params: { id: post.routename } })
+  } else if (post.id) {
     router.push({ name: 'portal_blogdetail', params: { id: post.id } })
   }
 }

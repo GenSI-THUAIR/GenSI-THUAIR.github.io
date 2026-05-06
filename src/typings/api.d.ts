@@ -535,7 +535,7 @@ declare namespace Api {
       citation_label?: string;      // Citation区域自定义标签
       blog_img?: string;        // 缩略图/封面图
       isshow?: number;          // 是否显示：0-隐藏 1-显示
-      routename?: string;       // 路由名称（已废弃，URL路径固定为 /portal/blogdetail/{id}）
+      routename?: string;       // 路由名称，URL路径为 /portal/blogdetail/{routename}
       created_at?: string;      // 创建时间
     }
 

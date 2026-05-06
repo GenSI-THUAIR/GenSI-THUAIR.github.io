@@ -182,7 +182,7 @@
           </a>
           <a v-if="blogPost.huggingface_link" :href="blogPost.huggingface_link" target="_blank"
             class="link-button hf-link">
-            <img src="../assests/home/huggingface.png" alt="Hugging Face" class="hf-icon" />
+            <img src="../assests/home/huggingface.jpg" alt="Hugging Face" class="hf-icon" />
             {{ blogPost.hug_text || 'HuggingFace' }}
           </a>
 
@@ -327,7 +327,7 @@ import { useRoute } from 'vue-router';
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
 import BackToTop from '../components/BackToTop.vue';
-import { fetchGensiblogById, fetchBlogCommentsByBlogId, submitBlogComment } from '@/service/api/gensiblog';
+import { fetchGensiblogByRouteName, fetchGensiblogById, fetchBlogCommentsByBlogId, submitBlogComment } from '@/service/api/gensiblog';
 import { useThemeStore } from '@/store/modules/theme';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
@@ -792,13 +792,12 @@ const handleScroll = () => {
 
 // Load blog post
 const loadBlogPost = async () => {
-  const id = route.params.id as string;
-  if (!id) return;
+  const routename = route.params.id as string;
+  if (!routename) return;
 
   try {
-    const data = await fetchGensiblogById(id);
-    if (data && data.length > 0) {
-      const post = data[0];
+    const post = await fetchGensiblogByRouteName(routename);
+    if (post) {
 
       // 在赋值前先处理所有内容字段中的 KaTeX 公式（$$...$$ / $...$）
       if (post.introducing) {
@@ -851,8 +850,8 @@ const loadBlogPost = async () => {
         updateSidebarTopOffset();
       }, 100);
 
-      // 加载评论
-      await loadComments();
+      // 加载评论（使用数据库 id 加载评论）
+      await loadComments(post.id);
     }
   } catch (error) {
     console.error('Error loading blog post:', error);
@@ -860,12 +859,11 @@ const loadBlogPost = async () => {
 };
 
 // 加载评论列表
-const loadComments = async () => {
-  const id = route.params.id as string;
-  if (!id) return;
+const loadComments = async (blogId: string) => {
+  if (!blogId) return;
 
   try {
-    const data = await fetchBlogCommentsByBlogId(id);
+    const data = await fetchBlogCommentsByBlogId(blogId);
     comments.value = data || [];
   } catch (error) {
     console.error('Error loading comments:', error);
@@ -875,21 +873,20 @@ const loadComments = async () => {
 
 // 提交评论
 const submitComment = async () => {
-  const id = route.params.id as string;
-  if (!id || !newComment.value.trim()) return;
+  if (!blogPost.value?.id || !newComment.value.trim()) return;
 
   isSubmitting.value = true;
   try {
     await submitBlogComment({
       content: newComment.value.trim(),
-      blog_id: id
+      blog_id: blogPost.value.id
     });
     // 提交成功后清空输入框
     newComment.value = '';
     // 显示成功提示（由于评论需要审核，不立即刷新列表）
     $message.success('Comment submitted successfully! It will be visible after review.');
     // 刷新评论列表
-    await loadComments();
+    await loadComments(blogPost.value.id);
   } catch (error) {
     $message.error('Failed to submit comment. Please try again.');
   } finally {

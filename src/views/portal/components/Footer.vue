@@ -42,24 +42,24 @@
             </p>
             <div class="social-links">
               <div class="social-icon" @click="toNewTab('https://github.com/GenSI-THUAIR')">
-                <img src="../assests/home/github.png" alt="GitHub" />
+                <img src="../assests/home/github.jpg" alt="GitHub" />
               </div>
               <div class="social-icon" @click="toNewTab('https://huggingface.co/GenSI')">
-                <img src="../assests/home/huggingface.png" alt="Hugging Face" />
+                <img src="../assests/home/huggingface.jpg" alt="Hugging Face" />
               </div>
               <div class="social-icon" @click="toNewTab('https://x.com/hello_gensi')">
-                <img src="../assests/home/x.png" alt="X" />
+                <img src="../assests/home/x.jpg" alt="X" />
               </div>
               <div class="social-icon" @click="toNewTab('https://www.youtube.com/@hello_gensi')">
-                <img src="../assests/home/youtube.png" alt="youtube" />
+                <img src="../assests/home/youtube.jpg" alt="youtube" />
               </div>
               <div class="social-icon"
                 @click="toNewTab('https://www.xiaohongshu.com/user/profile/65465f81000000000301f9bd')">
-                <img src="../assests/home/rn_black.png" alt="小红书" />
+                <img src="../assests/home/rn_black.jpg" alt="小红书" />
               </div>
               <div class="social-icon wx-icon" ref="wxIconRef" :class="{ active: wxQrcodeVisible }"
                 @click.stop="toggleWxQrcode">
-                <img src="../assests/home/wx_black.png" alt="微信" />
+                <img src="../assests/home/wx_black.jpg" alt="微信" />
                 <div class="wx-qrcode">
                   <img src="../assests/img/wxqrcode.jpg" alt="微信二维码" />
                 </div>
@@ -168,7 +168,7 @@ onUnmounted(() => {
 .footer {
   color: #000;
   padding: 80px 0;
-  background-image: url('../assests/home/footerbg.png');
+  background-image: url('../assests/home/footerbg.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }

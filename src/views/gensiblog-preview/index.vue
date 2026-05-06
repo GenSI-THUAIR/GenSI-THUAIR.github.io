@@ -351,7 +351,7 @@ import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
 // HuggingFace 图标（通过 import 获取正确路径）
-import hfIconUrl from '../portal/assests/home/huggingface.png';
+import hfIconUrl from '../portal/assests/home/huggingface.jpg';
 
 defineOptions({
   name: 'GensiblogPreview'

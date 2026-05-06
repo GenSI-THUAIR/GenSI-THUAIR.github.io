@@ -286,6 +286,16 @@ export const getGensiblogById = async (id: string) => {
     return await getById(id, 'gensiblog');
 }
 
+// 根据routename获取Gensiblog
+export const getGensiblogByRouteName = async (routename: string) => {
+    const { data, error } = await supabase.from('gensiblog').select('*').eq('routename', routename);
+    if (error) {
+        console.error('根据routename获取Gensiblog失败:', error);
+        return null;
+    }
+    return data && data.length > 0 ? data[0] : null;
+}
+
 // 根据id删除图片
 export const deleteImage = async (id: string | undefined,table:string,column:string) => {
     return  await supabase

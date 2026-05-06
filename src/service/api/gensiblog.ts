@@ -1,11 +1,12 @@
 import { request } from '../request';
-import { 
+import {
   getGensiblogList as getGensiblogListFromSupabase,
   getVisibleGensiblogList as getVisibleGensiblogListFromSupabase,
   insertGensiblog as insertGensiblogToSupabase,
   updateGensiblog as updateGensiblogInSupabase,
   deleteGensiblog as deleteGensiblogFromSupabase,
   getGensiblogById as getGensiblogByIdFromSupabase,
+  getGensiblogByRouteName as getGensiblogByRouteNameFromSupabase,
   insertBlogComment as insertBlogCommentToSupabase,
   getBlogCommentsByBlogId as getBlogCommentsByBlogIdFromSupabase,
   getAllBlogComments as getAllBlogCommentsFromSupabase,
@@ -15,17 +16,22 @@ import {
 
 /** Get gensiblog list (all, for admin) */
 export function fetchGensiblogList(): Promise<Api.Gensiblog.GensiblogItem[]> {
-  return getGensiblogListFromSupabase();
+  return getGensiblogListFromSupabase() as Promise<Api.Gensiblog.GensiblogItem[]>;
 }
 
 /** Get visible gensiblog list (isshow=1, for frontend) */
 export function fetchVisibleGensiblogList(): Promise<Api.Gensiblog.GensiblogItem[]> {
-  return getVisibleGensiblogListFromSupabase();
+  return getVisibleGensiblogListFromSupabase() as Promise<Api.Gensiblog.GensiblogItem[]>;
 }
 
 /** Get gensiblog by id */
 export function fetchGensiblogById(id: string): Promise<Api.Gensiblog.GensiblogItem[]> {
-  return getGensiblogByIdFromSupabase(id);
+  return getGensiblogByIdFromSupabase(id) as Promise<Api.Gensiblog.GensiblogItem[]>;
+}
+
+/** Get gensiblog by routename */
+export function fetchGensiblogByRouteName(routename: string): Promise<Api.Gensiblog.GensiblogItem | null> {
+  return getGensiblogByRouteNameFromSupabase(routename) as Promise<Api.Gensiblog.GensiblogItem | null>;
 }
 
 /** Create gensiblog */
@@ -46,9 +52,10 @@ export function deleteGensiblog(id: string): Promise<any> {
 /** Search gensiblog */
 export function searchGensiblog(keyword: string): Promise<Api.Gensiblog.GensiblogItem[]> {
   return getGensiblogListFromSupabase().then(data => {
-    if (!keyword || !data) return data || [];
-    return data.filter(item => 
-      item.title?.includes(keyword) || 
+    const list = (data || []) as Api.Gensiblog.GensiblogItem[];
+    if (!keyword) return list;
+    return list.filter(item =>
+      item.title?.includes(keyword) ||
       item.subtitle?.includes(keyword) ||
       item.author?.includes(keyword) ||
       item.content?.includes(keyword)
@@ -73,8 +80,8 @@ export function fetchBlogCommentsByBlogId(blogId: string): Promise<Api.BlogComme
 }
 
 /** 获取所有评论（后台管理用） */
-export function fetchAllBlogComments(): Promise<Api.BlogComment.BlogCommentItem[]> {
-  return getAllBlogCommentsFromSupabase();
+export function fetchAllBlogComments(blogId?: string): Promise<Api.BlogComment.BlogCommentItem[]> {
+  return getAllBlogCommentsFromSupabase(blogId || '') as Promise<Api.BlogComment.BlogCommentItem[]>;
 }
 
 /** 更新评论（后台管理用） */
