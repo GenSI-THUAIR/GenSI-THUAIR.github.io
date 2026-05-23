@@ -33,6 +33,14 @@ $(document).ready(function () {
     
     buildSnippets();
     makeExternalLinkOnBlank();
+
+    // 添加语言切换按钮事件
+    document.querySelectorAll('[data-lang-switch]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const lang = this.dataset.langSwitch;
+        switchLang(lang);
+      });
+    });
   }
   
   function smoothScroll(e) {
@@ -165,16 +173,19 @@ function highlightNavbar() {
 }
 
 let translations = {};
-const allowLangs = ['en', 'zh'];
+const allowLangs = ['en', 'zh', 'ja'];
 let lastLang = "en";
 
 function getLang() {
-  // const savedLang = localStorage.getItem('userLang');
+  const savedLang = localStorage.getItem('userLang');
   const browserLang = navigator.language.split('-')[0];
   const defaultLang = 'en';
-  // const defaultLang = allowLangs.includes(browserLang) ? browserLang : 'en';
-  // return savedLang || defaultLang;
-  return defaultLang;
+
+  if (savedLang && allowLangs.includes(savedLang)) {
+    return savedLang;
+  }
+  
+  return allowLangs.includes(browserLang) ? browserLang : defaultLang;
 }
 
 function loadAllLanguages() {
@@ -208,12 +219,27 @@ function applyLangOnTeam(lang) {
   $(`#grid-people-${lang}`).css("display", "grid")
 }
 
-// deprecated
+function highlightCurrentLang() {
+  document.querySelectorAll('[data-lang-switch]').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.dataset.langSwitch === lastLang) {
+      btn.classList.add('active');
+    }
+  });
+}
+
 function switchLang(lang) {
-  // localStorage.setItem('userLang', lang);
-  applyTranslations(translations[lang]);
-  applyLangOnTeam(lang);
-  lastLang = lang;
+  if (!allowLangs.includes(lang)) return;
+  
+  localStorage.setItem('userLang', lang);
+  loadLanguage(lang).then(() => {
+    applyTranslations(translations[lang]);
+    applyLangOnTeam(lang);
+    lastLang = lang;
+    document.documentElement.setAttribute('lang', lang);
+  });
+
+  highlightCurrentLang()
 }
 
 function applyLangViaBrowser() {
