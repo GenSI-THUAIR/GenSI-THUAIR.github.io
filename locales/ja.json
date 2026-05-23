@@ -1,0 +1,41 @@
+{
+  "main:page": "GenSI Labは、清華大学AIRに所属し、一部のメンバーは上海AI Labにも所属するGenerative Symbolic Intelligence Groupです。私たちの長期的な目標は、AI科学者を育成することでAGIを達成することです。",
+  "main:intro": "私たちの研究方向には、LLMを通じて知能を深く解き放つこと、AI4S基盤モデルを通じて好ましいインテリジェント環境を提供すること、そしてこれら2つの側面間の詳細な相互作用を探求することが含まれます。",
+  "main:mission": "LLMとAI4Sの技術を継続的に反復し、科学のためのAGIを実現し、科学的イノベーションと想像力を加速させる。",
+  "main:vision": "人間の可能性を広げる。",
+  "main:team-title": "私たちのチームについて",
+  "main:news-title": "最新ニュース",
+
+  "main:block:news": "最新ニュース",
+  "main:block:project": "最近のプロジェクト",
+  "main:block:follow": "フォローする",
+  "main:block:more": "すべて読む",
+
+
+  "main:news:more": "続きを読む",
+  "main:news:misc-hire-date": "2024年6月",
+  "main:news:misc-hire": "採用情報！ポスドクフェローシップ（2名）と研究アシスタント（2名）を募集しています。研究室でのインターンシップを希望する学生も歓迎します。ご興味のある方は、お気軽にお問い合わせください。 ",
+  "main:news:sia-lab-date": "2024年10月",
+  "main:news:sia-lab": "AIRはByteDanceと提携し、周浩をセンター長とするスケーラブル大規模モデルインテリジェント技術共同研究センター（SIA Lab）を設立しました。",
+  "main:news:profile-bfn-date": "2025年2月",
+  "main:news:profile-bfn": "*Steering Protein Family Design through Profile Bayesian Flow* がICLR 2025 Oralに採択されました！",
+  "main:news:dapo-date": "2025年3月",
+  "main:news:dapo": "デカップリングクリップと動的サンプリング方策最適化（DAPO）アルゴリズムを提案します。",
+  
+  
+  "navbar:people": "人々",
+  "navbar:sialab": "SIA-Lab",
+  "navbar:research": " 研究",
+  "navbar:news": " ニュース",
+  "navbar:blog": " メディア",
+  "navbar:about": " 当サイトについて",
+  "navbar:contact": " お問い合わせ",
+
+  "footer:contact": " お問い合わせ",
+  "footer:follow": " フォローする",
+  "footer:addr-title": " 私たちを知る",
+  "footer:address": " 北京市海淀区清華科技園地啓迪科技ビル",
+
+  "sialab:news-title": " 最新ニュース",
+  "sialab:proj-title": " 最近のプロジェクト"
+}
