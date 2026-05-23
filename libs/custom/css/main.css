@@ -209,13 +209,15 @@ b.highlight {
   z-index: 42;
 }
 
+/* edited by yupei */
 .navbar-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between;  /* 保持这个，但优化内部结构 */
   margin-top: 1rem;
   width: 90%;
   height: 8rem;
+  gap: 20px;  /* 添加间距 */
 }
 
 .navbar-container img {
@@ -228,6 +230,8 @@ b.highlight {
   margin: 0;
   padding: 0 2px;
   align-items: center;
+  flex: 1;  /* 让导航占据可用空间 */
+  flex-wrap: wrap;  /* 防止换行问题 */
 }
 
 .navbar-dropdown {
@@ -626,18 +630,21 @@ div.main-page-content {
 .lang-selector {
   display: flex;
   gap: 8px;
-  margin-left: auto;
   align-items: center;
+  flex-shrink: 0;  /* 防止被压缩 */
+  white-space: nowrap;  /* 保持按钮在一行 */
 }
 
 .lang-btn {
-  padding: 6px 12px;
+  padding: 6px 10px;
   border: 1px solid #ccc;
   background: transparent;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.3s ease;
+  white-space: nowrap;  /* 文本不换行 */
+  min-width: 32px;  /* 最小宽度确保显示 */
 }
 
 .lang-btn:hover {
@@ -646,7 +653,7 @@ div.main-page-content {
 }
 
 .lang-btn.active {
-  background-color: var(--primary-color);
+  background-color: #000;
   color: white;
-  border-color: var(--primary-color);
+  border-color: #000;
 }
